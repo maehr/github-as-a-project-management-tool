@@ -1,0 +1,124 @@
+---
+title: X6 React to a delay and a restriction
+subtitle: 12:25–12:50 · 25 minutes
+description: Re-plan after a two-week source delay and a rights restriction, keep the official deadline, record the decision, and export a Project view.
+---
+
+::: {.callout-note appearance="simple"}
+**You produce:** two new sub-issues with dates and a dependency, an unchanged submission milestone, a decision record, a Project status update, and an exported view.
+:::
+
+## Why this step
+
+Plans change. A good plan makes the change visible and traceable: what changed, why, what follows from it, and what did *not* change. In this exercise two events occur at once. You react with the tools from X2 to X5.
+
+The most important rule is about deadlines. The submission date of a master's thesis is an official date. Only the supervisor can extend it, once, for a serious reason ([RSL Phil.-hist. 21 Art. 56 Abs. 2](../../documentation/requirements.qmd)). A late submission is graded 1 (Art. 56 Abs. 4). You therefore **never move the official deadline in the plan to absorb a delay**. You move the planned work, you check what still fits, and you record the decision.
+
+## The scenario
+
+::: {.callout-important}
+## 16 October 2026, 12:25 (fictional)
+
+1. **Delay.** The fictional archive delivers the scans two weeks late: on 2027-01-29 instead of 2027-01-15.
+2. **Restriction.** The archive restricts reuse of the scans of record **SYN-P021**. They must not appear in any public output.
+:::
+
+## Steps
+
+### Update the scope
+
+1. Open the epic E08 and click **Create sub-issue**.
+2. Create `E08-T6 Receive the scans from the fictional archive` with the label `kind:task` and milestone M2.
+3. Create `E08-T7 Exclude the restricted scans of SYN-P021 from public outputs` with the label `kind:task` and milestone M2.
+4. Write acceptance criteria for both. Use the [example](#example-acceptance-criteria) below.
+
+### Apply the delay
+
+1. Open the Project and the view **Backlog**.
+2. Set E08-T6: Start date `2027-01-04`, Target date `2027-01-29` (originally `2027-01-15`).
+3. Set E08-T7: Start date `2027-02-01`, Target date `2027-02-12`.
+4. Open E08-T7 and mark it as **blocked by** E08-T6.
+5. Open the view **Roadmap**. Check that both bars end before the marker of M2 (2027-03-01).
+6. Check that M3 (2027-06-01) did not move.
+
+### Record the decision
+
+1. Open `project-management/decisions.md` and click the pencil icon.
+2. Add the [decision text](#decision-text) below at the end.
+3. Commit with the message `docs: record the decision on the delay and the restriction`.
+
+### Report the status
+
+1. In the Project header, click **Add status update**.
+2. Select the status **On track**, the start date `2026-10-19`, and the target date `2027-06-01`.
+3. Write two sentences: what changed and what did not change. Name the decision D-T02.
+4. Click **Post update**.
+
+{{< screenshot x6-status-update >}}
+
+### Export a view
+
+1. Open the view **Backlog**.
+2. Click the arrow next to the view name.
+3. Select **Export view data**.
+4. Save the CSV file. It is a snapshot of the plan for your records or your supervisor.
+
+{{< screenshot x6-export >}}
+
+## Texts to copy
+
+### Example acceptance criteria {#example-acceptance-criteria}
+
+```markdown
+**E08-T6** Acceptance criteria
+- [ ] The archive delivered every requested scan.
+- [ ] The archive stated the reuse terms per record.
+
+**E08-T7** Acceptance criteria
+- [ ] No public file contains a scan of SYN-P021.
+- [ ] The data dictionary explains the restriction.
+```
+
+### Decision text {#decision-text}
+
+```markdown
+## D-T02 Two-week delay of the scans and a reuse restriction
+
+- **Date:** 2026-10-16 (workshop; fictional)
+- **Context:** The fictional archive delivers the scans two weeks late. It restricts reuse of the scans of record SYN-P021.
+- **Decision:**
+  - Move the target date of E08-T6 (receive the scans) from 2027-01-15 to 2027-01-29.
+  - Add E08-T7: exclude the scans of SYN-P021 from all public outputs. E08-T7 is blocked by E08-T6.
+  - Keep milestone M3 (submission, 2027-06-01) unchanged.
+- **Consequences:** M2 (2027-03-01, proposed) still holds. No public file contains a scan of SYN-P021.
+- **Not changed:** The official submission date. Only the supervisor can extend it (RSL Phil.-hist. 21 Art. 56 Abs. 2).
+```
+
+## Expected state
+
+- [ ] E08 has five sub-issues; E08-T7 shows "Blocked by: E08-T6".
+- [ ] The roadmap shows E08-T6 ending on 2027-01-29 and both new tasks before M2.
+- [ ] M3 still has the due date 2027-06-01.
+- [ ] `decisions.md` holds D-T02.
+- [ ] The Project header shows a status update.
+- [ ] You saved an exported CSV of the Backlog view.
+
+## If something goes wrong
+
+| Problem | Cause | Recovery |
+| --- | --- | --- |
+| A bar ends after the M2 marker. | The delay does not fit. | M2 is a proposed date: move M2 and record why. Never move M3. |
+| **Add status update** is missing. | The window is narrow. | Open the Project menu (**…**) or widen the window. |
+| **Export view data** is missing. | You opened the wrong menu. | Use the small arrow on the view tab, not the **View** button. |
+| You moved M3 by mistake. | — | Set the due date back to 2027-06-01. The Issue history shows the change. |
+
+## Alternatives
+
+- **Pair:** discuss first whether the delay endangers M2. Then one person edits the Project, the other writes the decision.
+- **Private path:** identical. A status update in a private Project is visible only to people with access.
+
+## Official documentation
+
+- [Creating issue dependencies](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies)
+- [Sharing project updates](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/sharing-project-updates)
+- [Exporting your project's data](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/exporting-your-projects-data)

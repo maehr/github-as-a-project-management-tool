@@ -1,0 +1,195 @@
+---
+title: X5 Prepare a reusable output
+subtitle: 11:50–12:25 · 35 minutes
+description: Add the synthetic dataset and its data dictionary, correct the citation and licence metadata, record the rights decision, and publish a demo release.
+---
+
+::: {.callout-note appearance="simple"}
+**You produce:** the CSV in `data/clean/`, a data dictionary that closes the story E08-S1, a corrected `CITATION.cff`, a rights and access decision (E08-T2), and the release `v0.1.0-demo` (E08-T3).
+:::
+
+## Why this step
+
+Data become reusable only with documentation. A future reuser needs to know what each column means, how missing values appear, where the data come from, which version they hold, and under which licence they may reuse them. The user story E08-S1 states exactly this need.
+
+Publication is a decision, not a side effect. Before you publish, decide for each output who may see it and under which terms, and note the rights of others. In the scenario, a fictional archive restricts its scans. The scans therefore stay outside the repository.
+
+A **release** marks a state of the repository with a version and notes. It is useful for citation within a project, but it is **not long-term preservation**. GitHub can delete or change a repository. A **deposit** in a repository such as Zenodo, with a DOI, is a separate step that this workshop does not perform. See [Publication](../../documentation/publication.qmd).
+
+## Before you start
+
+- Download the [synthetic CSV](../../data/synthetic-periodicals.csv) to your computer.
+- Note the Issue numbers of E08-S1, E08-T2, and E08-T3.
+
+## Steps
+
+### Add the dataset and the data dictionary
+
+1. In your repository, open the folder `data/clean`.
+2. Click **Add file → Upload files**. Drop `synthetic-periodicals.csv`.
+3. Select **Create a new branch for this commit and start a pull request**. Click **Propose changes**.
+4. On the new branch, open `documentation/data-dictionary.template.qmd` and click the pencil icon.
+5. In the file name field, rename the file to `data-dictionary.qmd`.
+6. Replace the text with the [example data dictionary](#data-dictionary-text) below.
+7. Commit to the same branch.
+8. Open a pull request with the description `Closes #<number of E08-S1>`. Review it and merge it as in [X4](x4.qmd).
+
+### Correct the citation file
+
+The file `CITATION.cff` in your repository still describes the **template**, with its authors and its DOI. Anyone who clicks **Cite this repository** gets the wrong reference.
+
+1. Open `CITATION.cff` and click the pencil icon.
+2. Replace the text with the [citation text](#citation-text) below.
+3. Commit with the message `docs: describe this repository in CITATION.cff`.
+4. Check that the licence files `LICENSE-CCBY.md` and `LICENSE-AGPL.md` exist. They match the licence line in the README.
+
+### Record the rights and access decision
+
+1. Open the folder `project-management`.
+2. Click **Add file → Create new file**. Name it `decisions.md`.
+3. Paste the [decision text](#decision-text) below.
+4. Commit with the message `docs: record the rights and access decision` and the extended description `Closes #<number of E08-T2>`.
+
+### Publish the demo release
+
+1. On the repository home page, click **Create a new release** (right column, under **Releases**).
+2. Click **Choose a tag**, type `v0.1.0-demo`, and select **Create new tag**.
+3. Type the title `v0.1.0-demo: documented synthetic dataset (demo)`.
+4. Paste the [release notes](#release-notes) below.
+5. Click **Publish release**.
+6. Open E08-T3, write a comment with the link to the release, and click **Close issue**.
+
+{{< screenshot x5-release >}}
+
+## Texts to copy
+
+### Data dictionary text {#data-dictionary-text}
+
+```markdown
+---
+title: Data Dictionary
+description: Structure, variables, and definitions of the synthetic periodical metadata.
+---
+
+This document describes `data/clean/synthetic-periodicals.csv`.
+
+**Every record is synthetic.** The records describe periodicals that never existed.
+
+## Overview
+
+- **Title**: Synthetic periodical metadata, Switzerland, 1830–1960
+- **Authors**: Fictional MA student (workshop example)
+- **Version**: 1.0.0 (2026-10-16)
+- **License**: CC BY 4.0
+
+## Methodology
+
+A script generated the 30 records with a fixed seed for the workshop. No record comes from a real archive.
+
+## Missing values
+
+Missing values are empty cells: `last_year` (5 records), `publisher` (3 records), `frequency` (2 records).
+
+## Definitions
+
+| Variable Name          | Description                                  | Data Type | Allowed Values                                                           |
+| ---------------------- | -------------------------------------------- | --------- | ------------------------------------------------------------------------ |
+| `record_id`            | Unique identifier of the record              | String    | `SYN-P001` to `SYN-P030`                                                 |
+| `title`                | Title of the fictional periodical            | String    | Free text                                                                |
+| `language`             | Main language (ISO 639-1)                    | String    | `de`, `fr`, `it`                                                         |
+| `place_of_publication` | Town of publication                          | String    | Free text                                                                |
+| `first_year`           | First year of publication                    | Integer   | 1830 to 1905                                                             |
+| `last_year`            | Last year of publication                     | Integer   | Empty if not known                                                       |
+| `frequency`            | Frequency of publication                     | String    | `daily`, `weekly`, `monthly`, `quarterly`, `irregular`; empty if unknown |
+| `subject`              | Main subject                                 | String    | `politics`, `culture`, `religion`, `economy`, `science`, `entertainment` |
+| `publisher`            | Fictional publisher or printer               | String    | Free text; empty if not known                                            |
+| `scan_reuse_status`    | Reuse terms of the fictional archive's scans | String    | `open`, `attribution-required`, `unknown`, `restricted`                  |
+| `digitised`            | Digitisation status                          | String    | `yes`, `no`, `partial`                                                   |
+| `is_synthetic`         | Marks the record as synthetic                | Boolean   | `true`                                                                   |
+```
+
+### Citation text {#citation-text}
+
+```yaml
+cff-version: 1.2.0
+title: "Fictional master's thesis: Swiss periodicals, 1830–1960 (workshop example)"
+message: >-
+  This is a teaching example with synthetic data. Cite the workshop, not
+  this repository, if you refer to it.
+type: dataset
+authors:
+  - given-names: Fictional
+    family-names: Student
+license: CC-BY-4.0
+abstract: >-
+  Workshop example: 30 synthetic periodical records and the plan of a fictional
+  DH master's thesis, managed with GitHub Issues and a GitHub Project.
+```
+
+### Decision text {#decision-text}
+
+```markdown
+# Decisions
+
+## D-T01 Rights and access for data and text
+
+- **Date:** 2026-10-16 (workshop; fictional)
+- **Context:** The thesis produces a CSV, a data dictionary, and the thesis text. The fictional archive states reuse terms for its scans.
+- **Decision:**
+
+  | Output                                 | Access                           | Licence             |
+  | -------------------------------------- | -------------------------------- | ------------------- |
+  | `data/clean/synthetic-periodicals.csv` | Public                           | CC BY 4.0           |
+  | `documentation/data-dictionary.qmd`    | Public                           | CC BY 4.0           |
+  | Scans of the fictional archive         | Not in the repository            | Archive terms       |
+  | Thesis text                            | Private until the grade is final | All rights reserved |
+
+- **Library access to the thesis:** The author and the supervisor decide together (RSL Phil.-hist. 21 Art. 32 Abs. 1).
+```
+
+### Release notes {#release-notes}
+
+```markdown
+**Demo release for the workshop. The data are synthetic.**
+
+## Contents
+
+- `data/clean/synthetic-periodicals.csv`: 30 synthetic records (CC BY 4.0)
+- `documentation/data-dictionary.qmd`: columns, types, missing values, version, licence
+
+## Limits
+
+- A GitHub release is not long-term preservation. A repository deposit with a DOI is a separate step.
+- This release contains only material that decision D-T01 allows.
+```
+
+## Expected state
+
+- [ ] `data/clean/synthetic-periodicals.csv` and `documentation/data-dictionary.qmd` are on `main`; E08-S1 is closed.
+- [ ] **Cite this repository** shows the fictional thesis, not the template.
+- [ ] `project-management/decisions.md` holds D-T01; E08-T2 is closed.
+- [ ] The release `v0.1.0-demo` exists; E08-T3 is closed with a link to it.
+- [ ] The Project shows the three Issues as **Done**.
+
+## If something goes wrong
+
+| Problem | Cause | Recovery |
+| --- | --- | --- |
+| The CSV upload fails. | The browser blocked the download. | Open the [CSV](../../data/synthetic-periodicals.csv), copy all lines, and create the file with **Add file → Create new file**. |
+| The file name field does not rename. | The cursor was in the editor. | Click the file name field above the editor, then edit the name. |
+| The commit did not close E08-T2. | The keyword was in the title, or the commit is on another branch. | Close the Issue by hand with a link to the commit. |
+| **Create a new release** is missing. | The right column is collapsed. | Open `https://github.com/<you>/projm-thesis/releases/new`. |
+| You have no time for the release. | — | Use the **recovery package**: download the repository ZIP (**Code → Download ZIP**) and name it `projm-thesis-v0.1.0-demo-recovery.zip`. Label it as a recovery package, not as a release. |
+
+## Alternatives
+
+- **Pair:** one person writes the data dictionary; the other corrects the citation file and writes the decision. Review each other's pull request.
+- **Private path:** a release in a private repository is visible only to people with access. That is the right default until you decide to publish.
+
+## Official documentation
+
+- [Adding a file to a repository](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)
+- [Renaming a file](https://docs.github.com/en/repositories/working-with-files/managing-files/renaming-a-file)
+- [About CITATION files](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)
+- [Licensing a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
+- [Managing releases in a repository](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)

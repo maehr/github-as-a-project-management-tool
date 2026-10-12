@@ -1,0 +1,129 @@
+---
+title: X3 Configure the Project
+subtitle: 10:25–11:05 · 40 minutes
+description: Create a Project with fields and three views, add three justified milestones, and record one blocking dependency.
+---
+
+::: {.callout-note appearance="simple"}
+**You produce:** a Project linked to your repository with the fields Status, Priority, Start date, Target date, and Basis; the views Backlog, Board, and Roadmap; three milestones with justified dates; and one "blocked by" dependency.
+:::
+
+## Why this step
+
+Issues describe the work. A **Project** shows the work as a plan: what is waiting, what is in progress, and what happens when. A Project belongs to your account, not to the repository. You link it to the repository, and you set its **visibility separately**. A public repository can have a private Project, and the reverse.
+
+A plan needs time. GitHub offers two different tools for time, and they answer different questions. A **milestone** groups Issues under one due date in the repository: "What must be ready for the registration?" **Date fields** in the Project give each Issue a start and a target: "When do I work on this?" The **roadmap** shows both together.
+
+Finally, order matters. "Submit the registration" cannot start before "Check the registration requirements" ends. This is a **dependency** ("blocked by"), not a hierarchy. A parent-child relation says "this is part of that"; a dependency says "this waits for that". Keep the two apart.
+
+Milestone dates need a justification. The fictional registration (2026-12-01) and submission (2027-06-01) stand in for official dates of the Dean's Office; the six months between them follow the [DH study plan, Art. 15 Abs. 4](../../documentation/requirements.qmd). The middle milestone is your own estimate, and you may move it. Never move an official date silently.
+
+## Before you start
+
+- You finished [X2](x2.qmd).
+- Look at the [showcase Project](https://github.com/users/maehr/projects/11) for orientation.
+
+## Steps
+
+### Create the milestones
+
+1. Click **Issues**, then **Milestones**, then **New milestone**.
+2. Type the title `M1 Registration submitted` and the due date `2026-12-01`.
+3. In **Description**, write the justification from the [milestone list](../../project-management/milestones.md).
+4. Click **Create milestone**.
+5. Repeat for `M2 Data documented and validated` (2027-03-01, proposed) and `M3 Thesis submitted` (2027-06-01).
+6. Open each sub-issue and set its milestone in the sidebar: E01 tasks → M1, E08-S1 and E08-T2 → M2, E08-T3 → M3.
+
+{{< screenshot x3-milestones >}}
+
+### Create and link the Project
+
+1. Open the **Projects** tab of your repository.
+2. Click **New project**.
+3. Select the **Table** layout. Name the Project `PROJM thesis plan`.
+4. Click **Create project**.
+5. Open the Project menu (**…**, top right) and select **Settings**.
+6. Check **Visibility**: public for the public path, private for the private path.
+
+**Fast route:** open the [showcase Project](https://github.com/users/maehr/projects/11), open its menu (**…**), and select **Make a copy**. The copy has all fields and views but no Issues. Then link it to your repository (**Projects** tab → **Link a project**).
+
+### Add the Issues
+
+1. In the Project table, click **+** at the bottom (or press `Ctrl`+`Space`).
+2. Type `#`, select your repository, and select the epic E01.
+3. Repeat for E08.
+4. The default workflow **Auto-add sub-issues to project** adds the sub-issues. If they do not appear, add them the same way.
+
+### Create the fields
+
+1. In the table header, click **+** and select **New field**.
+2. Create `Priority` as **Single select** with the options `High`, `Normal`, `Low`.
+3. Create `Basis` as **Single select** with the options `Rule`, `Practice`, `Demo`.
+4. Create `Start date` and `Target date` as **Date**.
+5. Open the settings of the field **Status**. Set the options to `Backlog`, `Ready`, `In progress`, `In review`, `Done`.
+6. Fill in the fields for the six sub-issues. Copy the values from the [example backlog](../../project-management/backlog.md#e01).
+
+::: {.callout-caution}
+Change the Status options before you rely on the Project workflows. A workflow that used a renamed option stops with an error. Open **Workflows** and select the new option again.
+:::
+
+{{< screenshot x3-workflows-broken >}}
+
+### Create the three views
+
+1. Rename the first view to `Backlog`. It stays a table.
+2. Click **New view**, select **Board**, and name it `Board`. Type `-label:kind:epic` in the filter so that only tasks and stories appear.
+3. Click **New view**, select **Roadmap**, and name it `Roadmap`.
+4. In the Roadmap, click **Date fields**. Select `Start date` under **Start date** and `Target date` under **Target date**.
+5. Click **Markers** and select **Milestone**. Set the zoom to **Quarter**.
+6. Click **View**, then **Save view**, then **Save** in the confirmation dialog.
+
+{{< screenshot x3-roadmap-date-fields >}}
+
+{{< screenshot x3-roadmap >}}
+
+### Record the dependency
+
+1. Open `E01-T3 Submit the thesis registration to the Dean's Office`.
+2. In the sidebar, open **Relationships**.
+3. Select **Mark as blocked by** and choose `E01-T1`.
+4. Optional: mark `E08-T3` as blocked by `E08-T2`.
+
+## Expected state
+
+{{< screenshot x3-backlog >}}
+
+{{< screenshot x3-board >}}
+
+- [ ] Three milestones exist; each has a due date and a justification.
+- [ ] The Project is linked to the repository and has the visibility you chose.
+- [ ] The fields Status, Priority, Basis, Start date, and Target date exist; Status has the five options.
+- [ ] The views Backlog, Board, and Roadmap exist; the Roadmap shows bars and the milestone markers.
+- [ ] E01-T3 shows "Blocked by: E01-T1".
+
+## If something goes wrong
+
+| Problem | Cause | Recovery |
+| --- | --- | --- |
+| The roadmap shows "Your project needs at least one date or iteration field". | The view has no date fields selected. | Select the date fields in **Date fields**. |
+| The view settings are lost after a reload. | The confirmation was not saved. | Click **View → Save view**, then **Save** in the dialog. A blue dot means unsaved changes. |
+| Workflows show a red error icon. | A Status option was renamed or removed. | Open **Workflows**, edit the workflow, and select an existing option. |
+| The Project does not appear in the repository. | It is not linked. | **Projects** tab → **Link a project**. |
+| No **Relationships** option. | The interface varies. | Open the Issue menu or use the [showcase](https://github.com/users/maehr/projects/11) to compare. |
+| Time runs out. | — | Use the fast route (**Make a copy**). |
+
+## Alternatives
+
+- **Pair:** one person builds the fields and views; the other creates the milestones and the dependency.
+- **Private path:** set the Project to private. Project visibility does not follow the repository visibility.
+
+## Official documentation
+
+- [Creating a project](https://docs.github.com/en/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)
+- [Copying an existing project](https://docs.github.com/en/issues/planning-and-tracking-with-projects/creating-projects/copying-an-existing-project)
+- [Adding your project to a repository](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)
+- [Managing visibility of your projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)
+- [Customizing the roadmap layout](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-roadmap-layout)
+- [Using the built-in automations](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)
+- [About milestones](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones)
+- [Creating issue dependencies](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies)
