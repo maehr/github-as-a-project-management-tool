@@ -2,8 +2,6 @@
 # https://lychee.cli.rs/configuration/
 
 exclude = [
-  # The site is not deployed until the maintainer approves it.
-  "https://maehr.github.io/github-as-a-project-management-tool/",
   # GitHub pages that need a signed-in user or return 404 to bots.
   "https://github.com/new",
   "https://github.com/settings/",

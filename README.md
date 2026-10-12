@@ -7,7 +7,7 @@ A browser-first workshop and open educational resource (OER). Learners plan, con
 [![Code licence](https://img.shields.io/badge/code-AGPL%203.0-blue.svg)](LICENSE-AGPL.md)
 
 > [!NOTE]
-> **Status:** ready for the session on 16 October 2026. The website is not deployed yet. Read the pages in [`course/`](course/) or render the site locally.
+> **Status:** ready for the session on 16 October 2026. Website: <https://maehr.github.io/github-as-a-project-management-tool/>
 
 **Worked example:** the [showcase Project](https://github.com/users/maehr/projects/11) holds the full plan of the fictional thesis, with its Issues in [`maehr/projm-example-thesis`](https://github.com/maehr/projm-example-thesis). It is linked to this repository's **Projects** tab.
 
