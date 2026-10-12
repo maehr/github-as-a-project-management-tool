@@ -6,8 +6,6 @@ LICENSE-CCBY.md
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
-renv.lock
-renv/
 
 # Keep the implementation contract verbatim
 SPECS.md

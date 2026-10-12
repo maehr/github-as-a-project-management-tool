@@ -29,20 +29,6 @@ repos:
         types: [python]
         stages: [pre-commit]
 
-      - id: r-format
-        name: R Format
-        entry: bash -c 'if command -v Rscript >/dev/null 2>&1 && Rscript -e "suppressPackageStartupMessages(stopifnot(requireNamespace('\''styler'\'', quietly=TRUE)))" >/dev/null 2>&1; then Rscript -e "styler::style_file(commandArgs(TRUE))" "$@"; else exit 0; fi' --
-        language: system
-        types: [r]
-        stages: [pre-commit]
-
-      - id: r-lint
-        name: R Lint
-        entry: bash -c 'if command -v Rscript >/dev/null 2>&1 && Rscript -e "suppressPackageStartupMessages(stopifnot(requireNamespace('\''lintr'\'', quietly=TRUE)))" >/dev/null 2>&1; then Rscript -e "for (f in commandArgs(TRUE)) print(lintr::lint(f))" "$@"; else exit 0; fi' --
-        language: system
-        types: [r]
-        stages: [pre-commit]
-
       - id: commitlint
         name: Commitlint
         entry: npx commitlint --edit
