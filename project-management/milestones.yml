@@ -1,0 +1,46 @@
+# Milestones for the fictional master's thesis.
+#
+# date_status:
+#   fictional-formal  stands in for an official date. The real date comes from
+#                     the Dean's Office and is not confirmed here.
+#   proposed          a planning estimate that the student can adjust.
+#
+# Never move a fictional-formal date silently. Adjust the planned work instead,
+# and record the decision (see exercise X6).
+
+milestones:
+  - id: M1
+    title: Registration submitted
+    due: 2026-12-01
+    date_status: fictional-formal
+    justification: >-
+      Registration starts the six-month writing period (SP-DH-2025 Art. 15
+      Abs. 4). The real registration dates are in the official documents of the
+      Dean's Office (RSL Phil.-hist. 21 Art. 55 Abs. 2). The workshop uses a
+      fictional date.
+    description: >-
+      Requirements checked, scope written, registration submitted.
+
+  - id: M2
+    title: Data documented and validated
+    due: 2027-03-01
+    date_status: proposed
+    justification: >-
+      The analysis needs a validated dataset. Three months before submission
+      leave time for analysis (about six weeks) and for writing and feedback
+      (about six weeks).
+    description: >-
+      Data dictionary complete, rights decision recorded, CSV validated.
+
+  - id: M3
+    title: Thesis submitted
+    due: 2027-06-01
+    date_status: fictional-formal
+    justification: >-
+      Fictional registration date 2026-12-01 plus the six-month writing period
+      (SP-DH-2025 Art. 15 Abs. 4). A late submission is graded 1 (RSL
+      Phil.-hist. 21 Art. 56 Abs. 4). Only the supervisor can extend the period,
+      once, by one semester, for a serious reason (Art. 56 Abs. 2).
+    description: >-
+      Thesis submitted with the signed declaration; demo release of the
+      documented dataset published.

@@ -1,0 +1,676 @@
+# Example backlog for a fictional master's thesis in Digital Humanities.
+#
+# This file is the versioned source of the instructor's full example backlog.
+# Learners build only E01 and E08 by hand (items with `learner: true`).
+# Run `npm run backlog:render` after each change. `npm run check` validates
+# ids, parents, dependencies, dates, milestones, and sources.
+#
+# Field conventions (see SPECS.md §3):
+#   kind        epic | task | story
+#   basis       Rule (a regulation requires it) | Practice (good practice,
+#               context-dependent) | Demo (exists only for the workshop)
+#   status      verified | unconfirmed | fictional (for Rule items only)
+#   blocked_by  native GitHub "blocked by" relations, never parent-child
+#   dates       planned estimates for the fictional thesis, not official dates
+
+meta:
+  scenario: >-
+    A fictional MA Digital Humanities (Major) student writes a thesis on the
+    circulation of Swiss periodicals, 1830-1960, using the synthetic dataset
+    data/synthetic-periodicals.csv. All people, dates, and records are fictional.
+  fictional_dates:
+    registration: 2026-12-01
+    submission: 2027-06-01
+  retrieved: 2026-10-12
+
+sources:
+  SP-DH-2025:
+    title: >-
+      Studienplan für die Studienprogramme der Digital Humanities vom
+      17. Februar 2025 (in Kraft am 1. Februar 2026)
+    url: https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf
+    applicability: MA Digital Humanities, Major (90 ECTS)
+  RSL-PH-21:
+    title: >-
+      Reglement über das Studium und die Leistungskontrollen an der
+      Philosophisch-historischen Fakultät (RSL Phil.-hist. 21) vom 15. März 2021
+    url: https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf
+    applicability: Master's theses in Mono and Major programmes of the Faculty of Humanities
+
+labels:
+  - name: 'kind:epic'
+    color: '5319e7'
+    description: Parent Issue for a substantial outcome
+  - name: 'kind:task'
+    color: '1d76db'
+    description: Sub-issue with one output
+  - name: 'kind:story'
+    color: '0e8a16'
+    description: 'Sub-issue written as "As ... I need ... so that ..."'
+
+items:
+  # ---------------------------------------------------------------- E01
+  - id: E01
+    kind: epic
+    title: Scope the thesis and register it
+    outcome: The thesis has an agreed scope and an accepted registration.
+    learner: true
+
+  - id: E01-T1
+    kind: task
+    parent: E01
+    title: Check the registration requirements
+    output: Note in the Issue that lists the completed courses and credits.
+    owner: student
+    acceptance_criteria:
+      - At least two thirds of all other compulsory and elective-compulsory courses are complete.
+      - Any outstanding conditions (Auflagen) are complete.
+    evidence: Transcript extract linked in the Issue (private repository only).
+    basis: Rule
+    source: { id: SP-DH-2025, article: Art. 15 Abs. 5, page: 5 }
+    status: verified
+    priority: High
+    milestone: M1
+    start: 2026-10-19
+    target: 2026-10-30
+    learner: true
+
+  - id: E01-T2
+    kind: task
+    parent: E01
+    title: Write the research question and scope
+    output: Section "Research question and scope" in README.md.
+    owner: student
+    acceptance_criteria:
+      - The section states one research question.
+      - The section states what the thesis includes and excludes.
+      - The section names the synthetic dataset as the data basis.
+    evidence: Merged pull request that closes this Issue.
+    basis: Practice
+    priority: High
+    milestone: M1
+    start: 2026-10-19
+    target: 2026-11-13
+    learner: true
+
+  - id: E01-T3
+    kind: task
+    parent: E01
+    title: Submit the thesis registration to the Dean's Office
+    output: Registration confirmation from the Dean's Office.
+    owner: student
+    acceptance_criteria:
+      - The registration documents are complete.
+      - The registration is submitted before the registration deadline of the Dean's Office.
+      - The six-month writing period and the submission date are recorded in milestone M3.
+    evidence: Confirmation stored outside the public repository; date recorded in the Issue.
+    basis: Rule
+    source: { id: RSL-PH-21, article: Art. 55, page: 17 }
+    status: unconfirmed
+    status_note: >-
+      RSL Art. 55 Abs. 2 refers to the official registration documents of the
+      Dean's Office for dates. Those dates are not confirmed here. The workshop
+      uses the fictional date 2026-12-01.
+    priority: High
+    milestone: M1
+    blocked_by: [E01-T1]
+    start: 2026-11-02
+    target: 2026-12-01
+    learner: true
+
+  - id: E01-T4
+    kind: task
+    parent: E01
+    title: Agree the topic and the specialisation with the supervisor
+    output: Meeting note with the agreed topic and, if chosen, the specialisation.
+    owner: student
+    acceptance_criteria:
+      - The supervisor agrees to the topic.
+      - If the student chose a specialisation, the thesis topic lies within it.
+    evidence: Meeting note linked in the Issue.
+    basis: Rule
+    source: { id: SP-DH-2025, article: Art. 15 Abs. 2, page: 5 }
+    status: verified
+    priority: Normal
+    milestone: M1
+    start: 2026-10-19
+    target: 2026-11-06
+
+  # ---------------------------------------------------------------- E02
+  - id: E02
+    kind: epic
+    title: Set up the research design and permissions
+    outcome: Supervision, data management, ethics, AI use, and language are agreed and documented.
+
+  - id: E02-T1
+    kind: task
+    parent: E02
+    title: Agree the supervision rhythm
+    output: Meeting schedule in project-management/.
+    owner: student
+    acceptance_criteria:
+      - The schedule lists the meeting dates until submission.
+      - The supervisor confirms the schedule.
+    evidence: Link to the schedule file.
+    basis: Practice
+    priority: Normal
+    start: 2026-12-02
+    target: 2026-12-11
+
+  - id: E02-T2
+    kind: task
+    parent: E02
+    title: Write a data management plan
+    output: documentation/dmp.md
+    owner: student
+    acceptance_criteria:
+      - The plan covers sources, formats, storage, access, rights, and preservation.
+      - The plan states whether a funder or the institute requires a plan.
+    evidence: Merged pull request.
+    basis: Practice
+    priority: Normal
+    start: 2026-12-02
+    target: 2026-12-18
+
+  - id: E02-T3
+    kind: task
+    parent: E02
+    title: Clarify whether an ethics review is necessary
+    output: Decision record with the result and its source.
+    owner: student
+    acceptance_criteria:
+      - The record names the guideline that applies to this thesis.
+      - The record states the result and the date.
+    evidence: Entry in project-management/decisions.md.
+    basis: Practice
+    priority: Low
+    start: 2026-12-02
+    target: 2026-12-18
+
+  - id: E02-T4
+    kind: task
+    parent: E02
+    title: Agree the rules for AI use with the supervisor
+    output: Decision record on permitted AI use and how to declare it.
+    owner: student
+    acceptance_criteria:
+      - The record states which uses are permitted.
+      - The record states how the thesis declares AI use.
+    evidence: Entry in project-management/decisions.md.
+    basis: Practice
+    priority: Normal
+    start: 2026-12-02
+    target: 2026-12-18
+
+  - id: E02-T5
+    kind: task
+    parent: E02
+    title: Agree the thesis language
+    output: Decision record with the agreed language.
+    owner: student
+    acceptance_criteria:
+      - The language is German, French, or English, or another language that the supervisor agrees.
+    evidence: Entry in project-management/decisions.md.
+    basis: Rule
+    source: { id: RSL-PH-21, article: Art. 54 Abs. 1, page: 17 }
+    status: verified
+    priority: Low
+    start: 2026-12-02
+    target: 2026-12-11
+
+  # ---------------------------------------------------------------- E03
+  - id: E03
+    kind: epic
+    title: Prepare the data
+    outcome: The periodical metadata are clean, validated, and traceable to their sources.
+
+  - id: E03-T1
+    kind: task
+    parent: E03
+    title: Request the scans from the fictional archive
+    output: Delivery confirmation and file list.
+    owner: student
+    acceptance_criteria:
+      - The request names every record in the dataset.
+      - The archive states the reuse terms of the scans.
+    evidence: Delivery note linked in the Issue.
+    basis: Demo
+    priority: High
+    start: 2026-12-02
+    target: 2027-01-15
+
+  - id: E03-T2
+    kind: task
+    parent: E03
+    title: Clean the periodical metadata
+    output: data/synthetic-periodicals.csv with a cleaning log.
+    owner: student
+    acceptance_criteria:
+      - Every record has a unique identifier.
+      - Missing values are empty cells, not placeholder text.
+      - The cleaning log lists every change.
+    evidence: Merged pull request.
+    basis: Practice
+    priority: High
+    blocked_by: [E03-T1]
+    start: 2027-01-18
+    target: 2027-02-12
+
+  - id: E03-T3
+    kind: task
+    parent: E03
+    title: Validate the CSV against the data dictionary
+    output: Validation report in documentation/.
+    owner: student
+    acceptance_criteria:
+      - Every column in the CSV appears in the data dictionary.
+      - Every value matches the type and the allowed values in the data dictionary.
+    evidence: Validation report linked in the Issue.
+    basis: Practice
+    priority: Normal
+    milestone: M2
+    blocked_by: [E03-T2, E08-S1]
+    start: 2027-02-15
+    target: 2027-02-26
+
+  - id: E03-T4
+    kind: task
+    parent: E03
+    title: Record the provenance of each source
+    output: Provenance section in the data dictionary.
+    owner: student
+    acceptance_criteria:
+      - Each record states its source and its synthetic origin.
+    evidence: Merged pull request.
+    basis: Practice
+    priority: Normal
+    milestone: M2
+    start: 2026-12-02
+    target: 2027-02-26
+
+  # ---------------------------------------------------------------- E04
+  - id: E04
+    kind: epic
+    title: Analyse the data
+    outcome: The analysis is complete, documented, and reproducible.
+
+  - id: E04-T1
+    kind: task
+    parent: E04
+    title: Describe the corpus
+    output: Table of records by language, decade, and frequency.
+    owner: student
+    acceptance_criteria:
+      - The table uses the validated CSV.
+      - The table states how it treats missing values.
+    evidence: Merged pull request.
+    basis: Practice
+    priority: Normal
+    blocked_by: [E03-T3]
+    start: 2027-03-01
+    target: 2027-03-12
+
+  - id: E04-T2
+    kind: task
+    parent: E04
+    title: Run the main analysis and record its parameters
+    output: Analysis notes in documentation/method.md.
+    owner: student
+    acceptance_criteria:
+      - The notes list every parameter and every software version.
+    evidence: Merged pull request.
+    basis: Practice
+    priority: High
+    start: 2027-03-15
+    target: 2027-04-02
+
+  - id: E04-T3
+    kind: task
+    parent: E04
+    title: Produce the figures with captions and sources
+    output: Figures in assets/ with captions.
+    owner: student
+    acceptance_criteria:
+      - Each figure has a caption, a source, and alt text.
+    evidence: Merged pull request.
+    basis: Practice
+    priority: Normal
+    start: 2027-03-29
+    target: 2027-04-09
+
+  - id: E04-T4
+    kind: task
+    parent: E04
+    title: Check that the analysis runs from a clean copy
+    output: Reproducibility note in documentation/method.md.
+    owner: student
+    acceptance_criteria:
+      - A second person runs the analysis from the repository and gets the same tables.
+    evidence: Comment from the second person in the Issue.
+    basis: Practice
+    priority: Normal
+    blocked_by: [E04-T2]
+    start: 2027-04-05
+    target: 2027-04-16
+
+  # ---------------------------------------------------------------- E05
+  - id: E05
+    kind: epic
+    title: Write the thesis
+    outcome: A complete draft that meets the length rule and includes supervisor feedback.
+
+  - id: E05-T1
+    kind: task
+    parent: E05
+    title: Outline the chapters
+    output: Chapter outline in the thesis draft.
+    owner: student
+    acceptance_criteria:
+      - Each chapter has a purpose and a planned length.
+    evidence: Outline linked in the Issue.
+    basis: Practice
+    priority: Normal
+    start: 2027-01-04
+    target: 2027-01-22
+
+  - id: E05-T2
+    kind: task
+    parent: E05
+    title: Draft all chapters
+    output: Complete thesis draft.
+    owner: student
+    acceptance_criteria:
+      - Every chapter in the outline has a full draft.
+    evidence: Draft version tagged in the private repository.
+    basis: Practice
+    priority: High
+    start: 2027-01-25
+    target: 2027-05-07
+
+  - id: E05-T3
+    kind: task
+    parent: E05
+    title: Check the length of the thesis
+    output: Character count recorded in the Issue.
+    owner: student
+    acceptance_criteria:
+      - The text has 160,000 to 200,000 characters.
+      - The count includes spaces, footnotes, title page, table of contents, and code.
+      - The count excludes appendices and bibliography.
+    evidence: Character count and counting method in the Issue.
+    basis: Rule
+    source: { id: SP-DH-2025, article: Art. 15 Abs. 3, page: 5 }
+    status: verified
+    priority: High
+    blocked_by: [E05-T2]
+    start: 2027-05-10
+    target: 2027-05-14
+
+  - id: E05-T4
+    kind: task
+    parent: E05
+    title: Get feedback from the supervisor on the full draft
+    output: Feedback notes and a list of changes.
+    owner: student
+    acceptance_criteria:
+      - Each feedback point has a response.
+    evidence: Feedback notes linked in the Issue.
+    basis: Practice
+    priority: Normal
+    start: 2027-04-19
+    target: 2027-05-14
+
+  # ---------------------------------------------------------------- E06
+  - id: E06
+    kind: epic
+    title: Submit the thesis
+    outcome: The thesis is submitted complete and on time.
+
+  - id: E06-T1
+    kind: task
+    parent: E06
+    title: Add the signed declaration of independent work
+    output: Dated and signed declaration at the end of the thesis.
+    owner: student
+    acceptance_criteria:
+      - The declaration uses the wording that the regulation prescribes.
+      - The declaration is dated and signed by hand.
+    evidence: Checklist entry in the Issue.
+    basis: Rule
+    source: { id: RSL-PH-21, article: Art. 30, page: 9 }
+    status: verified
+    priority: High
+    milestone: M3
+    start: 2027-05-17
+    target: 2027-05-21
+
+  - id: E06-T2
+    kind: task
+    parent: E06
+    title: Confirm the submission formalities with the Dean's Office
+    output: List of required copies, formats, and the submission procedure.
+    owner: student
+    acceptance_criteria:
+      - The list cites the current documents of the Dean's Office.
+    evidence: Link to the official document in the Issue.
+    basis: Rule
+    source: { id: RSL-PH-21, article: Art. 29 Abs. 2, page: 9 }
+    status: unconfirmed
+    status_note: >-
+      The regulations refer to the deadlines of the Dean's Office. The number of
+      copies and the file formats are not in the cited sources.
+    priority: Normal
+    milestone: M3
+    start: 2027-05-03
+    target: 2027-05-14
+
+  - id: E06-T3
+    kind: task
+    parent: E06
+    title: Submit the thesis to the Dean's Office
+    output: Submission receipt.
+    owner: student
+    acceptance_criteria:
+      - The thesis is submitted within the six-month writing period.
+      - The submission includes every item from E06-T2.
+    evidence: Receipt date recorded in the Issue.
+    basis: Rule
+    source: { id: RSL-PH-21, article: Art. 56 Abs. 1, page: 17 }
+    status: fictional
+    status_note: >-
+      The rule is verified. The date is fictional: registration 2026-12-01 plus
+      six months (SP-DH-2025 Art. 15 Abs. 4) gives 2027-06-01. A late submission
+      is graded 1 (RSL Art. 56 Abs. 4).
+    priority: High
+    milestone: M3
+    blocked_by: [E05-T3, E06-T1, E06-T2]
+    start: 2027-05-24
+    target: 2027-06-01
+
+  - id: E06-T4
+    kind: task
+    parent: E06
+    title: Request an extension through the supervisor, if a serious reason occurs
+    output: Written extension decision, or a note that none was necessary.
+    owner: student
+    acceptance_criteria:
+      - The request names the serious reason.
+      - The supervisor decides before the deadline.
+    evidence: Decision record in project-management/decisions.md.
+    basis: Rule
+    source: { id: RSL-PH-21, article: Art. 56 Abs. 2, page: 17 }
+    status: verified
+    priority: Low
+    start: 2027-05-03
+    target: 2027-05-28
+
+  # ---------------------------------------------------------------- E07
+  - id: E07
+    kind: epic
+    title: Defend the thesis
+    outcome: The oral examination (disputation) is prepared and held.
+
+  - id: E07-T1
+    kind: task
+    parent: E07
+    title: Confirm the date of the oral examination
+    output: Confirmed date in the Issue.
+    owner: student
+    acceptance_criteria:
+      - The date is confirmed by the supervisor in writing.
+    evidence: Confirmation note in the Issue.
+    basis: Rule
+    source: { id: SP-DH-2025, article: Art. 16 Abs. 1-2, page: 5 }
+    status: unconfirmed
+    status_note: >-
+      The study plan requires an oral examination after a sufficient written
+      grade. It sets no date. The date stays unconfirmed.
+    priority: Normal
+    blocked_by: [E06-T3]
+    start: 2027-06-02
+    target: 2027-06-18
+
+  - id: E07-T2
+    kind: task
+    parent: E07
+    title: Prepare a 30-minute disputation
+    output: Presentation and a list of expected questions.
+    owner: student
+    acceptance_criteria:
+      - The presentation fits into the 30-minute examination with time for questions.
+    evidence: Presentation file linked in the Issue.
+    basis: Rule
+    source: { id: SP-DH-2025, article: Art. 16 Abs. 3, page: 5 }
+    status: verified
+    priority: Normal
+    start: 2027-06-02
+    target: 2027-06-25
+
+  - id: E07-T3
+    kind: task
+    parent: E07
+    title: Rehearse the disputation with peers
+    output: Rehearsal notes.
+    owner: student
+    acceptance_criteria:
+      - Two peers give written feedback.
+    evidence: Notes linked in the Issue.
+    basis: Practice
+    priority: Low
+    blocked_by: [E07-T2]
+    start: 2027-06-28
+    target: 2027-07-02
+
+  - id: E07-T4
+    kind: task
+    parent: E07
+    title: Record the examination feedback
+    output: Entry in project-management/decisions.md.
+    owner: student
+    acceptance_criteria:
+      - The entry lists the points to address before publication.
+    evidence: Entry in project-management/decisions.md.
+    basis: Practice
+    priority: Low
+    start: 2027-07-05
+    target: 2027-07-09
+
+  # ---------------------------------------------------------------- E08
+  - id: E08
+    kind: epic
+    title: Publish and preserve the outputs
+    outcome: Reusable outputs are documented, released, and preserved within the rights that apply.
+    learner: true
+
+  - id: E08-S1
+    kind: story
+    parent: E08
+    title: Document the dataset for a future reuser
+    story: >-
+      As a future reuser, I need the columns, types, missing values, synthetic
+      origin, version, and licence of the CSV documented, so that I can reuse
+      the data without asking the author.
+    output: documentation/data-dictionary.qmd
+    owner: student
+    acceptance_criteria:
+      - Every CSV column has a name, a type, a description, and its allowed values.
+      - The page explains how missing values appear.
+      - The page states that every record is synthetic.
+      - The page states the dataset version and the licence.
+    evidence: Data dictionary page linked in the Issue.
+    basis: Practice
+    priority: High
+    milestone: M2
+    start: 2027-01-18
+    target: 2027-02-12
+    learner: true
+
+  - id: E08-T2
+    kind: task
+    parent: E08
+    title: Decide on rights and access for data and text
+    output: Decision record on what is public, what is private, and under which licence.
+    owner: student
+    acceptance_criteria:
+      - The record lists each output with its access level and its licence.
+      - The record names the rights of third parties, for example archive restrictions on scans.
+      - The record states who decides on library access to the thesis.
+    evidence: Entry in project-management/decisions.md.
+    basis: Practice
+    priority: High
+    milestone: M2
+    start: 2027-01-04
+    target: 2027-02-26
+    learner: true
+
+  - id: E08-T3
+    kind: task
+    parent: E08
+    title: Publish a demo release of the documented dataset
+    output: GitHub release v0.1.0-demo with release notes.
+    owner: student
+    acceptance_criteria:
+      - The release notes say that the data are synthetic and that the release is a demo.
+      - The release contains only material that E08-T2 allows.
+      - The release notes state that a GitHub release is not long-term preservation.
+    evidence: Link to the release.
+    basis: Demo
+    priority: Normal
+    milestone: M3
+    blocked_by: [E08-T2]
+    start: 2027-03-01
+    target: 2027-03-12
+    learner: true
+
+  - id: E08-T4
+    kind: task
+    parent: E08
+    title: Decide on library access to the submitted thesis
+    output: Consent decision of the author and the supervisor.
+    owner: student
+    acceptance_criteria:
+      - Both the author and the supervisor agree before the thesis is made accessible.
+    evidence: Entry in project-management/decisions.md.
+    basis: Rule
+    source: { id: RSL-PH-21, article: Art. 32 Abs. 1, page: 10 }
+    status: verified
+    priority: Low
+    blocked_by: [E07-T1]
+    start: 2027-06-21
+    target: 2027-07-09
+
+  - id: E08-T5
+    kind: task
+    parent: E08
+    title: Deposit the final dataset in a repository with a persistent identifier
+    output: Repository record with a DOI.
+    owner: student
+    acceptance_criteria:
+      - The deposit contains only material that E08-T2 allows.
+      - The deposit metadata cite the thesis.
+    evidence: DOI in CITATION.cff.
+    basis: Practice
+    priority: Low
+    blocked_by: [E08-T3]
+    start: 2027-06-02
+    target: 2027-06-30
