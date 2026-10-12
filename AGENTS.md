@@ -1,199 +1,248 @@
-# AGENTS Guidelines for This Repository
+# Agents Tooling Specification — Quarto course site
 
-This repository is a **GitHub template** for FAIR and open research data documentation. These guidelines align with `TODO.md` and apply when interacting with the repo using agents (e.g., Copilot, Cursor, other AI tools).
+This repository holds the workshop and OER "GitHub as a Project Management Tool" (KSL 526141, HS2026, University of Bern). It is a Quarto website with Reveal.js slides. It derives from [`maehr/open-research-data-template`](https://github.com/maehr/open-research-data-template) at commit `c6ec5bc`.
 
-> **Two contexts**
->
-> - **Template maintenance**: you are improving this template for reuse.
-> - **Project instances**: a user has created a new repo _from_ this template and is customizing it.
->
-> Rules below state which context they target. When unspecified, they apply to both.
+This file follows the shared [Agents Tooling Specification](https://gist.github.com/maehr/6c48ef14f37c9f745fa1fbaa315d106b): `30-AGENTS.quarto.md`, with the appendices `40-TOOLBELT.macos.md` and `50-WRITING.scientific.md`. Sections 1, 3, 5, and 6 are copied verbatim. Sections 2, 4, and 7 are narrowed to this repository. Section 8 is specific to this repository.
 
-## 1) Use Preview Mode During Interactive Sessions (Both)
+`SPECS.md` is the implementation contract. Read it before you change course content.
 
-- **Always run `npm run preview`** while iterating on docs. It wraps `uv run quarto preview` and provides live reload for `.qmd`, `.md`, and assets.
-- **Do not run production commands inside agent sessions** unless explicitly requested by the human maintainer:
-  - Avoid: `quarto render` when it is only meant to prepare production artifacts.
-  - Do not replace the GitHub Pages deployment workflow with manual publishing steps.
-- Keep the preview server running while editing.
+**Local deviations from the shared specification:**
 
-## 2) Placeholder Policy (Template vs Project)
+* The maintainer owns this repository. Work on a branch and open a pull request. Do not fork.
+* The licence files stay as the template ships them: `LICENSE-CCBY.md` for prose and data, `LICENSE-AGPL.md` for code. `NOTICE.md` states the scope.
+* `CODE_OF_CONDUCT.md` is Contributor Covenant 2.1 from the template.
+* The engine is Python through uv, for maintainer tooling only. No document executes code.
 
-This template includes placeholders like: `USERNAME`, `REPO_NAME`, `FULLNAME`, `SHORT_DESCRIPTION`, `GITHUB_REPO_ID`, `ZENODO_RECORD`, `[INSERT CONTACT METHOD]`, and `DOI`.
+## 1. Orchestration
 
-- **Template maintenance**:
-  - Keep placeholders and intentional `TODO:` markers intact in project-facing template files such as `CITATION.template.cff`, `CODE_OF_CONDUCT.template.md`, `SECURITY.template.md`, `README.template.md`, and `project-management/*.template.md` so downstream users can replace them.
-  - Keep the live template-repository files (`CITATION.cff`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `README.md`, and `CHANGELOG.md`) accurate for this repository.
+Context is the scarce resource. Manage it.
 
-- **Project instances**:
-  - **Replace placeholders** in:
-    - `.github/ISSUE_TEMPLATE/config.yml`
-    - `_brand.yml`
-    - `CITATION.template.cff` → after replacement, **rename to `CITATION.cff`** early so GitHub shows the correct citation metadata
-    - `CODE_OF_CONDUCT.template.md` → after replacement, **rename to `CODE_OF_CONDUCT.md`** early so GitHub shows the correct community-health file
-    - `DESCRIPTION`
-    - `index.qmd`
-    - `package.json`
-    - `project-management/*.template.md` → after replacement, rename each used file by removing `.template`; delete unused project-management templates
-    - `pyproject.toml`
-    - `README.template.md` → after replacement, **rename to `README.md`** when finalized
-    - `SECURITY.template.md` → after replacement, **rename to `SECURITY.md`** early so GitHub shows the correct security policy
-  - Leave any non-project template placeholders untouched only if the file explicitly documents template behavior for reuse.
+**Model tier.** A frontier model holds the plan, the decisions, and the shared context. A small model does a bounded subtask. Pick the tier before you spawn the agent.
 
-## 3) Formatting and Linting (Both)
+**Delegate on evidence.** A subagent starts cold and derives the context again. Delegate work that reads far more than it reports: broad search, log triage, or fan-out over many files. Do a small local edit inline.
 
-- Run **`npm run format`** before commits to enforce Prettier.
-- Use **`npm run check`** to verify formatting without writing changes.
-- For Python code, use **`uv run ruff check`** to lint and **`uv run ruff format`** to format.
-- For Python type checking, use **`uv run ty check`**.
-- For R code, use **`styler::style_dir(".")`** to format and **`lintr::lint_dir(".")`** to lint.
+**Contracts, not conversations.** Give a subagent one task, the context it cannot infer, the output shape, and the stop condition. A subagent returns a conclusion, never a file dump. Verify a report before you act on it.
 
-## 4) Commits and Changelog (Both)
+**Parallel only when independent.** Run agents at the same time only when no result feeds another. Use three at most.
 
-- Use **`git commit -m "type: subject"`** with a valid Conventional Commit subject; Commitlint enforces this through Prek.
-- Prefer one focused logical change per commit so `git-cliff` can reuse the subject line directly.
-- Use **`npm run changelog:unreleased`** for compact agent previews while iterating.
-- After committing, generate entries with **`npm run changelog`** and update `CHANGELOG.md` for template maintenance or `CHANGELOG.template.md` for project instances.
+**Context ladder.** At 25% of the window, name the source of the pressure. At 50%, reduce it: write state to disk, delegate the reading, or narrow the re-reads. At 75%, stop and reduce before further work.
 
-## 5) Repository Structure (Both)
+**State on disk.** Write plans, findings, and decisions to files. The transcript dies at the next compaction.
 
-Aligned with _The Turing Way_ advanced structure:
+**Read narrow.** Read the slice, not the file. After you write a file, verify the diff or the section you changed. Do not read the whole file again.
 
-- `analysis/` — notebooks and analysis scripts
-- `assets/` — images and media
-- `data/` — datasets (FAIR-aligned)
-- `documentation/` — extended docs beyond README
-- `project-management/` — planning and minutes
-- `src/` — source code for collection/processing
-- `test/` — tests for code and data validation
 
-Place new files accordingly.
+## 2. Tooling
 
-## 6) Dependency Management (Both)
+`package.json` holds the contract. Call a script. Never call the tool that the script wraps.
 
-### Node.js (npm)
+| Script | Purpose |
+| --- | --- |
+| `npm run check` | The gate: Prettier, ruff lint and format check, ty, pytest |
+| `npm run format` | Prettier and ruff format |
+| `npm run preview` | Quarto preview with live reload |
+| `npm run data:generate` | Write `data/synthetic-periodicals.csv` from its seeded generator |
+| `npm run pages:render` | Write `project-management/backlog.md`, `milestones.md`, and `course/_schedule.md` from the YAML files |
+| `npm run screenshots:annotate` | Draw callouts on raw captures from `assets/screenshots/annotations.yml` |
+| `npm run lychee-check` | Check links |
+| `npm run changelog:unreleased` | Preview changelog entries |
+| `npm run site:build` | Production render. CI only, unless the maintainer asks |
+| `npm run release:prepare -- --tag vX.Y.Z` | Site ZIP for a release. Only after maintainer approval |
 
-1. `npm install <package>`
-2. Commit `package.json` and `package-lock.json`
-3. If needed: `npm run prepare` to install Prek git hooks
+**Quarto.** [Quarto](https://quarto.org/docs/guide/) 1.10.19, pinned in CI · [quarto-cli-mcp](https://github.com/maehr/quarto-cli-mcp) renders and inspects from an agent session. It builds a temporary project and writes nothing into this repository.
 
-### Python (uv)
+**Engine.** [uv](https://docs.astral.sh/uv/) for Python. Commit `uv.lock`. Python is maintainer tooling: generators, tests, and screenshot annotation. Learners never need it.
 
-1. Edit `pyproject.toml`
-2. `uv sync` to refresh `uv.lock`
-3. Commit both files
+**Documents.** [Prettier](https://prettier.io/) formats Markdown, YAML, and JSON · [lychee](https://lychee.cli.rs/) checks links · [prek](https://prek.j178.dev/) runs the hooks · [Commitlint](https://commitlint.js.org/) checks commit messages · [git-cliff](https://git-cliff.org/docs/) writes the changelog.
 
-### R (renv)
+## 3. Standards
 
-1. In R: `install.packages("pkg")`
-2. For dev tools (languageserver, lintr, styler): Add to `DESCRIPTION` Suggests field
-3. `renv::snapshot()` to update `renv.lock`
-   - For explicit dev packages: `renv::snapshot(packages = c("languageserver", "lintr", "styler"))`
-4. Commit both `DESCRIPTION` and `renv.lock`
+* [SemVer 2.0.0](https://semver.org/) for versions.
+* [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) for commit messages.
+* [Contributor Covenant 3.0](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) as `CODE_OF_CONDUCT.md`.
+* [AGPL-3.0](https://www.gnu.org/licenses/agpl-3.0.en.html) as `LICENSE`. SPDX identifier `AGPL-3.0-only`.
 
-**Note**: The `DESCRIPTION` file documents R development dependencies. The `.Rprofile` configures R options and activates renv.
 
-## 7) Documentation Practices (Both)
+## 4. Code
 
-- Prefer `.qmd` for executable, reproducible docs; `.md` for static content.
-- Include valid YAML front matter.
-- Execute and test code chunks. Keep outputs reproducible.
+**Preview while you edit.** Preview writes `_site/` and `.quarto/`. That is expected. Commit none of it.
 
-## 8) Testing and CI (Both)
+**Run no production render and no publish in an agent session** unless the maintainer asks. That covers `quarto publish`, the deploy workflow, and any release artifact. To check that a document still builds, use `quarto-cli-mcp`. It renders in a temporary project.
 
-- `npm run check` for formatting
-- `uv run ruff check` for Python linting
-- `uv run ty check` for Python type checking
-- `styler::style_dir(".")` for R formatting
-- `lintr::lint_dir(".")` for R linting
-- `npm run preview` to detect rendering issues
-- Run and validate scripts in `src/` and `analysis/`
-- Confirm `.github/workflows/` still pass for changes
+* Use `.qmd` for a Quarto page. Use `.md` for text that Quarto renders without change, and for generated pages.
+* Give every page valid YAML front matter with a `title`.
+* Do not add executed code chunks. Generate a page with a script in `src/` and commit the output. A test fails when the output is stale.
+* Cite a source with a link at the point of use. Never invent a source, a rule, or a date.
+* Keep `_site/` and `.quarto/` untracked. The project sets no `freeze`.
+* Put a new file in the directory that matches its role:
 
-## 9) GitHub Features and Security (Project instances)
+| Path | Role |
+| --- | --- |
+| `course/` | Setup, syllabus, schedule, exercises X1–X6, solutions, instructor notes |
+| `slides/` | Reveal.js slides |
+| `documentation/` | Requirements register, data dictionary, publication note |
+| `project-management/` | Example backlog and milestones (YAML is the source), decisions, risks |
+| `data/` | Synthetic data only |
+| `assets/screenshots/` | Annotated screenshots and `annotations.yml` |
+| `templates/master-thesis/` | Reusable thesis documentation template and issue forms |
+| `src/` | Maintainer scripts |
+| `test/` | Tests for course data, backlog consistency, schedule, and assets |
 
-- Prefer authenticated **GitHub CLI (`gh`) commands** for GitHub settings when the maintainer has approved the external action; keep the actionable commands in `TODO.md` and use the web UI only as a fallback.
-- **Enable GitHub Security Alerts** and Dependabot updates as described in `TODO.md`.
-- **Protect `main`** as described in `TODO.md` so PR reviews are required and force pushes are disabled.
-- Keep `SECURITY.md` and GitHub security features active.
-- Use provided **issue templates**; modify only to improve the template.
+Run the gate before every commit. `prek` runs it too:
 
-## 10) Zenodo Integration and DOI (Project instances)
+```bash
+npm run check
+```
 
-- **Enable Zenodo–GitHub integration** to archive releases and mint DOIs.
-- Before publishing a release, run `npm run release:prepare -- --tag vX.Y.Z` and commit the generated `release-artifacts/site-vX.Y.Z.zip` so Zenodo captures the rendered HTML archive as part of the tagged repository snapshot.
-- The `release.yml` workflow also uploads the same `site-<tag>.zip` archive to the GitHub release page for convenient downloading after publication.
-- After first release:
-  - Record your **`ZENODO_RECORD`** and **`DOI`**.
-  - **Zenodo DOI badge**: replace `GITHUB_REPO_ID` in the badge image URL with the numeric repo ID from `https://api.github.com/repos/USERNAME/REPO_NAME` (`id` field), and replace `ZENODO_RECORD` in the badge target once Zenodo has created the record. The badge will then display your DOI.
-  - Use the **concept DOI** directly in citation metadata so it stays stable across releases.
-- Add the DOI to the README and `CITATION.cff` once available.
+Add a new tool to that script. The gate runs no preview and no render. A preview never exits, and a production render belongs in CI.
 
-## 11) Website Publishing with GitHub Pages (Project instances)
+## 5. GitHub Workflow
 
-- In repo **Settings → Pages**:
-  - Source: **GitHub Actions**
-- **Production deployment** (run _outside_ agent sessions unless explicitly authorized):
-  - Merge or push validated changes to `main` so `.github/workflows/quarto-publish.yml` deploys the site automatically.
-  - Use the workflow's `workflow_dispatch` trigger only when you need to rerun deployment manually.
+Use a fork and a pull request. Never push to upstream.
 
-## 12) Brand and UX Polish (Project instances)
+```bash
+gh repo fork OWNER/REPO --clone
+git switch -c feat/thing
+gh pr create --repo OWNER/REPO
+```
 
-- Generate favicons (`favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, Android icons) and place at repo root.
-- Replace placeholder contact details and short description.
-- Remove or resolve `TODO` comments in project-facing files after customizing any needed `*.template.*` files: `grep -r "TODO" .` then address or delete remaining project-specific notes.
+Allow maintainer edits. Resync with `gh repo sync`. Put one logical change in one PR. Title the PR with a Conventional Commit.
 
-## 13) Commands Recap (Both)
+**Stacked PRs.** Each PR targets the branch below it. The bottom PR targets the trunk. Merge from the bottom up. GitHub retargets the rest. Take the requirements from the trunk only. Use the `gh stack` extension. Keep a stack in one repository, never across forks.
 
-| Command or action                         | Purpose                                                |
-| ----------------------------------------- | ------------------------------------------------------ |
-| `npm run preview`                         | Preview Quarto docs with live reload                   |
-| `npm run check`                           | Verify formatting                                      |
-| `npm run format`                          | Apply Prettier formatting                              |
-| `uv run ruff check`                       | Lint Python code                                       |
-| `uv run ruff format`                      | Format Python code                                     |
-| `uv run ty check`                         | Type check Python code                                 |
-| `styler::style_dir(".")`                  | Format R code                                          |
-| `lintr::lint_dir(".")`                    | Lint R code                                            |
-| `git commit -m "type: subject"`           | Create a Commitlint-checked Conventional Commit        |
-| `npm run changelog:unreleased`            | Compact preview of pending changelog entries           |
-| `npm run changelog`                       | Generate changelog from commits                        |
-| `npm run prepare`                         | Setup Prek git hooks                                   |
-| `npm run release:prepare -- --tag vX.Y.Z` | Build, archive, and stage a Zenodo-ready site ZIP      |
-| `uv sync`                                 | Sync Python dependencies                               |
-| `renv::restore()`                         | Restore R environment                                  |
-| `quarto render`                           | **Production render** (avoid in agent sessions)        |
-| `Render and Publish` workflow             | Deploy GitHub Pages from `main` or `workflow_dispatch` |
+**Trunk protection.** Both layers are idempotent, so a second run converges.
 
-## 14) Finalization Workflow Checklist (Project instances)
+```bash
+gh repo edit --enable-squash-merge --enable-merge-commit=false --enable-rebase-merge=false \
+  --delete-branch-on-merge --allow-update-branch \
+  --enable-secret-scanning --enable-secret-scanning-push-protection
+gh api -X PUT repos/OWNER/REPO/branches/main/protection --input protection.json
+```
 
-Follow `TODO.md`, then:
+The `PUT` replaces the whole configuration. Take the body shape from the [API reference](https://docs.github.com/en/rest/branches/branch-protection), not from a stale snippet.
 
-1. Replace placeholders across listed files.
-2. Activate `CITATION.cff`, `CODE_OF_CONDUCT.md`, and `SECURITY.md` from their `.template` counterparts early so GitHub surfaces your project metadata instead of the template repository's.
-3. Customize `.qmd` docs and any needed `*.template.md` scaffold files, then rename finished scaffold files by removing `.template`.
-4. Verify docs with `npm run preview`.
-5. Format files: `npm run format`, `uv run ruff format`, and `styler::style_dir(".")` in R.
-6. Lint Python code: `uv run ruff check`.
-7. Type check Python code: `uv run ty check` (if applicable).
-8. Lint R code: `lintr::lint_dir(".")` in R.
-9. Commit via `git commit -m "chore: initial project setup"`.
-10. Preview pending changelog entries with `npm run changelog:unreleased`, then generate `CHANGELOG.template.md` with `npm run changelog`.
-11. Before creating a release, run `npm run release:prepare -- --tag vX.Y.Z` and commit the generated `release-artifacts/site-vX.Y.Z.zip`.
-12. When ready, delete the template `README.md` and `CHANGELOG.md`, then rename `README.template.md` → `README.md` and `CHANGELOG.template.md` → `CHANGELOG.md`.
-13. Enable GitHub Pages to use GitHub Actions, then merge or push validated changes to `main` so the `Render and Publish` workflow deploys the site.
-14. After first release, update `ZENODO_RECORD` and `DOI`.
-15. Verify security alerts, branch protection, and the Pages deployment.
+For a repository with more than one maintainer, enforce a PR before a merge, at least one approval, dismissal of a stale approval on push, code-owner approval, last-push approval, conversation resolution, strict status checks, linear history, `enforce_admins: true`, no force-push, and no deletion. A solo repository differs. See the bullets below.
 
-## 15) Verification Steps (Project instances)
+* Without `enforce_admins`, the rule is advisory for whoever can bypass it.
+* A solo repository needs three settings together: 0 required approvals, no required code-owner review, and no required last-push approval. You cannot approve your own pull request, so either of the last two deadlocks the merge even at 0 approvals.
+* The free plan covers branch protection on a public repository. Branch protection on a private repository needs Pro.
+* Plan limits differ per feature. Secret scanning, push protection, CodeQL, and dependency review are free on a public repository. On a private repository each one needs a paid GitHub security plan. Check the plan before you enable one in a workflow or in `gh repo edit`.
+* Rulesets are the successor at organization scale. `gh ruleset` only reads, and creation uses `POST`, so a second run duplicates the ruleset. Prefer the `PUT` for one repository.
 
-- `npm run check` passes.
-- `uv run ruff check` passes without errors.
-- `uv run ty check` passes (if applicable).
-- `lintr::lint_dir(".")` passes without errors in R.
-- `npm run preview` renders without errors.
-- GitHub Pages site loads as expected.
-- README links work.
-- Security alerts and branch protection are active.
+## 6. CI/CD Security
 
-**Principle**: Prefer preview over production during agent sessions. Preserve template placeholders unless customizing a project instance. Keep changes reproducible, FAIR-aligned, and verifiable.
+Follow [secure use of Actions](https://docs.github.com/en/actions/reference/security/secure-use).
+
+* Set `permissions: contents: read` at the top level. Widen it per job only where a job needs more.
+* Default the repository token to read: `gh api -X PUT repos/OWNER/REPO/actions/permissions/workflow -f default_workflow_permissions=read`.
+* Pin an action to a full commit SHA. Verify the SHA against the upstream repository, not a fork. Let Dependabot bump it.
+* Never check out fork code under `pull_request_target`. Prefer `workflow_run`, and treat its artifacts as untrusted.
+* Never interpolate `github.event.*` into `run:`. Pass the value through `env:` and quote `"$VAR"`.
+* Use OIDC and a short-lived cloud role. Do not store a long-lived secret. Keep a secret a scalar, never a JSON blob. Rotate it.
+* Gate a deploy on an Environment with required reviewers. Prefer an environment secret over a repository secret.
+* Do not use a self-hosted runner on a public repository.
+* Cover `.github/workflows/**` in `CODEOWNERS`.
+* Require the section 4 gate, CodeQL, and `dependency-review-action`. Run the same gate locally, so CI gives no surprise. On a private repository, confirm the plan covers CodeQL and dependency review first.
+
+
+## 7. Publishing
+
+A GitHub Actions workflow deploys from `main`. Never publish by hand. Never replace the workflow with a manual step.
+
+* Render in CI. The `Render and Publish` workflow builds the site on every pull request and deploys only from `main`.
+* The maintainer enables GitHub Pages. Do not enable it, merge to `main`, or create a release without explicit approval.
+* Quarto is pinned to 1.10.19 in `quarto-publish.yml` and `release.yml`. Change both together.
+* The deploy job alone has `pages: write` and `id-token: write`.
+* Keep the site URL in `_quarto.yml`. Do not claim that the site is live before you verify it.
+* Never assume that public Pages, private Pages, DOI minting, or Zenodo integration happens automatically.
+
+## 8. Course Content
+
+**Source hierarchy.** Each fact has one source. Cite it at the point of use.
+
+| Fact | Source |
+| --- | --- |
+| Course facts: date, room, credits, assessment | KSL export of 12 October 2026, as recorded in `SPECS.md` §1 |
+| Thesis rules for one programme | That programme's study plan and the faculty regulations |
+| Pedagogy and exercise design | `SPECS.md` §2–§4 (instructor proposal, not a KSL requirement) |
+| GitHub and Quarto behaviour | Official documentation and the dated UI verification log |
+
+**Rules:**
+
+* Keep an unresolved fact visibly unresolved. Use a callout with the word "Unresolved" and list it in `project-management/risks.md`.
+* Never present a design choice as a KSL requirement.
+* Label every fictional date as fictional. The workshop uses registration 2026-12-01 and submission 2027-06-01.
+* Never move an official deadline silently. Adjust the planned work instead, and record the decision.
+* Use only synthetic data in public examples. Real thesis work defaults to a private repository and a private Project.
+* Keep the example backlog in `project-management/backlog.yml`. Run `npm run pages:render` after each change.
+* Design every core exercise for the browser. No exercise needs Quarto, the Git CLI, paid features, a VPN, public disclosure, or a production DOI.
+* Give each exercise a teaching explanation, browser steps, screenshots, the expected state, and a recovery route.
+* Capture screenshots from the current GitHub interface after you confirm the behaviour. Give each one a capture date and alt text. Remove avatars, notifications, and unrelated repositories before you commit it.
+* Link the official GitHub documentation next to each procedure that depends on the interface.
+* Write procedures in Simplified Technical English. Write explanations and arguments by the rules in Appendix B.
+
+## Appendix A. CLI Tooling — macOS
+
+This appendix narrows `40-TOOLBELT.macos.md` to the tools this repository uses. Use Homebrew for system tools.
+
+| Task | Tool |
+| --- | --- |
+| Text search | `rg` |
+| File search | `fd` |
+| Markdown lint | `rumdl` |
+| YAML front matter and YAML data | `yq` |
+| Link check | `lychee` |
+| QMD and site production | `quarto` |
+| JSON | `jq` |
+| CSV | `duckdb` |
+| PDF text of a regulation | `pdftotext -layout` |
+| Screen capture | `screencapture` (macOS) |
+
+* Read front matter with `yq --front-matter=extract`. Check for `---` on line 1 first.
+* Always use `-layout` with `pdftotext`.
+* Run `lychee` in CI for the full check. It is slow and reports false errors for sites that return 403.
+* If a tool is missing, stop and report it. Do not use a different tool.
+
+## Appendix B. Writing — Scientific Prose
+
+Use these rules for scientific and technical writing in English and German. Apply them to argumentative and expository prose. Do not apply them to code, quoted material, or the bibliography.
+
+### Core rules
+
+1. **Use one term for one concept.** Keep technical terminology stable throughout the text.
+
+2. **Guide the reader actively.** State why a step, distinction, method, or argument is introduced before or while introducing it.
+
+3. **Structure arguments as `Context → Content → Conclusion`.** Give the reader the reason for a point, the point itself, and its implication.
+
+4. **Keep comparisons text-immanent.** When explaining X through Y, make the relevant similarity explicit in the text. Prefer comparisons that can be understood without requiring the reader to recall unrelated examples or external contexts.
+
+5. **Keep logically related statements together.** Develop one line of reasoning at a time.
+
+6. **Express one main idea per sentence and one main function per paragraph.**
+
+7. **Prefer direct verbs and simple grammatical structures.** Use active voice when the actor matters. Prefer verbs over nominalizations and short dependency chains over deeply embedded clauses.
+
+8. **Use parallel form for parallel ideas.** Align the structure of comparisons, alternatives, lists, headings, and argument steps.
+
+9. **Make epistemic status visible.** Distinguish what is observed, inferred, assumed, hypothesized, or uncertain.
+
+10. **Make every sentence earn its place.** Use words and transitions to add factual content, logical structure, qualification, or reader guidance.
+
+### Language profiles
+
+**English:** Use clear international scientific English. Prefer direct, literal wording over idiomatic or ornate phrasing.
+
+**Deutsch:** Verwende klares wissenschaftliches Standarddeutsch. Bevorzuge Verben gegenüber Nominalstil und direkte Satzstrukturen gegenüber Schachtelsätzen.
+
+### Priority
+
+When two rules conflict, follow this order: **Precision → Reader guidance → Explicitness → Consistency → Simplicity → Brevity → Elegance**.
+
+In short:
+
+**One concept, one term.  
+Explain why before or while explaining what.  
+Keep comparisons local and explicit.  
+One sentence, one main idea.  
+One paragraph, one line of reasoning.**
