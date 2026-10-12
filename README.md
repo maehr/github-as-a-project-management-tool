@@ -3,11 +3,13 @@
 A browser-first workshop and open educational resource (OER). Learners plan, conduct, document, and share a fictional master's thesis with one GitHub repository and one GitHub Project.
 
 [![GitHub issues](https://img.shields.io/github/issues/maehr/github-as-a-project-management-tool.svg)](https://github.com/maehr/github-as-a-project-management-tool/issues)
-[![Prose license](https://img.shields.io/badge/prose-CC%20BY%204.0-lightgrey.svg)](LICENSE-CCBY.md)
-[![Code license](https://img.shields.io/badge/code-AGPL%203.0-blue.svg)](LICENSE-AGPL.md)
+[![Prose licence](https://img.shields.io/badge/prose-CC%20BY%204.0-lightgrey.svg)](LICENSE-CCBY.md)
+[![Code licence](https://img.shields.io/badge/code-AGPL%203.0-blue.svg)](LICENSE-AGPL.md)
 
 > [!NOTE]
-> **Status:** in development. The course pages, the slides, and the example backlog arrive through an open pull request. The website is not deployed yet.
+> **Status:** ready for the session on 16 October 2026. The website is not deployed yet. Read the pages in [`course/`](course/) or render the site locally.
+
+**Worked example:** the [showcase Project](https://github.com/users/maehr/projects/11) holds the full plan of the fictional thesis, with its Issues in [`maehr/projm-example-thesis`](https://github.com/maehr/projm-example-thesis). It is linked to this repository's **Projects** tab.
 
 ## Course At A Glance
 
@@ -40,16 +42,30 @@ The public exercise uses only synthetic data. For real thesis work, use a privat
 
 ## Repository Structure
 
-| Path                  | Content                                                  |
-| --------------------- | -------------------------------------------------------- |
-| `course/`             | Setup, syllabus, exercises X1–X6, solutions, notes       |
-| `slides/`             | Reveal.js slides for the session                         |
-| `documentation/`      | Requirements register, data dictionary, publication note |
-| `project-management/` | Example backlog, milestones, decisions, and risks        |
-| `data/`               | Synthetic periodical metadata for the exercises          |
-| `templates/`          | Reusable documentation template for a master's thesis    |
-| `assets/screenshots/` | Annotated screenshots of the GitHub interface            |
-| `SPECS.md`            | Implementation contract for this course                  |
+| Path                       | Content                                                         |
+| -------------------------- | --------------------------------------------------------------- |
+| `course/`                  | Setup, syllabus, exercises X1–X6, solutions, instructor notes   |
+| `slides/`                  | Reveal.js slides for the session                                |
+| `documentation/`           | Requirements register, data dictionary, publication note        |
+| `project-management/`      | Example backlog and milestones (YAML source), decisions, risks  |
+| `data/`                    | Synthetic periodical metadata for the exercises                 |
+| `templates/master-thesis/` | Reusable thesis documentation template and issue forms          |
+| `assets/screenshots/`      | Annotated screenshots of the GitHub interface and their sources |
+| `src/`, `test/`            | Maintainer scripts and checks; learners do not need them        |
+| `SPECS.md`                 | Implementation contract for this course                         |
+
+## Maintain The Course
+
+Maintainers need Node.js, uv, and Quarto 1.10.19. Learners need only a browser.
+
+| Task                                     | Command                                    |
+| ---------------------------------------- | ------------------------------------------ |
+| Run all checks                           | `npm run check`                            |
+| Preview the site                         | `npm run preview`                          |
+| Regenerate backlog and schedule pages    | `npm run pages:render`                     |
+| Regenerate the synthetic CSV             | `npm run data:generate`                    |
+| Annotate screenshots from raw captures   | `npm run screenshots:annotate`             |
+| Seed the example backlog (dry run first) | `uv run python src/seed_backlog.py --help` |
 
 ## Provenance
 
@@ -73,6 +89,6 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [code of conduct](CODE_OF_CONDUC
 
 - **Moritz Mähr**: [maehr](https://github.com/maehr), [ORCID 0000-0002-1367-1618](https://orcid.org/0000-0002-1367-1618)
 
-## License
+## Licence
 
 Original teaching prose and data are released under [CC BY 4.0](LICENSE-CCBY.md). Code is released under [AGPL 3.0](LICENSE-AGPL.md), because it derives from the AGPL-licensed template. Third-party material keeps its own rights. [NOTICE.md](NOTICE.md) lists that material.
