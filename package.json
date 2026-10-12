@@ -20,7 +20,7 @@
     "lychee-check": "lychee --config .lycheerc.toml './*.md' './*.qmd' './course/**/*.qmd' './documentation/**/*.qmd' './project-management/**/*.md' './slides/**/*.qmd' './templates/**/*.md'"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.0.2",
+    "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.0.2",
     "@j178/prek": "^0.4.4",
     "git-cliff": "^2.13.1",
