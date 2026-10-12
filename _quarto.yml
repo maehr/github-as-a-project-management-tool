@@ -1,23 +1,36 @@
 project:
   type: website
   render:
-    - '*.qmd'
-    - '*.md'
-    - 'documentation/**/*.qmd'
-    - 'documentation/**/*.md'
-    - 'project-management/**/*.qmd'
-    - 'project-management/**/*.md'
-    - '!**/*.template.md'
-    - '!**/*.template.qmd'
+    - index.qmd
+    - course/**/*.qmd
+    - documentation/**/*.qmd
+    - project-management/**/*.md
+    - slides/**/*.qmd
+    - templates/**/*.md
+    - SPECS.md
+    - CHANGELOG.md
+    - NOTICE.md
+    - LICENSE-CCBY.md
+    - LICENSE-AGPL.md
+    - CODE_OF_CONDUCT.md
+    - CONTRIBUTING.md
+    - SECURITY.md
+  resources:
+    - data/synthetic-periodicals.csv
+    - project-management/*.yml
+    - course/schedule.yml
+    - templates/master-thesis/issue-forms/*.yml
+
+lang: en-GB
 
 website:
-  title: REPO_NAME
+  title: GitHub as a Project Management Tool
+  description: Browser-first workshop and OER on planning, conducting, documenting, and sharing a fictional master's thesis with GitHub.
   favicon: android-chrome-512x512.png
   open-graph: true
-  twitter-card: true
-  site-url: https://USERNAME.github.io/REPO_NAME/
-  repo-url: https://github.com/USERNAME/REPO_NAME/
-  issue-url: https://github.com/USERNAME/REPO_NAME/issues/new/choose
+  site-url: https://maehr.github.io/github-as-a-project-management-tool/
+  repo-url: https://github.com/maehr/github-as-a-project-management-tool/
+  issue-url: https://github.com/maehr/github-as-a-project-management-tool/issues/new/choose
   repo-actions: [edit, issue]
   page-navigation: true
   bread-crumbs: true
@@ -27,48 +40,69 @@ website:
     type: overlay
   navbar:
     logo: android-chrome-512x512.png
-    logo-alt: ''
-    title: REPO_NAME
-    tools:
-      - icon: github
-        url: https://github.com/USERNAME/REPO_NAME/
+    logo-alt: 'Home'
+    title: PROJM
     left:
       - text: Home
         href: index.qmd
+      - text: Course
+        menu:
+          - href: course/setup.qmd
+          - href: course/syllabus.qmd
+          - text: '---'
+          - href: course/exercises/x1.qmd
+          - href: course/exercises/x2.qmd
+          - href: course/exercises/x3.qmd
+          - href: course/exercises/x4.qmd
+          - href: course/exercises/x5.qmd
+          - href: course/exercises/x6.qmd
+          - text: '---'
+          - href: course/solutions.qmd
+          - href: course/instructor-notes.qmd
       - text: Documentation
-        href: documentation/index.qmd
-
-  sidebar:
-    contents:
-      - section: REPO_NAME
-        href: index.qmd
-        contents:
-          - text: Changelog
-            href: CHANGELOG.md
-          - text: Code of Conduct
-            href: CODE_OF_CONDUCT.md
-          - text: Contributing
-            href: CONTRIBUTING.md
-          - text: License (Data)
-            href: LICENSE-CCBY.md
-          - text: License (Code)
-            href: LICENSE-AGPL.md
-          - text: Security
-            href: SECURITY.md
-      - text: Documentation
-        href: documentation/index.qmd
+        menu:
+          - href: documentation/requirements.qmd
+          - href: documentation/data-dictionary.qmd
+          - href: documentation/publication.qmd
+      - text: Project management
+        menu:
+          - href: project-management/backlog.md
+          - href: project-management/milestones.md
+          - href: project-management/decisions.md
+          - href: project-management/risks.md
+      - text: Template
+        href: templates/master-thesis/README.md
+      - text: Slides
+        href: slides/index.qmd
+    right:
+      - text: About
+        menu:
+          - href: SPECS.md
+            text: Specification
+          - href: CHANGELOG.md
+          - href: NOTICE.md
+          - href: LICENSE-CCBY.md
+            text: Licence (prose and data)
+          - href: LICENSE-AGPL.md
+            text: Licence (code)
+          - href: CODE_OF_CONDUCT.md
+          - href: CONTRIBUTING.md
+          - href: SECURITY.md
+      - icon: github
+        href: https://github.com/maehr/github-as-a-project-management-tool/
+        aria-label: GitHub repository
+  page-footer:
+    left: 'Prose and data: [CC BY 4.0](/LICENSE-CCBY.md). Code: [AGPL 3.0](/LICENSE-AGPL.md). GitHub interface in screenshots: © GitHub, Inc.'
+    right: 'KSL 526141, HS2026, University of Bern'
 
 format:
   html:
     toc: true
     theme:
-      - brand
-      - cosmo
+      light: [brand, cosmo]
+      dark: [brand, darkly]
     css: styles.css
     code-copy: true
     code-overflow: wrap
     canonical-url: true
-
-freeze: true
-
-editor: visual
+    lightbox: true

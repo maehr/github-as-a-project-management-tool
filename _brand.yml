@@ -1,9 +1,9 @@
 meta:
-  name: REPO_NAME
+  name: GitHub as a Project Management Tool
   link:
-    home: https://USERNAME.github.io/REPO_NAME
-    github: https://github.com/USERNAME
+    home: https://maehr.github.io/github-as-a-project-management-tool/
+    github: https://github.com/maehr/github-as-a-project-management-tool
   description: |
-    SHORT_DESCRIPTION
+    Browser-first workshop and OER on planning, conducting, documenting, and sharing a fictional master's thesis with GitHub.
 
 # Go to https://quarto.org/docs/authoring/brand.html to learn more about multiformat branding with brand.yml
