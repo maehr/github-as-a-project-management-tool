@@ -22,7 +22,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Context.** `SPECS.md` §5 requires that the course repository is created from `maehr/open-research-data-template`. Learners start from the same template.
 
-**Decision.** The repository was created with "Use this template" from commit [`c6ec5bc`](https://github.com/maehr/open-research-data-template/commit/c6ec5bc366c21029e908ad16d54fa0e2201f18ee) of 16 June 2026. The direct commits to `main` change only the README, the licence, and the community-health files. All other work arrives through one pull request.
+**Decision.** The repository was created with "Use this template" from commit [`c6ec5bc`](https://github.com/maehr/open-research-data-template/commit/c6ec5bc366c21029e908ad16d54fa0e2201f18ee) of 16 June 2026. `main` starts with the initial commit of the template. All other work, including the course README and the community-health files, arrives through one pull request.
 
 **Consequences.** The course records the template revision. When the template changes, the instructor checks the exercises against the new revision before the next run.
 
