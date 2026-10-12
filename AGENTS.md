@@ -162,7 +162,7 @@ A GitHub Actions workflow deploys from `main`. Never publish by hand. Never repl
 
 | Fact | Source |
 | --- | --- |
-| Course facts: date, room, credits, assessment | KSL export of 12 October 2026, as recorded in `SPECS.md` §1 |
+| Course facts: date, room, credits, assessment | The [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0), as recorded in `SPECS.md` §1 |
 | Thesis rules for one programme | That programme's study plan and the faculty regulations |
 | Pedagogy and exercise design | `SPECS.md` §2–§4 (instructor proposal, not a KSL requirement) |
 | GitHub and Quarto behaviour | Official documentation and the dated UI verification log |

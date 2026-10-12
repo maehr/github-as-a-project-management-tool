@@ -41,7 +41,7 @@ Status values: **verified** means that the text was checked in the cited documen
 | R-09 | For the master's thesis, the deadlines of the Dean's Office apply. | RSL-PH-21 Art. 29 Abs. 2, p. 9 | unconfirmed (dates) | E06-T2 |
 | R-10 | The thesis ends with a dated and hand-signed declaration of independent work, in the prescribed wording. | RSL-PH-21 Art. 30, p. 9 | verified | E06-T1 |
 | R-11 | The thesis is in German, French, or English by agreement; other languages need the supervisor's agreement. A joint thesis needs approval before the work starts. | RSL-PH-21 Art. 54, p. 17 | verified | E02-T5 |
-| R-12 | The thesis is submitted to the Dean's Office within the deadline. For a serious reason, the supervisor can extend the period once by one semester; further extensions need the Collegium Decanale. A late thesis is graded 1. | RSL-PH-21 Art. 56, p. 17 | verified | E06-T3, E06-T4, X6 |
+| R-12 | The thesis is submitted to the Dean's Office within the deadline. For an important reason (Art. 35 UniV), the supervisor can extend the period once by one semester. The Collegium Decanale can grant further extensions of one semester each, on a written and justified request that the supervisor supports. A late thesis is graded 1. | RSL-PH-21 Art. 56, p. 17 | verified | E06-T3, E06-T4, X6 |
 | R-13 | The submitted thesis goes to the institute after the diploma. With the consent of the author and the supervisor, the library can make it accessible. The author holds the copyright. | RSL-PH-21 Art. 32, p. 10 | verified | E08-T2, E08-T4 |
 | R-14 | The supervisor writes a report with a grade proposal; the Collegium Decanale decides. | RSL-PH-21 Art. 57, p. 17 | verified | — |
 
@@ -56,13 +56,14 @@ Status values: **verified** means that the text was checked in the cited documen
 
 ## Course rules (KSL)
 
-These facts govern the workshop, not the thesis. See the [syllabus](../course/syllabus.qmd).
+These facts govern the workshop, not the thesis. They come from the [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0). See the [syllabus](../course/syllabus.qmd).
 
-| Fact | Status |
+| Fact | Source |
 | --- | --- |
-| 0.5 ECTS, pass/fail | verified (KSL) |
-| Exam type and modalities | **not listed** in KSL; unresolved |
-| Room | F 001; KSL also lists F -112; confirmed by the instructor on 2026-10-12 |
+| 0.5 ECTS, passed or failed | KSL |
+| Type of exam: not defined | KSL |
+| Pass rule: attend the full session and show the minimum deliverable | Instructor ([syllabus](../course/syllabus.qmd#assessment)) |
+| Room: Seminarraum F 001, Hörraumgebäude Unitobler | KSL |
 
 ## Context-dependent tasks
 

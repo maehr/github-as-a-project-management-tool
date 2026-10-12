@@ -1,38 +1,35 @@
 ---
 title: Syllabus
-description: Course facts, learning outcomes, run of show, and assessment for KSL 526141.
+description: Course facts, aims, learning outcomes, run of show, and assessment.
 ---
 
 ## Course facts
 
-The facts in this table come from the University of Bern course catalogue (KSL export of 12 October 2026). Page numbers refer to that export where the course specification records them.
+| Item | Value |
+| --- | --- |
+| Course | [PROJM] Github as a project management tool |
+| Number and semester | 526141, HS2026 |
+| Type | Workshop, Digital Humanities |
+| Lecturer | Dr. Moritz Mähr, University of Bern, Walter Benjamin Kolleg |
+| Date | Friday, 16 October 2026, 09:00–13:00 |
+| Room | Seminarraum F 001, Hörraumgebäude Unitobler |
+| Credits | 0.5 ECTS |
+| Grading | Passed or failed |
+| Optional course | Recognition as an optional course is possible |
 
-| Item | Value | Source |
-| --- | --- | --- |
-| Course | `[PROJM] Github as a project management tool`, KSL 526141, HS2026 | KSL |
-| Programme | Digital Humanities, University of Bern; Master-level workshop | KSL |
-| Instructor | Dr. Moritz Mähr | KSL |
-| Session | Friday, 16 October 2026, 09:00–13:00 | KSL |
-| Language | English | KSL |
-| Capacity | 20 | KSL |
-| Credits and grading | 0.5 ECTS, passed or failed | KSL pp. 1–2 |
-| Room | Seminarraum F 001, Hörraumgebäude Unitobler | KSL p. 2 (timetable); confirmed by the instructor on 2026-10-12 |
-
-::: {.callout-note}
-## Room
-
-The KSL timetable lists **Seminarraum F 001** (p. 2); the room administration lists **Seminarraum F -112** (p. 3). The instructor confirmed **F 001** on 12 October 2026.
-:::
+Registration and the detailed view: [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0).
 
 ## Aims
 
-The KSL description states two aims (p. 1): apply project-management principles with GitHub, and understand the opportunities and the limits of GitHub as a project-management tool. The workshop teaches approaches to managing and documenting ongoing projects.
+The course description in KSL reads:
 
-According to KSL, GitHub familiarity and minimal command-line knowledge are helpful but not required. The earlier introduction to project management is optional. All exercises run in the browser.
+> GitHub is not only a powerful tool for versioning and code development, but can also be efficiently used to manage and document on-going projects. In this course, you will get an introduction to the different project management approaches, combined with best practices utilizing GitHub for such tasks.
+
+Some GitHub experience and minimal command-line knowledge help, for example from the course "Introduction to DH". The course "Introduction to Project Management" is a plus, not a requirement. All exercises run in the browser.
 
 ## Learning outcomes
 
-The design below is the instructor's proposal. It is not a KSL requirement.
+The instructor designed these outcomes.
 
 After the session, you can:
 
@@ -45,7 +42,7 @@ After the session, you can:
 
 ## Scenario
 
-You plan, conduct, document, and share a **fictional master's thesis** in one GitHub repository and one GitHub Project. The thesis asks how Swiss periodicals circulated between 1830 and 1960. It uses 30 [synthetic records](../documentation/data-dictionary.qmd). The fictional registration date is 2026-12-01; the fictional submission date is 2027-06-01. Nothing in the exercise is real research data.
+You plan, conduct, document, and share a **fictional master's thesis** in one GitHub repository and one GitHub Project. The thesis asks how the landscape of Swiss periodicals changed between 1830 and 1960 by language, place, and subject. It uses 30 [synthetic records](../documentation/data-dictionary.qmd). The fictional registration date is 2026-12-01; the fictional submission date is 2027-06-01. Nothing in the exercise is real research data.
 
 ## Run of show
 
@@ -71,11 +68,10 @@ You can work alone, in a pair, or on the private path. See [Setup](setup.qmd).
 
 ## Assessment
 
-::: {.callout-warning}
-## Unresolved: pass/fail arrangement
+The course is graded passed or failed. The instructor set the pass rule. You pass when you do both:
 
-KSL lists pass/fail grading but **no exam type and no modalities** (pp. 1–2). This course does not invent formal pass criteria. During the session, an in-class **completion check** helps you and the instructor see what you have done: the minimum deliverable above and the exit check below. The instructor confirms the formal arrangement separately.
-:::
+1. You attend the full session.
+2. You show the minimum deliverable in the exit check. A labelled recovery package counts.
 
 ### Exit check (12:50–13:00)
 
@@ -87,6 +83,6 @@ Explain in two minutes, with your own repository open:
 
 ## Sources
 
-- KSL course export, 12 October 2026 (course facts).
+- [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0) (course facts and description).
 - [Studienplan Digital Humanities, 17 February 2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) and [RSL Phil.-hist. 21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) (thesis rules for the DH Major; see the [requirements register](../documentation/requirements.qmd)).
 - [`SPECS.md`](../SPECS.md) (course design).

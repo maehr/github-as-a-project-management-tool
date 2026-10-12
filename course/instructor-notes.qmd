@@ -7,10 +7,9 @@ description: Pre-flight checklist, timing, failure modes, and the dated UI verif
 
 ### One week before
 
-1. Check the room in KSL. The instructor confirmed F 001 on 12 October 2026 ([U-01](../project-management/risks.md)).
-2. Confirm the pass/fail arrangement ([U-02](../project-management/risks.md)).
-3. Check the enrolment list. The instructor expects mostly DH Major students; prepare the Minor and elective caveat ([U-03](../project-management/risks.md)).
-4. Send the [Setup](setup.qmd) page to the participants.
+1. Check the date and the room in the [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0).
+2. Check the enrolment list. The instructor expects mostly DH Major students; prepare the Minor and elective caveat ([U-03](../project-management/risks.md)).
+3. Send the [Setup](setup.qmd) page to the participants.
 
 ### The day before
 

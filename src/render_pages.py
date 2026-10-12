@@ -76,8 +76,8 @@ def render_backlog(backlog: Backlog, milestones: list[dict]) -> str:
             "",
             epic["outcome"],
             "",
-            "| ID | Kind | Title | Basis | Milestone | Planned | Blocked by |",
-            "| --- | --- | --- | --- | --- | --- | --- |",
+            "| ID | Kind | Title | Basis | Priority | Milestone | Planned | Blocked by |",
+            "| --- | --- | --- | --- | --- | --- | --- | --- |",
         ]
         for kid in backlog.children(epic["id"]):
             milestone = kid.get("milestone")
@@ -85,7 +85,8 @@ def render_backlog(backlog: Backlog, milestones: list[dict]) -> str:
             marker = " (learner)" if kid.get("learner") else ""
             out.append(
                 f"| {kid['id']}{marker} | `kind:{kid['kind']}` | {cell(kid['title'])} "
-                f"| {cell(basis_line(kid, backlog.sources))} | {cell(milestone_text)} "
+                f"| {cell(basis_line(kid, backlog.sources))} | {kid.get('priority', '')} "
+                f"| {cell(milestone_text)} "
                 f"| {kid['start']} to {kid['target']} "
                 f"| {', '.join(kid.get('blocked_by', []))} |"
             )

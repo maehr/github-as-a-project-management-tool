@@ -33,4 +33,4 @@ Never move a fictional-formal date silently. Adjust the planned work, and record
 
 **Due:** 2027-06-01 (fictional-formal)
 
-**Justification:** Fictional registration date 2026-12-01 plus the six-month writing period (SP-DH-2025 Art. 15 Abs. 4). A late submission is graded 1 (RSL Phil.-hist. 21 Art. 56 Abs. 4). Only the supervisor can extend the period, once, by one semester, for a serious reason (Art. 56 Abs. 2).
+**Justification:** Fictional registration date 2026-12-01 plus the six-month writing period (SP-DH-2025 Art. 15 Abs. 4). A late submission is graded 1 (RSL Phil.-hist. 21 Art. 56 Abs. 4). For an important reason, the supervisor can extend the period once by one semester (Art. 56 Abs. 2). The Collegium Decanale decides on further extensions (Art. 56 Abs. 3).

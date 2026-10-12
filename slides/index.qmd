@@ -30,7 +30,7 @@ format:
 
 A **fictional** MA thesis in Digital Humanities (Major):
 
-> How did Swiss periodicals circulate between 1830 and 1960?
+> How did the landscape of Swiss periodicals change between 1830 and 1960 by language, place, and subject?
 
 - 30 **synthetic** records, no real data
 - Fictional registration **2026-12-01**, fictional submission **2027-06-01**

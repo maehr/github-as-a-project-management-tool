@@ -36,7 +36,7 @@ A review is a human check against the acceptance criteria. An automatic AI revie
 ```markdown
 ## Research question and scope
 
-**Research question:** How did Swiss periodicals circulate between 1830 and 1960, and how did language shape their reach?
+**Research question:** How did the landscape of Swiss periodicals change between 1830 and 1960 by language, place, and subject?
 
 | In scope                                                  | Out of scope                                   |
 | --------------------------------------------------------- | ---------------------------------------------- |

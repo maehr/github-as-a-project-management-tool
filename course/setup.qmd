@@ -31,7 +31,20 @@ Before X1, decide how you work. You can change the decision later.
 | --- | --- | --- |
 | **Solo, public** | Default | Your exercise repository and Project are public. They contain only synthetic data. |
 | **Solo, private** | You do not want public activity under your name. | Select **Private** for the repository and the Project. All exercises work the same way. |
-| **Pair** | You have no account, or you prefer to work together. | One person owns the repository and adds the other as a collaborator. You review each other's pull requests in X4. |
+| **Pair** | You have no account, or you prefer to work together. | One person owns the repository and the Project and gives the partner access to both. You review each other's pull requests in X4. |
+
+### Work in a pair
+
+Repository access and Project access are separate. Access to the repository does not give access to the Project. The owner gives both.
+
+1. In X1, open the repository and click **Settings**.
+2. Under **Access**, click **Collaborators**, then **Add people**.
+3. Search for your partner and add them. Your partner accepts the invitation.
+4. In X3, open the Project. Click **…** (top right), then **Settings**.
+5. Click **Manage access**. Under **Invite collaborators**, search for your partner.
+6. Select the role **Write** and click **Invite**.
+
+A partner without an account works on the owner's laptop. Swap the keyboard at each exercise.
 
 ::: {.callout-important}
 ## Synthetic data only
@@ -50,3 +63,5 @@ Do not put real personal data, unpublished research data, or third-party materia
 - [Creating an account on GitHub](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github)
 - [Configuring two-factor authentication](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
 - [GitHub's plans](https://docs.github.com/en/get-started/learning-about-github/githubs-plans)
+- [Inviting collaborators to a personal repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository)
+- [Managing access to your projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)

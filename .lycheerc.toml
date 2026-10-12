@@ -10,6 +10,8 @@ exclude = [
   "https://github.com/maehr/github-as-a-project-management-tool/blob/main/src/",
   "https://github.com/maehr/github-as-a-project-management-tool/issues/new",
   # Hosts that reject automated requests.
+  # The KSL course catalogue needs a browser session and redirects in a loop.
+  "https://www.ksl.unibe.ch/",
   "https://www.gnu.org/licenses/",
   "https://fsf.org/",
   "https://www.contributor-covenant.org/",

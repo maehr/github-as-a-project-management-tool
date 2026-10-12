@@ -1,15 +1,17 @@
 # SPECS.md — GitHub as a Project Management Tool
 
-> **Purpose:** implementation contract for a self-contained, English-language workshop and reusable OER. **Authority:** uploaded `Course - overview.pdf` (KSL export, 12 Oct 2026) for course facts; instructor brief and prior `SPECS(3).md` for proposed teaching design. Do not present design choices as KSL requirements.
+> **Purpose:** implementation contract for a self-contained, English-language workshop and reusable OER. **Authority:** the [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0) for course facts; instructor brief and prior `SPECS(3).md` for proposed teaching design. Do not present design choices as KSL requirements.
 
 ## 1. KSL baseline (authoritative course metadata)
 
-- **Course:** `[PROJM] Github as a project management tool`; KSL **526141**, **HS2026**; Digital Humanities, University of Bern; **Master-level workshop**; instructor **Dr. Moritz Mähr**.
-- **Session:** **Friday 16 Oct 2026, 09:00–13:00** (240 minutes); **English**; capacity **20**; **0.5 ECTS**, **passed/failed**.
-- **Room:** timetable lists **Seminarraum F 001, Hörraumgebäude Unitobler** (PDF p. 2). Room administration lists **Seminarraum F -112** (p. 3). **Confirm before publishing; use F 001 provisionally.**
-- **Published aims:** apply project-management principles using GitHub; understand GitHub's opportunities and limitations as a PM tool. Teach approaches to managing and documenting ongoing projects (PDF p. 1).
-- **Prior knowledge:** GitHub familiarity and minimal command-line knowledge are *helpful*; the earlier PM introduction is *optional*. Design all core exercises for the browser; no software installation or homework prerequisite.
-- **Assessment:** KSL has pass/fail grading but lists **no exam type/modalities**. Use an in-class formative completion check; **do not invent formal pass criteria** without confirmation (PDF pp. 1–2).
+Show the KSL fields on the site and link the KSL entry. Do not cite page numbers of an export.
+
+- **Course:** `[PROJM] Github as a project management tool`; root number **526141**, **HS2026**; type **Workshop**; allocation **Digital Humanities**; lecturer **Dr. Moritz Mähr**, University of Bern, Walter Benjamin Kolleg.
+- **Session:** **Friday 16 Oct 2026, 09:00–13:00** (240 minutes); **Seminarraum F 001, Hörraumgebäude Unitobler**.
+- **Credits:** **0.5 ECTS**, **passed/failed**; recognition as an optional course possible.
+- **Description (KSL):** GitHub can manage and document ongoing projects; the course introduces **different project-management approaches**, combined with best practices for GitHub.
+- **Prior knowledge (KSL):** an idea of GitHub and minimal command-line knowledge are ideal; "Introduction to Project Management" is a plus, not a necessity. Design all core exercises for the browser; no software installation or homework prerequisite.
+- **Assessment:** KSL lists the exam type as **not defined**. The instructor's pass rule (D-010): attend the full session and show the minimum deliverable in the exit check; a labelled recovery package counts.
 
 ## 2. Learning design (instructor proposal, not KSL)
 
@@ -35,7 +37,7 @@ Use browser-accessible GitHub Free features. Labels replace organisation-depende
 
 **Example backlog:** E01 Scope/registration; E02 Research design/permissions; E03 Data preparation; E04 Analysis; E05 Writing; E06 Submission; E07 Defence; E08 Publication/preservation. Supply ~4 child tasks per epic in `project-management/backlog.yml`; learners manually build only **E01 and E08** with six sub-issues. Keep scope, dependencies, and evidence consistent. Example story: document CSV columns, types, missing values, synthetic origin, version, and licence for a future reuser.
 
-**Rules vs plans:** The KSL PDF governs this **course**, not individual master's theses. For **DH Major** examples, consult the [DH study plan, Arts. 15–16](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) and [faculty rules](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf): registration eligibility, confirmed official dates, six-month writing period, length/format, submission, and disputation. Treat rights, ethics, DMP, AI use, archiving, and release as context-dependent tasks, **not universal exam rules**. A DH Minor/elective student must use their actual thesis programme's rules. Each claimed rule needs source, applicability, status, and linked Issue. Keep uncertain real dates unconfirmed. For the workshop only, use **fictional** registration **2026-12-01** and submission **2027-06-01**; intermediate milestones are adjustable estimates.
+**Rules vs plans:** The KSL entry governs this **course**, not individual master's theses. For **DH Major** examples, consult the [DH study plan, Arts. 15–16](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) and [faculty rules](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf): registration eligibility, confirmed official dates, six-month writing period, length/format, submission, and disputation. Treat rights, ethics, DMP, AI use, archiving, and release as context-dependent tasks, **not universal exam rules**. A DH Minor/elective student must use their actual thesis programme's rules. Each claimed rule needs source, applicability, status, and linked Issue. Keep uncertain real dates unconfirmed. For the workshop only, use **fictional** registration **2026-12-01** and submission **2027-06-01**; intermediate milestones are adjustable estimates.
 
 ## 4. Workshop run of show (240 min; 20 min breaks)
 
@@ -67,7 +69,7 @@ Provide a short teaching explanation, exact browser steps, annotated screenshots
 1. Inspect upstream template, record revision, adapt metadata/licences; build synthetic scenario and versioned backlog.
 2. Test an actual GitHub Free browser journey: create template → add Issues/sub-issues → create Project → dependency/milestones → PR merge/closure → release. Test public **and** private paths.
 3. Write X1–X6 plus recovery states; capture annotated screenshots **after** confirming UI behaviour; create Quarto/Reveal.js outputs.
-4. Confirm KSL **room discrepancy**, KSL pass/fail arrangement, audience mix, and applicable thesis regulations/deadlines. Keep fictional assumptions labelled.
+4. Confirm the pass rule, audience mix, and applicable thesis regulations/deadlines. Keep fictional assumptions labelled.
 5. Validate exactly **240 minutes**, working links/assets, site + slide rendering, screenshots/alt text, full example backlog, no confidential content or unintended external publishing. Deploy only after explicit approval; verify the live site.
 
-**Source hierarchy:** KSL PDF = course facts; university regulations = programme-specific thesis rules; instructor brief/previous SPECS = proposed pedagogy; GitHub/Quarto documentation = changing product behaviour. Cite each at its point of use. **Unresolved information must remain visibly unresolved.**
+**Source hierarchy:** KSL entry = course facts; university regulations = programme-specific thesis rules; instructor brief/previous SPECS = proposed pedagogy; GitHub/Quarto documentation = changing product behaviour. Cite each at its point of use. **Unresolved information must remain visibly unresolved.**

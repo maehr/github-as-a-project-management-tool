@@ -5,17 +5,18 @@ description: Decision records for this course repository and an example record f
 
 This page records the decisions behind this course. Each record has a context, a decision, its consequences, and its source. The last section shows an example record for the fictional thesis, as learners write it in exercise [X6](../course/exercises/x6.qmd).
 
-| ID              | Date       | Decision                                                           | Status   |
-| --------------- | ---------- | ------------------------------------------------------------------ | -------- |
-| [D-001](#d-001) | 2026-10-12 | Create the course repository from the template at commit `c6ec5bc` | Accepted |
-| [D-002](#d-002) | 2026-10-12 | Remove template parts that the course does not use                 | Accepted |
-| [D-003](#d-003) | 2026-10-12 | Use labels instead of Issue Types                                  | Accepted |
-| [D-004](#d-004) | 2026-10-12 | Use only synthetic data; real theses default to private            | Accepted |
-| [D-005](#d-005) | 2026-10-12 | Licence prose and data under CC BY 4.0, code under AGPL 3.0        | Proposed |
-| [D-006](#d-006) | 2026-10-12 | Use fictional registration and submission dates                    | Accepted |
-| [D-007](#d-007) | 2026-10-12 | Describe scan reuse, not copyright, in the dataset                 | Accepted |
-| [D-008](#d-008) | 2026-10-12 | Generate pages from YAML instead of executing code                 | Accepted |
-| [D-009](#d-009) | 2026-10-12 | Confirm room F 001; keep pass/fail unresolved                      | Accepted |
+| ID              | Date       | Decision                                                           | Status              |
+| --------------- | ---------- | ------------------------------------------------------------------ | ------------------- |
+| [D-001](#d-001) | 2026-10-12 | Create the course repository from the template at commit `c6ec5bc` | Accepted            |
+| [D-002](#d-002) | 2026-10-12 | Remove template parts that the course does not use                 | Accepted            |
+| [D-003](#d-003) | 2026-10-12 | Use labels instead of Issue Types                                  | Accepted            |
+| [D-004](#d-004) | 2026-10-12 | Use only synthetic data; real theses default to private            | Accepted            |
+| [D-005](#d-005) | 2026-10-12 | Licence prose and data under CC BY 4.0, code under AGPL 3.0        | Accepted            |
+| [D-006](#d-006) | 2026-10-12 | Use fictional registration and submission dates                    | Accepted            |
+| [D-007](#d-007) | 2026-10-12 | Describe scan reuse, not copyright, in the dataset                 | Accepted            |
+| [D-008](#d-008) | 2026-10-12 | Generate pages from YAML instead of executing code                 | Accepted            |
+| [D-009](#d-009) | 2026-10-12 | Confirm room F 001; keep pass/fail unresolved                      | Superseded by D-010 |
+| [D-010](#d-010) | 2026-10-12 | Use the KSL course entry as the authority; set the pass rule       | Accepted            |
 
 ## D-001 Create the repository from the template at commit `c6ec5bc` {#d-001}
 
@@ -65,7 +66,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** Others can reuse and adapt the course with attribution. The screenshots are not under CC BY 4.0.
 
-**Source.** `SPECS.md` §5 ("Proposed CC BY 4.0"). Status stays "Proposed" until the instructor confirms it.
+**Source.** `SPECS.md` §5 ("Proposed CC BY 4.0"). The instructor confirmed it on 12 October 2026.
 
 ## D-006 Use fictional registration and submission dates {#d-006}
 
@@ -107,6 +108,16 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Source.** Instructor confirmation in the implementation session, 12 October 2026.
 
+## D-010 Use the KSL course entry as the authority; set the pass rule {#d-010}
+
+**Context.** Two reviews found the course facts hard to read: the pages cited page numbers of an export, and the pass/fail arrangement stayed open. The KSL course entry lists the exam type as "not defined".
+
+**Decision.** The [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0) is the only source of the course facts. The pages show its fields and link to it. The instructor sets the pass rule: a learner passes when they attend the full session and show the minimum deliverable in the exit check. A labelled recovery package counts.
+
+**Consequences.** The pages drop the export page numbers and the room discrepancy. The pass rule is the instructor's decision, not a KSL rule. Risk U-02 is resolved.
+
+**Source.** Instructor decision in the implementation session, 12 October 2026.
+
 ## Example: decision record for the fictional thesis {#example}
 
 This is the record that learners write in exercise X6. It belongs in the learner's own repository, not here.
@@ -122,7 +133,7 @@ This is the record that learners write in exercise X6. It belongs in the learner
   the SYN-P021 scans from the public release. The demo release is blocked by
   that task.
 - **Consequences:** M2 still holds. The release contains no SYN-P021 scans.
-- **Not changed:** The official submission date. Only the supervisor can
-  extend it (RSL Phil.-hist. 21 Art. 56 Abs. 2).
+- **Not changed:** The official submission date. An extension needs a
+  formal decision (RSL Phil.-hist. 21 Art. 56).
 - **Links:** #<Issue number of E08-S1>, #<Issue number of the new task>
 ```

@@ -12,7 +12,7 @@ description: Re-plan after a two-week source delay and a rights restriction, kee
 
 Plans change. A good plan makes the change visible and traceable: what changed, why, what follows from it, and what did *not* change. In this exercise two events occur at once. You react with the tools from X2 to X5.
 
-The most important rule is about deadlines. The submission date of a master's thesis is an official date. Only the supervisor can extend it, once, for a serious reason ([RSL Phil.-hist. 21 Art. 56 Abs. 2](../../documentation/requirements.qmd)). A late submission is graded 1 (Art. 56 Abs. 4). You therefore **never move the official deadline in the plan to absorb a delay**. You move the planned work, you check what still fits, and you record the decision.
+The most important rule is about deadlines. The submission date of a master's thesis is an official date. An extension needs an important reason and a formal decision: the supervisor can extend the period once by one semester, and the Collegium Decanale decides on any further extension ([requirement R-12](../../documentation/requirements.qmd)). A late submission is graded 1. You therefore **never move the official deadline in the plan to absorb a delay**. You move the planned work, you check what still fits, and you record the decision.
 
 ## The scenario
 
@@ -61,7 +61,7 @@ The most important rule is about deadlines. The submission date of a master's th
 1. Open the view **Backlog**.
 2. Click the arrow next to the view name.
 3. Select **Export view data**.
-4. Save the CSV file. It is a snapshot of the plan for your records or your supervisor.
+4. Save the `.tsv` file (tab-separated values). It is a snapshot of the plan for your records or your supervisor.
 
 {{< screenshot x6-export >}}
 
@@ -91,7 +91,7 @@ The most important rule is about deadlines. The submission date of a master's th
   - Add E08-T7: exclude the scans of SYN-P021 from all public outputs. E08-T7 is blocked by E08-T6.
   - Keep milestone M3 (submission, 2027-06-01) unchanged.
 - **Consequences:** M2 (2027-03-01, proposed) still holds. No public file contains a scan of SYN-P021.
-- **Not changed:** The official submission date. Only the supervisor can extend it (RSL Phil.-hist. 21 Art. 56 Abs. 2).
+- **Not changed:** The official submission date. An extension needs a formal decision (RSL Phil.-hist. 21 Art. 56).
 ```
 
 ## Expected state
@@ -101,7 +101,7 @@ The most important rule is about deadlines. The submission date of a master's th
 - [ ] M3 still has the due date 2027-06-01.
 - [ ] `decisions.md` holds D-T02.
 - [ ] The Project header shows a status update.
-- [ ] You saved an exported CSV of the Backlog view.
+- [ ] You saved the exported `.tsv` file of the Backlog view.
 
 ## If something goes wrong
 

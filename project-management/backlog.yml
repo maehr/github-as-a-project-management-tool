@@ -15,8 +15,9 @@
 
 meta:
   scenario: >-
-    A fictional MA Digital Humanities (Major) student writes a thesis on the
-    circulation of Swiss periodicals, 1830-1960, using the synthetic dataset
+    A fictional MA Digital Humanities (Major) student writes a thesis on how
+    the landscape of Swiss periodicals changed between 1830 and 1960 by
+    language, place, and subject, using the synthetic dataset
     data/synthetic-periodicals.csv. All people, dates, and records are fictional.
   fictional_dates:
     registration: 2026-12-01

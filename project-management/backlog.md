@@ -28,12 +28,12 @@ All people, dates, and records are fictional. The dates are planning estimates. 
 
 The thesis has an agreed scope and an accepted registration.
 
-| ID | Kind | Title | Basis | Milestone | Planned | Blocked by |
-| --- | --- | --- | --- | --- | --- | --- |
-| E01-T1 (learner) | `kind:task` | Check the registration requirements | Rule: [SP-DH-2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) Art. 15 Abs. 5, p. 5 (verified) | M1 Registration submitted | 2026-10-19 to 2026-10-30 |  |
-| E01-T2 (learner) | `kind:task` | Write the research question and scope | Practice | M1 Registration submitted | 2026-10-19 to 2026-11-13 |  |
-| E01-T3 (learner) | `kind:task` | Submit the thesis registration to the Dean's Office | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 55, p. 17 (unconfirmed) | M1 Registration submitted | 2026-11-02 to 2026-12-01 | E01-T1 |
-| E01-T4 | `kind:task` | Agree the topic and the specialisation with the supervisor | Rule: [SP-DH-2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) Art. 15 Abs. 2, p. 5 (verified) | M1 Registration submitted | 2026-10-19 to 2026-11-06 |  |
+| ID | Kind | Title | Basis | Priority | Milestone | Planned | Blocked by |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| E01-T1 (learner) | `kind:task` | Check the registration requirements | Rule: [SP-DH-2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) Art. 15 Abs. 5, p. 5 (verified) | High | M1 Registration submitted | 2026-10-19 to 2026-10-30 |  |
+| E01-T2 (learner) | `kind:task` | Write the research question and scope | Practice | High | M1 Registration submitted | 2026-10-19 to 2026-11-13 |  |
+| E01-T3 (learner) | `kind:task` | Submit the thesis registration to the Dean's Office | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 55, p. 17 (unconfirmed) | High | M1 Registration submitted | 2026-11-02 to 2026-12-01 | E01-T1 |
+| E01-T4 | `kind:task` | Agree the topic and the specialisation with the supervisor | Rule: [SP-DH-2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) Art. 15 Abs. 2, p. 5 (verified) | Normal | M1 Registration submitted | 2026-10-19 to 2026-11-06 |  |
 
 ::: {.callout-note collapse="true" title="E01-T1: Issue title and body"}
 
@@ -127,13 +127,13 @@ _Fictional thesis. Synthetic data only._
 
 Supervision, data management, ethics, AI use, and language are agreed and documented.
 
-| ID | Kind | Title | Basis | Milestone | Planned | Blocked by |
-| --- | --- | --- | --- | --- | --- | --- |
-| E02-T1 | `kind:task` | Agree the supervision rhythm | Practice |  | 2026-12-02 to 2026-12-11 |  |
-| E02-T2 | `kind:task` | Write a data management plan | Practice |  | 2026-12-02 to 2026-12-18 |  |
-| E02-T3 | `kind:task` | Clarify whether an ethics review is necessary | Practice |  | 2026-12-02 to 2026-12-18 |  |
-| E02-T4 | `kind:task` | Agree the rules for AI use with the supervisor | Practice |  | 2026-12-02 to 2026-12-18 |  |
-| E02-T5 | `kind:task` | Agree the thesis language | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 54 Abs. 1, p. 17 (verified) |  | 2026-12-02 to 2026-12-11 |  |
+| ID | Kind | Title | Basis | Priority | Milestone | Planned | Blocked by |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| E02-T1 | `kind:task` | Agree the supervision rhythm | Practice | Normal |  | 2026-12-02 to 2026-12-11 |  |
+| E02-T2 | `kind:task` | Write a data management plan | Practice | Normal |  | 2026-12-02 to 2026-12-18 |  |
+| E02-T3 | `kind:task` | Clarify whether an ethics review is necessary | Practice | Low |  | 2026-12-02 to 2026-12-18 |  |
+| E02-T4 | `kind:task` | Agree the rules for AI use with the supervisor | Practice | Normal |  | 2026-12-02 to 2026-12-18 |  |
+| E02-T5 | `kind:task` | Agree the thesis language | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 54 Abs. 1, p. 17 (verified) | Low |  | 2026-12-02 to 2026-12-11 |  |
 
 ::: {.callout-note collapse="true" title="E02-T1: Issue title and body"}
 
@@ -243,12 +243,12 @@ _Fictional thesis. Synthetic data only._
 
 The periodical metadata are clean, validated, and traceable to their sources.
 
-| ID | Kind | Title | Basis | Milestone | Planned | Blocked by |
-| --- | --- | --- | --- | --- | --- | --- |
-| E03-T1 | `kind:task` | Request the scans from the fictional archive | Demo |  | 2026-12-02 to 2027-01-15 |  |
-| E03-T2 | `kind:task` | Clean the periodical metadata | Practice |  | 2027-01-18 to 2027-02-12 | E03-T1 |
-| E03-T3 | `kind:task` | Validate the CSV against the data dictionary | Practice | M2 Data documented and validated | 2027-02-15 to 2027-02-26 | E03-T2, E08-S1 |
-| E03-T4 | `kind:task` | Record the provenance of each source | Practice | M2 Data documented and validated | 2026-12-02 to 2027-02-26 |  |
+| ID | Kind | Title | Basis | Priority | Milestone | Planned | Blocked by |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| E03-T1 | `kind:task` | Request the scans from the fictional archive | Demo | High |  | 2026-12-02 to 2027-01-15 |  |
+| E03-T2 | `kind:task` | Clean the periodical metadata | Practice | High |  | 2027-01-18 to 2027-02-12 | E03-T1 |
+| E03-T3 | `kind:task` | Validate the CSV against the data dictionary | Practice | Normal | M2 Data documented and validated | 2027-02-15 to 2027-02-26 | E03-T2, E08-S1 |
+| E03-T4 | `kind:task` | Record the provenance of each source | Practice | Normal | M2 Data documented and validated | 2026-12-02 to 2027-02-26 |  |
 
 ::: {.callout-note collapse="true" title="E03-T1: Issue title and body"}
 
@@ -340,12 +340,12 @@ _Fictional thesis. Synthetic data only._
 
 The analysis is complete, documented, and reproducible.
 
-| ID | Kind | Title | Basis | Milestone | Planned | Blocked by |
-| --- | --- | --- | --- | --- | --- | --- |
-| E04-T1 | `kind:task` | Describe the corpus | Practice |  | 2027-03-01 to 2027-03-12 | E03-T3 |
-| E04-T2 | `kind:task` | Run the main analysis and record its parameters | Practice |  | 2027-03-15 to 2027-04-02 |  |
-| E04-T3 | `kind:task` | Produce the figures with captions and sources | Practice |  | 2027-03-29 to 2027-04-09 |  |
-| E04-T4 | `kind:task` | Check that the analysis runs from a clean copy | Practice |  | 2027-04-05 to 2027-04-16 | E04-T2 |
+| ID | Kind | Title | Basis | Priority | Milestone | Planned | Blocked by |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| E04-T1 | `kind:task` | Describe the corpus | Practice | Normal |  | 2027-03-01 to 2027-03-12 | E03-T3 |
+| E04-T2 | `kind:task` | Run the main analysis and record its parameters | Practice | High |  | 2027-03-15 to 2027-04-02 |  |
+| E04-T3 | `kind:task` | Produce the figures with captions and sources | Practice | Normal |  | 2027-03-29 to 2027-04-09 |  |
+| E04-T4 | `kind:task` | Check that the analysis runs from a clean copy | Practice | Normal |  | 2027-04-05 to 2027-04-16 | E04-T2 |
 
 ::: {.callout-note collapse="true" title="E04-T1: Issue title and body"}
 
@@ -434,12 +434,12 @@ _Fictional thesis. Synthetic data only._
 
 A complete draft that meets the length rule and includes supervisor feedback.
 
-| ID | Kind | Title | Basis | Milestone | Planned | Blocked by |
-| --- | --- | --- | --- | --- | --- | --- |
-| E05-T1 | `kind:task` | Outline the chapters | Practice |  | 2027-01-04 to 2027-01-22 |  |
-| E05-T2 | `kind:task` | Draft all chapters | Practice |  | 2027-01-25 to 2027-05-07 |  |
-| E05-T3 | `kind:task` | Check the length of the thesis | Rule: [SP-DH-2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) Art. 15 Abs. 3, p. 5 (verified) |  | 2027-05-10 to 2027-05-14 | E05-T2 |
-| E05-T4 | `kind:task` | Get feedback from the supervisor on the full draft | Practice |  | 2027-04-19 to 2027-05-14 |  |
+| ID | Kind | Title | Basis | Priority | Milestone | Planned | Blocked by |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| E05-T1 | `kind:task` | Outline the chapters | Practice | Normal |  | 2027-01-04 to 2027-01-22 |  |
+| E05-T2 | `kind:task` | Draft all chapters | Practice | High |  | 2027-01-25 to 2027-05-07 |  |
+| E05-T3 | `kind:task` | Check the length of the thesis | Rule: [SP-DH-2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) Art. 15 Abs. 3, p. 5 (verified) | High |  | 2027-05-10 to 2027-05-14 | E05-T2 |
+| E05-T4 | `kind:task` | Get feedback from the supervisor on the full draft | Practice | Normal |  | 2027-04-19 to 2027-05-14 |  |
 
 ::: {.callout-note collapse="true" title="E05-T1: Issue title and body"}
 
@@ -528,12 +528,12 @@ _Fictional thesis. Synthetic data only._
 
 The thesis is submitted complete and on time.
 
-| ID | Kind | Title | Basis | Milestone | Planned | Blocked by |
-| --- | --- | --- | --- | --- | --- | --- |
-| E06-T1 | `kind:task` | Add the signed declaration of independent work | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 30, p. 9 (verified) | M3 Thesis submitted | 2027-05-17 to 2027-05-21 |  |
-| E06-T2 | `kind:task` | Confirm the submission formalities with the Dean's Office | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 29 Abs. 2, p. 9 (unconfirmed) | M3 Thesis submitted | 2027-05-03 to 2027-05-14 |  |
-| E06-T3 | `kind:task` | Submit the thesis to the Dean's Office | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 56 Abs. 1, p. 17 (fictional) | M3 Thesis submitted | 2027-05-24 to 2027-06-01 | E05-T3, E06-T1, E06-T2 |
-| E06-T4 | `kind:task` | Request an extension through the supervisor, if a serious reason occurs | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 56 Abs. 2, p. 17 (verified) |  | 2027-05-03 to 2027-05-28 |  |
+| ID | Kind | Title | Basis | Priority | Milestone | Planned | Blocked by |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| E06-T1 | `kind:task` | Add the signed declaration of independent work | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 30, p. 9 (verified) | High | M3 Thesis submitted | 2027-05-17 to 2027-05-21 |  |
+| E06-T2 | `kind:task` | Confirm the submission formalities with the Dean's Office | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 29 Abs. 2, p. 9 (unconfirmed) | Normal | M3 Thesis submitted | 2027-05-03 to 2027-05-14 |  |
+| E06-T3 | `kind:task` | Submit the thesis to the Dean's Office | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 56 Abs. 1, p. 17 (fictional) | High | M3 Thesis submitted | 2027-05-24 to 2027-06-01 | E05-T3, E06-T1, E06-T2 |
+| E06-T4 | `kind:task` | Request an extension through the supervisor, if a serious reason occurs | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 56 Abs. 2, p. 17 (verified) | Low |  | 2027-05-03 to 2027-05-28 |  |
 
 ::: {.callout-note collapse="true" title="E06-T1: Issue title and body"}
 
@@ -625,12 +625,12 @@ _Fictional thesis. Synthetic data only._
 
 The oral examination (disputation) is prepared and held.
 
-| ID | Kind | Title | Basis | Milestone | Planned | Blocked by |
-| --- | --- | --- | --- | --- | --- | --- |
-| E07-T1 | `kind:task` | Confirm the date of the oral examination | Rule: [SP-DH-2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) Art. 16 Abs. 1-2, p. 5 (unconfirmed) |  | 2027-06-02 to 2027-06-18 | E06-T3 |
-| E07-T2 | `kind:task` | Prepare a 30-minute disputation | Rule: [SP-DH-2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) Art. 16 Abs. 3, p. 5 (verified) |  | 2027-06-02 to 2027-06-25 |  |
-| E07-T3 | `kind:task` | Rehearse the disputation with peers | Practice |  | 2027-06-28 to 2027-07-02 | E07-T2 |
-| E07-T4 | `kind:task` | Record the examination feedback | Practice |  | 2027-07-05 to 2027-07-09 |  |
+| ID | Kind | Title | Basis | Priority | Milestone | Planned | Blocked by |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| E07-T1 | `kind:task` | Confirm the date of the oral examination | Rule: [SP-DH-2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) Art. 16 Abs. 1-2, p. 5 (unconfirmed) | Normal |  | 2027-06-02 to 2027-06-18 | E06-T3 |
+| E07-T2 | `kind:task` | Prepare a 30-minute disputation | Rule: [SP-DH-2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) Art. 16 Abs. 3, p. 5 (verified) | Normal |  | 2027-06-02 to 2027-06-25 |  |
+| E07-T3 | `kind:task` | Rehearse the disputation with peers | Practice | Low |  | 2027-06-28 to 2027-07-02 | E07-T2 |
+| E07-T4 | `kind:task` | Record the examination feedback | Practice | Low |  | 2027-07-05 to 2027-07-09 |  |
 
 ::: {.callout-note collapse="true" title="E07-T1: Issue title and body"}
 
@@ -719,13 +719,13 @@ _Fictional thesis. Synthetic data only._
 
 Reusable outputs are documented, released, and preserved within the rights that apply.
 
-| ID | Kind | Title | Basis | Milestone | Planned | Blocked by |
-| --- | --- | --- | --- | --- | --- | --- |
-| E08-S1 (learner) | `kind:story` | Document the dataset for a future reuser | Practice | M2 Data documented and validated | 2027-01-18 to 2027-02-12 |  |
-| E08-T2 (learner) | `kind:task` | Decide on rights and access for data and text | Practice | M2 Data documented and validated | 2027-01-04 to 2027-02-26 |  |
-| E08-T3 (learner) | `kind:task` | Publish a demo release of the documented dataset | Demo | M3 Thesis submitted | 2027-03-01 to 2027-03-12 | E08-T2 |
-| E08-T4 | `kind:task` | Decide on library access to the submitted thesis | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 32 Abs. 1, p. 10 (verified) |  | 2027-06-21 to 2027-07-09 | E07-T1 |
-| E08-T5 | `kind:task` | Deposit the final dataset in a repository with a persistent identifier | Practice |  | 2027-06-02 to 2027-06-30 | E08-T3 |
+| ID | Kind | Title | Basis | Priority | Milestone | Planned | Blocked by |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| E08-S1 (learner) | `kind:story` | Document the dataset for a future reuser | Practice | High | M2 Data documented and validated | 2027-01-18 to 2027-02-12 |  |
+| E08-T2 (learner) | `kind:task` | Decide on rights and access for data and text | Practice | High | M2 Data documented and validated | 2027-01-04 to 2027-02-26 |  |
+| E08-T3 (learner) | `kind:task` | Publish a demo release of the documented dataset | Demo | Normal | M3 Thesis submitted | 2027-03-01 to 2027-03-12 | E08-T2 |
+| E08-T4 | `kind:task` | Decide on library access to the submitted thesis | Rule: [RSL-PH-21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) Art. 32 Abs. 1, p. 10 (verified) | Low |  | 2027-06-21 to 2027-07-09 | E07-T1 |
+| E08-T5 | `kind:task` | Deposit the final dataset in a repository with a persistent identifier | Practice | Low |  | 2027-06-02 to 2027-06-30 | E08-T3 |
 
 ::: {.callout-note collapse="true" title="E08-S1: Issue title and body"}
 

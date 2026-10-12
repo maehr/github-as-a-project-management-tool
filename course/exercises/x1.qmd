@@ -59,7 +59,7 @@ The template is a starting point, not a finished product. Its README describes t
 ## About
 
 This repository plans, documents, and shares a fictional MA thesis in Digital Humanities (Major).
-The thesis asks how Swiss periodicals circulated between 1830 and 1960.
+The thesis asks how the landscape of Swiss periodicals changed between 1830 and 1960 by language, place, and subject.
 
 | Item                   | Value                                                  |
 | ---------------------- | ------------------------------------------------------ |
