@@ -1,0 +1,48 @@
+name: Task
+description: One piece of work with one output.
+title: 'E00-T0 '
+labels: ['kind:task']
+body:
+  - type: input
+    id: output
+    attributes:
+      label: Output
+      description: The file, decision, or confirmation that this task produces.
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: Owner
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance criteria
+      description: Checkboxes that a reviewer can verify.
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Evidence
+      description: What shows that the task is done.
+    validations:
+      required: true
+  - type: dropdown
+    id: basis
+    attributes:
+      label: Basis
+      options:
+        - Rule (a regulation requires it)
+        - Practice (good practice, depends on the context)
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source, applicability, and status
+      description: For a rule, give document, article, page, the programme it applies to, and whether you verified it.
