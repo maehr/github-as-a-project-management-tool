@@ -30,6 +30,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - X5 separates coordination, storage, publication, backup, and preservation, and warns that a release archive holds every tracked file.
 - The slides cover the whole course, with screenshots.
 - The research question matches the synthetic data.
+- npm, Python, and GitHub Actions dependencies are updated to their latest releases. Quarto stays at 1.10.19, the latest stable release.
 
 ### Fixed
 
