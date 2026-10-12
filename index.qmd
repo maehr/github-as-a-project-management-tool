@@ -7,7 +7,7 @@ description: Browser-first workshop and open educational resource. University of
 This workshop shows how to manage a master's thesis with GitHub. You work on a **fictional thesis** with **synthetic data**. In four hours you build a repository, a sourced plan of Issues, a Project with a backlog, a board, and a roadmap, and you complete, document, and release one part of the work.
 
 ::: {.callout-note appearance="simple"}
-**Friday, 16 October 2026, 09:00–13:00** · KSL 526141 · 0.5 ECTS, pass/fail · English · Room: Seminarraum F 001, Unitobler (**provisional**, see [Syllabus](course/syllabus.qmd))
+**Friday, 16 October 2026, 09:00–13:00** · KSL 526141 · 0.5 ECTS, pass/fail · English · Room: Seminarraum F 001, Hörraumgebäude Unitobler
 :::
 
 ## Start here

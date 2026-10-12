@@ -16,12 +16,12 @@ The facts in this table come from the University of Bern course catalogue (KSL e
 | Language | English | KSL |
 | Capacity | 20 | KSL |
 | Credits and grading | 0.5 ECTS, passed or failed | KSL pp. 1–2 |
-| Room | Seminarraum F 001, Hörraumgebäude Unitobler (provisional) | KSL p. 2 (timetable) |
+| Room | Seminarraum F 001, Hörraumgebäude Unitobler | KSL p. 2 (timetable); confirmed by the instructor on 2026-10-12 |
 
-::: {.callout-warning}
-## Unresolved: room
+::: {.callout-note}
+## Room
 
-The KSL timetable lists **Seminarraum F 001** (p. 2). The room administration lists **Seminarraum F -112** (p. 3). The course uses F 001 provisionally. Check the room in KSL on the day before the session.
+The KSL timetable lists **Seminarraum F 001** (p. 2); the room administration lists **Seminarraum F -112** (p. 3). The instructor confirmed **F 001** on 12 October 2026.
 :::
 
 ## Aims

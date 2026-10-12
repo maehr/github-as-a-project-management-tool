@@ -15,17 +15,17 @@ A browser-first workshop and open educational resource (OER). Learners plan, con
 
 The University of Bern course catalogue (KSL) is the source for these facts.
 
-| Item       | Value                                                                        |
-| ---------- | ---------------------------------------------------------------------------- |
-| Course     | `[PROJM] Github as a project management tool`, KSL 526141, HS2026            |
-| Programme  | Digital Humanities, University of Bern, Master-level workshop                |
-| Instructor | Dr. Moritz Mähr                                                              |
-| Session    | Friday, 16 October 2026, 09:00–13:00 (240 minutes)                           |
-| Language   | English                                                                      |
-| Credits    | 0.5 ECTS, passed or failed                                                   |
-| Room       | Seminarraum F 001, Hörraumgebäude Unitobler (**provisional, not confirmed**) |
+| Item       | Value                                                             |
+| ---------- | ----------------------------------------------------------------- |
+| Course     | `[PROJM] Github as a project management tool`, KSL 526141, HS2026 |
+| Programme  | Digital Humanities, University of Bern, Master-level workshop     |
+| Instructor | Dr. Moritz Mähr                                                   |
+| Session    | Friday, 16 October 2026, 09:00–13:00 (240 minutes)                |
+| Language   | English                                                           |
+| Credits    | 0.5 ECTS, passed or failed                                        |
+| Room       | Seminarraum F 001, Hörraumgebäude Unitobler                       |
 
-KSL lists two different rooms: F 001 and F -112. The room stays provisional until the instructor confirms it.
+KSL lists two different rooms: F 001 (timetable) and F -112 (room administration). The instructor confirmed F 001 on 12 October 2026.
 
 ## What Learners Do
 

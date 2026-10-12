@@ -15,6 +15,7 @@ This page records the decisions behind this course. Each record has a context, a
 | [D-006](#d-006) | 2026-10-12 | Use fictional registration and submission dates                    | Accepted |
 | [D-007](#d-007) | 2026-10-12 | Describe scan reuse, not copyright, in the dataset                 | Accepted |
 | [D-008](#d-008) | 2026-10-12 | Generate pages from YAML instead of executing code                 | Accepted |
+| [D-009](#d-009) | 2026-10-12 | Confirm room F 001; keep pass/fail unresolved                      | Accepted |
 
 ## D-001 Create the repository from the template at commit `c6ec5bc` {#d-001}
 
@@ -95,6 +96,16 @@ This page records the decisions behind this course. Each record has a context, a
 **Consequences.** The site build needs only Quarto. No document executes code.
 
 **Source.** `SPECS.md` §3 ("Persist the instructor's full example backlog in versioned text").
+
+## D-009 Confirm room F 001; keep pass/fail unresolved {#d-009}
+
+**Context.** `SPECS.md` §6 step 4 requires a confirmation of the room, the pass/fail arrangement, the audience mix, and the thesis regulations before release.
+
+**Decision.** The instructor confirmed on 12 October 2026: the room is Seminarraum F 001; the audience is mostly DH Major students; the 2025 DH study plan and RSL Phil.-hist. 21 are the basis of the example; real thesis dates stay unconfirmed. The pass/fail arrangement is not yet confirmed.
+
+**Consequences.** The pages no longer mark the room as unresolved. The pass/fail callout stays. Risks U-01 and U-03 are updated.
+
+**Source.** Instructor confirmation in the implementation session, 12 October 2026.
 
 ## Example: decision record for the fictional thesis {#example}
 

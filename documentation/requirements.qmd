@@ -62,7 +62,7 @@ These facts govern the workshop, not the thesis. See the [syllabus](../course/sy
 | --- | --- |
 | 0.5 ECTS, pass/fail | verified (KSL) |
 | Exam type and modalities | **not listed** in KSL; unresolved |
-| Room | **unresolved**: F 001 (timetable) or F -112 (room administration) |
+| Room | F 001; KSL also lists F -112; confirmed by the instructor on 2026-10-12 |
 
 ## Context-dependent tasks
 
