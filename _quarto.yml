@@ -1,0 +1,74 @@
+project:
+  type: website
+  render:
+    - '*.qmd'
+    - '*.md'
+    - 'documentation/**/*.qmd'
+    - 'documentation/**/*.md'
+    - 'project-management/**/*.qmd'
+    - 'project-management/**/*.md'
+    - '!**/*.template.md'
+    - '!**/*.template.qmd'
+
+website:
+  title: REPO_NAME
+  favicon: android-chrome-512x512.png
+  open-graph: true
+  twitter-card: true
+  site-url: https://USERNAME.github.io/REPO_NAME/
+  repo-url: https://github.com/USERNAME/REPO_NAME/
+  issue-url: https://github.com/USERNAME/REPO_NAME/issues/new/choose
+  repo-actions: [edit, issue]
+  page-navigation: true
+  bread-crumbs: true
+  back-to-top-navigation: true
+  search:
+    show-item-context: true
+    type: overlay
+  navbar:
+    logo: android-chrome-512x512.png
+    logo-alt: ''
+    title: REPO_NAME
+    tools:
+      - icon: github
+        url: https://github.com/USERNAME/REPO_NAME/
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Documentation
+        href: documentation/index.qmd
+
+  sidebar:
+    contents:
+      - section: REPO_NAME
+        href: index.qmd
+        contents:
+          - text: Changelog
+            href: CHANGELOG.md
+          - text: Code of Conduct
+            href: CODE_OF_CONDUCT.md
+          - text: Contributing
+            href: CONTRIBUTING.md
+          - text: License (Data)
+            href: LICENSE-CCBY.md
+          - text: License (Code)
+            href: LICENSE-AGPL.md
+          - text: Security
+            href: SECURITY.md
+      - text: Documentation
+        href: documentation/index.qmd
+
+format:
+  html:
+    toc: true
+    theme:
+      - brand
+      - cosmo
+    css: styles.css
+    code-copy: true
+    code-overflow: wrap
+    canonical-url: true
+
+freeze: true
+
+editor: visual

@@ -1,0 +1,35 @@
+{
+  "name": "REPO_NAME",
+  "description": "SHORT_DESCRIPTION",
+  "author": "FULLNAME <[INSERT CONTACT METHOD]>",
+  "url": "https://github.com/USERNAME/REPO_NAME/issues",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "check": "prettier --check .",
+    "format": "prettier --write .",
+    "prepare": "prek install --hook-type pre-commit --hook-type commit-msg",
+    "preview": "uv run quarto preview",
+    "site:build": "uv run quarto render --to html",
+    "site:archive": "uv run python scripts/release_site_archive.py",
+    "release:prepare": "npm run site:build && npm run site:archive -- --stage",
+    "changelog": "npm exec git-cliff -- --config cliff.toml",
+    "changelog:unreleased": "npm exec git-cliff -- --config cliff.toml --unreleased --strip all",
+    "lychee-check": "lychee --config .lycheerc.toml './*.md' './*.qmd'"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-conventional": "^21.0.2",
+    "@j178/prek": "^0.4.4",
+    "git-cliff": "^2.13.1",
+    "prettier": "^3.8.4"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "type": "module",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}
