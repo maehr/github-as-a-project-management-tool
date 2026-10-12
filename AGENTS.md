@@ -149,7 +149,7 @@ Follow [secure use of Actions](https://docs.github.com/en/actions/reference/secu
 
 A GitHub Actions workflow deploys from `main`. Never publish by hand. Never replace the workflow with a manual step.
 
-* Render in CI. The `Render and Publish` workflow builds the site on every pull request and deploys only from `main`.
+* Render in CI. The `Render and Publish` workflow builds the site on every pull request. It deploys every push to `main`. A manual run (`gh workflow run quarto-publish.yml --ref <branch>`) deploys the selected branch, if the `github-pages` environment allows that branch.
 * The maintainer enables GitHub Pages. Do not enable it, merge to `main`, or create a release without explicit approval.
 * Quarto is pinned to 1.10.19 in `quarto-publish.yml` and `release.yml`. Change both together.
 * The deploy job alone has `pages: write` and `id-token: write`.

@@ -65,7 +65,12 @@ jobs:
   deploy:
     name: Deploy
     needs: [check, build]
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    # Deploy every push to main. A manual run (workflow_dispatch) deploys the
+    # selected branch, for example to preview a branch before the merge. The
+    # github-pages environment decides which branches may deploy.
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
       pages: write
