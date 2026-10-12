@@ -6,24 +6,56 @@ date: 2026-10-16
 format:
   revealjs:
     slide-number: true
+    hash-type: number
     embed-resources: true
-    theme: simple
+    transition: none
+    center: false
     footer: 'PROJM · KSL 526141 · HS2026 · CC BY 4.0'
     chalkboard: false
+    include-in-header:
+      text: |
+        <style>
+          /* _brand.yml sets 1.05rem for the website, which is too small on a slide. */
+          html:root { --r-main-font-size: 28px; }
+          .reveal .slides section { line-height: 1.35; }
+          .reveal .slides section p { margin: 0.4em 0; }
+          .reveal table { font-size: 0.72em; margin: 0.3em auto; }
+          .reveal table th, .reveal table td { padding: 0.15em 0.6em; }
+          .reveal figure { margin: 0; }
+          .reveal figure img { max-height: 540px; max-width: 100%; width: auto; margin: 0 auto; display: block; }
+          .reveal .note { font-size: 0.6em; color: #8f8d88; }
+        </style>
 ---
 
 ## Today
 
-- 09:00 Frame: thesis workflow and GitHub objects
-- 09:15 **X1** Repository · 09:40 **X2** Requirements → Issues
-- 10:15 *Break*
-- 10:25 **X3** Project · 11:05 **X4** Pull request
-- 11:40 *Break*
-- 11:50 **X5** Reusable output · 12:25 **X6** Delay and restriction
-- 12:50 Transfer to a private thesis · exit check
+| Time | Block | You produce |
+| --- | --- | --- |
+| 09:00 | Approaches and GitHub basics | — |
+| 09:15 | **X1** Create the repository | Repository, README, visibility check |
+| 09:40 | **X2** Turn requirements into work | 2 epics, 6 sub-issues, 1 story |
+| 10:15 | *Break* | |
+| 10:25 | **X3** Configure the Project | Milestones, Project, priorities, dependency |
+| 11:05 | **X4** Complete one documentation task | Merged pull request, closed Issue |
+| 11:40 | *Break* | |
+| 11:50 | **X5** Prepare a reusable output | Data dictionary, rights decision, release |
+| 12:25 | **X6** React to a delay and a restriction | Re-plan, decision record |
+| 12:50 | Transfer and exit check | — |
 
 ::: {.notes}
-240 minutes, two breaks of 10 minutes. Everything runs in the browser. Synthetic data only.
+240 minutes, two breaks of 10 minutes. Everything runs in the browser. Synthetic data only. Course site: maehr.github.io/github-as-a-project-management-tool.
+:::
+
+## The course
+
+- **When:** Friday, 16 October 2026, 09:00–13:00
+- **Where:** Seminarraum F 001, Hörraumgebäude Unitobler
+- **Credits:** 0.5 ECTS, passed or failed
+- **You pass when** you attend the full session and show the minimum deliverable in the exit check
+- **New to GitHub?** Keep the [cheat sheet](../course/cheat-sheet.qmd) open
+
+::: {.notes}
+The pass rule is the instructor's decision. KSL lists the type of exam as "not defined".
 :::
 
 ## The scenario
@@ -36,7 +68,59 @@ A **fictional** MA thesis in Digital Humanities (Major):
 - Fictional registration **2026-12-01**, fictional submission **2027-06-01**
 - Public exercise repository; a real thesis starts **private**
 
-## Five GitHub objects
+# Project-management approaches {.center}
+
+[course/approaches](../course/approaches.qmd)
+
+## Three questions
+
+1. **What is fixed?** The order of the work, the process, or the length of a cycle.
+2. **How does new work enter the plan?** Once, at any time, or at the start of each cycle.
+3. **When do you check progress?** At a milestone, all the time, or at the end of each cycle.
+
+## Three approaches
+
+| Approach | Fixed | Open to change | GitHub feature |
+| --- | --- | --- | --- |
+| **Phase plan** | Order and dates of the phases | Little | Milestones, roadmap |
+| **Kanban** | The workflow states | The next task, at any time | Board, Status, column limits |
+| **Scrum** | Cycle length and goal | The work of the next cycle | Iteration field, status updates |
+
+::: {.note}
+Sources: [Kanban Guide 2025.5](https://kanbanguides.org/the-kanban-guide/2025.5/), [Scrum Guide 2020](https://scrumguides.org/scrum-guide.html).
+:::
+
+## A hybrid for a thesis
+
+- **Phase plan** for the fixed dates: registration and submission become milestones
+- **Kanban** for the daily work: the board shows what is ready, in progress, in review
+- **A Scrum-like rhythm** for the review: 15 minutes every week
+
+No approach guarantees quality or a met deadline. It makes the state visible, so that you can decide early.
+
+# GitHub basics {.center}
+
+[course/cheat-sheet](../course/cheat-sheet.qmd)
+
+## Files and plan
+
+| Term | What it is |
+| --- | --- |
+| **Repository** | The home of one project: files, history, Issues, pull requests |
+| **Commit** | A saved change with a message, an author, and a date |
+| **Branch** | A separate line of work; `main` holds the agreed version |
+| **Pull request** | A proposal to bring a branch into `main`, with review |
+| **Issue** | One piece of work: what to do, and is it done? |
+| **Sub-issue** · **label** · **milestone** | Part of a larger Issue · a tag · a group with a due date |
+| **Project** | Your plan as a table, a board, or a roadmap |
+| **Release** | A tagged version with notes; not an archive |
+
+## Template or fork?
+
+- **Template:** start your own project. You get the files, not the history. No connection to the original. *You do this in X1.*
+- **Fork:** contribute to another person's project. It stays connected, so you can propose changes back.
+
+## Five objects, five questions
 
 | Object | Answers |
 | --- | --- |
@@ -65,26 +149,70 @@ Every rule needs: **source · applicability · status · Issue**
 
 # X1 Create the repository {.center}
 
-25 minutes · [course/exercises/x1](../course/exercises/x1.qmd)
+09:15–09:40 · [course/exercises/x1](../course/exercises/x1.qmd)
 
-## X1 in brief
+## X1 · Why and how
 
-1. Template link → owner, name, visibility → **Create repository**
-2. Replace the README (synthetic-data warning)
-3. **Read and replace** AI-suggested commit messages
-4. Check the visibility in **Settings → Danger Zone**
-5. Optional: **Disable actions** (template workflows fail, as expected)
+The template is a starting point. You make it describe *your* thesis.
+
+1. Open the template link. Select the owner, the name, and the visibility.
+2. Click **Create repository**.
+3. Replace the README. Keep the synthetic-data warning.
+4. **Read and replace** the commit message that Copilot suggests.
+5. Check the visibility in **Settings → Danger Zone**.
+
+## X1 · The template form
+
+{{< screenshot x1-template-form nocaption >}}
+
+## X1 · Read the AI suggestion
+
+{{< screenshot x1-commit-dialog-ai nocaption >}}
+
+::: {.notes}
+Copilot can describe changes that you did not make. Replace the text.
+:::
+
+## X1 · A red cross is expected
+
+{{< screenshot x1-readme-failed-run nocaption >}}
+
+::: {.notes}
+The template workflows try to deploy Pages and fail. Optional: Settings → Actions → General → Disable actions.
+:::
 
 # X2 Turn requirements into work {.center}
 
-35 minutes · [course/exercises/x2](../course/exercises/x2.qmd)
+09:40–10:15 · [course/exercises/x2](../course/exercises/x2.qmd)
 
-## X2 in brief
+## X2 · Why
 
-- Labels `kind:epic`, `kind:task`, `kind:story`
-- Epics **E01** (scope and registration) and **E08** (publication)
-- Six **native sub-issues** with output, owner, acceptance criteria, evidence, basis
-- One story: *As a future reuser, I need … so that …*
+A plan fails when it lists only intentions ("write chapter 2").
+
+Each Issue names:
+
+- an **output** · an **owner** · **acceptance criteria** · the **evidence** · the **basis**
+
+An **epic** groups the work for one outcome. A **sub-issue** has one output. A **story** names the person who needs the output.
+
+## X2 · Steps
+
+1. Create the labels `kind:epic`, `kind:task`, `kind:story`.
+2. Create the epics **E01** and **E08**.
+3. **Derive E01-T1 yourself** from requirement R-05 (study plan, Art. 15 Abs. 5).
+4. Compare it with the example backlog.
+5. Create the other five sub-issues from the backlog.
+
+```markdown
+**Output:** … **Owner:** … **Basis:** Rule: <source> (<status>)
+**Acceptance criteria**
+- [ ] …
+**Evidence:** …
+```
+
+## X2 · Epic with sub-issues
+
+{{< screenshot x2-epic-sub-issues nocaption >}}
 
 # Break {.center}
 
@@ -92,25 +220,68 @@ Every rule needs: **source · applicability · status · Issue**
 
 # X3 Configure the Project {.center}
 
-40 minutes · [course/exercises/x3](../course/exercises/x3.qmd)
+10:25–11:05 · [course/exercises/x3](../course/exercises/x3.qmd)
 
-## X3 in brief
+## X3 · Why
 
-- Milestones **M1** (2026-12-01), **M2** (proposed), **M3** (2027-06-01)
-- Project linked to the repository; **visibility set separately**
-- Fields: Status, Priority, Start date, Target date, Basis
-- Views: **Backlog**, **Board**, **Roadmap** (date fields + milestone markers)
-- Dependency: E01-T3 **blocked by** E01-T1 — not a parent-child relation
+- A **milestone** answers: *what must be ready by this date?*
+- **Date fields** answer: *when do I work on this?*
+- A **dependency** says *this waits for that*; a sub-issue says *this is part of that*
+- The fields and views are the same for every thesis: **copy them**
+- The **decisions** stay yours: priorities, dates, justifications
+
+## X3 · Steps
+
+1. Create the milestones **M1** (2026-12-01), **M2** (proposed), **M3** (2027-06-01).
+2. **Make a copy** of the showcase Project.
+3. Link it to your repository. Check the visibility: **a copy starts private**.
+4. Pair: invite the partner under **Manage access**.
+5. Add E01 and E08; the sub-issues follow.
+6. **Decide** the priority and the dates of each sub-issue.
+7. Mark E01-T3 as **blocked by** E01-T1.
+
+## X3 · Make a copy
+
+{{< screenshot x3-make-a-copy nocaption >}}
+
+## X3 · Project access is separate
+
+{{< screenshot x3-manage-access nocaption >}}
+
+::: {.notes}
+Repository access does not include Project access. Without this step, the partner cannot see the Project.
+:::
+
+## X3 · The roadmap
+
+{{< screenshot x3-roadmap nocaption >}}
+
+## X3 · A dependency, not a hierarchy
+
+{{< screenshot x2-task-blocked nocaption >}}
 
 # X4 Complete one documentation task {.center}
 
-35 minutes · [course/exercises/x4](../course/exercises/x4.qmd)
+11:05–11:40 · [course/exercises/x4](../course/exercises/x4.qmd)
 
-## X4 in brief
+## X4 · Why and how
 
-Branch → pull request with `Closes #…` → review → merge → Issue closed → Project **Done**
+`Closes #3` in a pull request closes Issue #3 when the pull request merges. The Project workflows move the item to **In review** and then to **Done**.
+
+1. Edit the README on a **new branch**.
+2. Open a **pull request** with `Closes #<E01-T2>`.
+3. **Review** against the acceptance criteria.
+4. **Merge**. Check that the Issue is closed and the Project shows **Done**.
 
 A review is a human check against the acceptance criteria.
+
+## X4 · The pull request
+
+{{< screenshot x4-pull-request nocaption >}}
+
+## X4 · Closed by the merge
+
+{{< screenshot x4-issue-closed nocaption >}}
 
 # Break {.center}
 
@@ -118,35 +289,88 @@ A review is a human check against the acceptance criteria.
 
 # X5 Prepare a reusable output {.center}
 
-35 minutes · [course/exercises/x5](../course/exercises/x5.qmd)
+11:50–12:25 · [course/exercises/x5](../course/exercises/x5.qmd)
 
-## X5 in brief
+## X5 · Five jobs, five places
 
-- Upload the CSV, write the data dictionary (E08-S1)
-- Fix `CITATION.cff`: it still describes the template
-- Record the rights and access decision (E08-T2)
-- Publish `v0.1.0-demo` (E08-T3) — or a labelled recovery package
+| Job | Question | Where |
+| --- | --- | --- |
+| Coordination | Who does what, by when? | Issues and the Project |
+| Storage | Where do the working data live? | Where your institution allows |
+| Publication | What may others see and reuse? | Repository, release, Pages, after the rights decision |
+| Backup | Can I restore my work after a loss? | A second copy outside GitHub |
+| Preservation | Will it still exist in ten years? | A deposit with a DOI |
+
+## X5 · Steps
+
+1. Upload the CSV. Write the data dictionary (closes E08-S1).
+2. Record the rights and access decision (closes E08-T2).
+3. Publish `v0.1.0-demo` (E08-T3), or a labelled recovery package.
+4. Optional: fix `CITATION.cff`.
+
+A release adds **source archives with every tracked file** at the tag. Check the files before you publish.
+
+## X5 · The release
+
+{{< screenshot x5-release nocaption >}}
 
 # X6 React to a delay and a restriction {.center}
 
-25 minutes · [course/exercises/x6](../course/exercises/x6.qmd)
+12:25–12:50 · [course/exercises/x6](../course/exercises/x6.qmd)
 
-## X6 scenario
+## X6 · Two events
 
 ::: {.incremental}
 1. The archive delivers the scans **two weeks late**.
-2. The archive **restricts** the scans of **SYN-P021**.
+2. The archive **restricts** the scans of **SYN-P021**. They must not appear in any public output.
 :::
 
-Move the planned work. Keep **M3**. Record the decision. Export the view.
+The official submission date does **not** move. An extension needs a formal decision.
+
+## X6 · Choose one option
+
+| Option | What you do | What it costs |
+| --- | --- | --- |
+| **A** Release 29 records | Release without SYN-P021; explain the gap | An incomplete release |
+| **B** Metadata only | Release all 30 records, no scans | A less useful release |
+| **C** Find a substitute | Ask a second archive; new task and dependency | More work, a second risk of delay |
+
+Then: change one dependency, check the roadmap, write **D-T02**, post a status update.
+
+## X6 · A good decision record names
+
+- the **options** that you considered
+- the **decision** and the **reason**
+- the **changes**: dates and dependencies, with Issue numbers
+- the **consequences** for M2, the release, and a reuser
+- what did **not** change: M3, 2027-06-01
+
+## X6 · Status update
+
+{{< screenshot x6-status-update nocaption >}}
+
+# After the workshop {.center}
+
+[course/after](../course/after.qmd)
+
+## Weekly review: 15 minutes
+
+1. Move each card on the **Board** to its true Status.
+2. Finish a card in **In progress** before you start a new one.
+3. For each **Blocked by**: wait, ask, or re-plan.
+4. Check the next milestone on the **Roadmap**.
+5. Close what is done; link the output.
+6. Record decisions in `decisions.md`.
+7. Post a **status update**.
 
 ## Transfer to a private thesis
 
 1. Template → **Private** repository
-2. **Make a copy** of the showcase Project → **Private**
+2. **Make a copy** of the showcase Project; it starts private
 3. Find the rules of **your** programme
 4. Keep official dates **unconfirmed** until you have them in writing
 5. Decide on rights before you publish anything
+6. Private is **not** automatically safe storage for sensitive data
 
 ## Exit check
 
@@ -156,9 +380,12 @@ With your repository open, explain:
 2. one **dependency** and why it is not a hierarchy,
 3. one **disclosure safeguard**.
 
+You pass when you attended the full session and show the minimum deliverable.
+
 ## Links
 
-- Course site: this repository's website
+- Course site: <https://maehr.github.io/github-as-a-project-management-tool/>
+- Cheat sheet: [course/cheat-sheet](../course/cheat-sheet.qmd)
 - Showcase Project: <https://github.com/users/maehr/projects/11>
 - Example repository: <https://github.com/maehr/projm-example-thesis>
 - Template: <https://github.com/maehr/open-research-data-template>

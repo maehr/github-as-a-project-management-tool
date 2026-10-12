@@ -90,7 +90,7 @@ def test_every_image_exists_and_has_alt_text() -> None:
         assert (path.parent / src).resolve().exists(), f"missing image {src}"
 
 
-SHORTCODE = re.compile(r"\{\{< screenshot (?P<name>[a-z0-9-]+) >\}\}")
+SHORTCODE = re.compile(r"\{\{< screenshot (?P<name>[a-z0-9-]+)(?: nocaption)? >\}\}")
 
 
 def test_every_screenshot_is_annotated_used_and_present() -> None:

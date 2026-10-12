@@ -1,6 +1,9 @@
--- Shortcode {{< screenshot NAME >}}
+-- Shortcode {{< screenshot NAME >}} or {{< screenshot NAME nocaption >}}
 -- Builds a figure from assets/screenshots/annotations.yml: the image, its alt
 -- text, and a caption that lists the numbered callouts and the capture date.
+-- With "nocaption", the figure has no caption. The slides use it, because the
+-- callout list does not fit on a slide. The image itself still states the
+-- capture date in its caption bar.
 
 local spec = nil
 
@@ -42,8 +45,11 @@ return {
     local offset = quarto.project.offset or "."
     local src = offset .. "/assets/screenshots/" .. pandoc.utils.stringify(shot.file)
     local image = pandoc.Image(pandoc.Inlines(alt), src, "")
-    local figure = pandoc.Figure(pandoc.Plain({ image }),
-      { long = { pandoc.Plain(pandoc.Inlines(caption)) } }, { id = "fig-" .. name })
+    local long = { pandoc.Plain(pandoc.Inlines(caption)) }
+    if args[2] and pandoc.utils.stringify(args[2]) == "nocaption" then
+      long = {}
+    end
+    local figure = pandoc.Figure(pandoc.Plain({ image }), { long = long }, { id = "fig-" .. name })
     return pandoc.Blocks({ figure })
   end,
 }
