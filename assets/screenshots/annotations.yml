@@ -237,6 +237,60 @@ screenshots:
       - box: [1005, 131, 1102, 164]
         label: On
 
+  # Captured in a throwaway copy of the showcase Project.
+  - file: x3-make-a-copy.webp
+    source: x3-10-make-a-copy-dialog.jpg
+    crop: [0, 64, 1200, 600]
+    alt: >-
+      The dialog "Make a copy" of the showcase Project. It states that views,
+      custom fields, insights, and workflows will be copied, and that issues
+      and pull requests will not be copied. Below are the owner selector, the
+      field "New project name", and the button "Copy project".
+    callouts:
+      - box: [1001, 182, 1180, 210]
+        label: Make a copy, in the Project menu (…)
+      - box: [376, 268, 824, 344]
+        label: What the copy keeps, and what it leaves out
+      - box: [376, 386, 528, 418]
+        label: Select yourself as the owner
+      - box: [376, 454, 824, 486]
+        label: Name the copy
+      - box: [713, 526, 824, 558]
+        label: Copy project
+  - file: x3-copy-workflows.webp
+    source: x3-11-copy-workflows.jpg
+    crop: [0, 64, 1200, 560]
+    alt: >-
+      The workflows of the copied Project. Six default workflows have a green
+      dot, among them "Auto-add sub-issues to project" and "Pull request
+      linked to issue". The selected workflow sets Status to In review when a
+      pull request is linked to an issue.
+    callouts:
+      - box: [24, 168, 304, 360]
+        label: Six workflows stay on in the copy
+      - box: [432, 364, 1096, 484]
+        label: A linked pull request sets Status to In review
+      - box: [1004, 130, 1102, 166]
+        label: On
+  - file: x3-manage-access.webp
+    source: x3-12-manage-access.jpg
+    crop: [0, 64, 1200, 470]
+    alt: >-
+      The page "Manage access" in the settings of the copied Project. The box
+      "Who has access" says "Private project". Below, the section "Invite
+      collaborators" has a search field, the role Write, and the button
+      Invite. The sidebar lists the copied fields Status, Priority, Start
+      date, Target date, and Basis.
+    callouts:
+      - box: [24, 170, 304, 200]
+        label: Manage access
+      - box: [369, 182, 1184, 308]
+        label: A copy starts private
+      - box: [369, 366, 1184, 400]
+        label: Invite your partner with the role Write
+      - box: [24, 272, 304, 466]
+        label: The copied fields
+
   # ---------------------------------------------------------------------- X4
   - file: x4-pull-request.webp
     source: x4-01-pr-conversation.jpg

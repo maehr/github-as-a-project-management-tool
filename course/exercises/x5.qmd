@@ -6,7 +6,7 @@ description: Add the synthetic dataset and its data dictionary, correct the cita
 
 ::: {.callout-note title="At a glance"}
 - **Time:** 35 minutes
-- **You produce:** the CSV in `data/clean/`, a data dictionary that closes the story E08-S1, a corrected `CITATION.cff`, a rights and access decision (E08-T2), and the release `v0.1.0-demo` (E08-T3).
+- **You produce:** the CSV in `data/clean/`, a data dictionary that closes the story E08-S1, optionally a corrected `CITATION.cff`, a rights and access decision (E08-T2), and the release `v0.1.0-demo` (E08-T3).
 - **New terms:** [release](../cheat-sheet.qmd#release), [tag](../cheat-sheet.qmd#tag), [visibility](../cheat-sheet.qmd#visibility). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
 
@@ -17,6 +17,16 @@ Data become reusable only with documentation. A future reuser needs to know what
 Publication is a decision, not a side effect. Before you publish, decide for each output who may see it and under which terms, and note the rights of others. In the scenario, a fictional archive restricts its scans. The scans therefore stay outside the repository.
 
 A **release** marks a state of the repository with a version and notes. It is useful for citation within a project, but it is **not long-term preservation**. GitHub can delete or change a repository. A **deposit** in a repository such as Zenodo, with a DOI, is a separate step that this workshop does not perform. See [Publication](../../documentation/publication.qmd).
+
+Five jobs are easy to confuse. Each one needs its own place, and one tool does not do the job of another.
+
+| Job | Question | Where | Not the same as |
+| --- | --- | --- | --- |
+| Coordination | Who does what, by when? | Issues and the Project | Storage |
+| Storage | Where do the working data live? | Here: the synthetic data in the repository. Real data: where your institution allows | Publication |
+| Publication | What may others see and reuse? | A public repository, a release, or GitHub Pages, after the rights decision | Preservation |
+| Backup | Can I restore my work after a loss? | A second copy outside GitHub | An exported view or a release |
+| Preservation | Will it still exist, and be citable, in ten years? | A deposit with a DOI, for example on Zenodo | A release |
 
 ## Before you start
 
@@ -36,7 +46,10 @@ A **release** marks a state of the repository with a version and notes. It is us
 7. Commit to the same branch.
 8. Open a pull request with the description `Closes #<number of E08-S1>`. Review it and merge it as in [X4](x4.qmd).
 
-### Correct the citation file
+### Correct the citation file (optional)
+
+Skip this step if you are short of time. Do it before you publish a real release.
+
 
 The file `CITATION.cff` in your repository still describes the **template**, with its authors and its DOI. Anyone who clicks **Cite this repository** gets the wrong reference.
 
@@ -53,6 +66,12 @@ The file `CITATION.cff` in your repository still describes the **template**, wit
 4. Commit with the message `docs: record the rights and access decision` and the extended description `Closes #<number of E08-T2>`.
 
 ### Publish the demo release
+
+::: {.callout-warning}
+## A release publishes more than its notes
+
+GitHub adds two source archives (`.zip` and `.tar.gz`) to every release. They contain every tracked file of the repository at the tag, not only the files that the release notes name. Check the file list of the repository before you publish. In a private repository, the release stays private.
+:::
 
 1. On the repository home page, click **Create a new release** (right column, under **Releases**).
 2. Click **Choose a tag**, type `v0.1.0-demo`, and select **Create new tag**.

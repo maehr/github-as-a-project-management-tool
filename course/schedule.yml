@@ -13,7 +13,7 @@ blocks:
     end: '09:15'
     kind: frame
     title: Frame the thesis workflow
-    activity: Compare GitHub objects and project-management approaches.
+    activity: Compare project-management approaches and the GitHub objects that support them.
     evidence: Identify tool limits and the rules that apply.
   - start: '09:15'
     end: '09:40'

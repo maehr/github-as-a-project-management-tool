@@ -49,7 +49,7 @@ A partner without an account works on the owner's laptop. Swap the keyboard at e
 ::: {.callout-important}
 ## Synthetic data only
 
-Do not put real personal data, unpublished research data, or third-party material into an exercise repository. The workshop gives you a synthetic dataset. For your real thesis, start with a **private** repository and a **private** Project. See [Transfer to a private thesis](solutions.qmd#private-thesis).
+Do not put real personal data, unpublished research data, or third-party material into an exercise repository. The workshop gives you a synthetic dataset. For your real thesis, start with a **private** repository and a **private** Project. See [Transfer to a private thesis](after.qmd#private-thesis).
 :::
 
 ## What to open on the day

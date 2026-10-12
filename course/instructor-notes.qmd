@@ -27,13 +27,13 @@ description: Pre-flight checklist, timing, failure modes, and the dated UI verif
 
 | Block | Planned | Risk | Cut if late |
 | --- | --- | --- | --- |
-| Frame | 15 min | Discussion runs long | Skip the comparison of PM approaches; keep the GitHub objects |
+| Frame | 15 min | Discussion runs long | Show the comparison table of the [approaches](approaches.qmd) only; skip the discussion |
 | X1 | 25 min | Account creation, two-factor authentication | Pair learners without an account |
-| X2 | 35 min | Typing the bodies | Copy bodies from the example backlog; E08 can move to X3 |
-| X3 | 40 min | Fields and views take time | Use **Make a copy** of the showcase Project |
+| X2 | 35 min | Deriving E01-T1 takes long | Give five minutes for E01-T1, then compare with the backlog; E08 can move to X3 |
+| X3 | 40 min | Linking, visibility, and dates take time | Skip the second dependency and the M2 justification; add them in X6 |
 | X4 | 35 min | Merge conflicts, review rights | Self-review with **Comment** |
-| X5 | 35 min | Upload, rename | Use the recovery package instead of the release |
-| X6 | 25 min | Status update menu | Skip the status update; keep decision and dates |
+| X5 | 35 min | Upload, rename | Skip the citation file; use the recovery package instead of the release |
+| X6 | 25 min | The option discussion runs long | Skip the export and the status update; keep the decision record and the dates |
 | Transfer and exit | 10 min | — | Exit check in pairs |
 
 ## Known failure modes
@@ -67,17 +67,20 @@ The instructor checked each element below on **12 October 2026** in Google Chrom
 | X1 | Visibility | UI | Settings → General → Danger Zone → "Change repository visibility" |
 | X1 | Disable Actions | UI (menu) and API (change) | Settings → Actions → General → "Disable actions" |
 | X2 | Labels, Issues, sub-issues | API | Native sub-issues show as panel "Sub-issues" with "Create sub-issue"; pills "Parent" and "Blocked by" under the title |
-| X2 | "Add existing issue" | Docs | Not clicked |
+| X2 | "Create sub-issue" and "Add existing issue" | UI (12 Oct, throwaway repository) | The button **Create sub-issue** appears below the description after the page loads. Its arrow menu has **Create sub-issue** and **Add existing issue**. Adding an existing issue shows the panel "Sub-issues" |
 | X3 | Milestones | API | Milestones page with due dates and descriptions |
 | X3 | Project creation from the repository tab, "New project" | Docs | The button "New project" and "Link a project" were seen on the Projects tab; creation itself was done by API |
 | X3 | Fields and Status options | API | Status options replaced; fields Priority, Basis, Start date, Target date |
 | X3 | Views | API (create) and UI (roadmap) | Roadmap date fields, zoom, and markers need the UI; **Save view** asks for confirmation |
 | X3 | Built-in workflows | UI | Six active after repair, including "Item added to project → Backlog" and "Pull request linked to issue → In review" |
-| X3 | "Make a copy" of a Project | Docs | Not clicked |
-| X3 | "Mark as blocked by" in Relationships | Docs (relation created by API) | Sidebar section "Relationships" seen |
+| X3 | "Make a copy" of a Project | UI (12 Oct) | Project menu **…** → **Make a copy**. The dialog says: views, custom fields, insights, and workflows are copied; issues and pull requests are not. The owner must be selected. **The copy starts private**. The Status options and the fields Priority, Start date, Target date, and Basis are copied |
+| X3 | Workflows in the copy | UI and API (12 Oct) | Six workflows stay on, including "Auto-add sub-issues to project" and "Pull request linked to issue → In review". "Auto-add to project" is off. Adding an epic to the copy also added its sub-issue with Status Backlog |
+| X3 | Link a Project to a repository | UI (12 Oct) | Repository **Projects** tab → **Link a project** → select the Project → **Save** |
+| X3 | Project visibility and access | UI (12 Oct) | **…** → **Settings** → **Danger zone** → **Visibility**. **Manage access** → **Invite collaborators**, default role Write. Nobody was invited in the test |
+| X3 | "Mark as blocked by" in Relationships | UI (12 Oct) | Gear icon next to **Relationships** → **Mark as blocked by** → select the issue → close the list. The pill "Blocked by" appears under the title |
 | X4 | Pull request flow | API (create, merge) and UI (pages) | Status moved to "In review" on link and "Done" on merge; Issue "closed this as completed in #43" |
 | X5 | Upload and rename in the browser | Docs | Files were added by API |
 | X5 | Release page | API (create) and UI (page) | Release "Latest" with notes and source archives |
 | X6 | Status update | API (create) and UI (panel) | Header badge "On track"; panel "Status updates" with "Add update" |
-| X6 | "Export view data" | UI (menu) | Item in the view tab menu; the download itself was not run |
+| X6 | "Export view data" | UI (menu, 12 Oct) | Only in the arrow menu of the view tab, not in the **View** button (the documentation says otherwise). The documentation states a `.tsv` file; the download was not run |
 | All | Private path | API and UI | Private repository and private Project; sub-issues, dependencies, milestones, and status updates work the same way |

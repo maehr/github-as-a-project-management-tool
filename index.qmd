@@ -32,9 +32,10 @@ flowchart TD
 
 1. **New to GitHub?** Read the [cheat sheet](course/cheat-sheet.qmd) first. It explains repositories, Issues, pull requests, and the other terms of the workshop.
 2. Prepare with [Setup](course/setup.qmd). Create a GitHub account and choose a path: solo, private, or pair.
-3. Read the [Syllabus](course/syllabus.qmd) for the aims, the run of show, and the pass rule.
+3. Read the [Syllabus](course/syllabus.qmd) for the aims, the run of show, and the pass rule. The [approaches](course/approaches.qmd) page covers the project-management background.
 4. Work through the exercises in order. Each exercise page has the same parts: why, steps, screenshots, expected state, and what to do if something goes wrong.
 5. Use the [slides](slides/index.qmd) for an overview of the whole session.
+6. After the session, move to your real thesis and keep the plan up to date: [After the workshop](course/after.qmd).
 
 ## Exercises
 
@@ -55,7 +56,7 @@ The [showcase Project](https://github.com/users/maehr/projects/11) holds the ful
 
 - It is an **open educational resource** and a **worked documentation example**. See [Worked example](documentation/index.qmd).
 - It is **not** a thesis-format template that the university approved. Your study plan, your supervisor, and the Dean's Office set the rules for your thesis. The [requirements register](documentation/requirements.qmd) shows how to keep the two apart.
-- It does **not** use real personal or research data. For your real thesis, start **private**: see [Transfer to a private thesis](course/solutions.qmd#private-thesis).
+- It does **not** use real personal or research data. For your real thesis, start **private**: see [Transfer to a private thesis](course/after.qmd#private-thesis).
 
 ## Reuse
 

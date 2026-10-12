@@ -6,7 +6,7 @@ description: Create two epics with six native sub-issues, one user story, and ac
 
 ::: {.callout-note title="At a glance"}
 - **Time:** 35 minutes
-- **You produce:** three labels, two epics (E01, E08), six sub-issues with acceptance criteria, and one user story. Each rule-based Issue names its source.
+- **You produce:** three labels, two epics (E01, E08), six sub-issues with acceptance criteria, and one user story. You write one sub-issue yourself from a requirement. Each rule-based Issue names its source.
 - **New terms:** [issue](../cheat-sheet.qmd#issue), [label](../cheat-sheet.qmd#label), [epic](../cheat-sheet.qmd#epic), [sub-issue](../cheat-sheet.qmd#sub-issue). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
 
@@ -22,6 +22,7 @@ Some work exists because a regulation requires it; other work is good practice. 
 
 - You have the repository from [X1](x1.qmd).
 - Open the [example backlog](../../project-management/backlog.md#e01) in a second tab. It holds the titles and bodies to copy.
+- Open the [requirements register](../../documentation/requirements.qmd) in a third tab. You derive one Issue from it yourself.
 
 ## Steps
 
@@ -43,16 +44,33 @@ GitHub Issue Types exist only for organisations. Labels work in every personal a
 5. Click **Create**.
 6. Repeat for `E08 Publish and preserve the outputs`.
 
-### Create the six sub-issues
+### Derive one sub-issue yourself
 
-1. Open the epic E01.
-2. Below the description, click **Create sub-issue**.
-3. Type the title `E01-T1 Check the registration requirements`.
-4. Paste the body of E01-T1 from the example backlog.
-5. Add the label `kind:task`.
-6. Click **Create**.
-7. Repeat for `E01-T2` and `E01-T3`.
-8. Open the epic E08 and create `E08-S1` with the label `kind:story`, then `E08-T2` and `E08-T3` with `kind:task`.
+Do not copy this one. Write it from the requirement, because that is what you will do for your real thesis.
+
+1. Open the epic E01. Below the description, click **Create sub-issue**. The button appears when the page has loaded.
+2. Type the title `E01-T1 Check the registration requirements`.
+3. Read requirement **R-05** in the requirements register and the sentence on page 5 of the [study plan](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) (Art. 15 Abs. 5).
+4. Write the body in your own words. Use the five parts below.
+5. Add the label `kind:task` and click **Create**.
+6. Compare your Issue with E01-T1 in the [example backlog](../../project-management/backlog.md#e01). Add what you missed.
+
+```markdown
+**Output:** <what exists when the task is done?>
+**Owner:** <who does it?>
+**Basis:** Rule: <document, article, page> (<verified or unconfirmed>)
+
+**Acceptance criteria**
+
+- [ ] <a check that someone else can confirm>
+
+**Evidence:** <what proves it, and where is it stored?>
+```
+
+### Create the other five sub-issues
+
+1. In E01, click **Create sub-issue** again. Create `E01-T2` and `E01-T3` with the bodies from the example backlog and the label `kind:task`.
+2. Open the epic E08. Create `E08-S1` with the label `kind:story`, then `E08-T2` and `E08-T3` with `kind:task`.
 
 If you created an Issue on its own, open the epic, click the arrow next to **Create sub-issue**, and select **Add existing issue**.
 
@@ -60,9 +78,8 @@ If you created an Issue on its own, open the epic, click the arrow next to **Cre
 
 ### Check one rule and one story
 
-1. Open `E01-T1`. Read the line **Basis**. It names the DH study plan, Art. 15 Abs. 5, page 5, with the status *verified*.
-2. Open the [study plan](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) and find the sentence on page 5.
-3. Open `E08-S1`. Read the story. Name the person who needs the output.
+1. Open `E01-T3`. Read the line **Basis**. Its status is *unconfirmed*: the regulation refers to dates that the Dean's Office publishes. Explain why the Issue does not invent a date.
+2. Open `E08-S1`. Read the story. Name the person who needs the output.
 
 {{< screenshot x2-task-blocked >}}
 
@@ -72,7 +89,8 @@ If you created an Issue on its own, open the epic, click the arrow next to **Cre
 - [ ] E01 shows three sub-issues; E08 shows three sub-issues.
 - [ ] Each sub-issue has acceptance criteria as a checklist.
 - [ ] E08-S1 has the label `kind:story` and the "As … I need … so that …" form.
-- [ ] E01-T1 and E01-T3 name their source and its status.
+- [ ] You wrote E01-T1 yourself; it names its source (SP-DH-2025 Art. 15 Abs. 5) and its status.
+- [ ] E01-T3 names its source and the status *unconfirmed*.
 
 ## If something goes wrong
 

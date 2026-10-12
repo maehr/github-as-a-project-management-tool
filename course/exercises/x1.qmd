@@ -14,7 +14,7 @@ description: Create a repository from the template, describe the fictional thesi
 
 A thesis needs one place where the plan, the data, the documentation, and the decisions live together. A **repository** is that place: it stores files and their full history. The template gives the repository a structure for data, documentation, and project management, so that you do not invent folders under time pressure.
 
-The template is a starting point, not a finished product. Its README describes the template itself, and its citation file names the template authors. You must make the repository describe *your* thesis. In this workshop, the thesis is fictional and the data are synthetic. That is why the exercise repository can be public. A real thesis repository starts **private** (see [Transfer to a private thesis](../solutions.qmd#private-thesis)).
+The template is a starting point, not a finished product. Its README describes the template itself, and its citation file names the template authors. You must make the repository describe *your* thesis. In this workshop, the thesis is fictional and the data are synthetic. That is why the exercise repository can be public. A real thesis repository starts **private** (see [Transfer to a private thesis](../after.qmd#private-thesis)).
 
 ## Before you start
 

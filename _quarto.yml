@@ -69,6 +69,7 @@ website:
         contents:
           - course/setup.qmd
           - course/syllabus.qmd
+          - course/approaches.qmd
       - section: Exercises
         contents:
           - course/exercises/x1.qmd
@@ -81,6 +82,7 @@ website:
         contents:
           - course/cheat-sheet.qmd
           - course/solutions.qmd
+          - course/after.qmd
           - course/instructor-notes.qmd
       - section: Worked example
         href: documentation/index.qmd
