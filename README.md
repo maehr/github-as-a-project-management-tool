@@ -26,14 +26,14 @@ Details and registration: [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzan
 
 ## What Learners Do
 
-Each learner works in the browser. No software installation is necessary.
+Each learner works in the browser. No software installation is necessary. Learners new to GitHub start with the [cheat sheet](course/cheat-sheet.qmd).
 
 1. Create a repository from the [open research data template](https://github.com/new?template_name=open-research-data-template&template_owner=maehr).
 2. Turn requirements into Issues, sub-issues, milestones, and dependencies.
 3. Plan the work in a GitHub Project with a backlog, a board, and a roadmap.
 4. Complete one documentation task through a pull request.
 5. Decide what to publish, and prepare a demo release.
-6. React to a delay and a rights restriction, and record the decision.
+6. React to a delay and a rights restriction, choose one option, and record the decision.
 
 The public exercise uses only synthetic data. For real thesis work, use a private repository and a private Project.
 
