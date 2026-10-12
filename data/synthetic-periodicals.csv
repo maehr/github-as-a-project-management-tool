@@ -1,0 +1,31 @@
+record_id,title,language,place_of_publication,first_year,last_year,frequency,subject,publisher,scan_reuse_status,digitised,is_synthetic
+SYN-P001,Die Laternenchronik,de,Biel/Bienne,1862,1886,monthly,politics,Verlag Biel/Bienne No. 9,attribution-required,partial,true
+SYN-P002,Der Schindelkurier,de,Luzern,1898,1918,monthly,religion,Druckerei Luzern No. 5,attribution-required,no,true
+SYN-P003,Die Nebelrundschau,de,St. Gallen,1884,1891,irregular,economy,Verlag St. Gallen No. 2,attribution-required,no,true
+SYN-P004,Die Laternenstimme,de,St. Gallen,1897,,irregular,culture,Verlag St. Gallen No. 9,attribution-required,yes,true
+SYN-P005,Il Corriere delle Lanterne,it,Locarno,1836,1883,quarterly,culture,Tipografia Locarno No. 7,unknown,yes,true
+SYN-P006,Die Schindelrundschau,de,Chur,1888,1933,monthly,science,Verlag Chur No. 9,attribution-required,partial,true
+SYN-P007,L'Écho des Ponts,fr,Fribourg,1894,1940,daily,politics,Éditions Fribourg No. 4,attribution-required,yes,true
+SYN-P008,L'Écho de la Brume,fr,Fribourg,1888,1941,quarterly,science,,unknown,no,true
+SYN-P009,Il Corriere dei Ponti,it,Lugano,1885,1922,irregular,religion,Editrice Lugano No. 6,unknown,no,true
+SYN-P010,Die Mühlenrundschau,de,Luzern,1853,1882,daily,culture,Druckerei Luzern No. 5,unknown,partial,true
+SYN-P011,Die Uhrmacherstimme,de,Bern,1882,,weekly,politics,Druckerei Bern No. 1,attribution-required,partial,true
+SYN-P012,Der Mühlenkurier,de,Zürich,1835,1885,irregular,science,Verlag Zürich No. 3,unknown,no,true
+SYN-P013,Der Laternenanzeiger,de,Luzern,1847,1883,,economy,Druckerei Luzern No. 9,open,partial,true
+SYN-P014,Der Nebelbote,de,Zürich,1850,1860,weekly,economy,Verlag Zürich No. 7,unknown,yes,true
+SYN-P015,Le Courrier des Lanternes,fr,Genève,1843,1869,irregular,economy,Éditions Genève No. 6,open,no,true
+SYN-P016,Die Nebelstimme,de,Bern,1868,1898,weekly,culture,Verlag Bern No. 8,attribution-required,partial,true
+SYN-P017,Die Schindelchronik,de,St. Gallen,1896,,daily,science,Verlag St. Gallen No. 8,attribution-required,no,true
+SYN-P018,Le Courrier de la Brume,fr,Lausanne,1834,1848,weekly,economy,Imprimerie Lausanne No. 9,unknown,partial,true
+SYN-P019,La Gazette du Moulin,fr,Biel/Bienne,1832,1842,weekly,economy,,unknown,no,true
+SYN-P020,Der Uhrmacheranzeiger,de,Biel/Bienne,1884,1920,monthly,culture,Druckerei Biel/Bienne No. 7,attribution-required,no,true
+SYN-P021,La Gazette des Ponts,fr,Fribourg,1889,1922,irregular,economy,Éditions Fribourg No. 8,restricted,no,true
+SYN-P022,La Gazette des Lanternes,fr,Neuchâtel,1845,1880,daily,economy,Imprimerie Neuchâtel No. 4,unknown,partial,true
+SYN-P023,Le Messager des Horlogers,fr,Lausanne,1872,,irregular,culture,Imprimerie Lausanne No. 6,unknown,yes,true
+SYN-P024,Die Mühlenstimme,de,Chur,1865,1902,irregular,culture,Druckerei Chur No. 5,unknown,yes,true
+SYN-P025,La Voce dei Ponti,it,Lugano,1863,1871,daily,science,Tipografia Lugano No. 1,attribution-required,no,true
+SYN-P026,La Feuille des Ponts,fr,Neuchâtel,1865,1904,quarterly,politics,,open,yes,true
+SYN-P027,La Gazzetta dei Ponti,it,Bellinzona,1842,1859,,science,Tipografia Bellinzona No. 2,open,no,true
+SYN-P028,L'Écho des Horlogers,fr,Biel/Bienne,1870,1921,weekly,science,Imprimerie Biel/Bienne No. 7,attribution-required,no,true
+SYN-P029,Die Mühlenchronik,de,Chur,1884,,quarterly,religion,Verlag Chur No. 9,open,no,true
+SYN-P030,Der Schindelanzeiger,de,Luzern,1837,1886,daily,religion,Druckerei Luzern No. 5,unknown,no,true
