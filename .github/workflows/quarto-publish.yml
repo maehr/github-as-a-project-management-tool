@@ -65,12 +65,12 @@ jobs:
   deploy:
     name: Deploy
     needs: [check, build]
-    # Deploy every push to main. A manual run (workflow_dispatch) deploys the
-    # selected branch, for example to preview a branch before the merge. The
-    # github-pages environment decides which branches may deploy.
+    # Deploy from main only: on every push, and on a manual run
+    # (workflow_dispatch, "Run workflow" in the Actions tab). A manual run on
+    # another branch builds and checks the site but does not deploy it.
     if: >-
-      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
-      github.event_name == 'workflow_dispatch'
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
       pages: write
