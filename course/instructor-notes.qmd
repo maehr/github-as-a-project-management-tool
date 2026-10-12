@@ -1,0 +1,84 @@
+---
+title: Instructor notes
+description: Pre-flight checklist, timing, failure modes, and the dated UI verification log.
+---
+
+## Pre-flight checklist
+
+### One week before
+
+1. Check the room in KSL. Resolve [U-01](../project-management/risks.md) (F 001 or F -112).
+2. Confirm the pass/fail arrangement ([U-02](../project-management/risks.md)).
+3. Check the enrolment list for DH Minor and elective students ([U-03](../project-management/risks.md)).
+4. Send the [Setup](setup.qmd) page to the participants.
+
+### The day before
+
+1. Run X1 to X6 in a fresh test account or a fresh repository. Compare each step with the [UI verification log](#ui-log).
+2. Update a screenshot if the interface changed. Run `npm run screenshots:annotate`.
+3. Check that the [showcase Project](https://github.com/users/maehr/projects/11) is public and linked to the course repository.
+4. Check [githubstatus.com](https://www.githubstatus.com/).
+
+### On the day
+
+1. Open the [slides](../slides/index.qmd), the showcase Project, and the example repository in separate tabs.
+2. Write the Wi-Fi details and the site URL on the board.
+
+## Timing
+
+| Block | Planned | Risk | Cut if late |
+| --- | --- | --- | --- |
+| Frame | 15 min | Discussion runs long | Skip the comparison of PM approaches; keep the GitHub objects |
+| X1 | 25 min | Account creation, two-factor authentication | Pair learners without an account |
+| X2 | 35 min | Typing the bodies | Copy bodies from the example backlog; E08 can move to X3 |
+| X3 | 40 min | Fields and views take time | Use **Make a copy** of the showcase Project |
+| X4 | 35 min | Merge conflicts, review rights | Self-review with **Comment** |
+| X5 | 35 min | Upload, rename | Use the recovery package instead of the release |
+| X6 | 25 min | Status update menu | Skip the status update; keep decision and dates |
+| Transfer and exit | 10 min | — | Exit check in pairs |
+
+## Known failure modes
+
+| Symptom | Cause | Response |
+| --- | --- | --- |
+| Red cross and e-mails after X1 | The template workflows run on the first commit and fail at the Pages deployment (404) and the link check | Expected. Show **Settings → Actions → General → Disable actions**. |
+| Copilot fills in commit messages and requests reviews | Account settings of the learner | Use it as an example: read and replace AI text. A Copilot review can fail with a quota message. |
+| Workflows show error icons | Status options renamed after the Project was created | Edit the workflows and select an existing option. |
+| Roadmap settings lost | The confirmation dialog after **Save view** was not confirmed | Repeat and confirm with **Save**. |
+| `CITATION.cff` shows the template | The template ships its own citation file | X5 corrects it. |
+| A learner commits real data | — | Stop, remove the file, and explain that the history keeps it. For real data, the repository must be deleted or cleaned. Prevention: synthetic data only. |
+
+## Teaching points
+
+- **Rules versus plans.** KSL governs this course, not the thesis. Thesis rules come from the study plan and the faculty regulations, and they differ per programme.
+- **Hierarchy versus dependency.** Parent-child means "part of"; blocked-by means "waits for".
+- **Milestone versus date field.** A milestone groups work under a due date in the repository; date fields schedule each item in the Project.
+- **Release versus deposit.** A GitHub release is not preservation. A DOI comes from a repository such as Zenodo, and only after an explicit decision.
+- **What GitHub cannot guarantee:** quality, deadline compliance, confidentiality, and long-term preservation.
+
+## UI verification log {#ui-log}
+
+The instructor checked each element below on **12 October 2026** in Google Chrome on macOS, signed in to a personal GitHub account. "API" means that the step was created with the GitHub CLI or API, and that the result was checked in the interface. "Docs" means that the label follows the official documentation and was not clicked in the test. Check every "API" and "Docs" row on the day before the session.
+
+| Exercise | Element | How checked | Observation |
+| --- | --- | --- | --- |
+| X1 | Template link opens "Create a new repository" with the template preselected | UI | Sections "1 General", "2 Configuration", "3 Jumpstart your project with Copilot (optional)" |
+| X1 | Template workflows on the first commit | UI and API | "Render and Publish" fails at Deploy (Pages not enabled, 404); "Link Check" fails; "Create changelog" succeeds |
+| X1 | Web editor and commit dialog | UI | Copilot pre-fills message and description; options "Commit directly to the main branch" and "Create a new branch for this commit and start a pull request" |
+| X1 | Visibility | UI | Settings → General → Danger Zone → "Change repository visibility" |
+| X1 | Disable Actions | UI (menu) and API (change) | Settings → Actions → General → "Disable actions" |
+| X2 | Labels, Issues, sub-issues | API | Native sub-issues show as panel "Sub-issues" with "Create sub-issue"; pills "Parent" and "Blocked by" under the title |
+| X2 | "Add existing issue" | Docs | Not clicked |
+| X3 | Milestones | API | Milestones page with due dates and descriptions |
+| X3 | Project creation from the repository tab, "New project" | Docs | The button "New project" and "Link a project" were seen on the Projects tab; creation itself was done by API |
+| X3 | Fields and Status options | API | Status options replaced; fields Priority, Basis, Start date, Target date |
+| X3 | Views | API (create) and UI (roadmap) | Roadmap date fields, zoom, and markers need the UI; **Save view** asks for confirmation |
+| X3 | Built-in workflows | UI | Six active after repair, including "Item added to project → Backlog" and "Pull request linked to issue → In review" |
+| X3 | "Make a copy" of a Project | Docs | Not clicked |
+| X3 | "Mark as blocked by" in Relationships | Docs (relation created by API) | Sidebar section "Relationships" seen |
+| X4 | Pull request flow | API (create, merge) and UI (pages) | Status moved to "In review" on link and "Done" on merge; Issue "closed this as completed in #43" |
+| X5 | Upload and rename in the browser | Docs | Files were added by API |
+| X5 | Release page | API (create) and UI (page) | Release "Latest" with notes and source archives |
+| X6 | Status update | API (create) and UI (panel) | Header badge "On track"; panel "Status updates" with "Add update" |
+| X6 | "Export view data" | UI (menu) | Item in the view tab menu; the download itself was not run |
+| All | Private path | API and UI | Private repository and private Project; sub-issues, dependencies, milestones, and status updates work the same way |

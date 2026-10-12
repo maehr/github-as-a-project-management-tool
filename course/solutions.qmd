@@ -1,0 +1,55 @@
+---
+title: Solutions
+description: Expected end state of each exercise, the worked example, and the transfer to a private thesis.
+---
+
+The worked example shows every exercise in its finished state. Compare your repository with it when you are unsure.
+
+| Resource | What it shows |
+| --- | --- |
+| [Showcase Project](https://github.com/users/maehr/projects/11) | The full plan E01–E08 with fields, the views Backlog, Board, and Roadmap, milestone markers, and workflows |
+| [Example repository](https://github.com/maehr/projm-example-thesis) | 42 Issues, 3 milestones, the merged pull requests of X4 and X5, and the release `v0.1.0-demo` |
+| [Example backlog](../project-management/backlog.md) | The versioned source of all Issues, with copyable bodies |
+
+{{< screenshot x0-course-repo-projects >}}
+
+## Expected state per exercise
+
+| Exercise | Expected state | Compare with |
+| --- | --- | --- |
+| [X1](exercises/x1.qmd) | Repository from the template; README with the synthetic-data warning; visibility checked | [README](https://github.com/maehr/projm-example-thesis#readme) |
+| [X2](exercises/x2.qmd) | Labels `kind:*`; epics E01 and E08; six sub-issues with acceptance criteria; one story | [E01](https://github.com/maehr/projm-example-thesis/issues/1), [E08](https://github.com/maehr/projm-example-thesis/issues/37) |
+| [X3](exercises/x3.qmd) | Milestones M1–M3; linked Project with five fields and three views; E01-T3 blocked by E01-T1 | [Milestones](https://github.com/maehr/projm-example-thesis/milestones), [E01-T3](https://github.com/maehr/projm-example-thesis/issues/4) |
+| [X4](exercises/x4.qmd) | Merged pull request; E01-T2 closed as completed; Status Done | [Pull request #43](https://github.com/maehr/projm-example-thesis/pull/43) |
+| [X5](exercises/x5.qmd) | CSV and data dictionary; corrected `CITATION.cff`; decision D-T01; release `v0.1.0-demo` | [Pull request #44](https://github.com/maehr/projm-example-thesis/pull/44), [release](https://github.com/maehr/projm-example-thesis/releases/tag/v0.1.0-demo) |
+| [X6](exercises/x6.qmd) | E08-T6 and E08-T7 with dates and a dependency; M3 unchanged; decision D-T02; status update; exported CSV | The example of X6 is in a private test repository; the [X6 page](exercises/x6.qmd) shows its screenshot |
+
+## What a complete Done looks like
+
+An Issue is **Done** when:
+
+1. its acceptance criteria are met;
+2. its output is linked from the Issue;
+3. a review took place, and the privacy check passed;
+4. the Issue is closed, **and** the Project shows the Status **Done**.
+
+If the Issue and the Project disagree, the plan is wrong. Fix it before you continue.
+
+## Transfer to a private thesis {#private-thesis}
+
+Use the same structure for your real thesis, but start private.
+
+1. Create a new repository from the [template](https://github.com/new?template_name=open-research-data-template&template_owner=maehr) and select **Private**.
+2. Copy the [showcase Project](https://github.com/users/maehr/projects/11) with **Make a copy**. Set the copy to **Private** and link it to the new repository.
+3. Copy the [thesis documentation template](../templates/master-thesis/README.md) into `documentation/`.
+4. Find the rules that apply to **your** programme. If you study DH as a Major, start from the [requirements register](../documentation/requirements.qmd). If you study DH as a Minor or as an elective, use the study plan of the programme in which you write the thesis.
+5. Ask the Dean's Office for the official dates. Keep them **unconfirmed** in the plan until you have them in writing.
+6. Before you make anything public, write a rights and access decision as in X5.
+
+::: {.callout-note}
+A private repository on GitHub Free supports Issues, sub-issues, dependencies, milestones, Projects, pull requests, and releases. GitHub Pages and branch protection for private repositories need a paid plan. The thesis workflow in this course needs neither.
+:::
+
+## Exit check
+
+You pass the in-class completion check when you can show the minimum deliverable and answer the three exit questions in the [syllabus](syllabus.qmd#exit-check). The formal pass/fail arrangement is [unresolved](../project-management/risks.md).

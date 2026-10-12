@@ -1,0 +1,92 @@
+---
+title: Syllabus
+description: Course facts, learning outcomes, run of show, and assessment for KSL 526141.
+---
+
+## Course facts
+
+The facts in this table come from the University of Bern course catalogue (KSL export of 12 October 2026). Page numbers refer to that export where the course specification records them.
+
+| Item | Value | Source |
+| --- | --- | --- |
+| Course | `[PROJM] Github as a project management tool`, KSL 526141, HS2026 | KSL |
+| Programme | Digital Humanities, University of Bern; Master-level workshop | KSL |
+| Instructor | Dr. Moritz Mähr | KSL |
+| Session | Friday, 16 October 2026, 09:00–13:00 | KSL |
+| Language | English | KSL |
+| Capacity | 20 | KSL |
+| Credits and grading | 0.5 ECTS, passed or failed | KSL pp. 1–2 |
+| Room | Seminarraum F 001, Hörraumgebäude Unitobler (provisional) | KSL p. 2 (timetable) |
+
+::: {.callout-warning}
+## Unresolved: room
+
+The KSL timetable lists **Seminarraum F 001** (p. 2). The room administration lists **Seminarraum F -112** (p. 3). The course uses F 001 provisionally. Check the room in KSL on the day before the session.
+:::
+
+## Aims
+
+The KSL description states two aims (p. 1): apply project-management principles with GitHub, and understand the opportunities and the limits of GitHub as a project-management tool. The workshop teaches approaches to managing and documenting ongoing projects.
+
+According to KSL, GitHub familiarity and minimal command-line knowledge are helpful but not required. The earlier introduction to project management is optional. All exercises run in the browser.
+
+## Learning outcomes
+
+The design below is the instructor's proposal. It is not a KSL requirement.
+
+After the session, you can:
+
+1. distinguish a repository, Issues, a Project, a release, and a deposit;
+2. derive a sourced Issue from a requirement that applies to you;
+3. create epics, sub-issues, one user story, milestones, dependencies, and planning views;
+4. complete an Issue through a documentation pull request;
+5. decide what you can publish;
+6. state what GitHub **cannot** guarantee: quality, deadline compliance, confidentiality, and long-term preservation.
+
+## Scenario
+
+You plan, conduct, document, and share a **fictional master's thesis** in one GitHub repository and one GitHub Project. The thesis asks how Swiss periodicals circulated between 1830 and 1960. It uses 30 [synthetic records](../documentation/data-dictionary.qmd). The fictional registration date is 2026-12-01; the fictional submission date is 2027-06-01. Nothing in the exercise is real research data.
+
+## Run of show
+
+{{< include _schedule.md >}}
+
+The session lasts 240 minutes, including two breaks of 10 minutes each.
+
+## Minimum deliverable
+
+By 12:50 you have:
+
+- a repository from the template, with a README for the synthetic thesis;
+- two epics (E01, E08) with six native sub-issues, one of them a user story;
+- three milestones with justified dates;
+- a Project with the views Backlog, Board, and Roadmap;
+- one blocking dependency;
+- one merged documentation pull request that closes its Issue;
+- a recorded rights and access decision;
+- a demo release, or a recovery package that you label as such;
+- a decision record for the delay and the restriction.
+
+You can work alone, in a pair, or on the private path. See [Setup](setup.qmd).
+
+## Assessment
+
+::: {.callout-warning}
+## Unresolved: pass/fail arrangement
+
+KSL lists pass/fail grading but **no exam type and no modalities** (pp. 1–2). This course does not invent formal pass criteria. During the session, an in-class **completion check** helps you and the instructor see what you have done: the minimum deliverable above and the exit check below. The instructor confirms the formal arrangement separately.
+:::
+
+### Exit check (12:50–13:00)
+
+Explain in two minutes, with your own repository open:
+
+1. one **rule** that applies to your thesis, with its source;
+2. one **dependency** in your plan, and why it is not a parent-child relation;
+3. one **disclosure safeguard**: what stays private, and why.
+
+## Sources
+
+- KSL course export, 12 October 2026 (course facts).
+- [Studienplan Digital Humanities, 17 February 2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) and [RSL Phil.-hist. 21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) (thesis rules for the DH Major; see the [requirements register](../documentation/requirements.qmd)).
+- [`SPECS.md`](../SPECS.md) (course design).

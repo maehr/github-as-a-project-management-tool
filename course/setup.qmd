@@ -1,0 +1,52 @@
+---
+title: Setup
+description: What you need before the session, and what to do if you do not have it.
+---
+
+The workshop runs in the browser. You install no software and you do no homework. You need three things.
+
+| You need | Why | If you do not have it |
+| --- | --- | --- |
+| A laptop with a current desktop browser | The GitHub interface hides parts of the menus on a phone. | Share a laptop with a neighbour. |
+| A GitHub account | Every exercise creates something in your account. | Create one at the start (allow 10 minutes), or work in a pair. |
+| Two-factor authentication that works on the day | GitHub asks for a second factor at sign-in. | Bring the device or the recovery codes that you use for GitHub. |
+
+## Create a GitHub account
+
+If you have no account yet, create it before the session if you can.
+
+1. Open [github.com/signup](https://github.com/signup).
+2. Use an e-mail address that you can open during the session.
+3. Choose a username that you are comfortable to show in public. Your username appears on every repository and Issue.
+4. Confirm the e-mail address.
+5. Set up two-factor authentication when GitHub asks for it.
+
+The free plan (GitHub Free) is sufficient. Students can also apply for [GitHub Education](https://education.github.com/), but the workshop does not need it.
+
+## Choose your path
+
+Before X1, decide how you work. You can change the decision later.
+
+| Path | Who it is for | What changes |
+| --- | --- | --- |
+| **Solo, public** | Default | Your exercise repository and Project are public. They contain only synthetic data. |
+| **Solo, private** | You do not want public activity under your name. | Select **Private** for the repository and the Project. All exercises work the same way. |
+| **Pair** | You have no account, or you prefer to work together. | One person owns the repository and adds the other as a collaborator. You review each other's pull requests in X4. |
+
+::: {.callout-important}
+## Synthetic data only
+
+Do not put real personal data, unpublished research data, or third-party material into an exercise repository. The workshop gives you a synthetic dataset. For your real thesis, start with a **private** repository and a **private** Project. See [Transfer to a private thesis](solutions.qmd#private-thesis).
+:::
+
+## What to open on the day
+
+- This website.
+- The [template](https://github.com/maehr/open-research-data-template) that you start from in X1.
+- The [showcase Project](https://github.com/users/maehr/projects/11) and the [example repository](https://github.com/maehr/projm-example-thesis), for comparison.
+
+## Official documentation
+
+- [Creating an account on GitHub](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github)
+- [Configuring two-factor authentication](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
+- [GitHub's plans](https://docs.github.com/en/get-started/learning-about-github/githubs-plans)
