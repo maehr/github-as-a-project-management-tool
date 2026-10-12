@@ -1,0 +1,77 @@
+---
+title: Requirements register
+description: Which rules apply to the fictional thesis, where they come from, how sure we are, and which Issue covers them.
+---
+
+A plan becomes reliable when each requirement has a **source**, an **applicability**, a **status**, and a **linked Issue**. This page lists the requirements of the fictional thesis in that form. It is the worked example for exercise [X2](../course/exercises/x2.qmd).
+
+## Rules versus plans
+
+Three kinds of statements appear in a thesis plan, and they have different authority.
+
+1. **Course rules** govern this workshop. They come from the KSL entry of the course. They say nothing about your thesis.
+2. **Thesis rules** govern the master's thesis in one study programme. They come from the study plan of that programme and from the faculty regulations. They differ between programmes.
+3. **Plans and practices** are decisions that you take, for example a data management plan, a rule for AI use, or the date of a milestone. They are context-dependent tasks, **not** universal exam rules.
+
+The fictional student studies the **MA Digital Humanities as a Major**. The rules below apply to that programme only. A student who takes DH as a **Minor** or as an elective writes the thesis in another programme and must use the rules of that programme.
+
+## Sources
+
+| ID | Document | Retrieved |
+| --- | --- | --- |
+| SP-DH-2025 | [Studienplan für die Studienprogramme der Digital Humanities vom 17. Februar 2025 (in Kraft am 1. Februar 2026)](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) | 2026-10-12 |
+| RSL-PH-21 | [Reglement über das Studium und die Leistungskontrollen an der Philosophisch-historischen Fakultät (RSL Phil.-hist. 21) vom 15. März 2021](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) | 2026-10-12 |
+
+Both documents are in German. The summaries below are English paraphrases. The German text is authoritative.
+
+## Thesis rules for the DH Major
+
+Status values: **verified** means that the text was checked in the cited document on the retrieval date. **unconfirmed** means that the rule exists, but a detail (usually a date) is not in the cited source. **fictional** means that the workshop replaces a real value with an invented one.
+
+| ID | Rule (paraphrase) | Source | Status | Issue |
+| --- | --- | --- | --- | --- |
+| R-01 | The thesis rules of RSL Arts. 29–32 and 53–57 apply. | SP-DH-2025 Art. 15 Abs. 1, p. 5 | verified | — |
+| R-02 | If the student chose a specialisation, the thesis lies within it. | SP-DH-2025 Art. 15 Abs. 2, p. 5 | verified | E01-T4 |
+| R-03 | The thesis has 160,000 to 200,000 characters, counted with spaces, footnotes, title page, table of contents, and code, without appendices and bibliography. | SP-DH-2025 Art. 15 Abs. 3, p. 5 | verified | E05-T3 |
+| R-04 | The student has six months from registration to write the thesis. | SP-DH-2025 Art. 15 Abs. 4, p. 5 | verified | M1, M3, E06-T3 |
+| R-05 | Before registration, at least two thirds of all other compulsory and elective-compulsory courses, and any conditions, are complete. | SP-DH-2025 Art. 15 Abs. 5, p. 5 | verified | E01-T1 |
+| R-06 | An insufficient thesis can be repeated once. | SP-DH-2025 Art. 15 Abs. 6, p. 5 | verified | — |
+| R-07 | If the written part is at least sufficient, an oral examination of 30 minutes follows, in which the student defends the thesis (disputation). The supervisor examines; an assessor writes a protocol. The thesis grade is one sixth oral and five sixths written; both parts must be sufficient. | SP-DH-2025 Art. 16, p. 5 | verified | E07-T1, E07-T2 |
+| R-08 | The student registers the thesis on time at the Dean's Office with complete documents. The registration is binding. The dates are in the official registration documents of the Dean's Office. | RSL-PH-21 Art. 55, p. 17 | unconfirmed (dates) | E01-T3 |
+| R-09 | For the master's thesis, the deadlines of the Dean's Office apply. | RSL-PH-21 Art. 29 Abs. 2, p. 9 | unconfirmed (dates) | E06-T2 |
+| R-10 | The thesis ends with a dated and hand-signed declaration of independent work, in the prescribed wording. | RSL-PH-21 Art. 30, p. 9 | verified | E06-T1 |
+| R-11 | The thesis is in German, French, or English by agreement; other languages need the supervisor's agreement. A joint thesis needs approval before the work starts. | RSL-PH-21 Art. 54, p. 17 | verified | E02-T5 |
+| R-12 | The thesis is submitted to the Dean's Office within the deadline. For a serious reason, the supervisor can extend the period once by one semester; further extensions need the Collegium Decanale. A late thesis is graded 1. | RSL-PH-21 Art. 56, p. 17 | verified | E06-T3, E06-T4, X6 |
+| R-13 | The submitted thesis goes to the institute after the diploma. With the consent of the author and the supervisor, the library can make it accessible. The author holds the copyright. | RSL-PH-21 Art. 32, p. 10 | verified | E08-T2, E08-T4 |
+| R-14 | The supervisor writes a report with a grade proposal; the Collegium Decanale decides. | RSL-PH-21 Art. 57, p. 17 | verified | — |
+
+::: {.callout-warning}
+## Unresolved
+
+- **Real dates.** No real registration or submission date is in the cited sources. The workshop uses the fictional dates 2026-12-01 and 2027-06-01. A real student asks the Dean's Office.
+- **Which study plan applies.** SP-DH-2025 Art. 26 (p. 7) says that students who start Digital Humanities from spring semester 2025 fall under this plan, and that Minor students under the plan of 9 November 2020 transfer to it. The cited text does not state the case of Major students who started earlier. Such a student checks with the programme.
+- **A cross-reference.** SP-DH-2025 Art. 16 Abs. 1 refers to "the written work according to Article 16"; the written thesis is regulated in Article 15. The register reads it as a reference to Article 15. Confirm with the programme if it matters.
+- **Format.** The cited sources set length and language, but no citation style, layout, or number of copies. Those come from the supervisor or the Dean's Office.
+:::
+
+## Course rules (KSL)
+
+These facts govern the workshop, not the thesis. See the [syllabus](../course/syllabus.qmd).
+
+| Fact | Status |
+| --- | --- |
+| 0.5 ECTS, pass/fail | verified (KSL) |
+| Exam type and modalities | **not listed** in KSL; unresolved |
+| Room | **unresolved**: F 001 (timetable) or F -112 (room administration) |
+
+## Context-dependent tasks
+
+These tasks appear in the plan because good practice or a third party may require them. They are **not** exam rules of the DH Major. Each one needs its own source when it applies.
+
+| Task | When it applies | Issue |
+| --- | --- | --- |
+| Data management plan | A funder, a project, or the institute requires it. | E02-T2 |
+| Ethics review | The research involves people or sensitive data. | E02-T3 |
+| Rules for AI use | Always agree them with the supervisor; university guidelines may apply. | E02-T4 |
+| Rights and access decision | Before anything is published. | E08-T2 |
+| Release and deposit | Only after the rights decision. | E08-T3, E08-T5 |
