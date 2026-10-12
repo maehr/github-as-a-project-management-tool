@@ -1,22 +1,26 @@
 # Contributing
 
-Contributions are welcome when they make the template clearer, easier to reuse, or more reliable for research data projects.
+Contributions are welcome when they make the course clearer, more accurate, or easier to reuse.
 
-Please follow the [code of conduct](CODE_OF_CONDUCT.md) in all project spaces.
+Follow the [code of conduct](CODE_OF_CONDUCT.md) in all project spaces.
 
-## Local and Agent Setup
+## Report An Error
 
-Use [GitHub Codespaces](https://github.com/features/codespaces) or follow the local setup steps in [README.md](README.md). For coding agents, start with [.github/copilot-instructions.md](.github/copilot-instructions.md) so repository-specific rules are applied before changes are made.
+Open an [issue](https://github.com/maehr/github-as-a-project-management-tool/issues) when a course page, a screenshot, or a link is wrong or out of date. Give the page, the step, and the date when you saw the problem. The GitHub interface changes often, so the date helps.
 
-Agents can usually handle documentation edits, placeholder replacement, formatting, changelog generation, and preview preparation. Maintainers should still personally review any GitHub or Zenodo settings changes and any production publication steps.
+## Propose A Change
 
-## Pull Request Process
+1. Open an issue first for a large change, a new exercise, or new tooling.
+2. Create a branch from `main`.
+3. Keep one logical change in one pull request.
+4. Use a [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/) subject, for example `docs: clarify sub-issue step in X2`.
+5. Run the checks that [AGENTS.md](AGENTS.md) names before you request a review.
+6. Wait for a maintainer review before you merge.
 
-1. Open an issue first for large changes, behavior changes, or new tooling.
-2. Keep pull requests focused and explain the academic user need they address.
-3. Update affected docs together, especially `README.md`, `README.template.md`, `TODO.md`, `index.qmd`, and citation or governance templates.
-4. Run `npm run preview` while editing documentation.
-5. Run `npm run format` and `npm run check` before requesting review.
-6. Run language-specific checks when relevant: `uv run ruff check`, `uv run ty check`, `styler::style_dir(".")`, and `lintr::lint_dir(".")`.
-7. Commit with a Conventional Commit subject, for example `git commit -m "docs: simplify project setup guide"`.
-8. Wait for maintainer review before merging.
+## Rules For Course Content
+
+- Use only synthetic data in public examples. Never add real personal data or real research data.
+- Give each claimed rule a source, its applicability, and its status.
+- Keep an unconfirmed fact visibly marked as unconfirmed.
+- Capture a new screenshot from the current GitHub interface. Give it a date and alt text, and check it for private information.
+- Keep maintainer tooling out of the learner prerequisites. Learners need only a browser and a GitHub account.
