@@ -1,20 +1,29 @@
 [project]
-name = "REPO_NAME"
+name = "github-as-a-project-management-tool"
 version = "0.1.0"
-description = "SHORT_DESCRIPTION"
-authors = [{ name = "FULLNAME", email = "[INSERT CONTACT METHOD]" }]
+description = "Maintainer tooling for the course 'GitHub as a Project Management Tool'"
+authors = [{ name = "Moritz Mähr" }]
 readme = "README.md"
+license = "AGPL-3.0-only"
 requires-python = ">=3.11"
 dependencies = []
 
+# Maintainer tooling only. Learners need a browser and a GitHub account.
 [dependency-groups]
 dev = [
-    "jupyter>=1.1.1",
-    "papermill>=2.6.0",
+    "pillow>=11.0.0",
     "pytest>=8.0.0",
+    "pyyaml>=6.0.2",
     "ruff>=0.14.0",
     "ty>=0.0.1a22",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+pythonpath = ["src"]
+
+[tool.ty.environment]
+extra-paths = ["src"]
 
 [tool.ruff]
 line-length = 88
@@ -35,9 +44,6 @@ select = [
 ignore = [
   "E501", # line too long, handled by formatter
 ]
-
-[tool.ruff.lint.isort]
-known-first-party = ["REPO_NAME"]
 
 [tool.ruff.format]
 quote-style = "double"

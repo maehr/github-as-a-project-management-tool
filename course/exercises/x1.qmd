@@ -1,0 +1,143 @@
+---
+title: X1 Create the repository
+subtitle: 09:15–09:40 · 25 minutes
+description: Create a repository from the template, describe the fictional thesis, and check the visibility.
+---
+
+::: {.callout-note title="At a glance"}
+- **Time:** 25 minutes
+- **You produce:** a repository from the template, a README for the fictional thesis with a synthetic-data notice, and a checked visibility setting.
+- **New terms:** [repository](../cheat-sheet.qmd#repository), [template](../cheat-sheet.qmd#template), [README](../cheat-sheet.qmd#readme), [Markdown](../cheat-sheet.qmd#markdown), [commit](../cheat-sheet.qmd#commit), [visibility](../cheat-sheet.qmd#visibility), [GitHub Actions workflow](../cheat-sheet.qmd#actions). All terms are in the [cheat sheet](../cheat-sheet.qmd).
+:::
+
+## Why this step
+
+A thesis needs one place where the plan, the data, the documentation, and the decisions live together. A **repository** is that place: it stores files and their full history. The template gives the repository a structure for data, documentation, and project management, so that you do not invent folders under time pressure.
+
+The template is a starting point, not a finished product. Its README describes the template itself, and its citation file names the template authors. You must make the repository describe *your* thesis. In this workshop, the thesis is fictional and the data are synthetic. That is why the exercise repository can be public. A real thesis repository starts **private** (see [Transfer to a private thesis](../after.qmd#private-thesis)).
+
+## Before you start
+
+- You are signed in to GitHub. See [Setup](../setup.qmd).
+- You use a desktop browser. A phone screen hides parts of the interface.
+
+## Steps
+
+### Create the repository from the template
+
+1. Open the [template link](https://github.com/new?template_name=open-research-data-template&template_owner=maehr).
+2. Make sure that **Start with a template** shows `maehr/open-research-data-template`.
+3. Leave **Include all branches** off.
+4. In **Owner**, select your account.
+5. In **Repository name**, type `projm-thesis`.
+6. In **Description**, type `Workshop example: fictional DH master's thesis. Synthetic data only.`
+7. In **Choose visibility**, keep **Public**. If you work on the private path, select **Private**.
+8. Leave the section **Jumpstart your project with Copilot (optional)** empty.
+9. Click **Create repository**. Wait until "Generating your repository…" disappears.
+
+{{< screenshot x1-template-form >}}
+
+{{< screenshot x1-template-form-filled >}}
+
+### Replace the README
+
+1. Open `README.md` in your new repository.
+2. Click the pencil icon (**Edit this file**).
+3. Select all text in the editor and delete it.
+4. Paste the text below.
+5. Click **Commit changes…**.
+6. Read the commit message. If Copilot filled it in, replace the message with `docs: describe the fictional thesis and the synthetic data`.
+7. Delete or correct the extended description if it describes changes that you did not make.
+8. Keep **Commit directly to the `main` branch**.
+9. Click **Commit changes**.
+
+```markdown
+# Fictional master's thesis: Swiss periodicals, 1830–1960
+
+> [!WARNING]
+> This repository is a **teaching example** for the workshop "GitHub as a Project Management Tool" (University of Bern, HS2026).
+> The thesis, the people, and the dates are **fictional**. The data are **synthetic**. Do not cite this repository as research.
+
+## About
+
+This repository plans, documents, and shares a fictional MA thesis in Digital Humanities (Major).
+The thesis asks how the landscape of Swiss periodicals changed between 1830 and 1960 by language, place, and subject.
+
+| Item                   | Value                                                  |
+| ---------------------- | ------------------------------------------------------ |
+| Data                   | `data/clean/synthetic-periodicals.csv`, 30 synthetic records |
+| Plan                   | GitHub Issues, milestones, and one GitHub Project      |
+| Fictional registration | 2026-12-01                                             |
+| Fictional submission   | 2027-06-01                                             |
+
+## Visibility
+
+This exercise repository is public because it contains only synthetic data.
+A real thesis repository starts **private**.
+
+## Licence
+
+Text and data: CC BY 4.0. Code: AGPL 3.0.
+```
+
+{{< screenshot x1-readme-failed-run >}}
+
+{{< screenshot x1-commit-dialog-ai >}}
+
+::: {.callout-warning}
+## Check every AI suggestion
+
+During the test run on 12 October 2026, Copilot suggested a description that claimed sections the change did not contain. A commit message is part of your project record. Write it yourself or check it line by line.
+:::
+
+### Check the visibility
+
+1. Click **Settings** in the repository tabs.
+2. Scroll to **Danger Zone**.
+3. Read the line under **Change repository visibility**. It must say "public" for the public path or "private" for the private path.
+4. Do not change the visibility now.
+
+{{< screenshot x1-visibility >}}
+
+### Stop the template workflows (optional)
+
+The template contains automated workflows. They run once when GitHub creates your repository and fail, because the website publishing is not set up. You can ignore the red cross. To stop further runs and e-mails, disable them:
+
+1. Click **Settings**.
+2. In the left menu, click **Actions** and then **General**.
+3. Under **Actions permissions**, select **Disable actions**.
+4. Click **Save**.
+
+## Expected state
+
+- [ ] The repository exists in your account and shows the label **Public** or **Private** next to its name.
+- [ ] `README.md` shows the warning that the thesis is fictional and the data are synthetic.
+- [ ] The latest commit message describes the change correctly.
+- [ ] You know where to change the visibility.
+
+## If something goes wrong
+
+| Problem | Cause | Recovery |
+| --- | --- | --- |
+| The name is not available. | You already have a repository with this name. | Add a suffix, for example `projm-thesis-2`. |
+| The template field is empty. | The link did not carry the template. | Open the [template repository](https://github.com/maehr/open-research-data-template) and click **Use this template**, then **Create a new repository**. |
+| A red cross shows next to "Initial commit". | The template workflows failed. | This is expected. Disable Actions (see above) or ignore it. |
+| You receive e-mails about failed runs. | The workflows ran. | Disable Actions. |
+| You committed the wrong text. | — | Edit the file again. The history keeps both versions. |
+| You do not have an account yet. | — | Work with a neighbour on one screen, or follow the [example repository](https://github.com/maehr/projm-example-thesis). |
+
+## Alternatives
+
+- **Pair:** one person creates the repository and adds the other as a collaborator (**Settings → Collaborators → Add people**). Both work in the same repository.
+- **Private path:** select **Private** in step 7. Every later exercise works the same way. A private repository on GitHub Free cannot publish a GitHub Pages site; this workshop does not need one.
+
+## Official documentation
+
+- [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
+- [Editing files](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files)
+- [Setting repository visibility](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)
+- [Managing GitHub Actions settings for a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)
+
+## Next
+
+[X2 Turn requirements into work](x2.qmd).

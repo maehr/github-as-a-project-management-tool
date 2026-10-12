@@ -1,0 +1,386 @@
+# Screenshot annotations for the course pages.
+#
+# Raw captures come from the GitHub web interface in Google Chrome on
+# 12 October 2026, signed in as the instructor, at a viewport of 1200 x 735
+# pixels. They stay in assets/screenshots/raw/ and are not committed.
+# Coordinates (x0, y0, x1, y1) refer to the raw capture.
+# Privacy review: crops remove the account menu, the avatar, and the
+# notification indicator in the page header. The remaining content shows only
+# the public demo repositories, synthetic data, and the instructor's public
+# GitHub name.
+#
+# Run `npm run screenshots:annotate` after a change.
+
+captured: 2026-10-12
+
+screenshots:
+  # ------------------------------------------------------------- course repo
+  - file: x0-course-repo-projects.webp
+    source: x0-01-course-repo-projects-tab.jpg
+    crop: [0, 100, 1200, 380]
+    alt: >-
+      The Projects tab of the course repository lists one open project,
+      "PROJM example: DH master's thesis", with its description.
+    callouts:
+      - box: [283, 264, 1175, 368]
+        label: The showcase Project, linked to the course repository
+      - box: [923, 124, 1062, 156]
+        label: Link a project to this repository
+
+  # ---------------------------------------------------------------------- X1
+  - file: x1-template-form.webp
+    source: x1-01-template-form-empty.jpg
+    crop: [0, 64, 1200, 735]
+    alt: >-
+      The "Create a new repository" form. The template
+      maehr/open-research-data-template is preselected. The Owner and
+      Repository name fields are empty. Visibility is set to Public.
+    callouts:
+      - box: [250, 182, 950, 309]
+        label: The template is preselected
+      - box: [249, 380, 952, 436]
+        label: Owner and repository name
+      - box: [826, 659, 935, 691]
+        label: Visibility
+  - file: x1-template-form-filled.webp
+    source: x1-02-template-form-filled.jpg
+    alt: >-
+      The lower part of the form, filled in: owner maehr, repository name
+      projm-example-thesis with the note "is available", a description, and
+      the visibility Public. Below is the optional section "Jumpstart your
+      project with Copilot" with an empty prompt field.
+    callouts:
+      - box: [249, 105, 952, 182]
+        label: Owner and an available name
+      - box: [249, 230, 952, 303]
+        label: Description
+      - box: [249, 372, 952, 437]
+        label: Visibility
+      - box: [249, 465, 952, 735]
+        label: Leave the Copilot prompt empty
+  - file: x1-readme-failed-run.webp
+    source: x1-04-readme-view-failed-run.jpg
+    crop: [0, 100, 1200, 735]
+    alt: >-
+      README.md of the new repository. Next to the commit message "Initial
+      commit" is a red cross for a failed workflow run. On the right of the
+      file toolbar is the pencil icon to edit the file.
+    callouts:
+      - box: [526, 175, 550, 199]
+        label: Failed workflow run from the template (expected)
+      - box: [1077, 235, 1105, 263]
+        label: Edit this file
+  - file: x1-commit-dialog-ai.webp
+    source: x1-07-commit-dialog-copilot-suggestion.jpg
+    alt: >-
+      The "Commit changes" dialog. Copilot filled in a commit message and an
+      extended description; the description claims sections that the change
+      does not contain. Below, the option "Commit directly to the main branch"
+      is selected.
+    callouts:
+      - box: [376, 196, 824, 436]
+        label: Suggested by Copilot. Read it and replace it
+      - box: [376, 477, 640, 497]
+        label: Commit directly to main (X1 only)
+      - box: [376, 506, 795, 545]
+        label: New branch and pull request (X4)
+  - file: x1-visibility.webp
+    source: x1-09-settings-danger-zone-visibility.jpg
+    alt: >-
+      Repository settings. The Issues section has the checked option
+      "Auto-close issues with merged linked pull requests". The Danger Zone
+      states "This repository is currently public" next to the button
+      "Change visibility".
+    callouts:
+      - box: [321, 331, 1167, 403]
+        label: Current visibility and the button to change it
+      - box: [321, 176, 1167, 244]
+        label: Auto-close Issues when a linked pull request merges
+
+  # ---------------------------------------------------------------------- X2
+  - file: x2-epic-sub-issues.webp
+    source: x2-01-epic-with-sub-issues.jpg
+    crop: [0, 100, 1200, 735]
+    alt: >-
+      Issue #1 "E01 Scope the thesis and register it" with the label
+      kind:epic. Below the description is the Sub-issues panel with four
+      sub-issues, E01-T1 to E01-T4, and the button "Create sub-issue". E01-T3
+      has a red blocked icon. The sidebar shows the Project with Status
+      Backlog.
+    callouts:
+      - box: [25, 482, 855, 712]
+        label: Sub-issues panel
+      - box: [33, 677, 177, 705]
+        label: Create sub-issue
+      - box: [886, 371, 962, 397]
+        label: Label kind:epic
+      - box: [888, 456, 1168, 525]
+        label: Project and Status
+  - file: x2-task-blocked.webp
+    source: x2-02-task-blocked-by-parent.jpg
+    crop: [0, 100, 1200, 735]
+    alt: >-
+      Issue #4 "E01-T3 Submit the thesis registration to the Dean's Office".
+      Below the title are two labels: "Blocked by: E01-T1 Check the
+      registration requirements" and "Parent: E01 Scope the thesis and register
+      it". The body lists output, owner, the cited rule, a status note,
+      acceptance criteria as checkboxes, and evidence. The sidebar shows
+      milestone M1, due by December 1, 2026.
+    callouts:
+      - box: [121, 176, 481, 208]
+        label: Dependency (blocked by)
+      - box: [490, 176, 774, 208]
+        label: Hierarchy (parent)
+      - box: [41, 329, 840, 391]
+        label: Basis with source and status
+      - box: [888, 555, 1168, 625]
+        label: Milestone with due date
+
+  # ---------------------------------------------------------------------- X3
+  - file: x3-backlog.webp
+    source: x3-05-backlog-table.jpg
+    crop: [0, 64, 1200, 580]
+    alt: >-
+      The Backlog view of the Project as a table. Eight epics, E01 to E08,
+      each with an arrow to expand its sub-issues. Columns show Title, Status,
+      Priority, and Basis.
+    callouts:
+      - box: [16, 112, 480, 149]
+        label: Views
+      - box: [64, 244, 88, 268]
+        label: Expand to show sub-issues
+      - box: [711, 205, 1200, 237]
+        label: Fields as columns
+  - file: x3-board.webp
+    source: x3-06-board.jpg
+    crop: [0, 64, 1200, 735]
+    alt: >-
+      The Board view. The filter "-label:kind:epic" hides the epics. Columns
+      Backlog, Ready, In progress, and In review show their descriptions. Each
+      card shows priority, basis, milestone, start and target date, label,
+      and parent issue.
+    callouts:
+      - box: [16, 160, 1094, 192]
+        label: Filter that hides the epics
+      - box: [25, 216, 1200, 290]
+        label: Status columns
+      - box: [27, 288, 356, 428]
+        label: Fields on a card
+  - file: x3-roadmap-date-fields.webp
+    source: x3-01-roadmap-date-fields-menu.jpg
+    crop: [0, 64, 1200, 600]
+    alt: >-
+      The Roadmap view with the open "Date fields" menu. It has two groups,
+      Start date and Target date. Each group offers the fields Start date and
+      Target date, and the default "No start date" or "No target date".
+    callouts:
+      - box: [880, 205, 982, 237]
+        label: Date fields
+      - box: [798, 300, 975, 420]
+        label: Choose Start date
+      - box: [798, 434, 975, 555]
+        label: Choose Target date
+  - file: x3-roadmap.webp
+    source: x3-02-roadmap-configured.jpg
+    crop: [0, 64, 1200, 735]
+    alt: >-
+      The configured Roadmap view at Quarter zoom. Bars show E01 and its
+      tasks between October and December 2026. A marker line labelled "M1
+      Registration submitted" stands at the end of November. E01-T3 has a red
+      blocked icon.
+    callouts:
+      - box: [729, 205, 1060, 237]
+        label: Markers, date fields, and zoom
+      - box: [1012, 238, 1180, 296]
+        label: Milestone marker M1
+      - box: [548, 418, 1030, 446]
+        label: Blocked task on the timeline
+  - file: x3-milestones.webp
+    source: x3-07-milestones.jpg
+    crop: [0, 100, 1200, 560]
+    alt: >-
+      The Milestones page of the repository with three open milestones: M3
+      Thesis submitted (due June 1, 2027, fictional-formal), M2 Data documented
+      and validated (due March 1, 2027, proposed), and M1 Registration
+      submitted (due December 1, 2026, fictional-formal). Each has four open
+      issues.
+    callouts:
+      - box: [283, 216, 1175, 320]
+        label: Fictional-formal date with justification
+      - box: [283, 327, 1175, 431]
+        label: Proposed date
+      - box: [1052, 124, 1176, 156]
+        label: New milestone
+  - file: x3-workflows-broken.webp
+    source: x3-03-workflows-list.jpg
+    crop: [0, 64, 1200, 560]
+    alt: >-
+      The Workflows page of the Project. Four default workflows are active.
+      "Item added to project" and "Pull request linked to issue" show red
+      error icons, because the Status options they used were renamed.
+    callouts:
+      - box: [24, 170, 304, 292]
+        label: Active default workflows
+      - box: [24, 427, 304, 519]
+        label: Errors after the Status options changed
+  - file: x3-workflow-in-review.webp
+    source: x3-04-workflow-pr-linked-in-review.jpg
+    crop: [0, 64, 1200, 500]
+    alt: >-
+      The workflow "Pull request linked to issue" is on. When a pull request
+      is linked to an issue, it sets the value Status: In review.
+    callouts:
+      - box: [433, 263, 1097, 320]
+        label: Trigger
+      - box: [449, 437, 609, 468]
+        label: Action
+      - box: [1005, 131, 1102, 164]
+        label: On
+
+  # Captured in a throwaway copy of the showcase Project.
+  - file: x3-make-a-copy.webp
+    source: x3-10-make-a-copy-dialog.jpg
+    crop: [0, 64, 1200, 600]
+    alt: >-
+      The dialog "Make a copy" of the showcase Project. It states that views,
+      custom fields, insights, and workflows will be copied, and that issues
+      and pull requests will not be copied. Below are the owner selector, the
+      field "New project name", and the button "Copy project".
+    callouts:
+      - box: [1001, 182, 1180, 210]
+        label: Make a copy, in the Project menu (…)
+      - box: [376, 268, 824, 344]
+        label: What the copy keeps, and what it leaves out
+      - box: [376, 386, 528, 418]
+        label: Select yourself as the owner
+      - box: [376, 454, 824, 486]
+        label: Name the copy
+      - box: [713, 526, 824, 558]
+        label: Copy project
+  - file: x3-copy-workflows.webp
+    source: x3-11-copy-workflows.jpg
+    crop: [0, 64, 1200, 560]
+    alt: >-
+      The workflows of the copied Project. Six default workflows have a green
+      dot, among them "Auto-add sub-issues to project" and "Pull request
+      linked to issue". The selected workflow sets Status to In review when a
+      pull request is linked to an issue.
+    callouts:
+      - box: [24, 168, 304, 360]
+        label: Six workflows stay on in the copy
+      - box: [432, 364, 1096, 484]
+        label: A linked pull request sets Status to In review
+      - box: [1004, 130, 1102, 166]
+        label: On
+  - file: x3-manage-access.webp
+    source: x3-12-manage-access.jpg
+    crop: [0, 64, 1200, 470]
+    alt: >-
+      The page "Manage access" in the settings of the copied Project. The box
+      "Who has access" says "Private project". Below, the section "Invite
+      collaborators" has a search field, the role Write, and the button
+      Invite. The sidebar lists the copied fields Status, Priority, Start
+      date, Target date, and Basis.
+    callouts:
+      - box: [24, 170, 304, 200]
+        label: Manage access
+      - box: [369, 182, 1184, 308]
+        label: A copy starts private
+      - box: [369, 366, 1184, 400]
+        label: Invite your partner with the role Write
+      - box: [24, 272, 304, 466]
+        label: The copied fields
+
+  # ---------------------------------------------------------------------- X4
+  - file: x4-pull-request.webp
+    source: x4-01-pr-conversation.jpg
+    crop: [0, 100, 1200, 735]
+    alt: >-
+      Pull request #43 "docs: add research question and scope". It merges one
+      commit from the branch docs/e01-t2-scope into main. The description
+      starts with "Closes #3" and repeats the acceptance criteria as checked
+      boxes. In the sidebar, Copilot is listed as a reviewer.
+    callouts:
+      - box: [122, 176, 604, 198]
+        label: From the branch into main
+      - box: [104, 332, 176, 354]
+        label: Closes #3 links the Issue
+      - box: [848, 280, 1168, 330]
+        label: Automatic AI reviewer (account setting)
+  - file: x4-files-changed.webp
+    source: x4-02-pr-files-changed.jpg
+    crop: [0, 100, 1200, 735]
+    alt: >-
+      The "Files changed" tab of pull request #43. README.md shows ten added
+      lines in green: the section "Research question and scope" with a
+      research question and a table of what is in and out of scope. The
+      buttons "Submit review" and "Ready to merge" are at the top.
+    callouts:
+      - box: [346, 462, 1168, 735]
+        label: Added lines
+      - box: [875, 276, 992, 304]
+        label: Submit review
+      - box: [816, 133, 970, 164]
+        label: Merge status
+  - file: x4-issue-closed.webp
+    source: x4-03-issue-closed-by-pr.jpg
+    alt: >-
+      Issue #3 "E01-T2 Write the research question and scope" is closed. The
+      timeline says "closed this as completed in #43". The sidebar shows
+      milestone M1 at 25 percent, the parent issue E01 with 1 of 4 sub-issues
+      done, and under Development the pull request and the release tag.
+    callouts:
+      - box: [30, 414, 392, 441]
+        label: Closed by the merged pull request
+      - box: [888, 56, 1168, 126]
+        label: Milestone progress
+      - box: [888, 296, 1168, 392]
+        label: Development links
+
+  # ---------------------------------------------------------------------- X5
+  - file: x5-release.webp
+    source: x5-01-release.jpg
+    crop: [0, 100, 1200, 735]
+    alt: >-
+      The release page "v0.1.0-demo: documented synthetic dataset (demo)",
+      marked Latest, with the tag v0.1.0-demo. The notes state that the data
+      are synthetic, list the contents, and state that a GitHub release is not
+      long-term preservation.
+    callouts:
+      - box: [48, 200, 880, 282]
+        label: Title, tag, and commit
+      - box: [49, 505, 1150, 612]
+        label: Limits stated in the release notes
+      - box: [49, 703, 165, 732]
+        label: Source archives
+
+  # ---------------------------------------------------------------------- X6
+  - file: x6-export.webp
+    source: x6-01-view-menu-export.jpg
+    crop: [0, 64, 1200, 400]
+    alt: >-
+      The menu of a Project view tab with the items Rename view, Move view,
+      Save changes to new view, Delete view, Generate chart, and Export view
+      data.
+    callouts:
+      - box: [354, 327, 556, 357]
+        label: Export view data
+      - box: [339, 117, 362, 141]
+        label: Menu of the view tab
+  - file: x6-status-update.webp
+    source: x6-03-status-update-panel.jpg
+    crop: [0, 64, 1200, 735]
+    alt: >-
+      The private test Project. In the table, E08 is expanded and shows the new
+      tasks E08-T6 "Receive the scans from the fictional archive" and E08-T7
+      "Exclude the restricted scans of SYN-P021 from public outputs" with a
+      blocked icon. The side panel shows a status update "On track" from
+      2026-10-19 to 2027-06-01 that explains the delay, the new task, and the
+      unchanged submission date.
+    callouts:
+      - box: [100, 424, 620, 494]
+        label: New tasks; E08-T7 is blocked
+      - box: [641, 468, 1180, 718]
+        label: Status update
+      - box: [1078, 420, 1180, 452]
+        label: Add update

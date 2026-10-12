@@ -1,0 +1,73 @@
+# Run of show for Friday, 16 October 2026, 09:00-13:00 (SPECS.md §4).
+# `npm run check` verifies that the blocks are contiguous, that they fill
+# exactly 240 minutes, and that the breaks take 20 minutes.
+
+date: 2026-10-16
+start: '09:00'
+end: '13:00'
+total_minutes: 240
+break_minutes: 20
+
+blocks:
+  - start: '09:00'
+    end: '09:15'
+    kind: frame
+    title: Frame the thesis workflow
+    activity: Compare project-management approaches and the GitHub objects that support them.
+    evidence: Identify tool limits and the rules that apply.
+  - start: '09:15'
+    end: '09:40'
+    kind: exercise
+    id: X1
+    title: Create the repository
+    activity: Create a repository from the template.
+    evidence: README, synthetic-data notice, visibility check.
+  - start: '09:40'
+    end: '10:15'
+    kind: exercise
+    id: X2
+    title: Turn requirements into work
+    activity: Create epics, sub-issues, and one user story with acceptance criteria.
+    evidence: 2 epics, 6 sub-issues, 1 story, acceptance criteria.
+  - start: '10:15'
+    end: '10:25'
+    kind: break
+    title: Break
+  - start: '10:25'
+    end: '11:05'
+    kind: exercise
+    id: X3
+    title: Configure the Project
+    activity: Create the Project, its fields, its views, the milestones, and a dependency.
+    evidence: Backlog, Board, Roadmap, 3 milestones, 1 dependency.
+  - start: '11:05'
+    end: '11:40'
+    kind: exercise
+    id: X4
+    title: Complete one documentation task
+    activity: Edit on a branch, open a pull request, review, merge, and close the Issue.
+    evidence: Branch, pull request, review, merge, Issue closure.
+  - start: '11:40'
+    end: '11:50'
+    kind: break
+    title: Break
+  - start: '11:50'
+    end: '12:25'
+    kind: exercise
+    id: X5
+    title: Prepare a reusable output
+    activity: Write the data dictionary, check citation and licence, publish a demo release.
+    evidence: Data dictionary, citation and licence check, demo release.
+  - start: '12:25'
+    end: '12:50'
+    kind: exercise
+    id: X6
+    title: React to a delay and a restriction
+    activity: Update scope and dependencies, record the decision, export a Project view.
+    evidence: Updated dates and dependency, decision record, exported view.
+  - start: '12:50'
+    end: '13:00'
+    kind: close
+    title: Transfer to a private thesis and exit check
+    activity: Plan the move to a private repository and a private Project.
+    evidence: Explain one rule, one dependency, and one disclosure safeguard.

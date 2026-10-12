@@ -1,23 +1,30 @@
 cff-version: 1.2.0
-title: GitHub Template for FAIR and Open Research Data
+title: 'GitHub as a Project Management Tool: Workshop and Open Educational Resource'
 message: >-
-  If you use this template, please cite it using the
+  If you use or adapt this course, please cite it using the
   metadata from this file.
-type: software
-version: 1.0.0
+type: dataset
 authors:
   - family-names: Mähr
     given-names: Moritz
     alias: maehr
     orcid: 'https://orcid.org/0000-0002-1367-1618'
-  - family-names: Twente
-    given-names: Moritz
-    alias: mtwente
-    orcid: 'https://orcid.org/0009-0005-7187-9774'
-repository-code: 'https://github.com/maehr/open-research-data-template'
-url: 'https://maehr.github.io/open-research-data-template/'
-doi: '10.5281/zenodo.19111355'
-license: AGPL-3.0
+    affiliation: University of Bern
+repository-code: 'https://github.com/maehr/github-as-a-project-management-tool'
+license:
+  - CC-BY-4.0
+  - AGPL-3.0-only
+keywords:
+  - project management
+  - GitHub
+  - GitHub Projects
+  - digital humanities
+  - research data management
+  - open educational resource
+  - master's thesis
 abstract: >-
-  GitHub template for FAIR and open research data documentation with Quarto,
-  GitHub Pages, and Zenodo-ready release workflows.
+  Browser-first workshop and open educational resource for the University of
+  Bern master's course "[PROJM] Github as a project management tool" (KSL
+  526141, HS2026). Learners plan, conduct, document, and responsibly share a
+  fictional master's thesis with one GitHub repository and one GitHub Project,
+  using synthetic periodical metadata.

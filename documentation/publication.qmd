@@ -1,0 +1,58 @@
+---
+title: Publication note
+description: What to publish, where, under which terms, and what GitHub cannot guarantee.
+---
+
+Publishing is a decision with consequences that are hard to reverse. This page explains the objects involved, the decision to take before publishing, and the limits of GitHub. It supports exercise [X5](../course/exercises/x5.qmd).
+
+## Five objects, five purposes
+
+The five objects below are often confused. Each one answers a different question.
+
+| Object | Question it answers | Persistence |
+| --- | --- | --- |
+| **Repository** | Where do the files and their history live? | As long as the owner keeps it; the owner can delete it. |
+| **Issue** | What work is to be done, and is it done? | Part of the repository. |
+| **Project** | How does the work fit into a plan? | Belongs to the account; has its own visibility. |
+| **Release** | Which state of the repository carries which version? | A tag and notes in the repository; deleted with it. |
+| **Deposit** | Where is a version preserved and citable for the long term? | In a repository such as Zenodo, with a DOI, under the repository's policy. |
+
+The difference between a release and a deposit matters most. A release helps within a project. It does not preserve anything: if the repository disappears, the release disappears. A deposit in a trusted repository with a persistent identifier (DOI) is the step for long-term access. GitHub and Zenodo can be connected so that a release triggers a deposit, but this integration is **not automatic**: someone must enable it, and the deposit is then public and permanent.
+
+## The decision before publishing
+
+Before you publish an output, answer four questions and record the answers (see the [decision record template](../templates/master-thesis/decision-record.md)):
+
+1. **What is the output?** Data, code, documentation, thesis text, figures.
+2. **Who may see it?** Public, people with access, or nobody yet.
+3. **Under which terms?** A licence for your own work; the terms of the rights holder for material of others.
+4. **Who decides?** For the thesis text in the DH Major, the author and the supervisor decide together on library access ([RSL Phil.-hist. 21 Art. 32](requirements.qmd)).
+
+In the scenario, the answers are: the CSV and the data dictionary are public under CC BY 4.0; the scans of the fictional archive stay outside the repository; the thesis text stays private until the grade is final.
+
+## What GitHub cannot guarantee
+
+GitHub supports the workflow, but some properties of a thesis depend on people, not on the tool.
+
+| Property | Why GitHub cannot guarantee it | What helps |
+| --- | --- | --- |
+| **Quality** | An Issue can be closed without its criteria being met. | Acceptance criteria, review, and an honest Done. |
+| **Deadline compliance** | Dates in a Project are plans. Nothing stops you from moving them. | Fictional-formal versus proposed dates; decision records; never move an official date silently. |
+| **Confidentiality** | A wrong click makes a repository public. The history keeps every committed file. | Start private; synthetic data in exercises; never commit sensitive data. |
+| **Long-term preservation** | A repository can be deleted, renamed, or changed. | A deposit with a DOI in a trusted repository. |
+
+## Nothing is automatic
+
+Do not assume that any of these happen by themselves:
+
+- **Public GitHub Pages:** must be enabled; on a private repository it needs a paid plan.
+- **Private GitHub Pages:** exists only on some paid plans.
+- **DOI minting:** happens only in a repository such as Zenodo, after you deposit.
+- **Zenodo integration:** must be enabled per repository by the owner.
+
+## Official documentation
+
+- [Managing releases in a repository](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+- [Referencing and citing content](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content)
+- [About GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
+- [Setting repository visibility](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)

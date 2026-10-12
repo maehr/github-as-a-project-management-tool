@@ -1,0 +1,107 @@
+---
+title: X4 Complete one documentation task
+subtitle: 11:05–11:40 · 35 minutes
+description: Complete E01-T2 through a branch, a pull request, a review, a merge, and the automatic closing of the Issue.
+---
+
+::: {.callout-note title="At a glance"}
+- **Time:** 35 minutes
+- **You produce:** one merged pull request that adds the section "Research question and scope" to the README and closes the Issue E01-T2.
+- **New terms:** [branch](../cheat-sheet.qmd#branch), [commit](../cheat-sheet.qmd#commit), [pull request](../cheat-sheet.qmd#pull-request), [review](../cheat-sheet.qmd#review), [merge](../cheat-sheet.qmd#merge). All terms are in the [cheat sheet](../cheat-sheet.qmd).
+:::
+
+## Why this step
+
+In X1 you changed `main` directly. That is acceptable for a first README, but it skips two safeguards. A **branch** keeps a change apart until it is ready. A **pull request** shows the change, links it to the Issue that asked for it, and invites a **review** before the change enters `main`.
+
+The link between the pull request and the Issue closes the loop of the plan. The keyword `Closes #3` in the pull request description tells GitHub to close Issue #3 when the pull request merges. The Project workflows then move the item to **In review** when the link appears and to **Done** when the Issue closes. The plan and the work agree without extra clicks.
+
+A review is a human check against the acceptance criteria. An automatic AI reviewer can appear if your account enables it. In the test run on 12 October 2026, it failed with a quota message. Do not treat an AI review as the review.
+
+## Before you start
+
+- You finished [X3](x3.qmd). Issue E01-T2 exists. Note its number (for example `#3`).
+- Pair up if possible. Your partner reviews your pull request, and you review theirs.
+
+## Steps
+
+### Edit on a new branch
+
+1. Open `README.md` and click the pencil icon.
+2. Place the cursor before the line `## Visibility`.
+3. Paste the text below.
+4. Click **Commit changes…**.
+5. Type the message `docs: add research question and scope`.
+6. Select **Create a new branch for this commit and start a pull request**. Keep the proposed branch name or type `docs/e01-t2-scope`.
+7. Click **Propose changes**.
+
+```markdown
+## Research question and scope
+
+**Research question:** How did the landscape of Swiss periodicals change between 1830 and 1960 by language, place, and subject?
+
+| In scope                                                  | Out of scope                                   |
+| --------------------------------------------------------- | ---------------------------------------------- |
+| 30 synthetic periodical records (German, French, Italian) | Real archival records or digitised page images |
+| Place, language, frequency, and years of publication      | Content analysis of articles                   |
+| Reuse status of the fictional scans                       | Readers, subscribers, or other personal data   |
+
+```
+
+### Open the pull request
+
+1. Type the title `docs: add research question and scope`.
+2. In the description, write `Closes #3` on the first line. Use the number of your E01-T2.
+3. Copy the acceptance criteria of E01-T2 below it and tick the boxes that your change meets.
+4. Click **Create pull request**.
+5. Open your Project. E01-T2 now shows the Status **In review**. The Project workflow **Pull request linked to issue** sets it. If it does not, check the workflow as in [X3](x3.qmd).
+
+{{< screenshot x4-pull-request >}}
+
+{{< screenshot x3-workflow-in-review >}}
+
+### Review and merge
+
+1. Open the tab **Files changed**.
+2. Check the change against each acceptance criterion.
+3. Click **Submit review**. A partner selects **Approve**; on your own pull request, select **Comment** and write what you checked.
+4. Return to **Conversation** and click **Merge pull request**, then **Confirm merge**.
+5. Click **Delete branch**.
+
+{{< screenshot x4-files-changed >}}
+
+## Expected state
+
+{{< screenshot x4-issue-closed >}}
+
+- [ ] The pull request is merged.
+- [ ] Issue E01-T2 is closed "as completed" by the pull request.
+- [ ] The Project shows E01-T2 as **Done**.
+- [ ] Milestone M1 shows progress.
+- [ ] The README on `main` contains the new section.
+
+## If something goes wrong
+
+| Problem | Cause | Recovery |
+| --- | --- | --- |
+| The Issue did not close. | The keyword is missing or has the wrong number. | Edit the pull request description before the merge. After the merge, close the Issue by hand and link the pull request. |
+| You cannot approve your own pull request. | GitHub does not allow it. | Use **Comment**, or ask a partner. |
+| The Status did not change. | The Project workflow is off or broken. | Open **Workflows**; check **Pull request linked to issue** and **Item closed**. Set the Status by hand. |
+| "This branch has conflicts". | Someone else changed the same lines. | Click **Resolve conflicts**, keep both texts, and mark the conflict as resolved. |
+| You committed to `main` instead. | Wrong option in the dialog. | Close the Issue by hand with a comment that links the commit. Use a branch next time. |
+
+## Alternatives
+
+- **Pair:** exchange review rights. Add your partner as a collaborator so that they can approve.
+- **Private path:** identical. Branch protection for private repositories needs a paid plan, but this exercise does not need it.
+
+## Official documentation
+
+- [Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+- [Linking a pull request to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue)
+- [Reviewing proposed changes in a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)
+- [Merging a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)
+
+## Next
+
+Break (11:40–11:50), then [X5 Prepare a reusable output](x5.qmd).

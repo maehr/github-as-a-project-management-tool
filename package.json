@@ -1,20 +1,23 @@
 {
-  "name": "REPO_NAME",
-  "description": "SHORT_DESCRIPTION",
-  "author": "FULLNAME <[INSERT CONTACT METHOD]>",
-  "url": "https://github.com/USERNAME/REPO_NAME/issues",
-  "license": "AGPL-3.0",
+  "name": "github-as-a-project-management-tool",
+  "description": "Workshop and OER: GitHub as a project management tool for a DH master's thesis",
+  "author": "Moritz Mähr (https://github.com/maehr)",
+  "url": "https://github.com/maehr/github-as-a-project-management-tool/issues",
+  "license": "AGPL-3.0-only",
   "scripts": {
-    "check": "prettier --check .",
-    "format": "prettier --write .",
+    "check": "prettier --check . && uv run ruff check && uv run ruff format --check && uv run ty check && uv run pytest -q",
+    "format": "prettier --write . && uv run ruff format",
     "prepare": "prek install --hook-type pre-commit --hook-type commit-msg",
-    "preview": "uv run quarto preview",
-    "site:build": "uv run quarto render --to html",
+    "preview": "quarto preview",
+    "site:build": "quarto render",
     "site:archive": "uv run python scripts/release_site_archive.py",
     "release:prepare": "npm run site:build && npm run site:archive -- --stage",
+    "data:generate": "uv run python src/generate_synthetic_periodicals.py",
+    "pages:render": "uv run python src/render_pages.py",
+    "screenshots:annotate": "uv run python src/annotate_screenshots.py",
     "changelog": "npm exec git-cliff -- --config cliff.toml",
     "changelog:unreleased": "npm exec git-cliff -- --config cliff.toml --unreleased --strip all",
-    "lychee-check": "lychee --config .lycheerc.toml './*.md' './*.qmd'"
+    "lychee-check": "lychee --config .lycheerc.toml './*.md' './*.qmd' './course/**/*.qmd' './documentation/**/*.qmd' './project-management/**/*.md' './slides/**/*.qmd' './templates/**/*.md'"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.0.2",
@@ -31,5 +34,6 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  }
+  },
+  "private": true
 }

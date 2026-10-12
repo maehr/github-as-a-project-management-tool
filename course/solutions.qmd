@@ -1,0 +1,60 @@
+---
+title: Solutions
+description: Expected end state of each exercise, the worked example, and one possible answer for X6.
+---
+
+The worked example shows every exercise in its finished state. Compare your repository with it when you are unsure.
+
+| Resource | What it shows |
+| --- | --- |
+| [Showcase Project](https://github.com/users/maehr/projects/11) | The full plan E01–E08 with fields, the views Backlog, Board, and Roadmap, milestone markers, and workflows |
+| [Example repository](https://github.com/maehr/projm-example-thesis) | 42 Issues, 3 milestones, the merged pull requests of X4 and X5, and the release `v0.1.0-demo` |
+| [Example backlog](../project-management/backlog.md) | The versioned source of all Issues, with copyable bodies |
+
+{{< screenshot x0-course-repo-projects >}}
+
+## Expected state per exercise
+
+| Exercise | Expected state | Compare with |
+| --- | --- | --- |
+| [X1](exercises/x1.qmd) | Repository from the template; README with the synthetic-data warning; visibility checked | [README](https://github.com/maehr/projm-example-thesis#readme) |
+| [X2](exercises/x2.qmd) | Labels `kind:*`; epics E01 and E08; six sub-issues with acceptance criteria, E01-T1 written from R-05; one story | [E01](https://github.com/maehr/projm-example-thesis/issues/1), [E08](https://github.com/maehr/projm-example-thesis/issues/37) |
+| [X3](exercises/x3.qmd) | Milestones M1–M3; a linked copy of the showcase Project; six sub-issues with your priorities and dates; E01-T3 blocked by E01-T1 | [Milestones](https://github.com/maehr/projm-example-thesis/milestones), [E01-T3](https://github.com/maehr/projm-example-thesis/issues/4) |
+| [X4](exercises/x4.qmd) | Merged pull request; E01-T2 closed as completed; Status Done | [Pull request #43](https://github.com/maehr/projm-example-thesis/pull/43) |
+| [X5](exercises/x5.qmd) | CSV and data dictionary; corrected `CITATION.cff`; decision D-T01; release `v0.1.0-demo` | [Pull request #44](https://github.com/maehr/projm-example-thesis/pull/44), [release](https://github.com/maehr/projm-example-thesis/releases/tag/v0.1.0-demo) |
+| [X6](exercises/x6.qmd) | E08-T6 and E08-T7; one more dependency from the chosen option; M3 unchanged; decision D-T02; status update | [One possible answer](#x6) below |
+
+## What a complete Done looks like
+
+An Issue is **Done** when:
+
+1. its acceptance criteria are met;
+2. its output is linked from the Issue;
+3. a review took place, and the privacy check passed;
+4. the Issue is closed, **and** the Project shows the Status **Done**.
+
+If the Issue and the Project disagree, the plan is wrong. Fix it before you continue.
+
+## X6: one possible answer {#x6}
+
+This record chooses option A. Options B and C are just as valid when the record justifies them.
+
+```markdown
+## D-T02 Two-week delay of the scans and a reuse restriction
+
+- **Date:** 2026-10-16 (workshop; fictional)
+- **Context:** The fictional archive delivers the scans two weeks late. It restricts reuse of the scans of record SYN-P021.
+- **Options considered:** A release 29 records; B release metadata only; C find a substitute.
+- **Decision:** Option A, because the other 29 records are complete and a reuser can work with them now. A substitute (C) adds a third party and a second risk of delay.
+- **Changes:** E08-T6 target moved from 2027-01-15 to 2027-01-29. New E08-T7, blocked by E08-T6. E08-T3 (release) blocked by E08-T7.
+- **Consequences:** M2 (2027-03-01, proposed) still holds. The release contains 29 records with scans. The data dictionary explains why SYN-P021 has none.
+- **Not changed:** The official submission date (M3, 2027-06-01). An extension needs a formal decision (RSL Phil.-hist. 21 Art. 56).
+```
+
+## Transfer to a private thesis {#private-thesis}
+
+The transfer and a weekly routine for the months after the workshop are on [After the workshop](after.qmd).
+
+## Exit check
+
+You pass when you attend the full session and show the minimum deliverable in the exit check. A labelled recovery package counts. The three exit questions are in the [syllabus](syllabus.qmd#exit-check).

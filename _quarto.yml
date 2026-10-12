@@ -1,23 +1,37 @@
 project:
   type: website
   render:
-    - '*.qmd'
-    - '*.md'
-    - 'documentation/**/*.qmd'
-    - 'documentation/**/*.md'
-    - 'project-management/**/*.qmd'
-    - 'project-management/**/*.md'
-    - '!**/*.template.md'
-    - '!**/*.template.qmd'
+    - index.qmd
+    - course/**/*.qmd
+    - documentation/**/*.qmd
+    - project-management/**/*.md
+    - slides/**/*.qmd
+    - templates/**/*.md
+    - templates/master-thesis/README.md
+    - SPECS.md
+    - CHANGELOG.md
+    - NOTICE.md
+    - LICENSE-CCBY.md
+    - LICENSE-AGPL.md
+    - CODE_OF_CONDUCT.md
+    - CONTRIBUTING.md
+    - SECURITY.md
+  resources:
+    - data/synthetic-periodicals.csv
+    - project-management/*.yml
+    - course/schedule.yml
+    - templates/master-thesis/issue-forms/*.yml
+
+lang: en-GB
 
 website:
-  title: REPO_NAME
+  title: GitHub as a Project Management Tool
+  description: Browser-first workshop and OER on planning, conducting, documenting, and sharing a fictional master's thesis with GitHub.
   favicon: android-chrome-512x512.png
   open-graph: true
-  twitter-card: true
-  site-url: https://USERNAME.github.io/REPO_NAME/
-  repo-url: https://github.com/USERNAME/REPO_NAME/
-  issue-url: https://github.com/USERNAME/REPO_NAME/issues/new/choose
+  site-url: https://maehr.github.io/github-as-a-project-management-tool/
+  repo-url: https://github.com/maehr/github-as-a-project-management-tool/
+  issue-url: https://github.com/maehr/github-as-a-project-management-tool/issues/new/choose
   repo-actions: [edit, issue]
   page-navigation: true
   bread-crumbs: true
@@ -27,48 +41,98 @@ website:
     type: overlay
   navbar:
     logo: android-chrome-512x512.png
-    logo-alt: ''
-    title: REPO_NAME
+    logo-alt: 'Home'
+    title: GitHub as a Project Management Tool
     tools:
       - icon: github
-        url: https://github.com/USERNAME/REPO_NAME/
+        href: https://github.com/maehr/github-as-a-project-management-tool/
+        aria-label: GitHub repository
     left:
-      - text: Home
-        href: index.qmd
-      - text: Documentation
+      - text: Setup
+        href: course/setup.qmd
+      - text: Syllabus
+        href: course/syllabus.qmd
+      - text: Exercises
+        href: course/exercises/x1.qmd
+      - text: Cheat sheet
+        href: course/cheat-sheet.qmd
+      - text: Slides
+        href: slides/index.qmd
+      - text: Worked example
         href: documentation/index.qmd
 
   sidebar:
     contents:
-      - section: REPO_NAME
+      - text: Home
         href: index.qmd
+      - section: Start here
         contents:
-          - text: Changelog
-            href: CHANGELOG.md
-          - text: Code of Conduct
-            href: CODE_OF_CONDUCT.md
-          - text: Contributing
-            href: CONTRIBUTING.md
-          - text: License (Data)
-            href: LICENSE-CCBY.md
-          - text: License (Code)
-            href: LICENSE-AGPL.md
-          - text: Security
-            href: SECURITY.md
-      - text: Documentation
+          - course/setup.qmd
+          - course/syllabus.qmd
+          - course/approaches.qmd
+      - section: Exercises
+        contents:
+          - course/exercises/x1.qmd
+          - course/exercises/x2.qmd
+          - course/exercises/x3.qmd
+          - course/exercises/x4.qmd
+          - course/exercises/x5.qmd
+          - course/exercises/x6.qmd
+      - section: Help
+        contents:
+          - course/cheat-sheet.qmd
+          - course/solutions.qmd
+          - course/after.qmd
+          - course/instructor-notes.qmd
+      - section: Worked example
         href: documentation/index.qmd
+        contents:
+          - documentation/requirements.qmd
+          - documentation/data-dictionary.qmd
+          - documentation/publication.qmd
+          - project-management/backlog.md
+          - project-management/milestones.md
+          - project-management/decisions.md
+          - project-management/risks.md
+          - text: Thesis documentation template
+            href: templates/master-thesis/README.md
+      - section: About
+        contents:
+          - text: Specification
+            href: SPECS.md
+          - CHANGELOG.md
+          - NOTICE.md
+          - text: Licence (prose and data)
+            href: LICENSE-CCBY.md
+          - text: Licence (code)
+            href: LICENSE-AGPL.md
+          - CODE_OF_CONDUCT.md
+          - CONTRIBUTING.md
+          - SECURITY.md
+
+  page-footer:
+    left:
+      - text: Prose and data under CC BY 4.0
+        href: LICENSE-CCBY.md
+      - text: Code under AGPL 3.0
+        href: LICENSE-AGPL.md
+      - text: 'Screenshots: GitHub interface © GitHub, Inc.'
+        href: NOTICE.md
+    right:
+      - text: KSL 526141, HS2026, University of Bern
+        href: https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0
 
 format:
   html:
     toc: true
     theme:
-      - brand
       - cosmo
+      - brand
+      - theme.scss
     css: styles.css
     code-copy: true
     code-overflow: wrap
     canonical-url: true
-
-freeze: true
-
-editor: visual
+    lightbox: true
+    link-external-icon: true
+    link-external-newwindow: true

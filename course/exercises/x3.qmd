@@ -1,0 +1,164 @@
+---
+title: X3 Configure the Project
+subtitle: 10:25–11:05 · 40 minutes
+description: Add three justified milestones, copy and link a preconfigured Project, decide priorities and dates, and record one blocking dependency.
+---
+
+::: {.callout-note title="At a glance"}
+- **Time:** 40 minutes
+- **You produce:** three milestones with justified dates; a Project, copied from the showcase and linked to your repository; your six sub-issues in it, with the priorities and dates that you chose; and one "blocked by" dependency.
+- **New terms:** [Project](../cheat-sheet.qmd#project), [milestone](../cheat-sheet.qmd#milestone), [view](../cheat-sheet.qmd#view), [field](../cheat-sheet.qmd#field), [Project workflow](../cheat-sheet.qmd#project-workflow), [dependency](../cheat-sheet.qmd#dependency). All terms are in the [cheat sheet](../cheat-sheet.qmd).
+:::
+
+## Why this step
+
+Issues describe the work. A **Project** shows the work as a plan: what is waiting, what is in progress, and what happens when. A Project belongs to your account, not to the repository. You link it to the repository, and you set its **visibility separately**. A public repository can have a private Project, and the reverse.
+
+A plan needs time. GitHub offers two different tools for time, and they answer different questions. A **milestone** groups Issues under one due date in the repository: "What must be ready for the registration?" **Date fields** in the Project give each Issue a start and a target: "When do I work on this?" The **roadmap** shows both together. Milestones and the roadmap form a phase plan; the board adds a Kanban view of the daily work ([Approaches](../approaches.qmd)).
+
+Order matters too. "Submit the registration" cannot start before "Check the registration requirements" ends. This is a **dependency** ("blocked by"), not a hierarchy. A parent-child relation says "this is part of that"; a dependency says "this waits for that". Keep the two apart.
+
+The fields and the views are the same for every thesis, so you copy them from the showcase Project. The decisions stay with you: the priorities, the dates, and the justification of each milestone. Milestone dates need a justification. The fictional registration (2026-12-01) and submission (2027-06-01) stand in for official dates of the Dean's Office; the six months between them follow the [DH study plan, Art. 15 Abs. 4](../../documentation/requirements.qmd). The middle milestone is your own estimate, and you may move it. Never move an official date silently.
+
+## Before you start
+
+- You finished [X2](x2.qmd).
+- Open the [showcase Project](https://github.com/users/maehr/projects/11) in a second tab.
+
+## Steps
+
+### Create the milestones
+
+1. Click **Issues**, then **Milestones**, then **New milestone**.
+2. Type the title `M1 Registration submitted` and the due date `2026-12-01`.
+3. In **Description**, write the justification from the [milestone list](../../project-management/milestones.md).
+4. Click **Create milestone**.
+5. Repeat for `M2 Data documented and validated` (2027-03-01, proposed) and `M3 Thesis submitted` (2027-06-01).
+6. Open each sub-issue and set its milestone in the sidebar: E01 tasks → M1, E08-S1 and E08-T2 → M2, E08-T3 → M3.
+
+{{< screenshot x3-milestones >}}
+
+### Copy the Project
+
+1. Open the [showcase Project](https://github.com/users/maehr/projects/11).
+2. Click **…** (top right), then **Make a copy**.
+3. Under **Owner**, select your account.
+4. Type the name `PROJM thesis plan`. Do not select **Draft issues**.
+5. Click **Copy project**. The copy opens. It has the views, the fields, and the workflows of the showcase, but no Issues.
+
+{{< screenshot x3-make-a-copy >}}
+
+### Link the Project and set its visibility
+
+1. Open your repository. Click **Projects**, then **Link a project**.
+2. Select `PROJM thesis plan` and click **Save**.
+3. Open the Project. Click **…**, then **Settings**.
+4. Under **Danger zone**, check **Visibility**. A copy starts **private**. Select **Public** only on the public path.
+5. Pair: click **Manage access**. Invite your partner with the role **Write**. Access to the repository does not include access to the Project.
+
+{{< screenshot x3-manage-access >}}
+
+### Add the Issues
+
+1. In the Project table, click **+** at the bottom (or press `Ctrl`+`Space`).
+2. Type `#`, select your repository, and select the epic E01.
+3. Repeat for E08.
+4. The workflow **Auto-add sub-issues to project** adds the six sub-issues. New items get the Status **Backlog**. If a sub-issue is missing, add it the same way.
+
+### Decide the priorities and the dates
+
+This step is planning, not copying. You decide, and you can explain each value.
+
+1. For each sub-issue, set **Priority** (`High`, `Normal`, or `Low`) and **Basis** (`Rule`, `Practice`, or `Demo`).
+2. Set a **Start date** and a **Target date** for each sub-issue. Each target date must lie before the due date of its milestone.
+3. Let E01-T3 start after the target date of E01-T1. E01-T3 waits for E01-T1.
+4. Open milestone M2. Add one sentence to its description: why this date, and what happens if it moves.
+5. Compare your values with the [example backlog](../../project-management/backlog.md#e01). Your values can differ. You must be able to justify them.
+
+### Check the workflows
+
+1. In the Project header, click **Workflows**.
+2. Check that six workflows have a green dot.
+3. Check two of them: **Pull request linked to issue** sets the Status **In review**, and **Item closed** sets the Status **Done**. X4 depends on both.
+
+{{< screenshot x3-copy-workflows >}}
+
+### Record the dependency
+
+1. Open `E01-T3 Submit the thesis registration to the Dean's Office`.
+2. In the sidebar, click the gear icon next to **Relationships**.
+3. Select **Mark as blocked by**, then select `E01-T1`. Close the list.
+4. Check that the pill "Blocked by: E01-T1" appears under the title.
+5. Optional: mark `E08-T3` as blocked by `E08-T2`.
+
+### Optional: build a Project yourself
+
+Do this after the workshop, or if the copy fails. It shows how the copied Project works.
+
+::: {.callout-note collapse="true" title="Build the fields, views, and workflows by hand"}
+
+1. In your repository, click **Projects**, then **New project**. Select **Table** and name the Project.
+2. In the table header, click **+** and select **New field**. Create `Priority` (single select: `High`, `Normal`, `Low`), `Basis` (single select: `Rule`, `Practice`, `Demo`), `Start date`, and `Target date` (date).
+3. Open the settings of the field **Status**. Set the options to `Backlog`, `Ready`, `In progress`, `In review`, `Done`.
+4. Rename the first view to `Backlog`. Click **New view**, select **Board**, name it `Board`, and type `-label:kind:epic` in the filter.
+5. Click **New view**, select **Roadmap**, and name it `Roadmap`. Click **Date fields** and select `Start date` and `Target date`. Click **Markers** and select **Milestone**. Set the zoom to **Quarter**.
+6. Click **View**, then **Save view**, then **Save** in the confirmation dialog.
+7. Click **Workflows**. Select **Pull request linked to issue**, click **Edit**, and set the value `Status: In review`. Save the workflow and turn it on.
+
+Change the Status options before you rely on the workflows. A workflow that used a renamed option stops with an error. Open **Workflows** and select the new option again.
+
+{{< screenshot x3-workflows-broken >}}
+
+{{< screenshot x3-roadmap-date-fields >}}
+
+:::
+
+## Expected state
+
+{{< screenshot x3-backlog >}}
+
+{{< screenshot x3-board >}}
+
+{{< screenshot x3-roadmap >}}
+
+- [ ] Three milestones exist; each has a due date and a justification.
+- [ ] The Project is linked to the repository and has the visibility you chose.
+- [ ] Your six sub-issues are in the Project, each with a Priority, a Basis, a Start date, and a Target date.
+- [ ] Each target date lies before the due date of its milestone.
+- [ ] The Roadmap shows bars and the milestone markers.
+- [ ] E01-T3 shows "Blocked by: E01-T1".
+
+## If something goes wrong
+
+| Problem | Cause | Recovery |
+| --- | --- | --- |
+| **Make a copy** is missing. | You are not signed in, or you opened the Project from a phone. | Sign in. Use a desktop browser. |
+| The copy is private, but you chose the public path. | A copy always starts private. | **…** → **Settings** → **Danger zone** → **Visibility**. |
+| Your partner cannot see the Project. | Repository access does not include Project access. | **…** → **Settings** → **Manage access** → invite the partner with the role Write. |
+| The sub-issues do not appear. | The epic was added before the workflow ran, or the workflow is off. | Add each sub-issue with **+** and `#`. Check **Workflows**. |
+| The Project does not appear in the repository. | It is not linked. | **Projects** tab → **Link a project**. |
+| The roadmap shows "Your project needs at least one date or iteration field". | The view has no date fields selected. | Select the date fields in **Date fields**. |
+| The view settings are lost after a reload. | The changes were not saved. | Click **View → Save view**, then **Save** in the dialog. A blue dot means unsaved changes. |
+| No gear icon next to **Relationships**. | The page has not finished loading. | Reload the Issue page and wait. |
+| Time runs out. | — | Skip the second dependency and the M2 justification. Add them during X6. |
+
+## Alternatives
+
+- **Pair:** one person copies and links the Project and invites the partner; the other creates the milestones. Decide the priorities and the dates together.
+- **Private path:** keep the copy private. Project visibility does not follow the repository visibility.
+
+## Official documentation
+
+- [Copying an existing project](https://docs.github.com/en/issues/planning-and-tracking-with-projects/creating-projects/copying-an-existing-project)
+- [Adding your project to a repository](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)
+- [Managing visibility of your projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)
+- [Managing access to your projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)
+- [Using the built-in automations](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)
+- [Creating a project](https://docs.github.com/en/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)
+- [Customizing the roadmap layout](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-roadmap-layout)
+- [About milestones](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones)
+- [Creating issue dependencies](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies)
+
+## Next
+
+[X4 Complete one documentation task](x4.qmd).

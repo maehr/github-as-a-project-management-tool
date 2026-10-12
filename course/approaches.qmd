@@ -1,0 +1,59 @@
+---
+title: Project-management approaches
+subtitle: Phase plan, Kanban, Scrum, and a hybrid for a thesis
+description: Three project-management approaches, what each one fixes and what it leaves open, and the GitHub features that support each one.
+---
+
+The KSL description of this course promises "an introduction to the different project management approaches". This page gives that introduction in short form. It matters for the exercises because the approach decides which GitHub features you need: a plan built around fixed dates needs milestones and a roadmap, while a plan built around a steady flow of tasks needs a board.
+
+A master's thesis combines two kinds of work. Some parts are fixed by others: the registration and the submission dates come from the Dean's Office. Other parts are uncertain: a source can arrive late, and an analysis can take longer than planned. Each approach below handles this mix differently.
+
+## Three questions
+
+Three questions separate the approaches. Use them to compare the sections below.
+
+1. **What is fixed?** The order of the work, the process, or the length of a work cycle.
+2. **How does new work enter the plan?** Once at the start, at any time, or at the start of each cycle.
+3. **When do you check progress?** At a milestone, all the time, or at the end of each cycle.
+
+## Phase plan
+
+A phase plan divides the work into phases that follow each other, for example scope, data, analysis, writing, and submission. Each phase ends with a milestone and a result that someone can check. This approach is also called "waterfall", because each phase flows into the next.
+
+A phase plan fits work with fixed external dates and formal approvals. Its weakness follows from the same property: it assumes that you know the work in advance. A problem that appears late in a phase is expensive, because the later phases wait for it.
+
+**In GitHub:** one epic per phase, [milestones](cheat-sheet.qmd#milestone) with due dates, and a roadmap view with start and target dates ([X3](exercises/x3.qmd)).
+
+## Kanban
+
+Kanban shows the work as cards on a board. The columns show the state of each card, for example Ready, In progress, and Done. The [Kanban Guide](https://kanbanguides.org/the-kanban-guide/2025.5/) (version 2025.5) names three practices: define and visualise a workflow, actively manage the items in it, and improve it. One way to manage the items is to limit the work in progress: you start a new card only when you finish another one.
+
+Kanban fits continuous work with interruptions, because it makes a blocked or forgotten task visible. It does not set dates by itself. Without milestones, a board shows what happens now, but not whether the thesis will be ready on time.
+
+**In GitHub:** a board view with a Status field ([X3](exercises/x3.qmd)). A board column can have a [column limit](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-board-layout). GitHub highlights the column when the limit is exceeded, but it does not block a new card.
+
+## Scrum
+
+Scrum organises the work in fixed cycles, called sprints, of one month or less. The [Scrum Guide](https://scrumguides.org/scrum-guide.html) (2020) defines four events in each sprint: Sprint Planning, Daily Scrum, Sprint Review, and Sprint Retrospective. At the start, the team selects the work and a goal for the sprint. At the end, it checks the result and the way it worked.
+
+Scrum assumes a team with three accountabilities: the Product Owner, the Scrum Master, and the Developers. A thesis has one author, so the roles do not transfer. The rhythm does: a regular cycle of planning and review helps a single author as much as a team.
+
+**In GitHub:** an [iteration field](https://docs.github.com/en/issues/planning-and-tracking-with-projects/understanding-fields/about-iteration-fields) assigns each item to a cycle. A view filtered to the current iteration shows the work of the cycle. A status update records the review ([X6](exercises/x6.qmd)).
+
+## Comparison
+
+| Approach | Fixed | Open to change | Main GitHub feature |
+| --- | --- | --- | --- |
+| Phase plan | The order of the phases and their dates | Little | Milestones, roadmap |
+| Kanban | The workflow states | The next task, at any time | Board, Status field, column limits |
+| Scrum | The length of a cycle and its goal | The work of the next cycle | Iteration field, status updates |
+
+## A hybrid for a thesis
+
+Most theses need parts of all three approaches, and this course combines them:
+
+- **Phase plan for the fixed dates.** The official registration and submission dates become milestones. You never move them silently ([X6](exercises/x6.qmd)).
+- **Kanban for the daily work.** The board shows what is ready, what is in progress, and what waits for review ([X3](exercises/x3.qmd), [X4](exercises/x4.qmd)).
+- **A Scrum-like rhythm for the review.** A short weekly review keeps the plan true ([After the workshop](after.qmd)).
+
+No approach guarantees quality or a met deadline. An approach makes the state of the work visible, so that you can decide early. GitHub stores the plan, but you take the decisions.

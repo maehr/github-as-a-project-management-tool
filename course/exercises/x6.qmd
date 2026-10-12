@@ -1,0 +1,145 @@
+---
+title: X6 React to a delay and a restriction
+subtitle: 12:25–12:50 · 25 minutes
+description: Re-plan after a two-week source delay and a rights restriction, choose and justify one option, keep the official deadline, and record the decision.
+---
+
+::: {.callout-note title="At a glance"}
+- **Time:** 25 minutes
+- **You produce:** two new sub-issues with dates, one dependency that follows from your decision, an unchanged submission milestone, a decision record, and a Project status update. Optional: an exported view.
+- **New terms:** [dependency](../cheat-sheet.qmd#dependency), [milestone](../cheat-sheet.qmd#milestone), [view](../cheat-sheet.qmd#view). All terms are in the [cheat sheet](../cheat-sheet.qmd).
+:::
+
+## Why this step
+
+Plans change. A good plan makes the change visible and traceable: what changed, why, what follows from it, and what did *not* change. In this exercise two events occur at once. There is no single correct answer. You choose one option, and you justify it.
+
+The most important rule is about deadlines. The submission date of a master's thesis is an official date. An extension needs an important reason and a formal decision: the supervisor can extend the period once by one semester, and the Collegium Decanale decides on any further extension ([requirement R-12](../../documentation/requirements.qmd)). A late submission is graded 1. You therefore **never move the official deadline in the plan to absorb a delay**. You move the planned work, you check what still fits, and you record the decision.
+
+## The scenario
+
+::: {.callout-important}
+## 16 October 2026, 12:25 (fictional)
+
+1. **Delay.** The fictional archive delivers the scans two weeks late: on 2027-01-29 instead of 2027-01-15.
+2. **Restriction.** The archive restricts reuse of the scans of record **SYN-P021**. They must not appear in any public output.
+:::
+
+The restriction is not optional: no public file may contain a scan of SYN-P021. The open question is what this means for the release `v0.1.0-demo` and for the plan.
+
+## Steps
+
+### Record the two events
+
+1. Open the epic E08 and click **Create sub-issue**.
+2. Create `E08-T6 Receive the scans from the fictional archive` with the label `kind:task` and milestone M2.
+3. Create `E08-T7 Exclude the restricted scans of SYN-P021 from public outputs` with the label `kind:task` and milestone M2.
+4. Write acceptance criteria for both. Use the [example](#example-acceptance-criteria) below.
+5. In the Project, set E08-T6: Start date `2027-01-04`, Target date `2027-01-29` (originally `2027-01-15`).
+6. Open E08-T7 and mark it as **blocked by** E08-T6. You can only exclude scans that you have received.
+
+### Choose one option
+
+Discuss the options with a neighbour for three minutes. Choose one.
+
+| Option | What you do | What it costs |
+| --- | --- | --- |
+| **A Release 29 records** | Publish the release without the scans of SYN-P021. The data dictionary explains the gap. Mark E08-T3 (release) as blocked by E08-T7. | The release is incomplete. A reuser must read why. |
+| **B Release metadata only** | Publish the metadata of all 30 records, but no scans. Update the rights decision (E08-T2). Mark E08-T3 as blocked by E08-T2. | The release is less useful, but complete and simple to check. |
+| **C Find a substitute** | Ask a second fictional archive for a comparable record. Create `E08-T8 Obtain a substitute record`, blocked by E08-T6. Mark E08-T3 as blocked by E08-T8. | More work and one more third party. A second delay can push the release towards M3. |
+
+### Apply your option
+
+1. Create the dependency that your option needs. Option C: create E08-T8 first.
+2. Open the view **Roadmap**. Check that E08-T6 and E08-T7 end before the marker of M2 (2027-03-01).
+3. If a bar ends after M2, move M2. M2 is a proposed date. Write the reason in the description of M2.
+4. Check that M3 (2027-06-01) did not move.
+
+### Record the decision
+
+1. Open `project-management/decisions.md` in your repository and click the pencil icon.
+2. Add a record from the [decision template](#decision-text) below at the end. Fill in every line.
+3. Commit with the message `docs: record the decision on the delay and the restriction`.
+
+### Report the status
+
+1. In the Project header, click **Add status update**.
+2. Select a status, the start date `2026-10-19`, and the target date `2027-06-01`.
+3. Write two sentences: what changed and what did not change. Name the decision D-T02.
+4. Click **Post update**.
+
+{{< screenshot x6-status-update >}}
+
+### Optional: export a view
+
+1. Open the view **Backlog**.
+2. Click the arrow next to the view name. Do not use the **View** button.
+3. Select **Export view data**.
+4. Save the `.tsv` file (tab-separated values). It is a snapshot of the plan for your records or your supervisor. It is not a backup of the Project.
+
+{{< screenshot x6-export >}}
+
+## Texts to copy
+
+### Example acceptance criteria {#example-acceptance-criteria}
+
+```markdown
+**E08-T6** Acceptance criteria
+- [ ] The archive delivered every requested scan.
+- [ ] The archive stated the reuse terms per record.
+
+**E08-T7** Acceptance criteria
+- [ ] No public file contains a scan of SYN-P021.
+- [ ] The data dictionary explains the restriction.
+```
+
+### Decision template {#decision-text}
+
+```markdown
+## D-T02 Two-week delay of the scans and a reuse restriction
+
+- **Date:** 2026-10-16 (workshop; fictional)
+- **Context:** The fictional archive delivers the scans two weeks late. It restricts reuse of the scans of record SYN-P021.
+- **Options considered:** A release 29 records; B release metadata only; C find a substitute.
+- **Decision:** Option <A, B, or C>, because <reason>.
+- **Changes:** <dates and dependencies that changed, with Issue numbers>
+- **Consequences:** <what this means for M2, for the release, and for a reuser>
+- **Not changed:** The official submission date (M3, 2027-06-01). An extension needs a formal decision (RSL Phil.-hist. 21 Art. 56).
+```
+
+## Expected state
+
+There is no single correct plan. Check your plan against these criteria.
+
+- [ ] E08-T6 and E08-T7 exist; E08-T7 shows "Blocked by: E08-T6".
+- [ ] One more dependency follows from your option, and the roadmap shows it.
+- [ ] M3 still has the due date 2027-06-01. If you moved M2, its description says why.
+- [ ] `decisions.md` holds D-T02 with the option, the reason, the consequences, and what did not change.
+- [ ] The Project header shows a status update.
+
+The [solutions](../solutions.qmd#x6) show one possible answer.
+
+## If something goes wrong
+
+| Problem | Cause | Recovery |
+| --- | --- | --- |
+| A bar ends after the M2 marker. | The delay does not fit. | M2 is a proposed date: move M2 and record why. Never move M3. |
+| **Add status update** is missing. | The window is narrow. | Open the Project menu (**…**) or widen the window. |
+| **Export view data** is missing. | You opened the wrong menu. | Use the small arrow on the view tab, not the **View** button. |
+| You moved M3 by mistake. | — | Set the due date back to 2027-06-01. The Issue history shows the change. |
+| Time runs out. | — | Write the decision record first. It is the most important output of X6. |
+
+## Alternatives
+
+- **Pair:** choose the option together. Then one person edits the Project, the other writes the decision.
+- **Private path:** identical. A status update in a private Project is visible only to people with access.
+
+## Official documentation
+
+- [Creating issue dependencies](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies)
+- [Sharing project updates](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/sharing-project-updates)
+- [Exporting your project's data](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/exporting-your-projects-data)
+
+## Next
+
+The [exit check](../syllabus.qmd#exit-check) and the [transfer to a private thesis](../after.qmd#private-thesis).

@@ -1,0 +1,17 @@
+name: Epic
+description: A substantial outcome that groups several sub-issues.
+title: 'E00 '
+labels: ['kind:epic']
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: The result that exists when all sub-issues are done.
+    validations:
+      required: true
+  - type: textarea
+    id: sub-issues
+    attributes:
+      label: Planned sub-issues
+      description: List the planned tasks and stories. Create them as native sub-issues.

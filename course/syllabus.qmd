@@ -1,0 +1,88 @@
+---
+title: Syllabus
+description: Course facts, aims, learning outcomes, run of show, and assessment.
+---
+
+## Course facts
+
+| Item | Value |
+| --- | --- |
+| Course | [PROJM] Github as a project management tool |
+| Number and semester | 526141, HS2026 |
+| Type | Workshop, Digital Humanities |
+| Lecturer | Dr. Moritz Mähr, University of Bern, Walter Benjamin Kolleg |
+| Date | Friday, 16 October 2026, 09:00–13:00 |
+| Room | Seminarraum F 001, Hörraumgebäude Unitobler |
+| Credits | 0.5 ECTS |
+| Grading | Passed or failed |
+| Optional course | Recognition as an optional course is possible |
+
+Registration and the detailed view: [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0).
+
+## Aims
+
+The course description in KSL reads:
+
+> GitHub is not only a powerful tool for versioning and code development, but can also be efficiently used to manage and document on-going projects. In this course, you will get an introduction to the different project management approaches, combined with best practices utilizing GitHub for such tasks.
+
+Some GitHub experience and minimal command-line knowledge help, for example from the course "Introduction to DH". The course "Introduction to Project Management" is a plus, not a requirement. All exercises run in the browser. If GitHub is new to you, read the [cheat sheet](cheat-sheet.qmd) first.
+
+## Learning outcomes
+
+The instructor designed these outcomes.
+
+After the session, you can:
+
+1. distinguish a repository, Issues, a Project, a release, and a deposit;
+2. derive a sourced Issue from a requirement that applies to you;
+3. create epics, sub-issues, one user story, milestones, dependencies, and planning views;
+4. complete an Issue through a documentation pull request;
+5. decide what you can publish;
+6. state what GitHub **cannot** guarantee: quality, deadline compliance, confidentiality, and long-term preservation.
+
+## Scenario
+
+You plan, conduct, document, and share a **fictional master's thesis** in one GitHub repository and one GitHub Project. The thesis asks how the landscape of Swiss periodicals changed between 1830 and 1960 by language, place, and subject. It uses 30 [synthetic records](../documentation/data-dictionary.qmd). The fictional registration date is 2026-12-01; the fictional submission date is 2027-06-01. Nothing in the exercise is real research data.
+
+## Run of show
+
+{{< include _schedule.md >}}
+
+The session lasts 240 minutes, including two breaks of 10 minutes each.
+
+## Minimum deliverable
+
+By 12:50 you have:
+
+- a repository from the template, with a README for the synthetic thesis;
+- two epics (E01, E08) with six native sub-issues, one of them a user story;
+- three milestones with justified dates;
+- a Project with the views Backlog, Board, and Roadmap;
+- one blocking dependency;
+- one merged documentation pull request that closes its Issue;
+- a recorded rights and access decision;
+- a demo release, or a recovery package that you label as such;
+- a decision record for the delay and the restriction.
+
+You can work alone, in a pair, or on the private path. See [Setup](setup.qmd).
+
+## Assessment
+
+The course is graded passed or failed. The instructor set the pass rule. You pass when you do both:
+
+1. You attend the full session.
+2. You show the minimum deliverable in the exit check. A labelled recovery package counts.
+
+### Exit check (12:50–13:00) {#exit-check}
+
+Explain in two minutes, with your own repository open:
+
+1. one **rule** that applies to your thesis, with its source;
+2. one **dependency** in your plan, and why it is not a parent-child relation;
+3. one **disclosure safeguard**: what stays private, and why.
+
+## Sources
+
+- [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0) (course facts and description).
+- [Studienplan Digital Humanities, 17 February 2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) and [RSL Phil.-hist. 21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) (thesis rules for the DH Major; see the [requirements register](../documentation/requirements.qmd)).
+- [`SPECS.md`](../SPECS.md) (course design).

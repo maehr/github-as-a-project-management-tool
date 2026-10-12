@@ -1,33 +1,20 @@
 # Security Policy
 
-<!--
-## Supported Versions
+## Scope
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
--->
+This repository holds teaching material and synthetic data. It holds no real personal data and no research data. A security issue here is, for example, a leaked token, a workflow that an attacker can misuse, or a screenshot that shows private information.
 
 ## Reporting a Vulnerability
 
-<!--
-Use this section to tell people how to report a vulnerability.
+Do not open a public issue for a security problem. Contact [@maehr](https://github.com/maehr) privately with the contact details on that GitHub profile. Include these items:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
--->
+1. A description of the issue.
+2. The steps that reproduce the issue.
+3. The affected files, pages, or workflows.
+4. A possible fix, if you know one.
 
-To report a security issue, please do not open a public issue. Instead, contact
-[@maehr](https://github.com/maehr) privately using the contact details listed
-on the GitHub profile and include a description of the issue, the steps you
-took to create the issue, affected versions, and, if known, mitigations for the
-issue. This project follows a 90 day disclosure timeline.
+This project follows a 90-day disclosure timeline.
 
-If you use a coding agent while investigating a security issue, keep the initial report private. Agents can help reproduce the bug, prepare a minimal fix, update documentation, and run local validation, but maintainers should handle the private disclosure and the final release decision.
+## Private Information In Screenshots
+
+If a screenshot in `assets/screenshots/` shows private information, report it in the same private way. The maintainer removes the image and replaces it.

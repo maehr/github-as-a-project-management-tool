@@ -1,0 +1,58 @@
+---
+title: After the workshop
+subtitle: Move to your real thesis and keep the plan true
+description: Transfer the workshop structure to a private thesis, and keep the plan up to date with a weekly review and a monthly check.
+---
+
+The workshop builds a plan in four hours. A thesis takes months. A plan helps only while it matches the work, so this page gives two things: the steps to move the structure to your real thesis, and a short routine that keeps the plan true.
+
+## Transfer to a private thesis {#private-thesis}
+
+Use the same structure for your real thesis, but start private.
+
+1. Create a new repository from the [template](https://github.com/new?template_name=open-research-data-template&template_owner=maehr) and select **Private**.
+2. Copy the [showcase Project](https://github.com/users/maehr/projects/11) with **Make a copy**, as in [X3](exercises/x3.qmd). The copy starts private. Link it to the new repository.
+3. Copy the [thesis documentation template](../templates/master-thesis/README.md) into `documentation/`.
+4. Find the rules that apply to **your** programme. If you study DH as a Major, start from the [requirements register](../documentation/requirements.qmd). If you study DH as a Minor or as an elective, use the study plan of the programme in which you write the thesis.
+5. Ask the Dean's Office for the official dates. Keep them **unconfirmed** in the plan until you have them in writing.
+6. Before you make anything public, write a rights and access decision as in [X5](exercises/x5.qmd).
+
+::: {.callout-warning}
+## Private is not the same as safe storage
+
+A private repository limits who can see it. It does not make GitHub a suitable place for every kind of data. Personal data, data under a contract, and sensitive research data can need storage that your institution approves. Ask your supervisor and your institution before you upload such data. Keep the plan on GitHub, and keep the data where the rules allow.
+:::
+
+::: {.callout-note}
+A private repository on GitHub Free supports Issues, sub-issues, dependencies, milestones, Projects, pull requests, and releases. GitHub Pages and branch protection for private repositories need a paid plan. The thesis workflow in this course needs neither.
+:::
+
+## Weekly review: 15 minutes {#weekly}
+
+Do this once a week at a fixed time, for example on Friday afternoon. The review takes the rhythm of Scrum and the board of Kanban ([Approaches](approaches.qmd)).
+
+1. Open the **Board**. Move each card to the Status that is true today.
+2. Look at **In progress**. Finish or return a card before you start a new one.
+3. Find the blocked work. For each "Blocked by", decide: wait, ask someone, or re-plan.
+4. Open the **Roadmap**. Check that the open Issues still fit before the next milestone.
+5. Close what is done. An Issue is done when its acceptance criteria are met and its output is linked.
+6. Write each decision that changed the plan into `decisions.md`, as in [X6](exercises/x6.qmd).
+7. Post a **status update** in the Project: one status and two sentences.
+
+## Monthly check {#monthly}
+
+1. Share the state with your supervisor. Send the link to the latest status update, or an exported view.
+2. Check the official dates and the rules again. Mark each date that you have in writing as confirmed.
+3. Check the risks: what could delay the next milestone?
+4. Check what can be published and what stays private.
+5. Check your backup: is a current copy of the text and the data in a second place?
+
+## When the plan breaks
+
+Do what you practised in X6. Record the event as an Issue. List two or three options and what each one costs. Choose one, record the decision, and keep the official dates. If an official date cannot hold, talk to your supervisor early. Only a formal decision can extend the period ([requirement R-12](../documentation/requirements.qmd)).
+
+## What GitHub does not do for you
+
+- **Backup.** GitHub is not a backup. An exported view is a snapshot of the plan, not a copy of the Project.
+- **Preservation.** A release is not a long-term archive. For preservation and a DOI, use a repository such as Zenodo, after a rights decision ([publication note](../documentation/publication.qmd)).
+- **Quality and deadlines.** GitHub shows the state of the work. You, your supervisor, and the rules decide whether it is good enough and on time.
