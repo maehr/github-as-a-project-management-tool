@@ -4,8 +4,10 @@ subtitle: 10:25–11:05 · 40 minutes
 description: Create a Project with fields and three views, add three justified milestones, and record one blocking dependency.
 ---
 
-::: {.callout-note appearance="simple"}
-**You produce:** a Project linked to your repository with the fields Status, Priority, Start date, Target date, and Basis; the views Backlog, Board, and Roadmap; three milestones with justified dates; and one "blocked by" dependency.
+::: {.callout-note title="At a glance"}
+- **Time:** 40 minutes
+- **You produce:** a Project linked to your repository with the fields Status, Priority, Start date, Target date, and Basis; the views Backlog, Board, and Roadmap; three milestones with justified dates; and one "blocked by" dependency.
+- **New terms:** [Project](../cheat-sheet.qmd#project), [milestone](../cheat-sheet.qmd#milestone), [view](../cheat-sheet.qmd#view), [field](../cheat-sheet.qmd#field), [Project workflow](../cheat-sheet.qmd#project-workflow), [dependency](../cheat-sheet.qmd#dependency). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
 
 ## Why this step
@@ -127,3 +129,7 @@ Change the Status options before you rely on the Project workflows. A workflow t
 - [Using the built-in automations](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)
 - [About milestones](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones)
 - [Creating issue dependencies](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies)
+
+## Next
+
+[X4 Complete one documentation task](x4.qmd).

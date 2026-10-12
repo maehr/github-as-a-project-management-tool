@@ -4,8 +4,10 @@ subtitle: 11:05–11:40 · 35 minutes
 description: Complete E01-T2 through a branch, a pull request, a review, a merge, and the automatic closing of the Issue.
 ---
 
-::: {.callout-note appearance="simple"}
-**You produce:** one merged pull request that adds the section "Research question and scope" to the README and closes the Issue E01-T2.
+::: {.callout-note title="At a glance"}
+- **Time:** 35 minutes
+- **You produce:** one merged pull request that adds the section "Research question and scope" to the README and closes the Issue E01-T2.
+- **New terms:** [branch](../cheat-sheet.qmd#branch), [commit](../cheat-sheet.qmd#commit), [pull request](../cheat-sheet.qmd#pull-request), [review](../cheat-sheet.qmd#review), [merge](../cheat-sheet.qmd#merge). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
 
 ## Why this step
@@ -99,3 +101,7 @@ A review is a human check against the acceptance criteria. An automatic AI revie
 - [Linking a pull request to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue)
 - [Reviewing proposed changes in a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)
 - [Merging a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)
+
+## Next
+
+Break (11:40–11:50), then [X5 Prepare a reusable output](x5.qmd).

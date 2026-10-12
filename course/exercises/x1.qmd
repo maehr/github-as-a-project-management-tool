@@ -4,8 +4,10 @@ subtitle: 09:15–09:40 · 25 minutes
 description: Create a repository from the template, describe the fictional thesis, and check the visibility.
 ---
 
-::: {.callout-note appearance="simple"}
-**You produce:** a repository from the template, a README for the fictional thesis with a synthetic-data notice, and a checked visibility setting.
+::: {.callout-note title="At a glance"}
+- **Time:** 25 minutes
+- **You produce:** a repository from the template, a README for the fictional thesis with a synthetic-data notice, and a checked visibility setting.
+- **New terms:** [repository](../cheat-sheet.qmd#repository), [template](../cheat-sheet.qmd#template), [README](../cheat-sheet.qmd#readme), [Markdown](../cheat-sheet.qmd#markdown), [commit](../cheat-sheet.qmd#commit), [visibility](../cheat-sheet.qmd#visibility), [GitHub Actions workflow](../cheat-sheet.qmd#actions). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
 
 ## Why this step
@@ -135,3 +137,7 @@ The template contains automated workflows. They run once when GitHub creates you
 - [Editing files](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files)
 - [Setting repository visibility](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)
 - [Managing GitHub Actions settings for a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)
+
+## Next
+
+[X2 Turn requirements into work](x2.qmd).

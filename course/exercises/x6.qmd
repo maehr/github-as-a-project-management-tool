@@ -4,8 +4,10 @@ subtitle: 12:25–12:50 · 25 minutes
 description: Re-plan after a two-week source delay and a rights restriction, keep the official deadline, record the decision, and export a Project view.
 ---
 
-::: {.callout-note appearance="simple"}
-**You produce:** two new sub-issues with dates and a dependency, an unchanged submission milestone, a decision record, a Project status update, and an exported view.
+::: {.callout-note title="At a glance"}
+- **Time:** 25 minutes
+- **You produce:** two new sub-issues with dates and a dependency, an unchanged submission milestone, a decision record, a Project status update, and an exported view.
+- **New terms:** [dependency](../cheat-sheet.qmd#dependency), [milestone](../cheat-sheet.qmd#milestone), [view](../cheat-sheet.qmd#view). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
 
 ## Why this step
@@ -122,3 +124,7 @@ The most important rule is about deadlines. The submission date of a master's th
 - [Creating issue dependencies](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies)
 - [Sharing project updates](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/sharing-project-updates)
 - [Exporting your project's data](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/exporting-your-projects-data)
+
+## Next
+
+The [exit check](../syllabus.qmd#exit-check) and the [transfer to a private thesis](../solutions.qmd#private-thesis).

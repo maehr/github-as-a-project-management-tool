@@ -54,7 +54,7 @@ Do not put real personal data, unpublished research data, or third-party materia
 
 ## What to open on the day
 
-- This website.
+- This website. If GitHub is new to you, read the [cheat sheet](cheat-sheet.qmd) before the session.
 - The [template](https://github.com/maehr/open-research-data-template) that you start from in X1.
 - The [showcase Project](https://github.com/users/maehr/projects/11) and the [example repository](https://github.com/maehr/projm-example-thesis), for comparison.
 

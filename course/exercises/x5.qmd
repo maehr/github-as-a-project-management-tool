@@ -4,8 +4,10 @@ subtitle: 11:50–12:25 · 35 minutes
 description: Add the synthetic dataset and its data dictionary, correct the citation and licence metadata, record the rights decision, and publish a demo release.
 ---
 
-::: {.callout-note appearance="simple"}
-**You produce:** the CSV in `data/clean/`, a data dictionary that closes the story E08-S1, a corrected `CITATION.cff`, a rights and access decision (E08-T2), and the release `v0.1.0-demo` (E08-T3).
+::: {.callout-note title="At a glance"}
+- **Time:** 35 minutes
+- **You produce:** the CSV in `data/clean/`, a data dictionary that closes the story E08-S1, a corrected `CITATION.cff`, a rights and access decision (E08-T2), and the release `v0.1.0-demo` (E08-T3).
+- **New terms:** [release](../cheat-sheet.qmd#release), [tag](../cheat-sheet.qmd#tag), [visibility](../cheat-sheet.qmd#visibility). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
 
 ## Why this step
@@ -193,3 +195,7 @@ abstract: >-
 - [About CITATION files](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)
 - [Licensing a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
 - [Managing releases in a repository](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+
+## Next
+
+[X6 React to a delay and a restriction](x6.qmd).

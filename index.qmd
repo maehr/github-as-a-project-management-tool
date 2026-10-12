@@ -4,37 +4,59 @@ subtitle: Plan, conduct, document, and share a master's thesis with one reposito
 description: Browser-first workshop and open educational resource. University of Bern, Digital Humanities, HS2026.
 ---
 
-This workshop shows how to manage a master's thesis with GitHub. You work on a **fictional thesis** with **synthetic data**. In four hours you build a repository, a sourced plan of Issues, a Project with a backlog, a board, and a roadmap, and you complete, document, and release one part of the work.
+This workshop shows how to manage a master's thesis with GitHub. You work on a **fictional thesis** with **synthetic data**. Everything runs in the browser, and you install nothing.
 
-::: {.callout-note appearance="simple"}
-**Friday, 16 October 2026, 09:00–13:00** · KSL 526141 · 0.5 ECTS, pass/fail · English · Room: Seminarraum F 001, Hörraumgebäude Unitobler
+::: {.callout-note title="At a glance"}
+- **When:** Friday, 16 October 2026, 09:00–13:00
+- **Where:** Seminarraum F 001, Hörraumgebäude Unitobler
+- **Credits:** 0.5 ECTS, passed or failed
+- **You need:** a laptop, a current browser, and a GitHub account
+- **Course catalogue:** [KSL 526141, HS2026](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0)
 :::
 
-## Start here
+## The workshop in one look
 
-1. Read [Setup](course/setup.qmd). You need a browser and a GitHub account. You install nothing.
-2. Read the [Syllabus](course/syllabus.qmd) for the run of show and the minimum deliverable.
-3. Work through the exercises:
+Each exercise adds one step to the same thesis plan. The last exercise changes the plan and sends you back to the Project.
+
+```{mermaid}
+flowchart TD
+    A["<b>X1 Repository</b><br/>09:15 · a home for files and history"] --> B["<b>X2 Requirements → Issues</b><br/>09:40 · each task has a reason and a proof"]
+    B --> C["<b>X3 Project</b><br/>10:25 · backlog, board, roadmap, milestones"]
+    C --> D["<b>X4 Pull request</b><br/>11:05 · do the work, review it, close the Issue"]
+    D --> E["<b>X5 Release</b><br/>11:50 · decide what to publish"]
+    E --> F["<b>X6 Re-plan</b><br/>12:25 · react to a delay, record the decision"]
+    F -.-> C
+```
+
+## How to use this site
+
+1. **New to GitHub?** Read the [cheat sheet](course/cheat-sheet.qmd) first. It explains repositories, Issues, pull requests, and the other terms of the workshop.
+2. Prepare with [Setup](course/setup.qmd). Create a GitHub account and choose a path: solo, private, or pair.
+3. Read the [Syllabus](course/syllabus.qmd) for the aims, the run of show, and the pass rule.
+4. Work through the exercises in order. Each exercise page has the same parts: why, steps, screenshots, expected state, and what to do if something goes wrong.
+5. Use the [slides](slides/index.qmd) for an overview of the whole session.
+
+## Exercises
 
 | Exercise | Time | You produce |
 | --- | --- | --- |
 | [X1 Create the repository](course/exercises/x1.qmd) | 09:15–09:40 | Repository from the template, README, visibility check |
 | [X2 Turn requirements into work](course/exercises/x2.qmd) | 09:40–10:15 | 2 epics, 6 sub-issues, 1 user story |
-| [X3 Configure the Project](course/exercises/x3.qmd) | 10:25–11:05 | Fields, 3 views, 3 milestones, 1 dependency |
+| [X3 Configure the Project](course/exercises/x3.qmd) | 10:25–11:05 | Project with 3 views, 3 milestones, 1 dependency |
 | [X4 Complete one documentation task](course/exercises/x4.qmd) | 11:05–11:40 | Branch, pull request, review, merge, closed Issue |
 | [X5 Prepare a reusable output](course/exercises/x5.qmd) | 11:50–12:25 | Data dictionary, citation check, demo release |
 | [X6 React to a delay and a restriction](course/exercises/x6.qmd) | 12:25–12:50 | Re-plan, decision record, exported view |
 
 ## The worked example
 
-The [showcase Project](https://github.com/users/maehr/projects/11) holds the full plan of the fictional thesis: eight epics, 34 sub-issues, three milestones, dependencies, and the views Backlog, Board, and Roadmap. Its Issues live in the [example repository](https://github.com/maehr/projm-example-thesis). Use them for orientation, or copy the Project as a starting point for your own thesis. The versioned source of the plan is the [example backlog](project-management/backlog.md).
+The [showcase Project](https://github.com/users/maehr/projects/11) holds the full plan of the fictional thesis: eight epics, 34 sub-issues, three milestones, dependencies, and the views Backlog, Board, and Roadmap. Its Issues live in the [example repository](https://github.com/maehr/projm-example-thesis). Compare your work with it, or copy the Project as a starting point. The versioned source of the plan is the [example backlog](project-management/backlog.md).
 
 ## What this course is, and what it is not
 
-- It is an **open educational resource** and a **worked documentation example**. The documentation of the fictional thesis is in [Documentation](documentation/index.qmd) and [Project management](project-management/backlog.md).
+- It is an **open educational resource** and a **worked documentation example**. See [Worked example](documentation/index.qmd).
 - It is **not** a thesis-format template that the university approved. Your study plan, your supervisor, and the Dean's Office set the rules for your thesis. The [requirements register](documentation/requirements.qmd) shows how to keep the two apart.
 - It does **not** use real personal or research data. For your real thesis, start **private**: see [Transfer to a private thesis](course/solutions.qmd#private-thesis).
 
 ## Reuse
 
-The original teaching text and the synthetic data are under [CC BY 4.0](LICENSE-CCBY.md). Code derived from the template is under [AGPL 3.0](LICENSE-AGPL.md). The screenshots show the GitHub interface, which is not covered by these licences ([Notice](NOTICE.md)). Cite the course with the metadata in [`CITATION.cff`](https://github.com/maehr/github-as-a-project-management-tool/blob/main/CITATION.cff).
+The original teaching text and the synthetic data are under [CC BY 4.0](LICENSE-CCBY.md). Code derived from the template is under [AGPL 3.0](LICENSE-AGPL.md). The screenshots show the GitHub interface, which these licences do not cover ([Notice](NOTICE.md)). Cite the course with the metadata in [`CITATION.cff`](https://github.com/maehr/github-as-a-project-management-tool/blob/main/CITATION.cff).

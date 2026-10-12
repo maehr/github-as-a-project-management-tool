@@ -4,8 +4,10 @@ subtitle: 09:40–10:15 · 35 minutes
 description: Create two epics with six native sub-issues, one user story, and acceptance criteria from sourced requirements.
 ---
 
-::: {.callout-note appearance="simple"}
-**You produce:** three labels, two epics (E01, E08), six sub-issues with acceptance criteria, and one user story. Each rule-based Issue names its source.
+::: {.callout-note title="At a glance"}
+- **Time:** 35 minutes
+- **You produce:** three labels, two epics (E01, E08), six sub-issues with acceptance criteria, and one user story. Each rule-based Issue names its source.
+- **New terms:** [issue](../cheat-sheet.qmd#issue), [label](../cheat-sheet.qmd#label), [epic](../cheat-sheet.qmd#epic), [sub-issue](../cheat-sheet.qmd#sub-issue). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
 
 ## Why this step
@@ -92,3 +94,7 @@ If you created an Issue on its own, open the epic, click the arrow next to **Cre
 - [Creating an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue)
 - [Adding sub-issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues)
 - [Managing labels](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels)
+
+## Next
+
+Break (10:15–10:25), then [X3 Configure the Project](x3.qmd).

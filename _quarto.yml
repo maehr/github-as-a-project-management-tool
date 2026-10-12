@@ -42,68 +42,95 @@ website:
   navbar:
     logo: android-chrome-512x512.png
     logo-alt: 'Home'
-    title: PROJM
-    left:
-      - text: Home
-        href: index.qmd
-      - text: Course
-        menu:
-          - href: course/setup.qmd
-          - href: course/syllabus.qmd
-          - text: '---'
-          - href: course/exercises/x1.qmd
-          - href: course/exercises/x2.qmd
-          - href: course/exercises/x3.qmd
-          - href: course/exercises/x4.qmd
-          - href: course/exercises/x5.qmd
-          - href: course/exercises/x6.qmd
-          - text: '---'
-          - href: course/solutions.qmd
-          - href: course/instructor-notes.qmd
-      - text: Documentation
-        menu:
-          - href: documentation/requirements.qmd
-          - href: documentation/data-dictionary.qmd
-          - href: documentation/publication.qmd
-      - text: Project management
-        menu:
-          - href: project-management/backlog.md
-          - href: project-management/milestones.md
-          - href: project-management/decisions.md
-          - href: project-management/risks.md
-      - text: Template
-        href: templates/master-thesis/README.md
-      - text: Slides
-        href: slides/index.qmd
-    right:
-      - text: About
-        menu:
-          - href: SPECS.md
-            text: Specification
-          - href: CHANGELOG.md
-          - href: NOTICE.md
-          - href: LICENSE-CCBY.md
-            text: Licence (prose and data)
-          - href: LICENSE-AGPL.md
-            text: Licence (code)
-          - href: CODE_OF_CONDUCT.md
-          - href: CONTRIBUTING.md
-          - href: SECURITY.md
+    title: GitHub as a Project Management Tool
+    tools:
       - icon: github
         href: https://github.com/maehr/github-as-a-project-management-tool/
         aria-label: GitHub repository
+    left:
+      - text: Setup
+        href: course/setup.qmd
+      - text: Syllabus
+        href: course/syllabus.qmd
+      - text: Exercises
+        href: course/exercises/x1.qmd
+      - text: Cheat sheet
+        href: course/cheat-sheet.qmd
+      - text: Slides
+        href: slides/index.qmd
+      - text: Worked example
+        href: documentation/index.qmd
+
+  sidebar:
+    contents:
+      - text: Home
+        href: index.qmd
+      - section: Start here
+        contents:
+          - course/setup.qmd
+          - course/syllabus.qmd
+      - section: Exercises
+        contents:
+          - course/exercises/x1.qmd
+          - course/exercises/x2.qmd
+          - course/exercises/x3.qmd
+          - course/exercises/x4.qmd
+          - course/exercises/x5.qmd
+          - course/exercises/x6.qmd
+      - section: Help
+        contents:
+          - course/cheat-sheet.qmd
+          - course/solutions.qmd
+          - course/instructor-notes.qmd
+      - section: Worked example
+        href: documentation/index.qmd
+        contents:
+          - documentation/requirements.qmd
+          - documentation/data-dictionary.qmd
+          - documentation/publication.qmd
+          - project-management/backlog.md
+          - project-management/milestones.md
+          - project-management/decisions.md
+          - project-management/risks.md
+          - text: Thesis documentation template
+            href: templates/master-thesis/README.md
+      - section: About
+        contents:
+          - text: Specification
+            href: SPECS.md
+          - CHANGELOG.md
+          - NOTICE.md
+          - text: Licence (prose and data)
+            href: LICENSE-CCBY.md
+          - text: Licence (code)
+            href: LICENSE-AGPL.md
+          - CODE_OF_CONDUCT.md
+          - CONTRIBUTING.md
+          - SECURITY.md
+
   page-footer:
-    left: 'Prose and data: [CC BY 4.0](/LICENSE-CCBY.md). Code: [AGPL 3.0](/LICENSE-AGPL.md). GitHub interface in screenshots: © GitHub, Inc.'
-    right: 'KSL 526141, HS2026, University of Bern'
+    left:
+      - text: Prose and data under CC BY 4.0
+        href: LICENSE-CCBY.md
+      - text: Code under AGPL 3.0
+        href: LICENSE-AGPL.md
+      - text: 'Screenshots: GitHub interface © GitHub, Inc.'
+        href: NOTICE.md
+    right:
+      - text: KSL 526141, HS2026, University of Bern
+        href: https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0
 
 format:
   html:
     toc: true
     theme:
-      light: [brand, cosmo]
-      dark: [brand, darkly]
+      - cosmo
+      - brand
+      - theme.scss
     css: styles.css
     code-copy: true
     code-overflow: wrap
     canonical-url: true
     lightbox: true
+    link-external-icon: true
+    link-external-newwindow: true

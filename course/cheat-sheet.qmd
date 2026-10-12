@@ -1,0 +1,144 @@
+---
+title: GitHub cheat sheet
+subtitle: Terms, browser paths, and commands for beginners
+description: The GitHub terms that the workshop uses, where to find each one in the browser, and the matching git and gh commands.
+---
+
+::: {.callout-tip title="You need only the browser"}
+All exercises run in the browser. The git and gh commands on this page are optional. They help you later, when you work on your own computer.
+:::
+
+## GitHub in one picture
+
+GitHub keeps two things together: the **files** of a project and the **plan** for the work. A repository holds the files and their history. Issues and a Project hold the plan. A pull request connects the two: it changes the files, and it closes the Issue that asked for the change.
+
+```{mermaid}
+flowchart TB
+    T["<b>Template</b><br/>a starting point"] -- "Use this template" --> M
+    subgraph REPO ["Your repository"]
+        M["<b>main</b> branch<br/>the agreed version"]
+        B["<b>your branch</b><br/>work in progress"]
+        M -- "create a branch" --> B
+        B -- "pull request → review → merge" --> M
+        M -- "tag v0.1.0" --> R["<b>Release</b><br/>a named version"]
+    end
+    I["<b>Issue</b><br/>what to do, and is it done?"]
+    P["<b>Project</b><br/>backlog, board, roadmap"]
+    B -. "Closes #12" .-> I
+    P -- "shows" --> I
+    style REPO fill:#f2f1ee,stroke:#8f8d88,color:#0b0b0b
+```
+
+## Terms
+
+### Files and history
+
+| Term | What it is | Where in the browser |
+| ------ | --------------- | --------- |
+| [Repository]{#repository} | The home of one project on GitHub. It holds the files, their full history, the Issues, and the pull requests. | `github.com/OWNER/NAME` |
+| [README]{#readme} | The file `README.md`. GitHub shows it on the start page of the repository. It tells a visitor what the repository is. | Start page, below the file list |
+| [Markdown]{#markdown} | A simple text format, for example `**bold**`, `# Heading`, or `- [ ] task`. README files, Issues, and pull requests use it. | Every text box on GitHub; click **Preview** |
+| [Commit]{#commit} | A saved change to one or more files, with a message, an author, and a date. The history of a repository is a list of commits. | **Commit changes…** after you edit a file; **History** on a file |
+| [Branch]{#branch} | A separate line of work. You change files on a branch without changing `main`. | Branch menu above the file list (it shows `main`) |
+| [Default branch]{#default-branch} | The branch that holds the agreed version, usually `main`. Visitors see it first. | Branch menu |
+| [Clone]{#clone} | A copy of a repository on your own computer, made with git. The workshop does not need it. | **Code** button → **Local** |
+
+Learn more: [About repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories) · [About READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) · [About branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
+
+### Working together
+
+| Term | What it is | Where in the browser |
+| ------ | --------------- | --------- |
+| [Pull request]{#pull-request} | A proposal to bring the commits of one branch into another branch, usually `main`. Others can comment and review before the merge. Short form: PR. | **Pull requests** tab |
+| [Review]{#review} | A human check of a pull request. The reviewer comments, approves, or requests changes. | Pull request → **Files changed** → **Submit review** |
+| [Merge]{#merge} | The step that adds the commits of a pull request to the target branch. | Pull request → **Merge pull request** |
+| [Collaborator]{#collaborator} | A person with write access to your repository. Access to a Project is a separate setting. | **Settings → Collaborators** |
+| [Template]{#template} | A repository that others use as a starting point. The new repository gets the files, but not the history. It has no connection to the template. | **Use this template** button |
+| [Fork]{#fork} | Your own copy of another person's repository. It stays connected to the original, so you can propose changes back with a pull request. | **Fork** button, top right of a repository |
+
+**Template or fork?** Use a template to start your own project, as in X1. Use a fork to contribute to another person's project, for example to correct this course.
+
+Learn more: [About pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) · [About forks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) · [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
+
+### Planning
+
+| Term | What it is | Where in the browser |
+| ------ | --------------- | --------- |
+| [Issue]{#issue} | One piece of work or one question, with a title, a description, and a discussion. You close it when it is done. | **Issues** tab |
+| [Sub-issue]{#sub-issue} | An Issue that is part of a larger Issue, its parent. | Parent Issue → **Create sub-issue** |
+| [Epic]{#epic} | A large Issue that groups the sub-issues for one substantial outcome. GitHub has no epic type; this course uses the label `kind:epic`. | **Issues** tab, filter `label:kind:epic` |
+| [Label]{#label} | A coloured tag on Issues and pull requests, for example `kind:task`. You can filter by label. | **Issues → Labels** |
+| [Milestone]{#milestone} | A group of Issues with one due date, for example "Registration submitted". | **Issues → Milestones** |
+| [Dependency]{#dependency} | A "blocked by" relation: one Issue waits for another. It is not a parent-child relation. | Issue sidebar → **Relationships** |
+| [Project]{#project} | A planning tool that belongs to your account. It shows Issues from one or more repositories as a table, a board, or a roadmap. Its visibility is separate from the repository. | **Projects** tab of the repository |
+| [View]{#view} | One saved way to look at a Project: a table, a board, or a roadmap, with its own filters. | Tabs at the top of the Project |
+| [Field]{#field} | A column in a Project, for example Status, Priority, or Target date. | Project table header → **+** |
+| [Project workflow]{#project-workflow} | A built-in automation of a Project, for example "when an Issue closes, set the Status to Done". | Project **…** → **Workflows** |
+
+Learn more: [About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/about-issues) · [About Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) · [About milestones](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones)
+
+### Sharing
+
+| Term | What it is | Where in the browser |
+| ------ | --------------- | --------- |
+| [Visibility]{#visibility} | Public means that everyone can see it. Private means that only the people you invite can see it. A repository and a Project each have their own setting. | Repository: **Settings → General → Danger Zone**. Project: **… → Settings** |
+| [Tag]{#tag} | A name for one commit, for example `v0.1.0`. | **Releases** or **Tags** |
+| [Release]{#release} | A tagged version with notes and downloadable archives. It is not a long-term archive. | **Releases**, right column of the start page |
+| [GitHub Actions workflow]{#actions} | A script that GitHub runs on its servers, for example to build a website. It lives in `.github/workflows/`. It is not the same as a Project workflow. | **Actions** tab |
+| [GitHub Pages]{#pages} | A website service that publishes files from a repository. | **Settings → Pages** |
+
+Learn more: [About releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases) · [Setting repository visibility](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility) · [Understanding GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions) · [GitHub glossary](https://docs.github.com/en/get-started/learning-about-github/github-glossary)
+
+## Tasks in the browser, in git, and in gh
+
+**git** is the version-control program on your computer. **gh** is the GitHub command-line tool. To use them, [set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git) and install [gh](https://cli.github.com/manual/). Sign in once with `gh auth login`. Replace `OWNER`, `NAME`, and the numbers with your own values.
+
+### Repository and files
+
+| Task | Browser | Command |
+| ------ | -------- | ----------- |
+| Create a repository from the template | Template page → **Use this template** → **Create a new repository** | `gh repo create my-thesis --template maehr/open-research-data-template --private --clone` |
+| Copy a repository to your computer | **Code** → **Local** | `gh repo clone OWNER/NAME` |
+| See what changed | **History** on a file | `git status` and `git log --oneline` |
+| Create a branch | Branch menu → type a name → **Create branch** | `git switch -c docs/scope` |
+| Save a change | Edit a file → **Commit changes…** | `git add README.md` then `git commit -m "docs: add the scope"` |
+| Upload the branch | Happens with the commit | `git push -u origin docs/scope` |
+| Get the latest `main` | Not needed | `git switch main` then `git pull` |
+| Open the repository in the browser | — | `gh browse` |
+
+### Pull requests
+
+| Task | Browser | Command |
+| ------ | -------- | ----------- |
+| Open a pull request | **Compare & pull request** | `gh pr create --fill` |
+| Review a pull request | **Files changed** → **Submit review** | `gh pr review --approve` or `gh pr review --comment --body "Checked the criteria"` |
+| Merge a pull request | **Merge pull request** → **Confirm merge** | `gh pr merge --squash --delete-branch` |
+
+### Issues and Projects
+
+| Task | Browser | Command |
+| ------ | -------- | ----------- |
+| Create a label | **Issues → Labels → New label** | `gh label create kind:task --description "Sub-issue with one output"` |
+| Create an Issue | **Issues → New issue** | `gh issue create --title "E01 Scope the thesis and register it" --label kind:epic` |
+| Create a sub-issue | Parent Issue → **Create sub-issue** | `gh issue create --title "E01-T2 Write the research question and scope" --label kind:task --parent 1` |
+| List Issues | **Issues** tab | `gh issue list --label kind:task` |
+| Close an Issue | **Close issue** | `gh issue close 3 --comment "Done, see #5"` |
+| Start work on an Issue | Issue sidebar → **Development** → **Create a branch** | `gh issue develop 3 --checkout` |
+| Copy the showcase Project | Project **…** → **Make a copy** | `gh project copy 11 --source-owner maehr --target-owner @me --title "PROJM thesis plan"` |
+| Link a Project to a repository | Repository **Projects** tab → **Link a project** | `gh project link 12 --owner @me --repo my-thesis` |
+| Create a release | **Create a new release** | `gh release create v0.1.0-demo --title "Demo release" --notes "Synthetic data only"` |
+
+## Markdown for Issues and pull requests
+
+```markdown
+## Heading
+**bold** and _italic_
+- [ ] an open task
+- [x] a completed task
+[link text](https://example.org)
+@username     mentions a person
+#12           links Issue or pull request 12
+Closes #12    in a pull request: closes Issue 12 when the pull request merges
+```
+
+Learn more: [Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) · [Linking a pull request to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue) · [Git documentation](https://git-scm.com/docs) · [GitHub CLI manual](https://cli.github.com/manual/)
