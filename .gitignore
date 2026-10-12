@@ -491,3 +491,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/r,git,node,linux,macos,dotenv,python,windows,visualstudiocode
+
+# Raw screenshots can show account details; only annotated images are committed
+assets/screenshots/raw/

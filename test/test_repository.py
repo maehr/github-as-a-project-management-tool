@@ -17,6 +17,7 @@ CSV_FILE = ROOT / "data" / "synthetic-periodicals.csv"
 DICTIONARY = ROOT / "documentation" / "data-dictionary.qmd"
 SCREENSHOTS = ROOT / "assets" / "screenshots"
 CONTENT_DIRS = ["course", "documentation", "project-management", "slides", "templates"]
+CONTENT_ROOT_FILES = ["index.qmd", "README.md"]
 
 
 def content_files() -> list[Path]:
@@ -89,18 +90,27 @@ def test_every_image_exists_and_has_alt_text() -> None:
         assert (path.parent / src).resolve().exists(), f"missing image {src}"
 
 
-def test_every_screenshot_is_referenced_and_annotated() -> None:
-    pngs = sorted(SCREENSHOTS.glob("*.png"))
-    if not pngs:
-        pytest.skip("no screenshots yet")
-    referenced = {(p.parent / src).resolve() for p, _, src in image_references()}
+SHORTCODE = re.compile(r"\{\{< screenshot (?P<name>[a-z0-9-]+) >\}\}")
+
+
+def test_every_screenshot_is_annotated_used_and_present() -> None:
     annotations = yaml.safe_load((SCREENSHOTS / "annotations.yml").read_text())
-    by_name = {shot["file"]: shot for shot in annotations["screenshots"]}
-    for png in pngs:
-        assert png.resolve() in referenced, f"{png.name} is not used on any page"
-        shot = by_name[png.name]
-        assert shot["alt"].strip()
-        assert shot["captured"]
+    by_name = {
+        shot["file"].removesuffix(".webp"): shot for shot in annotations["screenshots"]
+    }
+    used = {
+        match["name"]
+        for path in content_files()
+        for match in SHORTCODE.finditer(path.read_text(encoding="utf-8"))
+    }
+    assert used <= set(by_name), f"unknown screenshots: {used - set(by_name)}"
+    for name, shot in by_name.items():
+        assert (SCREENSHOTS / shot["file"]).exists(), f"{shot['file']} not rendered"
+        assert shot["alt"].strip(), f"{name} has no alt text"
+        assert shot["callouts"], f"{name} has no callouts"
+        assert name in used, f"{name} is not used on any page"
+    files = {p.name for p in SCREENSHOTS.glob("*.webp")}
+    assert files == {s["file"] for s in by_name.values()}, "unannotated image files"
 
 
 # ---------------------------------------------------------------- privacy
