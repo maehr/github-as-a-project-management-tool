@@ -23,7 +23,8 @@ keywords:
   - open educational resource
   - master's thesis
 abstract: >-
-  Browser-first workshop and open educational resource for the University of
+  Workshop and open educational resource, with a browser route and a
+  command-line route for each exercise, for the University of
   Bern master's course "[PROJM] Github as a project management tool" (KSL
   526141, HS2026). Learners plan, conduct, document, and responsibly share a
   fictional master's thesis with one GitHub repository and one GitHub Project,

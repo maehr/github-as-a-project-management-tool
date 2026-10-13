@@ -177,8 +177,11 @@ A GitHub Actions workflow deploys from `main`. Never publish by hand. Never repl
 * Use only synthetic data in public examples. Real thesis work defaults to a private repository and a private Project.
 * Keep the example backlog in `project-management/backlog.yml`. It is the seed source for the showcase Project and the example repository.
 * Link the showcase Project and the example repository. Do not copy their content onto the site. Use a dated screenshot to show it.
-* Design every core exercise for the browser. No exercise needs Quarto, the Git CLI, paid features, a VPN, public disclosure, or a production DOI.
-* Give each exercise a teaching explanation, browser steps, screenshots, the expected state, and a recovery route.
+* Give every exercise step two routes: a browser route and a command-line route (git and gh). Put them in a tabset with the group `route` and the tabs `Browser` and `Command line`. Each route must reach the expected state alone.
+* Mark a step without a usable command with a callout titled "Browser only", and give the reason. `npm run check` tests both rules.
+* Run every new or changed command in a private throwaway repository before you publish it. Record the date and the versions in the command-line verification log in `course/instructor-notes.qmd`.
+* No exercise needs Quarto, paid features, a VPN, public disclosure, or a production DOI. The browser route needs no software installation.
+* Give each exercise a teaching explanation, steps for both routes, screenshots, the expected state, and a recovery route.
 * Capture screenshots from the current GitHub interface after you confirm the behaviour. Give each one a capture date and alt text. Remove avatars, notifications, and unrelated repositories before you commit it.
 * Link the official GitHub documentation next to each procedure that depends on the interface.
 * Write procedures in Simplified Technical English. Write explanations and arguments by the rules in Appendix B.

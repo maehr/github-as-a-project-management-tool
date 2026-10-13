@@ -151,7 +151,12 @@ def test_every_screenshot_is_annotated_used_and_present() -> None:
 # ---------------------------------------------------------------- privacy
 
 EMAIL = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}")
-ALLOWED_EMAILS = {"noreply@anthropic.com", "noreply@github.com"}
+# The last entry is the placeholder for the no-reply address in course/setup.qmd.
+ALLOWED_EMAILS = {
+    "noreply@anthropic.com",
+    "noreply@github.com",
+    "ID+USERNAME@users.noreply.github.com",
+}
 
 
 @pytest.mark.parametrize(

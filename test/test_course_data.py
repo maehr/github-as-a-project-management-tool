@@ -1,9 +1,11 @@
-"""Consistency checks for the course data: schedule, backlog, and milestones."""
+"""Consistency checks for the course data: schedule, backlog, milestones, and exercises."""
 
 from __future__ import annotations
 
 import datetime as dt
 import re
+from collections.abc import Iterator
+from pathlib import Path
 
 import pytest
 
@@ -11,6 +13,7 @@ from backlog import (
     BASES,
     KINDS,
     PRIORITIES,
+    ROOT,
     RULE_STATUSES,
     load_backlog,
     load_milestones,
@@ -183,3 +186,32 @@ def test_fictional_dates_match_the_six_month_writing_period() -> None:
     assert MILESTONES["M3"]["due"] == six_months_later
     assert MILESTONES["M1"]["date_status"] == "fictional-formal"
     assert MILESTONES["M3"]["date_status"] == "fictional-formal"
+
+
+# ----------------------------------------------------------------- exercises
+
+EXERCISES = sorted((ROOT / "course" / "exercises").glob("x*.qmd"))
+FENCED = re.compile(r"^[ \t]*```[^\n]*\n.*?^[ \t]*```[ \t]*$", re.MULTILINE | re.DOTALL)
+STEP = re.compile(r"^\d+\. ", re.MULTILINE)
+
+
+def step_sections(path: Path) -> Iterator[tuple[str, str]]:
+    text = FENCED.sub("", path.read_text(encoding="utf-8"))
+    steps = text.split("\n## Steps\n", 1)[1].split("\n## ", 1)[0]
+    for chunk in steps.split("\n### ")[1:]:
+        heading, _, body = chunk.partition("\n")
+        yield heading, body
+
+
+@pytest.mark.parametrize("path", EXERCISES, ids=lambda p: p.stem)
+def test_every_exercise_step_offers_both_routes(path: Path) -> None:
+    for heading, body in step_sections(path):
+        if not STEP.search(body):
+            continue
+        both = (
+            '::: {.panel-tabset group="route"}' in body
+            and "\n#### Browser\n" in body
+            and "\n#### Command line\n" in body
+        )
+        browser_only = 'title="Browser only"' in body
+        assert both or browser_only, f"{path.stem} / {heading}: no route tabs"

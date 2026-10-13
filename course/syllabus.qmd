@@ -25,7 +25,7 @@ The course description in KSL reads:
 
 > GitHub is not only a powerful tool for versioning and code development, but can also be efficiently used to manage and document on-going projects. In this course, you will get an introduction to the different project management approaches, combined with best practices utilizing GitHub for such tasks.
 
-Some GitHub experience and minimal command-line knowledge help, for example from the course "Introduction to DH". The course "Introduction to Project Management" is a plus, not a requirement. All exercises run in the browser. If GitHub is new to you, read the [cheat sheet](cheat-sheet.qmd) first.
+Some GitHub experience and minimal command-line knowledge help, for example from the course "Introduction to DH". The course "Introduction to Project Management" is a plus, not a requirement. Each exercise has a browser route and a command-line route; see [Choose your route](setup.qmd#routes). If GitHub is new to you, read the [cheat sheet](cheat-sheet.qmd) first.
 
 ## Learning outcomes
 

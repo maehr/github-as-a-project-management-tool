@@ -23,19 +23,46 @@ Some work exists because a regulation requires it; other work is good practice. 
 - You have the repository from [X1](x1.qmd).
 - Find the titles and the bodies to copy in [Texts to copy](#texts-to-copy) at the end of this page.
 - Open the [requirements register](../../documentation/requirements.qmd) in a third tab. You derive one Issue from it yourself.
+- Command-line route: open a terminal in the folder `projm-thesis`.
 
 ## Steps
 
 ### Create the labels
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Click **Issues**, then **Labels**.
 2. Click **New label**.
 3. Type the name `kind:epic`, the description `Parent Issue for a substantial outcome`, and click **Create label**.
 4. Repeat for `kind:task` (`Sub-issue with one output`) and `kind:story` (`Sub-issue written as a user story`).
 
+#### Command line
+
+1. Create the three labels:
+
+   ```bash
+   gh label create kind:epic --description "Parent Issue for a substantial outcome"
+   gh label create kind:task --description "Sub-issue with one output"
+   gh label create kind:story --description "Sub-issue written as a user story"
+   ```
+
+2. Check that the three labels exist:
+
+   ```bash
+   gh label list --search kind
+   ```
+
+:::
+
 GitHub Issue Types exist only for organisations. Labels work in every personal account.
 
 ### Create the two epics
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Click **Issues**, then **New issue**.
 2. Type the title `E01 Scope the thesis and register it`.
@@ -44,9 +71,35 @@ GitHub Issue Types exist only for organisations. Labels work in every personal a
 5. Click **Create**.
 6. Repeat for `E08 Publish and preserve the outputs`.
 
+#### Command line
+
+Each command reads the body of one Issue in the [example repository](https://github.com/maehr/projm-example-thesis) and creates your Issue with this body. The bodies are the same as in [Texts to copy](#texts-to-copy).
+
+1. Create the epic E01:
+
+   ```bash
+   gh issue view 1 -R maehr/projm-example-thesis --json body --jq .body \
+     | gh issue create --title "E01 Scope the thesis and register it" --label kind:epic --body-file -
+   ```
+
+2. Create the epic E08:
+
+   ```bash
+   gh issue view 37 -R maehr/projm-example-thesis --json body --jq .body \
+     | gh issue create --title "E08 Publish and preserve the outputs" --label kind:epic --body-file -
+   ```
+
+gh prints the address of each new Issue. The number at the end is the Issue number. In a new repository, E01 is `#1` and E08 is `#2`. The commands below use these numbers. If your numbers differ, use your numbers.
+
+:::
+
 ### Derive one sub-issue yourself
 
 Do not copy this one. Write it from the requirement, because that is what you will do for your real thesis.
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Open the epic E01. Below the description, click **Create sub-issue**. The button appears when the page has loaded.
 2. Type the title `E01-T1 Check the registration requirements`.
@@ -54,6 +107,32 @@ Do not copy this one. Write it from the requirement, because that is what you wi
 4. Write the body in your own words. Use the five parts below.
 5. Add the label `kind:task` and click **Create**.
 6. Compare your Issue with [E01-T1 in the example repository](https://github.com/maehr/projm-example-thesis/issues/2). Add what you missed.
+
+#### Command line
+
+1. Read requirement **R-05** in the requirements register and the sentence on page 5 of the [study plan](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) (Art. 15 Abs. 5).
+2. In a text editor, write the body in your own words. Use the five parts below.
+3. Save the body as `e01-t1.md` in the folder that contains `projm-thesis`. Outside the repository, you cannot commit the file by mistake.
+4. Create the sub-issue of E01 with this body:
+
+   ```bash
+   gh issue create --title "E01-T1 Check the registration requirements" --label kind:task \
+     --parent 1 --body-file ../e01-t1.md
+   ```
+
+5. Compare your Issue with E01-T1 in the example repository:
+
+   ```bash
+   gh issue view 2 -R maehr/projm-example-thesis
+   ```
+
+6. Add what you missed to `e01-t1.md`. Then replace the body of your Issue. Use the number of your E01-T1:
+
+   ```bash
+   gh issue edit 3 --body-file ../e01-t1.md
+   ```
+
+:::
 
 ```markdown
 **Output:** <what exists when the task is done?>
@@ -69,6 +148,10 @@ Do not copy this one. Write it from the requirement, because that is what you wi
 
 ### Create the other five sub-issues
 
+::: {.panel-tabset group="route"}
+
+#### Browser
+
 1. In E01, click **Create sub-issue** again. Create `E01-T2` and `E01-T3` with the label `kind:task`. Copy the titles and the bodies from [Texts to copy](#texts-to-copy).
 2. Open the epic E08. Create `E08-S1` with the label `kind:story`, then `E08-T2` and `E08-T3` with `kind:task`.
 
@@ -76,12 +159,65 @@ If you created an Issue on its own, open the epic, click the arrow next to **Cre
 
 {{< screenshot x2-epic-sub-issues >}}
 
+#### Command line
+
+1. Create the sub-issues E01-T2 and E01-T3 of E01 (`--parent 1`):
+
+   ```bash
+   gh issue view 3 -R maehr/projm-example-thesis --json body --jq .body \
+     | gh issue create --title "E01-T2 Write the research question and scope" --label kind:task --parent 1 --body-file -
+   gh issue view 4 -R maehr/projm-example-thesis --json body --jq .body \
+     | gh issue create --title "E01-T3 Submit the thesis registration to the Dean's Office" --label kind:task --parent 1 --body-file -
+   ```
+
+2. Create the sub-issues E08-S1, E08-T2, and E08-T3 of E08 (`--parent 2`):
+
+   ```bash
+   gh issue view 38 -R maehr/projm-example-thesis --json body --jq .body \
+     | gh issue create --title "E08-S1 Document the dataset for a future reuser" --label kind:story --parent 2 --body-file -
+   gh issue view 39 -R maehr/projm-example-thesis --json body --jq .body \
+     | gh issue create --title "E08-T2 Decide on rights and access for data and text" --label kind:task --parent 2 --body-file -
+   gh issue view 40 -R maehr/projm-example-thesis --json body --jq .body \
+     | gh issue create --title "E08-T3 Publish a demo release of the documented dataset" --label kind:task --parent 2 --body-file -
+   ```
+
+3. Check the epics. The line `sub-issues` lists three Issues for each epic:
+
+   ```bash
+   gh issue view 1
+   gh issue view 2
+   ```
+
+If you created an Issue without `--parent`, add it to its epic afterwards. For example, `gh issue edit 1 --add-sub-issue 9` makes Issue 9 a sub-issue of E01.
+
+:::
+
 ### Check one rule and one story
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Open `E01-T3`. Read the line **Basis**. Its status is *unconfirmed*: the regulation refers to dates that the Dean's Office publishes. Explain why the Issue does not invent a date.
 2. Open `E08-S1`. Read the story. Name the person who needs the output.
 
 {{< screenshot x2-task-blocked >}}
+
+#### Command line
+
+1. Show E01-T3. Read the line **Basis**. Its status is *unconfirmed*: the regulation refers to dates that the Dean's Office publishes. Explain why the Issue does not invent a date.
+
+   ```bash
+   gh issue view 5
+   ```
+
+2. Show E08-S1. Read the story. Name the person who needs the output.
+
+   ```bash
+   gh issue view 6
+   ```
+
+:::
 
 ## Texts to copy {#texts-to-copy}
 
@@ -107,6 +243,8 @@ Each text gives the title, the label, and the body of one Issue. The same Issues
 | You created a "task list" in the epic text instead of sub-issues. | Checkboxes in text are not Issues. | Keep the text. Create real sub-issues as described. |
 | You cannot create labels. | You are not the repository owner. | Ask the owner, or work as a collaborator with write access. |
 | Time runs out. | — | Create E01 with its three sub-issues first. Add E08 in X3. |
+| `gh issue create --parent` fails. | The number after `--parent` is not an epic in your repository. | Run `gh issue list --label kind:epic` and use the number of the epic. |
+| A command fails. | Usually the installation, the sign-in, or the folder. | See [Command-line problems](../setup.qmd#command-line-problems), or do the step in the browser. |
 
 ## Alternatives
 
@@ -118,6 +256,7 @@ Each text gives the title, the label, and the body of one Issue. The same Issues
 - [Creating an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue)
 - [Adding sub-issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues)
 - [Managing labels](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels)
+- [`gh issue create`](https://cli.github.com/manual/gh_issue_create) and [`gh issue edit`](https://cli.github.com/manual/gh_issue_edit)
 
 ## Next
 

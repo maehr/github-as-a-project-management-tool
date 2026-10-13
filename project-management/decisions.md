@@ -19,6 +19,7 @@ This page records the decisions behind this course. Each record has a context, a
 | [D-010](#d-010) | 2026-10-12 | Use the KSL course entry as the authority; set the pass rule        | Accepted            |
 | [D-011](#d-011) | 2026-10-13 | Remove `SPECS.md`; the syllabus and the decisions carry its content | Accepted            |
 | [D-012](#d-012) | 2026-10-13 | Link the showcase Project instead of copying it onto the site       | Accepted            |
+| [D-013](#d-013) | 2026-10-13 | Give every exercise a browser route and a command-line route        | Accepted            |
 
 ## D-001 Create the repository from the template at commit `c6ec5bc` {#d-001}
 
@@ -139,3 +140,13 @@ This page records the decisions behind this course. Each record has a context, a
 **Consequences.** Decision D-008 now applies to the schedule and the X2 texts only. The seed script creates missing items, but it does not change an existing Issue. A change to an existing Issue therefore goes into `backlog.yml` and into the Issue on GitHub.
 
 **Source.** Maintainer request, 13 October 2026.
+
+## D-013 Give every exercise a browser route and a command-line route {#d-013}
+
+**Context.** The course ran every exercise in the browser only. The KSL entry names minimal command-line knowledge as useful prior knowledge, and a thesis on the learner's own computer needs git. Some learners already use git and gh; others cannot install software on their laptop.
+
+**Decision.** Each exercise step has two routes in tabs: **Browser** and **Command line** (git and gh). Both routes reach the same expected state, so a learner can change the route at any step. A step without a usable command says **Browser only**: the Project field values, the workflows, the Project access, the status update, and the view export. The cheat sheet explains version control: why it matters for a thesis, and how a change travels from the working folder to GitHub.
+
+**Consequences.** The Setup page explains how to prepare the command line, and it lists the common command-line problems. A test checks that every step offers both routes or says "Browser only". The instructor runs the command-line route on the day before the session (risks R-09 and R-10).
+
+**Source.** Maintainer request, 13 October 2026. The command-line route was tested on 13 October 2026 with gh 2.102.0 and git 2.54.0 ([verification log](../course/instructor-notes.qmd#cli-log)).

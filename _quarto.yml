@@ -26,7 +26,7 @@ lang: en-GB
 
 website:
   title: GitHub as a Project Management Tool
-  description: Browser-first workshop and OER on planning, conducting, documenting, and sharing a fictional master's thesis with GitHub.
+  description: Workshop and OER on planning, conducting, documenting, and sharing a fictional master's thesis with GitHub, in the browser or on the command line.
   favicon: android-chrome-512x512.png
   open-graph: true
   site-url: https://maehr.github.io/github-as-a-project-management-tool/

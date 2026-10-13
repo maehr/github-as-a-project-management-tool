@@ -1,9 +1,9 @@
 ---
 title: Setup
-description: What you need before the session, and what to do if you do not have it.
+description: What you need before the session, how to choose the browser or the command line, and what to do if something is missing.
 ---
 
-The workshop runs in the browser. You install no software and you do no homework. You need three things.
+Each exercise has a browser route and a command-line route. The browser route needs no software, and neither route needs homework. For both routes, you need three things.
 
 | You need | Why | If you do not have it |
 | --- | --- | --- |
@@ -46,6 +46,74 @@ Repository access and Project access are separate. Access to the repository does
 
 A partner without an account works on the owner's laptop. Swap the keyboard at each exercise.
 
+## Choose your route {#routes}
+
+Each exercise reaches the same result on two routes. The **path** above decides what you share. The **route** decides how you work.
+
+| Route | You need | Choose it when |
+| --- | --- | --- |
+| **Browser** | A current desktop browser | GitHub is new to you, or you cannot install software on your laptop. |
+| **Command line** | git, gh (the GitHub command-line tool), a terminal, and a text editor | You know some command line, or you want to learn the workflow for your own computer. |
+
+Each exercise shows the routes as two tabs: **Browser** and **Command line**. When you select a tab, all tabs on the page switch together. A step without a usable command says **Browser only**. Both routes change the same repository on GitHub, so you can change the route at any step. The [cheat sheet](cheat-sheet.qmd#version-control) explains what git does.
+
+## Prepare the command line {#command-line-route}
+
+Do this before the session. Allow 15 minutes. If a step fails, use the browser route. You lose nothing.
+
+1. Install git from [git-scm.com/downloads](https://git-scm.com/downloads). On Windows, the installer also installs **Git Bash**.
+2. Install gh from [cli.github.com](https://cli.github.com/). The instructor tested the exercises with gh 2.102.0. Install this version or a later one.
+3. Open a terminal. On Windows, open Git Bash, because the commands on this site use its syntax.
+4. Check both tools. Each command prints a version number.
+
+   ```bash
+   git --version
+   gh --version
+   ```
+
+5. Sign in to GitHub in the browser window that gh opens. The option `--scopes project` gives gh access to Projects.
+
+   ```bash
+   gh auth login --hostname github.com --git-protocol https --web --scopes project
+   ```
+
+6. Let git use the sign-in of gh when it sends commits to GitHub:
+
+   ```bash
+   gh auth setup-git
+   ```
+
+7. Set the name and the e-mail address that git writes into each commit. Use your no-reply address from **Settings → Emails** on GitHub.
+
+   ```bash
+   git config --global user.name "Your Name"
+   git config --global user.email "ID+USERNAME@users.noreply.github.com"
+   ```
+
+8. Check the sign-in. The line "Token scopes" includes `project`.
+
+   ```bash
+   gh auth status
+   ```
+
+If you signed in to gh before, add the access to Projects with `gh auth refresh -s project`.
+
+Each commit shows its name and e-mail address to everyone who can see the repository. The no-reply address keeps your private address private ([Setting your commit email address](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)).
+
+You also need a text editor for Markdown files. Any editor that saves plain text works, for example Visual Studio Code.
+
+### Command-line problems {#command-line-problems}
+
+| Problem | Cause | Recovery |
+| --- | --- | --- |
+| "command not found: gh" or "command not found: git" | The tool is not installed, or the terminal opened before the installation. | Open a new terminal. If the error stays, install the tool again. |
+| "fatal: not a git repository" | The terminal is not in the project folder. | Run `cd projm-thesis`. |
+| gh reports that the token is missing the scope `project`. | You signed in without access to Projects. | Run `gh auth refresh -s project`. |
+| `git push` asks for a user name and a password. | git does not use the sign-in of gh. | Run `gh auth setup-git`. Then push again. |
+| `git push` is rejected with "fetch first". | GitHub has commits that your computer does not have, for example from the browser route. | Run `git pull --rebase`. Then push again. |
+| An editor opens in the terminal. | git asks for a message. | In nano, press `Ctrl`+`X`. In vim, type `:wq` and press `Enter`. |
+| Another error | — | Do the step in the browser. Both routes reach the same state. |
+
 ::: {.callout-important}
 ## Synthetic data only
 
@@ -60,6 +128,7 @@ Do not put real personal data, unpublished research data, or third-party materia
 
 ## Official documentation
 
+- [Set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git) and [`gh auth login`](https://cli.github.com/manual/gh_auth_login)
 - [Creating an account on GitHub](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github)
 - [Configuring two-factor authentication](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
 - [GitHub's plans](https://docs.github.com/en/get-started/learning-about-github/githubs-plans)

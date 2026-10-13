@@ -43,7 +43,7 @@ format:
 | 12:50 | Transfer and exit check | — |
 
 ::: {.notes}
-240 minutes, two breaks of 10 minutes. Everything runs in the browser. Synthetic data only. Course site: maehr.github.io/github-as-a-project-management-tool.
+240 minutes, two breaks of 10 minutes. Each exercise runs in the browser or on the command line. Synthetic data only. Course site: maehr.github.io/github-as-a-project-management-tool.
 :::
 
 ## The course
@@ -101,6 +101,34 @@ No approach guarantees quality or a met deadline. It makes the state visible, so
 # GitHub basics {.center}
 
 [course/cheat-sheet](../course/cheat-sheet.qmd)
+
+## Why version control?
+
+- A thesis changes for months. Each **commit** records who changed what, when, and why.
+- Compare two states, undo a mistake, cite the state that you submitted.
+- **git** keeps the history on your computer. **GitHub** hosts it and adds Issues, pull requests, and Projects.
+
+```{mermaid}
+flowchart LR
+    W["Working folder"] -- "git add" --> S["Staging area"]
+    S -- "git commit" --> L["Local repository"]
+    L -- "git push" --> G["GitHub"]
+    G -- "git pull" --> W
+```
+
+## Two routes
+
+| | Browser | Command line |
+| --- | --- | --- |
+| **You need** | A browser | git, gh, a terminal, a text editor |
+| **A commit** | **Commit changes** | `git add`, `git commit`, `git push` |
+| **Browser only** | — | Project fields, workflows, access, status updates |
+
+Both routes change the same repository. Change the route at any step.
+
+::: {.notes}
+Ask who prepared the command line (Setup page). Learners who could not install git or gh use the browser route.
+:::
 
 ## Files and plan
 

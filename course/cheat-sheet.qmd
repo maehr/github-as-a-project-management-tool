@@ -4,8 +4,8 @@ subtitle: Terms, browser paths, and commands for beginners
 description: The GitHub terms that the workshop uses, where to find each one in the browser, and the matching git and gh commands.
 ---
 
-::: {.callout-tip title="You need only the browser"}
-All exercises run in the browser. The git and gh commands on this page are optional. They help you later, when you work on your own computer.
+::: {.callout-tip title="Two routes: browser and command line"}
+Each exercise has a browser route and a command-line route. Both routes reach the same result, and you can change the route at any step. The browser route needs no software. The command-line route needs git and gh: see [Prepare the command line](setup.qmd#command-line-route).
 :::
 
 ## Version control: why and how {#version-control}
@@ -108,7 +108,7 @@ flowchart TB
 | [Commit]{#commit} | A saved change to one or more files, with a message, an author, and a date. The history of a repository is a list of commits. | **Commit changes…** after you edit a file; **History** on a file |
 | [Branch]{#branch} | A separate line of work. You change files on a branch without changing `main`. | Branch menu above the file list (it shows `main`) |
 | [Default branch]{#default-branch} | The branch that holds the agreed version, usually `main`. Visitors see it first. | Branch menu |
-| [Clone]{#clone} | A copy of a repository on your own computer, made with git. The workshop does not need it. | **Code** button → **Local** |
+| [Clone]{#clone} | A copy of a repository on your own computer, made with git. The command-line route starts with it; the browser route does not need it. | **Code** button → **Local** |
 
 Learn more: [About repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories) · [About READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) · [About branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
 
@@ -158,7 +158,7 @@ Learn more: [About releases](https://docs.github.com/en/repositories/releasing-p
 
 ## Tasks in the browser, in git, and in gh {#tasks}
 
-**git** is the version-control program on your computer. **gh** is the GitHub command-line tool. To use them, [set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git) and install [gh](https://cli.github.com/manual/). Sign in once with `gh auth login`. Replace `OWNER`, `NAME`, and the numbers with your own values.
+**git** is the version-control program on your computer. **gh** is the GitHub command-line tool. To install them and sign in, follow [Prepare the command line](setup.qmd#command-line-route). Replace `OWNER`, `NAME`, and the numbers with your own values. Each exercise gives the exact commands in its **Command line** tab.
 
 ### Repository and files
 
@@ -190,9 +190,15 @@ Learn more: [About releases](https://docs.github.com/en/repositories/releasing-p
 | Create a sub-issue | Parent Issue → **Create sub-issue** | `gh issue create --title "E01-T2 Write the research question and scope" --label kind:task --parent 1` |
 | List Issues | **Issues** tab | `gh issue list --label kind:task` |
 | Close an Issue | **Close issue** | `gh issue close 3 --comment "Done, see #5"` |
+| Mark an Issue as blocked | Issue sidebar → **Relationships** → **Mark as blocked by** | `gh issue edit 5 --add-blocked-by 3` |
+| Create a milestone | **Issues → Milestones → New milestone** | `gh api repos/{owner}/{repo}/milestones -f title="M1 Registration submitted" -f due_on=2026-12-01T00:00:00Z` |
+| Set the milestone of an Issue | Issue sidebar → **Milestone** | `gh issue edit 3 --milestone "M1 Registration submitted"` |
 | Start work on an Issue | Issue sidebar → **Development** → **Create a branch** | `gh issue develop 3 --checkout` |
 | Copy the showcase Project | Project **…** → **Make a copy** | `gh project copy 11 --source-owner maehr --target-owner @me --title "PROJM thesis plan"` |
-| Link a Project to a repository | Repository **Projects** tab → **Link a project** | `gh project link 12 --owner @me --repo my-thesis` |
+| Link a Project to a repository | Repository **Projects** tab → **Link a project** | `gh project link 12 --owner OWNER --repo my-thesis` (not `@me`) |
+| Change the visibility of a Project | Project **…** → **Settings** → **Visibility** | `gh project edit 12 --owner @me --visibility PUBLIC` |
+| Add an Issue to a Project | Project table → **+** → `#` | `gh project item-add 12 --owner @me --url https://github.com/OWNER/NAME/issues/1` |
+| Open a Project in the browser | **Projects** tab | `gh project view 12 --owner @me --web` |
 | Create a release | **Create a new release** | `gh release create v0.1.0-demo --title "Demo release" --notes "Synthetic data only"` |
 
 ## Markdown for Issues and pull requests

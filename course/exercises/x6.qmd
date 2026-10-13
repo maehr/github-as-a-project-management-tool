@@ -31,12 +31,44 @@ The restriction is not optional: no public file may contain a scan of SYN-P021. 
 
 ### Record the two events
 
+::: {.panel-tabset group="route"}
+
+#### Browser
+
 1. Open the epic E08 and click **Create sub-issue**.
 2. Create `E08-T6 Receive the scans from the fictional archive` with the label `kind:task` and milestone M2.
 3. Create `E08-T7 Exclude the restricted scans of SYN-P021 from public outputs` with the label `kind:task` and milestone M2.
 4. Write acceptance criteria for both. Use the [example](#example-acceptance-criteria) below.
 5. In the Project, set E08-T6: Start date `2027-01-04`, Target date `2027-01-29` (originally `2027-01-15`).
 6. Open E08-T7 and mark it as **blocked by** E08-T6. You can only exclude scans that you have received.
+
+#### Command line
+
+1. Open a terminal in the folder `projm-thesis`.
+2. Create E08-T6 as a sub-issue of E08 with milestone M2. The body holds the [example acceptance criteria](#example-acceptance-criteria). Use the number of your E08.
+
+   ```bash
+   gh issue create --title "E08-T6 Receive the scans from the fictional archive" --label kind:task --parent 2 \
+     --milestone "M2 Data documented and validated" --body "**Acceptance criteria**
+
+   - [ ] The archive delivered every requested scan.
+   - [ ] The archive stated the reuse terms per record."
+   ```
+
+3. Read the number of E08-T6 that gh prints, for example `11`.
+4. Create E08-T7. It waits for E08-T6, so `--blocked-by` gets the number of E08-T6. You can only exclude scans that you have received.
+
+   ```bash
+   gh issue create --title "E08-T7 Exclude the restricted scans of SYN-P021 from public outputs" --label kind:task --parent 2 \
+     --milestone "M2 Data documented and validated" --blocked-by 11 --body "**Acceptance criteria**
+
+   - [ ] No public file contains a scan of SYN-P021.
+   - [ ] The data dictionary explains the restriction."
+   ```
+
+5. Set the dates of E08-T6 in the browser, as in step 5 of the Browser tab. gh can set a field value only with internal IDs.
+
+:::
 
 ### Choose one option
 
@@ -50,18 +82,87 @@ Discuss the options with a neighbour for three minutes. Choose one.
 
 ### Apply your option
 
+::: {.panel-tabset group="route"}
+
+#### Browser
+
 1. Create the dependency that your option needs. Option C: create E08-T8 first.
 2. Open the view **Roadmap**. Check that E08-T6 and E08-T7 end before the marker of M2 (2027-03-01).
 3. If a bar ends after M2, move M2. M2 is a proposed date. Write the reason in the description of M2.
 4. Check that M3 (2027-06-01) did not move.
 
+#### Command line
+
+1. Create the dependency that your option needs. Use your Issue numbers.
+
+   ```bash
+   # Option A: E08-T3 (release) waits for E08-T7
+   gh issue edit 8 --add-blocked-by 12
+   # Option B: E08-T3 waits for E08-T2
+   gh issue edit 8 --add-blocked-by 7
+   # Option C: create E08-T8, blocked by E08-T6; then E08-T3 waits for E08-T8
+   gh issue create --title "E08-T8 Obtain a substitute record" --label kind:task --parent 2 \
+     --blocked-by 11 --body "Find a comparable record in a second fictional archive."
+   gh issue edit 8 --add-blocked-by 13
+   ```
+
+2. Open your Project in the browser. Check in the view **Roadmap** that E08-T6 and E08-T7 end before the marker of M2.
+
+   ```bash
+   gh project view 12 --owner @me --web
+   ```
+
+3. If a bar ends after M2, move M2. M2 is a proposed date. The new description replaces the old one, so keep the justification and add the reason.
+
+   ```bash
+   gh api -X PATCH repos/{owner}/{repo}/milestones/2 --jq .due_on -f due_on=2027-03-15T00:00:00Z \
+     -f description="<old justification> Moved on 2026-10-16: <reason>."
+   ```
+
+4. Check that M3 did not move. The result is `2027-06-01T00:00:00Z`.
+
+   ```bash
+   gh api repos/{owner}/{repo}/milestones/3 --jq .due_on
+   ```
+
+:::
+
 ### Record the decision
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Open `project-management/decisions.md` in your repository and click the pencil icon.
 2. Add a record from the [decision template](#decision-text) below at the end. Fill in every line.
 3. Commit with the message `docs: record the decision on the delay and the restriction`.
 
+#### Command line
+
+1. Get the latest state from GitHub:
+
+   ```bash
+   git pull
+   ```
+
+2. Open `project-management/decisions.md` in a text editor.
+3. Add a record from the [decision template](#decision-text) below at the end. Fill in every line.
+4. Save the file.
+5. Save the change as a commit and send it to GitHub:
+
+   ```bash
+   git add project-management/decisions.md
+   git commit -m "docs: record the decision on the delay and the restriction"
+   git push
+   ```
+
+:::
+
 ### Report the status
+
+::: {.callout-note title="Browser only"}
+gh has no command for Project status updates. To open your Project from the terminal, run `gh project view 12 --owner @me --web`.
+:::
 
 1. In the Project header, click **Add status update**.
 2. Select a status, the start date `2026-10-19`, and the target date `2027-06-01`.
@@ -72,12 +173,30 @@ Discuss the options with a neighbour for three minutes. Choose one.
 
 ### Optional: export a view
 
+::: {.panel-tabset group="route"}
+
+#### Browser
+
 1. Open the view **Backlog**.
 2. Click the arrow next to the view name. Do not use the **View** button.
 3. Select **Export view data**.
 4. Save the `.tsv` file (tab-separated values). It is a snapshot of the plan for your records or your supervisor. It is not a backup of the Project.
 
 {{< screenshot x6-export >}}
+
+#### Command line
+
+gh cannot export a view with its filters. It can save all items of the Project with their field values as JSON.
+
+1. Save the items as `plan.json` in the folder that contains `projm-thesis`. Use the number of your Project.
+
+   ```bash
+   gh project item-list 12 --owner @me --format json > ../plan.json
+   ```
+
+The file is a snapshot of the plan for your records or your supervisor. It is not a backup of the Project.
+
+:::
 
 ## Texts to copy
 
@@ -128,6 +247,7 @@ The [solutions](../solutions.qmd#x6) show one possible answer.
 | **Export view data** is missing. | You opened the wrong menu. | Use the small arrow on the view tab, not the **View** button. |
 | You moved M3 by mistake. | — | Set the due date back to 2027-06-01. The Issue history shows the change. |
 | Time runs out. | — | Write the decision record first. It is the most important output of X6. |
+| A command fails. | Usually the installation, the sign-in, or the folder. | See [Command-line problems](../setup.qmd#command-line-problems), or do the step in the browser. |
 
 ## Alternatives
 
@@ -139,6 +259,7 @@ The [solutions](../solutions.qmd#x6) show one possible answer.
 - [Creating issue dependencies](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies)
 - [Sharing project updates](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/sharing-project-updates)
 - [Exporting your project's data](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/exporting-your-projects-data)
+- [`gh issue create`](https://cli.github.com/manual/gh_issue_create) and [`gh project item-list`](https://cli.github.com/manual/gh_project_item-list)
 
 ## Next
 

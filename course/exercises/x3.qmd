@@ -24,10 +24,15 @@ The fields and the views are the same for every thesis, so you copy them from th
 
 - You finished [X2](x2.qmd).
 - Open the [showcase Project](https://github.com/users/maehr/projects/11) in a second tab.
+- Command-line route: open a terminal in the folder `projm-thesis`. Run `gh auth status` and check that the token scopes include `project`. If they do not, run `gh auth refresh -s project`.
 
 ## Steps
 
 ### Create the milestones
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Click **Issues**, then **Milestones**, then **New milestone**.
 2. Type the title `M1 Registration submitted` and the due date `2026-12-01`.
@@ -38,7 +43,40 @@ The fields and the views are the same for every thesis, so you copy them from th
 
 {{< screenshot x3-milestones >}}
 
+#### Command line
+
+1. Create the three milestones. Each command copies the justification from the milestone of the example repository. Type `{owner}` and `{repo}` as shown: gh fills in your repository.
+
+   ```bash
+   gh api repos/{owner}/{repo}/milestones --jq .title -f title="M1 Registration submitted" \
+     -f due_on=2026-12-01T00:00:00Z -f description="$(gh api repos/maehr/projm-example-thesis/milestones/1 --jq .description)"
+   gh api repos/{owner}/{repo}/milestones --jq .title -f title="M2 Data documented and validated" \
+     -f due_on=2027-03-01T00:00:00Z -f description="$(gh api repos/maehr/projm-example-thesis/milestones/2 --jq .description)"
+   gh api repos/{owner}/{repo}/milestones --jq .title -f title="M3 Thesis submitted" \
+     -f due_on=2027-06-01T00:00:00Z -f description="$(gh api repos/maehr/projm-example-thesis/milestones/3 --jq .description)"
+   ```
+
+2. Set the milestone of each sub-issue. The numbers follow the order of X2. Check yours with `gh issue list`.
+
+   ```bash
+   gh issue edit 3 4 5 --milestone "M1 Registration submitted"
+   gh issue edit 6 7 --milestone "M2 Data documented and validated"
+   gh issue edit 8 --milestone "M3 Thesis submitted"
+   ```
+
+3. Check the result. Each sub-issue shows its milestone:
+
+   ```bash
+   gh issue list --json number,title,milestone --jq '.[] | "\(.number) \(.milestone.title) \(.title)"'
+   ```
+
+:::
+
 ### Copy the Project
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Open the [showcase Project](https://github.com/users/maehr/projects/11).
 2. Click **…** (top right), then **Make a copy**.
@@ -48,7 +86,23 @@ The fields and the views are the same for every thesis, so you copy them from th
 
 {{< screenshot x3-make-a-copy >}}
 
+#### Command line
+
+1. Copy the showcase Project into your account:
+
+   ```bash
+   gh project copy 11 --source-owner maehr --target-owner @me --title "PROJM thesis plan"
+   ```
+
+2. Read the address that gh prints. The number at the end is the number of your Project. The commands on this page use `12`. Replace `12` with your number.
+
+:::
+
 ### Link the Project and set its visibility
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Open your repository. Click **Projects**, then **Link a project**.
 2. Select `PROJM thesis plan` and click **Save**.
@@ -58,16 +112,62 @@ The fields and the views are the same for every thesis, so you copy them from th
 
 {{< screenshot x3-manage-access >}}
 
+#### Command line
+
+1. Link the Project to the repository. Type your GitHub username for `USERNAME`. This command does not accept `@me`.
+
+   ```bash
+   gh project link 12 --owner USERNAME --repo projm-thesis
+   ```
+
+2. On the public path, make the Project public. A copy starts private. On the private path, skip this step.
+
+   ```bash
+   gh project edit 12 --owner @me --visibility PUBLIC
+   ```
+
+3. Pair: invite your partner in the browser, as in step 5 of the Browser tab. gh has no command for Project access.
+
+:::
+
 ### Add the Issues
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. In the Project table, click **+** at the bottom (or press `Ctrl`+`Space`).
 2. Type `#`, select your repository, and select the epic E01.
 3. Repeat for E08.
 4. The workflow **Auto-add sub-issues to project** adds the six sub-issues. New items get the Status **Backlog**. If a sub-issue is missing, add it the same way.
 
+#### Command line
+
+1. Add the two epics to the Project. Type your GitHub username for `USERNAME`.
+
+   ```bash
+   gh project item-add 12 --owner @me --url https://github.com/USERNAME/projm-thesis/issues/1
+   gh project item-add 12 --owner @me --url https://github.com/USERNAME/projm-thesis/issues/2
+   ```
+
+2. Wait ten seconds. The workflow **Auto-add sub-issues to project** adds the six sub-issues with the Status **Backlog**.
+3. List the items. The list shows eight Issues:
+
+   ```bash
+   gh project item-list 12 --owner @me
+   ```
+
+If a sub-issue is missing, add it with `gh project item-add` and its address.
+
+:::
+
 ### Decide the priorities and the dates
 
 This step is planning, not copying. You decide, and you can explain each value.
+
+::: {.callout-note title="Browser only"}
+gh can set a field value only with the internal IDs of the Project, the item, the field, and the option. Use the browser for this step. To open your Project from the terminal, run `gh project view 12 --owner @me --web`.
+:::
 
 1. For each sub-issue, set **Priority** (`High`, `Normal`, or `Low`) and **Basis** (`Rule`, `Practice`, or `Demo`).
 2. Set a **Start date** and a **Target date** for each sub-issue. Each target date must lie before the due date of its milestone.
@@ -77,6 +177,10 @@ This step is planning, not copying. You decide, and you can explain each value.
 
 ### Check the workflows
 
+::: {.callout-note title="Browser only"}
+gh has no command for Project workflows.
+:::
+
 1. In the Project header, click **Workflows**.
 2. Check that six workflows have a green dot.
 3. Check two of them: **Pull request linked to issue** sets the Status **In review**, and **Item closed** sets the Status **Done**. X4 depends on both.
@@ -85,15 +189,45 @@ This step is planning, not copying. You decide, and you can explain each value.
 
 ### Record the dependency
 
+::: {.panel-tabset group="route"}
+
+#### Browser
+
 1. Open `E01-T3 Submit the thesis registration to the Dean's Office`.
 2. In the sidebar, click the gear icon next to **Relationships**.
 3. Select **Mark as blocked by**, then select `E01-T1`. Close the list.
 4. Check that the pill "Blocked by: E01-T1" appears under the title.
 5. Optional: mark `E08-T3` as blocked by `E08-T2`.
 
+#### Command line
+
+1. Mark E01-T3 as blocked by E01-T1. Use your Issue numbers.
+
+   ```bash
+   gh issue edit 5 --add-blocked-by 3
+   ```
+
+2. Check the result. The line `blocked-by` shows E01-T1:
+
+   ```bash
+   gh issue view 5
+   ```
+
+3. Optional: mark E08-T3 as blocked by E08-T2:
+
+   ```bash
+   gh issue edit 8 --add-blocked-by 7
+   ```
+
+:::
+
 ### Optional: build a Project yourself
 
 Do this after the workshop, or if the copy fails. It shows how the copied Project works.
+
+::: {.callout-note title="Browser only"}
+gh can create a Project and its fields, but not its views or its workflows.
+:::
 
 ::: {.callout-note collapse="true" title="Build the fields, views, and workflows by hand"}
 
@@ -141,6 +275,9 @@ Change the Status options before you rely on the workflows. A workflow that used
 | The view settings are lost after a reload. | The changes were not saved. | Click **View → Save view**, then **Save** in the dialog. A blue dot means unsaved changes. |
 | No gear icon next to **Relationships**. | The page has not finished loading. | Reload the Issue page and wait. |
 | Time runs out. | — | Skip the second dependency and the M2 justification. Add them during X6. |
+| gh reports that the token is missing the scope `project`. | You signed in without access to Projects. | Run `gh auth refresh -s project`. |
+| `gh project link` reports "Could not resolve to a Repository with the name '@me/projm-thesis'". | The command does not accept `@me`. | Type your GitHub username after `--owner`. |
+| A command fails. | Usually the installation, the sign-in, or the folder. | See [Command-line problems](../setup.qmd#command-line-problems), or do the step in the browser. |
 
 ## Alternatives
 
@@ -158,6 +295,7 @@ Change the Status options before you rely on the workflows. A workflow that used
 - [Customizing the roadmap layout](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-roadmap-layout)
 - [About milestones](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones)
 - [Creating issue dependencies](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies)
+- [`gh project`](https://cli.github.com/manual/gh_project) and [REST API for milestones](https://docs.github.com/en/rest/issues/milestones)
 
 ## Next
 

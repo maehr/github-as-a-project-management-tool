@@ -1,16 +1,16 @@
 ---
 title: GitHub as a Project Management Tool
 subtitle: Plan, conduct, document, and share a master's thesis with one repository and one Project
-description: Browser-first workshop and open educational resource. University of Bern, Digital Humanities, HS2026.
+description: Workshop and open educational resource, in the browser or on the command line. University of Bern, Digital Humanities, HS2026.
 ---
 
-This workshop shows how to manage a master's thesis with GitHub. You work on a **fictional thesis** with **synthetic data**. Everything runs in the browser, and you install nothing.
+This workshop shows how to manage a master's thesis with GitHub. You work on a **fictional thesis** with **synthetic data**. Each exercise runs in the browser, where you install nothing, or on the command line with git and gh. You choose the route, and you can change it at any step.
 
 ::: {.callout-note title="At a glance"}
 - **When:** Friday, 16 October 2026, 09:00–13:00
 - **Where:** Seminarraum F 001, Hörraumgebäude Unitobler
 - **Credits:** 0.5 ECTS, passed or failed
-- **You need:** a laptop, a current browser, and a GitHub account
+- **You need:** a laptop, a current browser, and a GitHub account. For the command-line route, also git and gh ([Setup](course/setup.qmd#command-line-route))
 - **Course catalogue:** [KSL 526141, HS2026](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0)
 :::
 
