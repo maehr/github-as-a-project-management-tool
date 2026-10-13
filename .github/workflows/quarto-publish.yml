@@ -68,9 +68,13 @@ jobs:
     # Deploy from main only: on every push, and on a manual run
     # (workflow_dispatch, "Run workflow" in the Actions tab). A manual run on
     # another branch builds and checks the site but does not deploy it.
+    # TEMPORARY (2026-10-13): a manual run on docs/two-routes-real-project
+    # deploys too. Revert this commit before PR #16 merges.
     if: >-
-      github.ref == 'refs/heads/main' &&
-      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+      (github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')) ||
+      (github.ref == 'refs/heads/docs/two-routes-real-project' &&
+      github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
       pages: write
