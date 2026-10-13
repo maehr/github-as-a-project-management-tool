@@ -39,16 +39,17 @@ The public exercise uses only synthetic data. For real thesis work, use a privat
 
 ## Repository Structure
 
-| Path                       | Content                                                         |
-| -------------------------- | --------------------------------------------------------------- |
-| `course/`                  | Setup, syllabus, exercises X1–X6, solutions, instructor notes   |
-| `slides/`                  | Reveal.js slides for the session                                |
-| `documentation/`           | Requirements register, data dictionary, publication note        |
-| `project-management/`      | Example backlog and milestones (YAML source), decisions, risks  |
-| `data/`                    | Synthetic periodical metadata for the exercises                 |
-| `templates/master-thesis/` | Reusable thesis documentation template and issue forms          |
-| `assets/screenshots/`      | Annotated screenshots of the GitHub interface and their sources |
-| `src/`, `test/`            | Maintainer scripts and checks; learners do not need them        |
+| Path                       | Content                                                             |
+| -------------------------- | ------------------------------------------------------------------- |
+| `course/`                  | Setup, syllabus, exercises X1–X6, solutions, instructor notes       |
+| `slides/`                  | Reveal.js slides for the session                                    |
+| `documentation/`           | Worked example, requirements register, publication note             |
+| `project-management/`      | Seed source of the example backlog and milestones, decisions, risks |
+| `archive/`                 | Pages that the site no longer shows; not rendered                   |
+| `data/`                    | Synthetic periodical metadata for the exercises                     |
+| `templates/master-thesis/` | Reusable thesis documentation template and issue forms              |
+| `assets/screenshots/`      | Annotated screenshots of the GitHub interface and their sources     |
+| `src/`, `test/`            | Maintainer scripts and checks; learners do not need them            |
 
 ## Maintain The Course
 

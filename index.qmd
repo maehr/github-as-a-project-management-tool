@@ -50,7 +50,7 @@ flowchart TD
 
 ## The worked example
 
-The [showcase Project](https://github.com/users/maehr/projects/11) holds the full plan of the fictional thesis: eight epics, 34 sub-issues, three milestones, dependencies, and the views Backlog, Board, and Roadmap. Its Issues live in the [example repository](https://github.com/maehr/projm-example-thesis). Compare your work with it, or copy the Project as a starting point. The versioned source of the plan is the [example backlog](project-management/backlog.md).
+The [showcase Project](https://github.com/users/maehr/projects/11) holds the full plan of the fictional thesis: eight epics, 34 sub-issues, three milestones, dependencies, and the views Backlog, Board, and Roadmap. Its Issues live in the [example repository](https://github.com/maehr/projm-example-thesis). Compare your work with it, or copy the Project as a starting point. The [Worked example](documentation/index.qmd) page shows its views and what each part holds.
 
 ## What this course is, and what it is not
 

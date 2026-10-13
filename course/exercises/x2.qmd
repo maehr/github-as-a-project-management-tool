@@ -21,7 +21,7 @@ Some work exists because a regulation requires it; other work is good practice. 
 ## Before you start
 
 - You have the repository from [X1](x1.qmd).
-- Open the [example backlog](../../project-management/backlog.md#e01) in a second tab. It holds the titles and bodies to copy.
+- Find the titles and the bodies to copy in [Texts to copy](#texts-to-copy) at the end of this page.
 - Open the [requirements register](../../documentation/requirements.qmd) in a third tab. You derive one Issue from it yourself.
 
 ## Steps
@@ -39,7 +39,7 @@ GitHub Issue Types exist only for organisations. Labels work in every personal a
 
 1. Click **Issues**, then **New issue**.
 2. Type the title `E01 Scope the thesis and register it`.
-3. Paste the body of E01 from the example backlog.
+3. Paste the [body of E01](#text-e01).
 4. On the right, click **Labels** and select `kind:epic`.
 5. Click **Create**.
 6. Repeat for `E08 Publish and preserve the outputs`.
@@ -53,7 +53,7 @@ Do not copy this one. Write it from the requirement, because that is what you wi
 3. Read requirement **R-05** in the requirements register and the sentence on page 5 of the [study plan](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) (Art. 15 Abs. 5).
 4. Write the body in your own words. Use the five parts below.
 5. Add the label `kind:task` and click **Create**.
-6. Compare your Issue with E01-T1 in the [example backlog](../../project-management/backlog.md#e01). Add what you missed.
+6. Compare your Issue with [E01-T1 in the example repository](https://github.com/maehr/projm-example-thesis/issues/2). Add what you missed.
 
 ```markdown
 **Output:** <what exists when the task is done?>
@@ -69,7 +69,7 @@ Do not copy this one. Write it from the requirement, because that is what you wi
 
 ### Create the other five sub-issues
 
-1. In E01, click **Create sub-issue** again. Create `E01-T2` and `E01-T3` with the bodies from the example backlog and the label `kind:task`.
+1. In E01, click **Create sub-issue** again. Create `E01-T2` and `E01-T3` with the label `kind:task`. Copy the titles and the bodies from [Texts to copy](#texts-to-copy).
 2. Open the epic E08. Create `E08-S1` with the label `kind:story`, then `E08-T2` and `E08-T3` with `kind:task`.
 
 If you created an Issue on its own, open the epic, click the arrow next to **Create sub-issue**, and select **Add existing issue**.
@@ -82,6 +82,12 @@ If you created an Issue on its own, open the epic, click the arrow next to **Cre
 2. Open `E08-S1`. Read the story. Name the person who needs the output.
 
 {{< screenshot x2-task-blocked >}}
+
+## Texts to copy {#texts-to-copy}
+
+Each text gives the title, the label, and the body of one Issue. The same Issues are in the [example repository](https://github.com/maehr/projm-example-thesis/issues?q=label%3Akind%3Aepic). E01-T1 is missing on purpose: you write it yourself.
+
+{{< include _x2-texts.md >}}
 
 ## Expected state
 

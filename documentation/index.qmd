@@ -1,17 +1,40 @@
 ---
-title: Documentation
-description: Requirements register, data dictionary, and publication note for the fictional thesis.
+title: Worked example
+description: The fictional thesis after all six exercises, in a real GitHub Project and a real repository.
 ---
 
-This section documents the fictional thesis as a worked example. Each page answers one question that a real thesis must also answer.
+The worked example is the fictional thesis after all six exercises. It lives on GitHub, not on this site, because a plan is useful only where the work happens. Open it next to your own repository when you are unsure about a step. The [Solutions](../course/solutions.qmd) page lists what to compare for each exercise.
 
-| Page | Question |
+::: {.callout-note}
+The thesis, the people, and the dates are fictional. The data are synthetic.
+:::
+
+| Part | Where | What it holds |
+| --- | --- | --- |
+| The plan | [Showcase Project](https://github.com/users/maehr/projects/11) | Eight epics (E01–E08), 34 sub-issues, three milestones, the "blocked by" dependencies, and the fields Status, Priority, Start date, Target date, and Basis |
+| The work | [Example repository](https://github.com/maehr/projm-example-thesis) | The Issues, the [milestones](https://github.com/maehr/projm-example-thesis/milestones?state=all) with their justifications, the pull requests of X4 and X5, the release `v0.1.0-demo`, the [data dictionary](https://github.com/maehr/projm-example-thesis/blob/main/documentation/data-dictionary.qmd), and the [decision record](https://github.com/maehr/projm-example-thesis/blob/main/project-management/decisions.md) |
+| The rules | [Requirements register](requirements.qmd) | Which rules apply, where they come from, and which Issue covers them |
+| The publication | [Publication note](publication.qmd) | What can be published, where, and what GitHub cannot guarantee |
+
+## Three views of one plan
+
+The Project shows the same Issues in three views. Each view answers a different question, so you switch views instead of keeping three lists. The screenshots show the Project on 12 October 2026. The live Project can differ.
+
+| View | Question |
 | --- | --- |
-| [Requirements register](requirements.qmd) | Which rules apply, where do they come from, and which Issue covers them? |
-| [Data dictionary](data-dictionary.qmd) | What does each column of the dataset mean, and how can someone reuse it? |
-| [Publication note](publication.qmd) | What can be published, where, and what can GitHub not guarantee? |
+| [Backlog](https://github.com/users/maehr/projects/11/views/1) | What is there to do, and how important is it? |
+| [Board](https://github.com/users/maehr/projects/11/views/2) | What is the state of each task now? |
+| [Roadmap](https://github.com/users/maehr/projects/11/views/3) | When does each task happen, and what does it wait for? |
 
-The planning side of the same thesis is in [Project management](../project-management/backlog.md).
+{{< screenshot x3-backlog >}}
+
+{{< screenshot x3-board >}}
+
+{{< screenshot x3-roadmap >}}
+
+## The source of the plan
+
+The plan exists once as versioned text: [`project-management/backlog.yml`](https://github.com/maehr/github-as-a-project-management-tool/blob/main/project-management/backlog.yml) in the course repository. A maintainer script creates the Issues, the milestones, and the Project from this file. Learners do not need the file.
 
 ## Maintenance rule
 

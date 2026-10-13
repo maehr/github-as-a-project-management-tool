@@ -42,7 +42,7 @@ Context is the scarce resource. Manage it.
 | `npm run format` | Prettier and ruff format |
 | `npm run preview` | Quarto preview with live reload |
 | `npm run data:generate` | Write `data/synthetic-periodicals.csv` from its seeded generator |
-| `npm run pages:render` | Write `project-management/backlog.md`, `milestones.md`, and `course/_schedule.md` from the YAML files |
+| `npm run pages:render` | Write `course/_schedule.md` and `course/exercises/_x2-texts.md` from the YAML files |
 | `npm run screenshots:annotate` | Draw callouts on raw captures from `assets/screenshots/annotations.yml` |
 | `npm run lychee-check` | Check links |
 | `npm run changelog:unreleased` | Preview changelog entries |
@@ -80,8 +80,9 @@ Context is the scarce resource. Manage it.
 | --- | --- |
 | `course/` | Setup, syllabus, schedule, exercises X1–X6, solutions, instructor notes |
 | `slides/` | Reveal.js slides |
-| `documentation/` | Requirements register, data dictionary, publication note |
-| `project-management/` | Example backlog and milestones (YAML is the source), decisions, risks |
+| `documentation/` | Worked example page, requirements register, publication note |
+| `project-management/` | Seed source of the example backlog and milestones (YAML), course decisions, risks |
+| `archive/` | Pages that the site no longer shows. Not rendered, not maintained |
 | `data/` | Synthetic data only |
 | `assets/screenshots/` | Annotated screenshots and `annotations.yml` |
 | `templates/master-thesis/` | Reusable thesis documentation template and issue forms |
@@ -174,7 +175,8 @@ A GitHub Actions workflow deploys from `main`. Never publish by hand. Never repl
 * Label every fictional date as fictional. The workshop uses registration 2026-12-01 and submission 2027-06-01.
 * Never move an official deadline silently. Adjust the planned work instead, and record the decision.
 * Use only synthetic data in public examples. Real thesis work defaults to a private repository and a private Project.
-* Keep the example backlog in `project-management/backlog.yml`. Run `npm run pages:render` after each change.
+* Keep the example backlog in `project-management/backlog.yml`. It is the seed source for the showcase Project and the example repository.
+* Link the showcase Project and the example repository. Do not copy their content onto the site. Use a dated screenshot to show it.
 * Design every core exercise for the browser. No exercise needs Quarto, the Git CLI, paid features, a VPN, public disclosure, or a production DOI.
 * Give each exercise a teaching explanation, browser steps, screenshots, the expected state, and a recovery route.
 * Capture screenshots from the current GitHub interface after you confirm the behaviour. Give each one a capture date and alt text. Remove avatars, notifications, and unrelated repositories before you commit it.

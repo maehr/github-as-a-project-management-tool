@@ -2,8 +2,10 @@
 #
 # This file is the versioned source of the instructor's full example backlog.
 # Learners build only E01 and E08 by hand (items with `learner: true`).
-# Run `npm run backlog:render` after each change. `npm run check` validates
-# ids, parents, dependencies, dates, milestones, and sources.
+# src/seed_backlog.py writes it to maehr/projm-example-thesis and to the
+# showcase Project. The site links the Project and shows no copy (D-012).
+# `npm run check` validates ids, parents, dependencies, dates, milestones,
+# and sources.
 #
 # Field conventions (see course/exercises/x2.qmd and x3.qmd):
 #   kind        epic | task | story

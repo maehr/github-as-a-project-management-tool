@@ -42,7 +42,7 @@ After the session, you can:
 
 ## Scenario
 
-You plan, conduct, document, and share a **fictional master's thesis** in one GitHub repository and one GitHub Project. The thesis asks how the landscape of Swiss periodicals changed between 1830 and 1960 by language, place, and subject. It uses 30 [synthetic records](../documentation/data-dictionary.qmd). The fictional registration date is 2026-12-01; the fictional submission date is 2027-06-01. Nothing in the exercise is real research data.
+You plan, conduct, document, and share a **fictional master's thesis** in one GitHub repository and one GitHub Project. The thesis asks how the landscape of Swiss periodicals changed between 1830 and 1960 by language, place, and subject. It uses 30 [synthetic records](https://github.com/maehr/projm-example-thesis/blob/main/documentation/data-dictionary.qmd). The fictional registration date is 2026-12-01; the fictional submission date is 2027-06-01. Nothing in the exercise is real research data.
 
 ## Run of show
 

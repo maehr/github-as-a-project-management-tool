@@ -1,9 +1,9 @@
 ---
 title: Decisions
-description: Decision records for this course repository and an example record for the fictional thesis.
+description: Decision records for this course repository.
 ---
 
-This page records the decisions behind this course. Each record has a context, a decision, its consequences, and its source. The last section shows an example record for the fictional thesis, as learners write it in exercise [X6](../course/exercises/x6.qmd).
+This page records the decisions behind this course. Each record has a context, a decision, its consequences, and its source. For an example record of the fictional thesis, as learners write it in exercise X6, see [Solutions](../course/solutions.qmd#x6).
 
 | ID              | Date       | Decision                                                            | Status              |
 | --------------- | ---------- | ------------------------------------------------------------------- | ------------------- |
@@ -14,10 +14,11 @@ This page records the decisions behind this course. Each record has a context, a
 | [D-005](#d-005) | 2026-10-12 | Licence prose and data under CC BY 4.0, code under AGPL 3.0         | Accepted            |
 | [D-006](#d-006) | 2026-10-12 | Use fictional registration and submission dates                     | Accepted            |
 | [D-007](#d-007) | 2026-10-12 | Describe scan reuse, not copyright, in the dataset                  | Accepted            |
-| [D-008](#d-008) | 2026-10-12 | Generate pages from YAML instead of executing code                  | Accepted            |
+| [D-008](#d-008) | 2026-10-12 | Generate pages from YAML instead of executing code                  | Amended by D-012    |
 | [D-009](#d-009) | 2026-10-12 | Confirm room F 001; keep pass/fail unresolved                       | Superseded by D-010 |
 | [D-010](#d-010) | 2026-10-12 | Use the KSL course entry as the authority; set the pass rule        | Accepted            |
 | [D-011](#d-011) | 2026-10-13 | Remove `SPECS.md`; the syllabus and the decisions carry its content | Accepted            |
+| [D-012](#d-012) | 2026-10-13 | Link the showcase Project instead of copying it onto the site       | Accepted            |
 
 ## D-001 Create the repository from the template at commit `c6ec5bc` {#d-001}
 
@@ -87,7 +88,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** The rights restriction in X6 applies to the scans. The CSV itself stays under CC BY 4.0.
 
-**Source.** [Data dictionary](../documentation/data-dictionary.qmd).
+**Source.** [Data dictionary](https://github.com/maehr/projm-example-thesis/blob/main/documentation/data-dictionary.qmd) in the example repository.
 
 ## D-008 Generate pages from YAML instead of executing code {#d-008}
 
@@ -129,23 +130,12 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Source.** Maintainer request, 13 October 2026. [Last version of the course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md).
 
-## Example: decision record for the fictional thesis {#example}
+## D-012 Link the showcase Project instead of copying it onto the site {#d-012}
 
-This is the record that learners write in exercise X6. It belongs in the learner's own repository, not here.
+**Context.** The [showcase Project](https://github.com/users/maehr/projects/11) and the [example repository](https://github.com/maehr/projm-example-thesis) hold the full plan of the fictional thesis: 42 Issues, three milestones with their justifications, the pull requests of X4 and X5, the release, and the data dictionary. The site also showed the backlog, the milestones, and the data dictionary as pages. Learners met the same plan twice, and the two copies could disagree.
 
-```markdown
-## D-T02 Two-week delay of the scans and a reuse restriction
+**Decision.** The site links the showcase Project and the example repository and shows screenshots of them. The copies moved to `archive/`, which Quarto does not render. `project-management/backlog.yml` and `milestones.yml` stay as the source that `src/seed_backlog.py` writes to GitHub. `src/render_pages.py` renders only the schedule and the seven Issue texts that learners copy in X2.
 
-- **Date:** 2026-10-16 (workshop; fictional)
-- **Context:** The fictional archive delivers the scans two weeks late. It
-  restricts reuse of the scans of record SYN-P021.
-- **Options considered:** A release 29 records; B release metadata only;
-  C find a substitute.
-- **Decision:** Option A, because the other 29 records are complete and a
-  reuser can work with them now.
-- **Changes:** E08-T6 target moved from 2027-01-15 to 2027-01-29. New
-  E08-T7, blocked by E08-T6. E08-T3 (release) blocked by E08-T7.
-- **Consequences:** M2 still holds. The release contains no SYN-P021 scans.
-- **Not changed:** The official submission date. An extension needs a
-  formal decision (RSL Phil.-hist. 21 Art. 56).
-```
+**Consequences.** Decision D-008 now applies to the schedule and the X2 texts only. The seed script creates missing items, but it does not change an existing Issue. A change to an existing Issue therefore goes into `backlog.yml` and into the Issue on GitHub.
+
+**Source.** Maintainer request, 13 October 2026.

@@ -31,7 +31,7 @@ The fields and the views are the same for every thesis, so you copy them from th
 
 1. Click **Issues**, then **Milestones**, then **New milestone**.
 2. Type the title `M1 Registration submitted` and the due date `2026-12-01`.
-3. In **Description**, write the justification from the [milestone list](../../project-management/milestones.md).
+3. In **Description**, write the justification. The [milestones of the example repository](https://github.com/maehr/projm-example-thesis/milestones?state=all) show one for each date.
 4. Click **Create milestone**.
 5. Repeat for `M2 Data documented and validated` (2027-03-01, proposed) and `M3 Thesis submitted` (2027-06-01).
 6. Open each sub-issue and set its milestone in the sidebar: E01 tasks → M1, E08-S1 and E08-T2 → M2, E08-T3 → M3.
@@ -73,7 +73,7 @@ This step is planning, not copying. You decide, and you can explain each value.
 2. Set a **Start date** and a **Target date** for each sub-issue. Each target date must lie before the due date of its milestone.
 3. Let E01-T3 start after the target date of E01-T1. E01-T3 waits for E01-T1.
 4. Open milestone M2. Add one sentence to its description: why this date, and what happens if it moves.
-5. Compare your values with the [example backlog](../../project-management/backlog.md#e01). Your values can differ. You must be able to justify them.
+5. Compare your values with the [Backlog view of the showcase Project](https://github.com/users/maehr/projects/11/views/1). Your values can differ. You must be able to justify them.
 
 ### Check the workflows
 
