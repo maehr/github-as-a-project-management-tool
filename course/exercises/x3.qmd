@@ -25,6 +25,12 @@ The fields and the views are the same for every thesis, so you copy them from th
 - You finished [X2](x2.qmd).
 - Open the [showcase Project](https://github.com/users/maehr/projects/11) in a second tab.
 - Command-line route: open a terminal in the folder `projm-thesis`. Run `gh auth status` and check that the token scopes include `project`. If they do not, run `gh auth refresh -s project`.
+- Command-line route: define the helper `issue`. It prints the number of an Issue from the start of its title, for example `issue E01-T3`. The commands on this page use it, so your numbers can differ from the examples. Define it again in each new terminal.
+
+  ```bash
+  issue() { gh issue list --state all --limit 100 --json number,title \
+    --jq ".[] | select(.title | startswith(\"$1 \")) | .number"; }
+  ```
 
 ## Steps
 
@@ -45,26 +51,32 @@ The fields and the views are the same for every thesis, so you copy them from th
 
 #### Command line
 
-1. Create the three milestones. Each command copies the justification from the milestone of the example repository. Type `{owner}` and `{repo}` as shown: gh fills in your repository.
+1. Read the justifications of the example repository. There is one for each date:
+
+   ```bash
+   gh api "repos/maehr/projm-example-thesis/milestones?state=all" --jq '.[] | .title + ": " + .description'
+   ```
+
+2. Create the three milestones. Replace each `JUSTIFICATION` with your own justification of the date. Type `{owner}` and `{repo}` as shown: gh fills in your repository. Keep the time `T12:00:00Z`: with `T00:00:00Z`, GitHub stores the day before.
 
    ```bash
    gh api repos/{owner}/{repo}/milestones --jq .title -f title="M1 Registration submitted" \
-     -f due_on=2026-12-01T00:00:00Z -f description="$(gh api repos/maehr/projm-example-thesis/milestones/1 --jq .description)"
+     -f due_on=2026-12-01T12:00:00Z -f description="JUSTIFICATION"
    gh api repos/{owner}/{repo}/milestones --jq .title -f title="M2 Data documented and validated" \
-     -f due_on=2027-03-01T00:00:00Z -f description="$(gh api repos/maehr/projm-example-thesis/milestones/2 --jq .description)"
+     -f due_on=2027-03-01T12:00:00Z -f description="JUSTIFICATION"
    gh api repos/{owner}/{repo}/milestones --jq .title -f title="M3 Thesis submitted" \
-     -f due_on=2027-06-01T00:00:00Z -f description="$(gh api repos/maehr/projm-example-thesis/milestones/3 --jq .description)"
+     -f due_on=2027-06-01T12:00:00Z -f description="JUSTIFICATION"
    ```
 
-2. Set the milestone of each sub-issue. The numbers follow the order of X2. Check yours with `gh issue list`.
+3. Set the milestone of each sub-issue. The helper `issue` finds the number of each Issue.
 
    ```bash
-   gh issue edit 3 4 5 --milestone "M1 Registration submitted"
-   gh issue edit 6 7 --milestone "M2 Data documented and validated"
-   gh issue edit 8 --milestone "M3 Thesis submitted"
+   gh issue edit $(issue E01-T1) $(issue E01-T2) $(issue E01-T3) --milestone "M1 Registration submitted"
+   gh issue edit $(issue E08-S1) $(issue E08-T2) --milestone "M2 Data documented and validated"
+   gh issue edit $(issue E08-T3) --milestone "M3 Thesis submitted"
    ```
 
-3. Check the result. Each sub-issue shows its milestone:
+4. Check the result. Each sub-issue shows its milestone:
 
    ```bash
    gh issue list --json number,title,milestone --jq '.[] | "\(.number) \(.milestone.title) \(.title)"'
@@ -108,16 +120,13 @@ The fields and the views are the same for every thesis, so you copy them from th
 2. Select `PROJM thesis plan` and click **Save**.
 3. Open the Project. Click **…**, then **Settings**.
 4. Under **Danger zone**, check **Visibility**. A copy starts **private**. Select **Public** only on the public path.
-5. Pair: click **Manage access**. Invite your partner with the role **Write**. Access to the repository does not include access to the Project.
-
-{{< screenshot x3-manage-access >}}
 
 #### Command line
 
-1. Link the Project to the repository. Type your GitHub username for `USERNAME`. This command does not accept `@me`.
+1. Link the Project to the repository of the folder. Do not add `--owner @me`: with it, the command fails.
 
    ```bash
-   gh project link 12 --owner USERNAME --repo projm-thesis
+   gh project link 12
    ```
 
 2. On the public path, make the Project public. A copy starts private. On the private path, skip this step.
@@ -126,9 +135,20 @@ The fields and the views are the same for every thesis, so you copy them from th
    gh project edit 12 --owner @me --visibility PUBLIC
    ```
 
-3. Pair: invite your partner in the browser, as in step 5 of the Browser tab. gh has no command for Project access.
-
 :::
+
+### Pair: give your partner access
+
+Skip this step if you work alone.
+
+::: {.callout-note title="Browser only"}
+gh has no command for Project access. To open your Project from the terminal, run `gh project view 12 --owner @me --web`.
+:::
+
+1. Open the Project. Click **…**, then **Settings**.
+2. Click **Manage access**. Invite your partner with the role **Write**. Access to the repository does not include access to the Project.
+
+{{< screenshot x3-manage-access >}}
 
 ### Add the Issues
 
@@ -143,21 +163,22 @@ The fields and the views are the same for every thesis, so you copy them from th
 
 #### Command line
 
-1. Add the two epics to the Project. Type your GitHub username for `USERNAME`.
+1. Add the two epics to the Project. Add one Issue per command.
 
    ```bash
-   gh project item-add 12 --owner @me --url https://github.com/USERNAME/projm-thesis/issues/1
-   gh project item-add 12 --owner @me --url https://github.com/USERNAME/projm-thesis/issues/2
+   gh issue edit $(issue E01) --add-project "PROJM thesis plan"
+   gh issue edit $(issue E08) --add-project "PROJM thesis plan"
    ```
 
-2. Wait ten seconds. The workflow **Auto-add sub-issues to project** adds the six sub-issues with the Status **Backlog**.
-3. List the items. The list shows eight Issues:
+2. List the items. The workflow **Auto-add sub-issues to project** adds the six sub-issues with the Status **Backlog**. The list shows eight Issues:
 
    ```bash
    gh project item-list 12 --owner @me
    ```
 
-If a sub-issue is missing, add it with `gh project item-add` and its address.
+3. The workflow runs with a delay. If the list shows fewer than eight Issues, wait one minute and run the command again.
+
+If a sub-issue is still missing, add it as in step 1, for example `gh issue edit $(issue E01-T1) --add-project "PROJM thesis plan"`.
 
 :::
 
@@ -201,22 +222,22 @@ gh has no command for Project workflows.
 
 #### Command line
 
-1. Mark E01-T3 as blocked by E01-T1. Use your Issue numbers.
+1. Mark E01-T3 as blocked by E01-T1:
 
    ```bash
-   gh issue edit 5 --add-blocked-by 3
+   gh issue edit $(issue E01-T3) --add-blocked-by $(issue E01-T1)
    ```
 
 2. Check the result. The line `blocked-by` shows E01-T1:
 
    ```bash
-   gh issue view 5
+   gh issue view $(issue E01-T3)
    ```
 
 3. Optional: mark E08-T3 as blocked by E08-T2:
 
    ```bash
-   gh issue edit 8 --add-blocked-by 7
+   gh issue edit $(issue E08-T3) --add-blocked-by $(issue E08-T2)
    ```
 
 :::
@@ -276,7 +297,9 @@ Change the Status options before you rely on the workflows. A workflow that used
 | No gear icon next to **Relationships**. | The page has not finished loading. | Reload the Issue page and wait. |
 | Time runs out. | — | Skip the second dependency and the M2 justification. Add them during X6. |
 | gh reports that the token is missing the scope `project`. | You signed in without access to Projects. | Run `gh auth refresh -s project`. |
-| `gh project link` reports "Could not resolve to a Repository with the name '@me/projm-thesis'". | The command does not accept `@me`. | Type your GitHub username after `--owner`. |
+| `gh project link` reports "Could not resolve to a Repository with the name '@me/projm-thesis'" or "has different owner from '@me'". | `--owner @me` failed in each form that was tested with gh 2.102.0. | Run `gh project link 12` without flags in the folder `projm-thesis`. |
+| gh reports "Your attempt to move this item created a temporary conflict". | GitHub changed the Project at the same time, for example through a workflow. | Run the command again for the Issue that failed. |
+| `issue E01-T3` prints nothing, or gh reports "command not found: issue". | The title does not start with the ID and a space, or the terminal is new. | Check the title with `gh issue list`. Define the helper again, as in [Before you start](#before-you-start). |
 | A command fails. | Usually the installation, the sign-in, or the folder. | See [Command-line problems](../setup.qmd#command-line-problems), or do the step in the browser. |
 
 ## Alternatives
@@ -295,7 +318,7 @@ Change the Status options before you rely on the workflows. A workflow that used
 - [Customizing the roadmap layout](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-roadmap-layout)
 - [About milestones](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones)
 - [Creating issue dependencies](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies)
-- [`gh project`](https://cli.github.com/manual/gh_project) and [REST API for milestones](https://docs.github.com/en/rest/issues/milestones)
+- [`gh project`](https://cli.github.com/manual/gh_project), [`gh issue edit`](https://cli.github.com/manual/gh_issue_edit), and [REST API for milestones](https://docs.github.com/en/rest/issues/milestones)
 
 ## Next
 

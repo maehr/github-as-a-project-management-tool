@@ -21,7 +21,12 @@ A review is a human check against the acceptance criteria. An automatic AI revie
 ## Before you start
 
 - You finished [X3](x3.qmd). Issue E01-T2 exists. Note its number (for example `#4`).
-- Command-line route: open a terminal in the folder `projm-thesis`.
+- Command-line route: open a terminal in the folder `projm-thesis`. Define the helper `issue` as in [X3](x3.qmd#before-you-start), if this is a new terminal:
+
+  ```bash
+  issue() { gh issue list --state all --limit 100 --json number,title \
+    --jq ".[] | select(.title | startswith(\"$1 \")) | .number"; }
+  ```
 - Pair up if possible. Your partner reviews your pull request, and you review theirs.
 
 ## Steps
@@ -42,10 +47,10 @@ A review is a human check against the acceptance criteria. An automatic AI revie
 
 #### Command line
 
-1. Create a branch for E01-T2 and switch to it. Use the number of your E01-T2. The branch is linked to the Issue.
+1. Create a branch for E01-T2 and switch to it. The branch is linked to the Issue.
 
    ```bash
-   gh issue develop 4 --name docs/e01-t2-scope --checkout
+   gh issue develop $(issue E01-T2) --name docs/e01-t2-scope --checkout
    ```
 
 2. Open `README.md` in a text editor.
@@ -86,7 +91,7 @@ The text to paste:
 2. In the description, write `Closes #4` on the first line. Use the number of your E01-T2.
 3. Copy the acceptance criteria of E01-T2 below it and tick the boxes that your change meets.
 4. Click **Create pull request**.
-5. Open your Project. E01-T2 now shows the Status **In review**. The Project workflow **Pull request linked to issue** sets it. If it does not, check the workflow as in [X3](x3.qmd).
+5. Open your Project. E01-T2 now shows the Status **In review**. The Project workflow **Pull request linked to issue** sets it. The workflow runs with a delay. If the Status did not change, wait one minute and reload the page. If it still did not change, check the workflow as in [X3](x3.qmd).
 
 {{< screenshot x4-pull-request >}}
 
@@ -94,20 +99,23 @@ The text to paste:
 
 #### Command line
 
-1. In a text editor, write the description of the pull request. Write `Closes #4` on the first line. Use the number of your E01-T2.
-2. Copy the acceptance criteria of E01-T2 below it. Tick the boxes that your change meets: `- [x]`.
-3. Save the description as `pr-body.md` in the folder that contains `projm-thesis`.
-4. Open the pull request:
+1. Print the number of your E01-T2 with `issue E01-T2`.
+2. In a text editor, write the description of the pull request. Write `Closes #` and this number on the first line, for example `Closes #4`.
+3. Copy the acceptance criteria of E01-T2 below it. Tick the boxes that your change meets: `- [x]`.
+4. Save the description as `pr-body.md` in the folder that contains `projm-thesis`.
+5. Open the pull request:
 
    ```bash
    gh pr create --title "docs: add research question and scope" --body-file ../pr-body.md
    ```
 
-5. Check the Status of E01-T2 in the Project. The result is `In review`. The Project workflow **Pull request linked to issue** sets it.
+6. Check the Status of E01-T2 in the Project. The result is `In review`. The Project workflow **Pull request linked to issue** sets it.
 
    ```bash
-   gh issue view 4 --json projectItems --jq '.projectItems[] | .title + ": " + .status.name'
+   gh issue view $(issue E01-T2) --json projectItems --jq '.projectItems[] | .title + ": " + .status.name'
    ```
+
+7. The workflow runs with a delay. If the result is not `In review`, wait one minute and run the command again.
 
 :::
 
@@ -122,6 +130,7 @@ The text to paste:
 3. Click **Submit review**. A partner selects **Approve**; on your own pull request, select **Comment** and write what you checked.
 4. Return to **Conversation** and click **Merge pull request**, then **Confirm merge**.
 5. Click **Delete branch**.
+6. Open your Project. E01-T2 shows the Status **Done**. The workflow runs with a delay. If the Status did not change, wait one minute and reload the page.
 
 {{< screenshot x4-files-changed >}}
 
@@ -148,8 +157,10 @@ The text to paste:
 4. Check that E01-T2 is closed and that the Project shows `Done`:
 
    ```bash
-   gh issue view 4 --json state,projectItems --jq '.state, (.projectItems[] | .status.name)'
+   gh issue view $(issue E01-T2) --json state,projectItems --jq '.state, (.projectItems[] | .status.name)'
    ```
+
+5. The workflow runs with a delay. If the result is not `CLOSED` and `Done`, wait one minute and run the command again.
 
 :::
 

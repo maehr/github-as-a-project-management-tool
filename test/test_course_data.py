@@ -215,3 +215,22 @@ def test_every_exercise_step_offers_both_routes(path: Path) -> None:
         )
         browser_only = 'title="Browser only"' in body
         assert both or browser_only, f"{path.stem} / {heading}: no route tabs"
+
+
+BROWSER_STEP = re.compile(r"in the browser|Browser tab", re.IGNORECASE)
+
+
+@pytest.mark.parametrize("path", EXERCISES, ids=lambda p: p.stem)
+def test_command_line_tab_does_not_send_the_learner_to_the_browser(
+    path: Path,
+) -> None:
+    for heading, body in step_sections(path):
+        _, found, tab = body.partition("\n#### Command line\n")
+        if not found:
+            continue
+        tab = tab.split("\n#### ", 1)[0]
+        match = BROWSER_STEP.search(tab)
+        assert not match, (
+            f"{path.stem} / {heading}: the Command line tab says {match.group(0)!r};"
+            " move the step under a 'Browser only' callout"
+        )

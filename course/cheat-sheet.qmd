@@ -189,15 +189,16 @@ Learn more: [About releases](https://docs.github.com/en/repositories/releasing-p
 | Create an Issue | **Issues → New issue** | `gh issue create --title "E01 Scope the thesis and register it" --label kind:epic` |
 | Create a sub-issue | Parent Issue → **Create sub-issue** | `gh issue create --title "E01-T2 Write the research question and scope" --label kind:task --parent 1` |
 | List Issues | **Issues** tab | `gh issue list --label kind:task` |
+| Find the number of an Issue by its ID | **Issues** tab → search for the ID | Define the helper `issue` as in [X3](exercises/x3.qmd#before-you-start). Then `issue E01-T3` prints the number, and `$(issue E01-T3)` puts it into a command |
 | Close an Issue | **Close issue** | `gh issue close 3 --comment "Done, see #5"` |
 | Mark an Issue as blocked | Issue sidebar → **Relationships** → **Mark as blocked by** | `gh issue edit 5 --add-blocked-by 3` |
-| Create a milestone | **Issues → Milestones → New milestone** | `gh api repos/{owner}/{repo}/milestones -f title="M1 Registration submitted" -f due_on=2026-12-01T00:00:00Z` |
+| Create a milestone | **Issues → Milestones → New milestone** | `gh api repos/{owner}/{repo}/milestones -f title="M1 Registration submitted" -f due_on=2026-12-01T12:00:00Z` |
 | Set the milestone of an Issue | Issue sidebar → **Milestone** | `gh issue edit 3 --milestone "M1 Registration submitted"` |
 | Start work on an Issue | Issue sidebar → **Development** → **Create a branch** | `gh issue develop 3 --checkout` |
 | Copy the showcase Project | Project **…** → **Make a copy** | `gh project copy 11 --source-owner maehr --target-owner @me --title "PROJM thesis plan"` |
-| Link a Project to a repository | Repository **Projects** tab → **Link a project** | `gh project link 12 --owner OWNER --repo my-thesis` (not `@me`) |
+| Link a Project to a repository | Repository **Projects** tab → **Link a project** | `gh project link 12`, in the folder of the repository (without `--owner @me`) |
 | Change the visibility of a Project | Project **…** → **Settings** → **Visibility** | `gh project edit 12 --owner @me --visibility PUBLIC` |
-| Add an Issue to a Project | Project table → **+** → `#` | `gh project item-add 12 --owner @me --url https://github.com/OWNER/NAME/issues/1` |
+| Add an Issue to a Project | Project table → **+** → `#` | `gh issue edit 1 --add-project "PROJM thesis plan"` |
 | Open a Project in the browser | **Projects** tab | `gh project view 12 --owner @me --web` |
 | Create a release | **Create a new release** | `gh release create v0.1.0-demo --title "Demo release" --notes "Synthetic data only"` |
 

@@ -39,36 +39,47 @@ The restriction is not optional: no public file may contain a scan of SYN-P021. 
 2. Create `E08-T6 Receive the scans from the fictional archive` with the label `kind:task` and milestone M2.
 3. Create `E08-T7 Exclude the restricted scans of SYN-P021 from public outputs` with the label `kind:task` and milestone M2.
 4. Write acceptance criteria for both. Use the [example](#example-acceptance-criteria) below.
-5. In the Project, set E08-T6: Start date `2027-01-04`, Target date `2027-01-29` (originally `2027-01-15`).
-6. Open E08-T7 and mark it as **blocked by** E08-T6. You can only exclude scans that you have received.
+5. Open E08-T7 and mark it as **blocked by** E08-T6. You can only exclude scans that you have received.
 
 #### Command line
 
-1. Open a terminal in the folder `projm-thesis`.
-2. Create E08-T6 as a sub-issue of E08 with milestone M2. The body holds the [example acceptance criteria](#example-acceptance-criteria). Use the number of your E08.
+1. Open a terminal in the folder `projm-thesis`. Define the helper `issue` as in [X3](x3.qmd#before-you-start), if this is a new terminal:
 
    ```bash
-   gh issue create --title "E08-T6 Receive the scans from the fictional archive" --label kind:task --parent 2 \
+   issue() { gh issue list --state all --limit 100 --json number,title \
+     --jq ".[] | select(.title | startswith(\"$1 \")) | .number"; }
+   ```
+
+2. Create E08-T6 as a sub-issue of E08 with milestone M2. The body holds the [example acceptance criteria](#example-acceptance-criteria).
+
+   ```bash
+   gh issue create --title "E08-T6 Receive the scans from the fictional archive" --label kind:task --parent $(issue E08) \
      --milestone "M2 Data documented and validated" --body "**Acceptance criteria**
 
    - [ ] The archive delivered every requested scan.
    - [ ] The archive stated the reuse terms per record."
    ```
 
-3. Read the number of E08-T6 that gh prints, for example `11`.
-4. Create E08-T7. It waits for E08-T6, so `--blocked-by` gets the number of E08-T6. You can only exclude scans that you have received.
+3. Create E08-T7. It waits for E08-T6, so `--blocked-by` gets the number of E08-T6. You can only exclude scans that you have received.
 
    ```bash
-   gh issue create --title "E08-T7 Exclude the restricted scans of SYN-P021 from public outputs" --label kind:task --parent 2 \
-     --milestone "M2 Data documented and validated" --blocked-by 11 --body "**Acceptance criteria**
+   gh issue create --title "E08-T7 Exclude the restricted scans of SYN-P021 from public outputs" --label kind:task --parent $(issue E08) \
+     --milestone "M2 Data documented and validated" --blocked-by $(issue E08-T6) --body "**Acceptance criteria**
 
    - [ ] No public file contains a scan of SYN-P021.
    - [ ] The data dictionary explains the restriction."
    ```
 
-5. Set the dates of E08-T6 in the browser, as in step 5 of the Browser tab. gh can set a field value only with internal IDs.
-
 :::
+
+### Set the new dates
+
+::: {.callout-note title="Browser only"}
+gh can set a field value only with the internal IDs of the Project, the item, the field, and the option. To open your Project from the terminal, run `gh project view 12 --owner @me --web`.
+:::
+
+1. In the Project, open the view **Backlog**.
+2. Set E08-T6: Start date `2027-01-04`, Target date `2027-01-29` (originally `2027-01-15`).
 
 ### Choose one option
 
@@ -93,20 +104,20 @@ Discuss the options with a neighbour for three minutes. Choose one.
 
 #### Command line
 
-1. Create the dependency that your option needs. Use your Issue numbers.
+1. Create the dependency that your option needs. Run only the lines of your option.
 
    ```bash
    # Option A: E08-T3 (release) waits for E08-T7
-   gh issue edit 8 --add-blocked-by 12
+   gh issue edit $(issue E08-T3) --add-blocked-by $(issue E08-T7)
    # Option B: E08-T3 waits for E08-T2
-   gh issue edit 8 --add-blocked-by 7
+   gh issue edit $(issue E08-T3) --add-blocked-by $(issue E08-T2)
    # Option C: create E08-T8, blocked by E08-T6; then E08-T3 waits for E08-T8
-   gh issue create --title "E08-T8 Obtain a substitute record" --label kind:task --parent 2 \
-     --blocked-by 11 --body "Find a comparable record in a second fictional archive."
-   gh issue edit 8 --add-blocked-by 13
+   gh issue create --title "E08-T8 Obtain a substitute record" --label kind:task --parent $(issue E08) \
+     --blocked-by $(issue E08-T6) --body "Find a comparable record in a second fictional archive."
+   gh issue edit $(issue E08-T3) --add-blocked-by $(issue E08-T8)
    ```
 
-2. Open your Project in the browser. Check in the view **Roadmap** that E08-T6 and E08-T7 end before the marker of M2.
+2. Open your Project with the command below and select the view **Roadmap**. Check that E08-T6 and E08-T7 end before the marker of M2.
 
    ```bash
    gh project view 12 --owner @me --web
@@ -115,7 +126,7 @@ Discuss the options with a neighbour for three minutes. Choose one.
 3. If a bar ends after M2, move M2. M2 is a proposed date. The new description replaces the old one, so keep the justification and add the reason.
 
    ```bash
-   gh api -X PATCH repos/{owner}/{repo}/milestones/2 --jq .due_on -f due_on=2027-03-15T00:00:00Z \
+   gh api -X PATCH repos/{owner}/{repo}/milestones/2 --jq .due_on -f due_on=2027-03-15T12:00:00Z \
      -f description="<old justification> Moved on 2026-10-16: <reason>."
    ```
 

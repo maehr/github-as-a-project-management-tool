@@ -112,6 +112,7 @@ You also need a text editor for Markdown files. Any editor that saves plain text
 | `git push` asks for a user name and a password. | git does not use the sign-in of gh. | Run `gh auth setup-git`. Then push again. |
 | `git push` is rejected with "fetch first". | GitHub has commits that your computer does not have, for example from the browser route. | Run `git pull --rebase`. Then push again. |
 | An editor opens in the terminal. | git asks for a message. | In nano, press `Ctrl`+`X`. In vim, type `:wq` and press `Enter`. |
+| "command not found: issue" | The terminal is new, and the helper `issue` is not defined in it. | Define the helper again, as in [X3](exercises/x3.qmd#before-you-start). |
 | Another error | — | Do the step in the browser. Both routes reach the same state. |
 
 ::: {.callout-important}

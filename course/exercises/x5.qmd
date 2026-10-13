@@ -31,8 +31,13 @@ Five jobs are easy to confuse. Each one needs its own place, and one tool does n
 ## Before you start
 
 - Browser route: download the [synthetic CSV](../../data/synthetic-periodicals.csv) to your computer.
-- Command-line route: open a terminal in the folder `projm-thesis`. Run `git pull` to get the latest state.
-- Note the Issue numbers of E08-S1, E08-T2, and E08-T3.
+- Browser route: note the Issue numbers of E08-S1, E08-T2, and E08-T3.
+- Command-line route: open a terminal in the folder `projm-thesis`. Run `git pull` to get the latest state. Define the helper `issue` as in [X3](x3.qmd#before-you-start), if this is a new terminal:
+
+  ```bash
+  issue() { gh issue list --state all --limit 100 --json number,title \
+    --jq ".[] | select(.title | startswith(\"$1 \")) | .number"; }
+  ```
 
 ## Steps
 
@@ -59,10 +64,11 @@ Five jobs are easy to confuse. Each one needs its own place, and one tool does n
    git switch -c docs/e08-s1-data-dictionary
    ```
 
-2. Download the CSV into the folder `data/clean`:
+2. Download the CSV from the course repository into the folder `data/clean`:
 
    ```bash
-   curl -L -o data/clean/synthetic-periodicals.csv https://raw.githubusercontent.com/maehr/github-as-a-project-management-tool/main/data/synthetic-periodicals.csv
+   gh api repos/maehr/github-as-a-project-management-tool/contents/data/synthetic-periodicals.csv \
+     -H "Accept: application/vnd.github.raw" > data/clean/synthetic-periodicals.csv
    ```
 
 3. Rename the template of the data dictionary:
@@ -82,10 +88,10 @@ Five jobs are easy to confuse. Each one needs its own place, and one tool does n
    git push -u origin docs/e08-s1-data-dictionary
    ```
 
-8. Open the pull request, review it, and merge it as in [X4](x4.qmd). Use the number of your E08-S1:
+8. Open the pull request, review it, and merge it as in [X4](x4.qmd). The description closes E08-S1:
 
    ```bash
-   gh pr create --title "docs: document the dataset for a future reuser" --body "Closes #6"
+   gh pr create --title "docs: document the dataset for a future reuser" --body "Closes #$(issue E08-S1)"
    gh pr review --comment --body "Checked the columns, the missing values, and the licence."
    gh pr merge --merge --delete-branch
    ```
@@ -145,11 +151,11 @@ The file `CITATION.cff` in your repository still describes the **template**, wit
 1. In a text editor, create the file `project-management/decisions.md`.
 2. Paste the [decision text](#decision-text) below.
 3. Save the file.
-4. Save the file as a commit and send it to GitHub. The second `-m` adds the extended description. Its keyword closes E08-T2 when the commit reaches `main`. Use the number of your E08-T2.
+4. Save the file as a commit and send it to GitHub. The second `-m` adds the extended description. Its keyword closes E08-T2 when the commit reaches `main`.
 
    ```bash
    git add project-management/decisions.md
-   git commit -m "docs: record the rights and access decision" -m "Closes #7"
+   git commit -m "docs: record the rights and access decision" -m "Closes #$(issue E08-T2)"
    git push
    ```
 
@@ -184,10 +190,10 @@ GitHub adds two source archives (`.zip` and `.tar.gz`) to every release. They co
      --notes-file ../release-notes.md
    ```
 
-3. Close E08-T3 with a link to the release. Use the number of your E08-T3. Type your GitHub username for `USERNAME`.
+3. Close E08-T3 with a link to the release. `gh release view` finds the address of the release.
 
    ```bash
-   gh issue close 8 --comment "Released: https://github.com/USERNAME/projm-thesis/releases/tag/v0.1.0-demo"
+   gh issue close $(issue E08-T3) --comment "Released: $(gh release view v0.1.0-demo --json url --jq .url)"
    ```
 
 :::
@@ -306,7 +312,7 @@ abstract: >-
 
 | Problem | Cause | Recovery |
 | --- | --- | --- |
-| The CSV download fails on the command line. | No connection, or a typing error in the address. | Open the [CSV](../../data/synthetic-periodicals.csv) in the browser and save it as `data/clean/synthetic-periodicals.csv`. |
+| The CSV download fails on the command line. | No connection, or a typing error in the path. | Open the [CSV](../../data/synthetic-periodicals.csv) in the browser and save it as `data/clean/synthetic-periodicals.csv`. |
 | The CSV upload fails. | The browser blocked the download. | Open the [CSV](../../data/synthetic-periodicals.csv), copy all lines, and create the file with **Add file → Create new file**. |
 | The file name field does not rename. | The cursor was in the editor. | Click the file name field above the editor, then edit the name. |
 | The commit did not close E08-T2. | The keyword was in the title, or the commit is on another branch. | Close the Issue by hand with a link to the commit. |
@@ -326,7 +332,7 @@ abstract: >-
 - [About CITATION files](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)
 - [Licensing a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
 - [Managing releases in a repository](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
-- [`gh release create`](https://cli.github.com/manual/gh_release_create)
+- [`gh release create`](https://cli.github.com/manual/gh_release_create) and [`gh api`](https://cli.github.com/manual/gh_api)
 
 ## Next
 
