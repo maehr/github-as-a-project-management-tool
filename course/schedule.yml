@@ -1,4 +1,5 @@
-# Run of show for Friday, 16 October 2026, 09:00-13:00 (SPECS.md §4).
+# Run of show for Friday, 16 October 2026, 09:00-13:00.
+# course/syllabus.qmd includes the rendered table.
 # `npm run check` verifies that the blocks are contiguous, that they fill
 # exactly 240 minutes, and that the breaks take 20 minutes.
 

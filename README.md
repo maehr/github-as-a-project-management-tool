@@ -49,7 +49,6 @@ The public exercise uses only synthetic data. For real thesis work, use a privat
 | `templates/master-thesis/` | Reusable thesis documentation template and issue forms          |
 | `assets/screenshots/`      | Annotated screenshots of the GitHub interface and their sources |
 | `src/`, `test/`            | Maintainer scripts and checks; learners do not need them        |
-| `SPECS.md`                 | Implementation contract for this course                         |
 
 ## Maintain The Course
 

@@ -5,28 +5,29 @@ description: Decision records for this course repository and an example record f
 
 This page records the decisions behind this course. Each record has a context, a decision, its consequences, and its source. The last section shows an example record for the fictional thesis, as learners write it in exercise [X6](../course/exercises/x6.qmd).
 
-| ID              | Date       | Decision                                                           | Status              |
-| --------------- | ---------- | ------------------------------------------------------------------ | ------------------- |
-| [D-001](#d-001) | 2026-10-12 | Create the course repository from the template at commit `c6ec5bc` | Accepted            |
-| [D-002](#d-002) | 2026-10-12 | Remove template parts that the course does not use                 | Accepted            |
-| [D-003](#d-003) | 2026-10-12 | Use labels instead of Issue Types                                  | Accepted            |
-| [D-004](#d-004) | 2026-10-12 | Use only synthetic data; real theses default to private            | Accepted            |
-| [D-005](#d-005) | 2026-10-12 | Licence prose and data under CC BY 4.0, code under AGPL 3.0        | Accepted            |
-| [D-006](#d-006) | 2026-10-12 | Use fictional registration and submission dates                    | Accepted            |
-| [D-007](#d-007) | 2026-10-12 | Describe scan reuse, not copyright, in the dataset                 | Accepted            |
-| [D-008](#d-008) | 2026-10-12 | Generate pages from YAML instead of executing code                 | Accepted            |
-| [D-009](#d-009) | 2026-10-12 | Confirm room F 001; keep pass/fail unresolved                      | Superseded by D-010 |
-| [D-010](#d-010) | 2026-10-12 | Use the KSL course entry as the authority; set the pass rule       | Accepted            |
+| ID              | Date       | Decision                                                            | Status              |
+| --------------- | ---------- | ------------------------------------------------------------------- | ------------------- |
+| [D-001](#d-001) | 2026-10-12 | Create the course repository from the template at commit `c6ec5bc`  | Accepted            |
+| [D-002](#d-002) | 2026-10-12 | Remove template parts that the course does not use                  | Accepted            |
+| [D-003](#d-003) | 2026-10-12 | Use labels instead of Issue Types                                   | Accepted            |
+| [D-004](#d-004) | 2026-10-12 | Use only synthetic data; real theses default to private             | Accepted            |
+| [D-005](#d-005) | 2026-10-12 | Licence prose and data under CC BY 4.0, code under AGPL 3.0         | Accepted            |
+| [D-006](#d-006) | 2026-10-12 | Use fictional registration and submission dates                     | Accepted            |
+| [D-007](#d-007) | 2026-10-12 | Describe scan reuse, not copyright, in the dataset                  | Accepted            |
+| [D-008](#d-008) | 2026-10-12 | Generate pages from YAML instead of executing code                  | Accepted            |
+| [D-009](#d-009) | 2026-10-12 | Confirm room F 001; keep pass/fail unresolved                       | Superseded by D-010 |
+| [D-010](#d-010) | 2026-10-12 | Use the KSL course entry as the authority; set the pass rule        | Accepted            |
+| [D-011](#d-011) | 2026-10-13 | Remove `SPECS.md`; the syllabus and the decisions carry its content | Accepted            |
 
 ## D-001 Create the repository from the template at commit `c6ec5bc` {#d-001}
 
-**Context.** `SPECS.md` §5 requires that the course repository is created from `maehr/open-research-data-template`. Learners start from the same template.
+**Context.** The [course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md) (§5) requires that the course repository is created from `maehr/open-research-data-template`. Learners start from the same template.
 
 **Decision.** The repository was created with "Use this template" from commit [`c6ec5bc`](https://github.com/maehr/open-research-data-template/commit/c6ec5bc366c21029e908ad16d54fa0e2201f18ee) of 16 June 2026. `main` starts with the initial commit of the template. All other work, including the course README and the community-health files, arrives through one pull request.
 
 **Consequences.** The course records the template revision. When the template changes, the instructor checks the exercises against the new revision before the next run.
 
-**Source.** `SPECS.md` §5 and §6, step 1.
+**Source.** [Course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md), §5 and §6, step 1.
 
 ## D-002 Remove template parts that the course does not use {#d-002}
 
@@ -46,7 +47,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** Every learner can follow the exercises with a free personal account.
 
-**Source.** `SPECS.md` §3. GitHub Docs: [Managing issue types in an organization](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization).
+**Source.** [Course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md), §3. GitHub Docs: [Managing issue types in an organization](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization).
 
 ## D-004 Use only synthetic data; real theses default to private {#d-004}
 
@@ -56,7 +57,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** No real personal or research data enter the public exercise. Exercise X1 includes a visibility check, and the closing block covers the transfer to a private thesis.
 
-**Source.** `SPECS.md` §2.
+**Source.** [Course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md), §2.
 
 ## D-005 Licence prose and data under CC BY 4.0, code under AGPL 3.0 {#d-005}
 
@@ -66,7 +67,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** Others can reuse and adapt the course with attribution. The screenshots are not under CC BY 4.0.
 
-**Source.** `SPECS.md` §5 ("Proposed CC BY 4.0"). The instructor confirmed it on 12 October 2026.
+**Source.** [Course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md), §5 ("Proposed CC BY 4.0"). The instructor confirmed it on 12 October 2026.
 
 ## D-006 Use fictional registration and submission dates {#d-006}
 
@@ -76,7 +77,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** Every page labels these dates as fictional. Real dates stay unconfirmed.
 
-**Source.** `SPECS.md` §3. [Studienplan Digital Humanities](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf), Art. 15 Abs. 4, p. 5.
+**Source.** [Course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md), §3. [Studienplan Digital Humanities](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf), Art. 15 Abs. 4, p. 5.
 
 ## D-007 Describe scan reuse, not copyright, in the dataset {#d-007}
 
@@ -96,11 +97,11 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** The site build needs only Quarto. No document executes code.
 
-**Source.** `SPECS.md` §3 ("Persist the instructor's full example backlog in versioned text").
+**Source.** [Course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md), §3 ("Persist the instructor's full example backlog in versioned text").
 
 ## D-009 Confirm room F 001; keep pass/fail unresolved {#d-009}
 
-**Context.** `SPECS.md` §6 step 4 requires a confirmation of the room, the pass/fail arrangement, the audience mix, and the thesis regulations before release.
+**Context.** The [course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md) (§6, step 4) requires a confirmation of the room, the pass/fail arrangement, the audience mix, and the thesis regulations before release.
 
 **Decision.** The instructor confirmed on 12 October 2026: the room is Seminarraum F 001; the audience is mostly DH Major students; the 2025 DH study plan and RSL Phil.-hist. 21 are the basis of the example; real thesis dates stay unconfirmed. The pass/fail arrangement is not yet confirmed.
 
@@ -117,6 +118,16 @@ This page records the decisions behind this course. Each record has a context, a
 **Consequences.** The pages drop the export page numbers and the room discrepancy. The pass rule is the instructor's decision, not a KSL rule. Risk U-02 is resolved.
 
 **Source.** Instructor decision in the implementation session, 12 October 2026.
+
+## D-011 Remove `SPECS.md`; the syllabus and the decisions carry its content {#d-011}
+
+**Context.** `SPECS.md` was the implementation contract for the first version of the course. After the implementation, each of its rules had a second home: the course facts and outcomes in the syllabus, the conventions in the exercises and the cheat sheet, the build rules in `AGENTS.md`, and the checks in the tests. Two copies of one rule can disagree.
+
+**Decision.** Remove `SPECS.md`. The decisions above cite the specification through a permalink to its last version.
+
+**Consequences.** The syllabus is the entry point for course content. `AGENTS.md` names it as the source of the course facts and the pedagogy.
+
+**Source.** Maintainer request, 13 October 2026. [Last version of the course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md).
 
 ## Example: decision record for the fictional thesis {#example}
 

@@ -4,7 +4,7 @@ This repository holds the workshop and OER "GitHub as a Project Management Tool"
 
 This file follows the shared [Agents Tooling Specification](https://gist.github.com/maehr/6c48ef14f37c9f745fa1fbaa315d106b): `30-AGENTS.quarto.md`, with the appendices `40-TOOLBELT.macos.md` and `50-WRITING.scientific.md`. Sections 1, 3, 5, and 6 are copied verbatim. Sections 2, 4, and 7 are narrowed to this repository. Section 8 is specific to this repository.
 
-`SPECS.md` is the implementation contract. Read it before you change course content.
+Read `course/syllabus.qmd` before you change course content. It holds the course facts, the learning outcomes, and the minimum deliverable. The original course specification is in the git history at commit `9f18015`.
 
 **Local deviations from the shared specification:**
 
@@ -162,9 +162,9 @@ A GitHub Actions workflow deploys from `main`. Never publish by hand. Never repl
 
 | Fact | Source |
 | --- | --- |
-| Course facts: date, room, credits, assessment | The [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0), as recorded in `SPECS.md` §1 |
+| Course facts: date, room, credits, assessment | The [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0), as recorded in `course/syllabus.qmd` |
 | Thesis rules for one programme | That programme's study plan and the faculty regulations |
-| Pedagogy and exercise design | `SPECS.md` §2–§4 (instructor proposal, not a KSL requirement) |
+| Pedagogy and exercise design | `course/syllabus.qmd` and `project-management/decisions.md` (instructor proposal, not a KSL requirement) |
 | GitHub and Quarto behaviour | Official documentation and the dated UI verification log |
 
 **Rules:**

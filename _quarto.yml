@@ -8,7 +8,6 @@ project:
     - slides/**/*.qmd
     - templates/**/*.md
     - templates/master-thesis/README.md
-    - SPECS.md
     - CHANGELOG.md
     - NOTICE.md
     - LICENSE-CCBY.md
@@ -98,8 +97,6 @@ website:
             href: templates/master-thesis/README.md
       - section: About
         contents:
-          - text: Specification
-            href: SPECS.md
           - CHANGELOG.md
           - NOTICE.md
           - text: Licence (prose and data)
