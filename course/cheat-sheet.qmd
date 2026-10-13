@@ -4,9 +4,76 @@ subtitle: Terms, browser paths, and commands for beginners
 description: The GitHub terms that the workshop uses, where to find each one in the browser, and the matching git and gh commands.
 ---
 
-::: {.callout-tip title="You need only the browser"}
-All exercises run in the browser. The git and gh commands on this page are optional. They help you later, when you work on your own computer.
+::: {.callout-tip title="Two routes: browser and command line"}
+Each exercise has a browser route and a command-line route. Both routes reach the same result, and you can change the route at any step. The browser route needs no software. The command-line route needs git and gh: see [Prepare the command line](setup.qmd#command-line-route).
 :::
+
+## Version control: why and how {#version-control}
+
+### Why use version control
+
+A thesis grows over months. The text, the data, and the code change many times, and later you must explain what changed and why. File names such as `thesis_final_v3_new.docx` do not answer that question.
+
+Version control records each change as a **commit**: a saved state of the files, with the author, the date, and a message that explains the change. The list of all commits is the **history**. With the history, you can:
+
+- compare two states of a file and see each changed line;
+- go back to an earlier state when a change was wrong;
+- show your supervisor or a later reuser how the text and the data came about;
+- cite one exact state of the work, for example the state that you submitted;
+- work on a **branch** and keep the agreed version on `main` unchanged until a review.
+
+A copy of the repository on GitHub is also a backup. It is not long-term preservation: see [What GitHub cannot guarantee](../documentation/publication.qmd#what-github-cannot-guarantee).
+
+### Git and GitHub
+
+**Git** is the version-control program. It keeps the history in a hidden folder `.git` inside the project folder. Every copy of a repository holds the full history, so git works on your computer without the internet.
+
+**GitHub** is a service that hosts git repositories. It adds the tools that this course uses for planning and review: Issues, pull requests, Projects, releases, and Actions.
+
+When you edit a file in the browser, GitHub runs git for you. One click on **Commit changes** does what three commands do on the command line: `git add`, `git commit`, and `git push`.
+
+### How a change travels
+
+On the command line, a change passes through four places. You decide when it moves to the next place.
+
+```{mermaid}
+flowchart LR
+    W["<b>Working folder</b><br/>the files you edit"] -- "git add" --> S["<b>Staging area</b><br/>the changes for the next commit"]
+    S -- "git commit" --> L["<b>Local repository</b><br/>the history on your computer"]
+    L -- "git push" --> G["<b>GitHub</b><br/>the shared copy"]
+    G -- "git pull" --> W
+```
+
+The staging area lets you put related changes into one commit and leave other changes for later. A pull request then moves the commits of your branch into `main` on GitHub.
+
+One complete change on the command line looks like this. The text after `#` explains each line.
+
+```bash
+gh repo clone OWNER/projm-thesis      # once: copy the repository to your computer
+cd projm-thesis                       # go into the project folder
+git pull                              # get the latest state from GitHub
+git switch -c docs/scope              # start a branch
+                                      # now edit README.md in a text editor
+git status                            # list the changed files
+git diff                              # show each changed line
+git add README.md                     # put the change into the staging area
+git commit -m "docs: add the scope"   # save a commit with a message
+git push -u origin docs/scope         # send the branch to GitHub
+gh pr create --fill                   # propose the change as a pull request
+```
+
+[Setup](setup.qmd) explains how to install git and gh. The [task tables](#tasks) below give the browser action for each command.
+
+### Good habits
+
+- Put one logical change into one commit. A small commit is easy to review and to undo.
+- Write a message that says what changed and why. This course uses prefixes such as `docs:` and `fix:` from [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+- Pull before you start. Push when you stop.
+- Never commit passwords, access tokens, or personal data. The history keeps a file even after you delete it.
+- List the files that git must ignore, such as exports and temporary files, in `.gitignore`.
+- Keep large binary files, such as scans or videos, out of the repository. GitHub blocks files larger than 100 MiB. Deposit large files in a data repository and link them.
+
+Learn more: [About version control](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) and [What is Git?](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F) (Pro Git) · [About Git](https://docs.github.com/en/get-started/using-git/about-git) · [Ignoring files](https://docs.github.com/en/get-started/git-basics/ignoring-files) · [About large files on GitHub](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)
 
 ## GitHub in one picture
 
@@ -41,7 +108,7 @@ flowchart TB
 | [Commit]{#commit} | A saved change to one or more files, with a message, an author, and a date. The history of a repository is a list of commits. | **Commit changes…** after you edit a file; **History** on a file |
 | [Branch]{#branch} | A separate line of work. You change files on a branch without changing `main`. | Branch menu above the file list (it shows `main`) |
 | [Default branch]{#default-branch} | The branch that holds the agreed version, usually `main`. Visitors see it first. | Branch menu |
-| [Clone]{#clone} | A copy of a repository on your own computer, made with git. The workshop does not need it. | **Code** button → **Local** |
+| [Clone]{#clone} | A copy of a repository on your own computer, made with git. The command-line route starts with it; the browser route does not need it. | **Code** button → **Local** |
 
 Learn more: [About repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories) · [About READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) · [About branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
 
@@ -89,9 +156,9 @@ Learn more: [About issues](https://docs.github.com/en/issues/tracking-your-work-
 
 Learn more: [About releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases) · [Setting repository visibility](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility) · [Understanding GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions) · [GitHub glossary](https://docs.github.com/en/get-started/learning-about-github/github-glossary)
 
-## Tasks in the browser, in git, and in gh
+## Tasks in the browser, in git, and in gh {#tasks}
 
-**git** is the version-control program on your computer. **gh** is the GitHub command-line tool. To use them, [set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git) and install [gh](https://cli.github.com/manual/). Sign in once with `gh auth login`. Replace `OWNER`, `NAME`, and the numbers with your own values.
+**git** is the version-control program on your computer. **gh** is the GitHub command-line tool. To install them and sign in, follow [Prepare the command line](setup.qmd#command-line-route). Replace `OWNER`, `NAME`, and the numbers with your own values. Each exercise gives the exact commands in its **Command line** tab.
 
 ### Repository and files
 
@@ -122,10 +189,17 @@ Learn more: [About releases](https://docs.github.com/en/repositories/releasing-p
 | Create an Issue | **Issues → New issue** | `gh issue create --title "E01 Scope the thesis and register it" --label kind:epic` |
 | Create a sub-issue | Parent Issue → **Create sub-issue** | `gh issue create --title "E01-T2 Write the research question and scope" --label kind:task --parent 1` |
 | List Issues | **Issues** tab | `gh issue list --label kind:task` |
+| Find the number of an Issue by its ID | **Issues** tab → search for the ID | Define the helper `issue` as in [X3](exercises/x3.qmd#before-you-start). Then `issue E01-T3` prints the number, and `$(issue E01-T3)` puts it into a command |
 | Close an Issue | **Close issue** | `gh issue close 3 --comment "Done, see #5"` |
+| Mark an Issue as blocked | Issue sidebar → **Relationships** → **Mark as blocked by** | `gh issue edit 5 --add-blocked-by 3` |
+| Create a milestone | **Issues → Milestones → New milestone** | `gh api repos/{owner}/{repo}/milestones -f title="M1 Registration submitted" -f due_on=2026-12-01T12:00:00Z` |
+| Set the milestone of an Issue | Issue sidebar → **Milestone** | `gh issue edit 3 --milestone "M1 Registration submitted"` |
 | Start work on an Issue | Issue sidebar → **Development** → **Create a branch** | `gh issue develop 3 --checkout` |
 | Copy the showcase Project | Project **…** → **Make a copy** | `gh project copy 11 --source-owner maehr --target-owner @me --title "PROJM thesis plan"` |
-| Link a Project to a repository | Repository **Projects** tab → **Link a project** | `gh project link 12 --owner @me --repo my-thesis` |
+| Link a Project to a repository | Repository **Projects** tab → **Link a project** | `gh project link 12`, in the folder of the repository (without `--owner @me`) |
+| Change the visibility of a Project | Project **…** → **Settings** → **Visibility** | `gh project edit 12 --owner @me --visibility PUBLIC` |
+| Add an Issue to a Project | Project table → **+** → `#` | `gh issue edit 1 --add-project "PROJM thesis plan"` |
+| Open a Project in the browser | **Projects** tab | `gh project view 12 --owner @me --web` |
 | Create a release | **Create a new release** | `gh release create v0.1.0-demo --title "Demo release" --notes "Synthetic data only"` |
 
 ## Markdown for Issues and pull requests

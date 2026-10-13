@@ -1,6 +1,6 @@
 # GitHub as a Project Management Tool
 
-A browser-first workshop and open educational resource (OER). Learners plan, conduct, document, and share a fictional master's thesis with one GitHub repository and one GitHub Project.
+A workshop and open educational resource (OER) with a browser route and a command-line route for each exercise. Learners plan, conduct, document, and share a fictional master's thesis with one GitHub repository and one GitHub Project.
 
 [![GitHub issues](https://img.shields.io/github/issues/maehr/github-as-a-project-management-tool.svg)](https://github.com/maehr/github-as-a-project-management-tool/issues)
 [![Prose licence](https://img.shields.io/badge/prose-CC%20BY%204.0-lightgrey.svg)](LICENSE-CCBY.md)
@@ -26,7 +26,7 @@ Details and registration: [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzan
 
 ## What Learners Do
 
-Each learner works in the browser. No software installation is necessary. Learners new to GitHub start with the [cheat sheet](course/cheat-sheet.qmd).
+Each learner works in the browser, on the command line with git and gh, or both. The browser route needs no software installation. Learners new to GitHub start with the [cheat sheet](course/cheat-sheet.qmd).
 
 1. Create a repository from the [open research data template](https://github.com/new?template_name=open-research-data-template&template_owner=maehr).
 2. Turn requirements into Issues, sub-issues, milestones, and dependencies.
@@ -39,21 +39,21 @@ The public exercise uses only synthetic data. For real thesis work, use a privat
 
 ## Repository Structure
 
-| Path                       | Content                                                         |
-| -------------------------- | --------------------------------------------------------------- |
-| `course/`                  | Setup, syllabus, exercises X1–X6, solutions, instructor notes   |
-| `slides/`                  | Reveal.js slides for the session                                |
-| `documentation/`           | Requirements register, data dictionary, publication note        |
-| `project-management/`      | Example backlog and milestones (YAML source), decisions, risks  |
-| `data/`                    | Synthetic periodical metadata for the exercises                 |
-| `templates/master-thesis/` | Reusable thesis documentation template and issue forms          |
-| `assets/screenshots/`      | Annotated screenshots of the GitHub interface and their sources |
-| `src/`, `test/`            | Maintainer scripts and checks; learners do not need them        |
-| `SPECS.md`                 | Implementation contract for this course                         |
+| Path                       | Content                                                             |
+| -------------------------- | ------------------------------------------------------------------- |
+| `course/`                  | Setup, syllabus, exercises X1–X6, solutions, instructor notes       |
+| `slides/`                  | Reveal.js slides for the session                                    |
+| `documentation/`           | Worked example, requirements register, publication note             |
+| `project-management/`      | Seed source of the example backlog and milestones, decisions, risks |
+| `archive/`                 | Pages that the site no longer shows; not rendered                   |
+| `data/`                    | Synthetic periodical metadata for the exercises                     |
+| `templates/master-thesis/` | Reusable thesis documentation template and issue forms              |
+| `assets/screenshots/`      | Annotated screenshots of the GitHub interface and their sources     |
+| `src/`, `test/`            | Maintainer scripts and checks; learners do not need them            |
 
 ## Maintain The Course
 
-Maintainers need Node.js, uv, and Quarto 1.10.19. Learners need only a browser.
+Maintainers need Node.js, uv, and Quarto 1.10.19. Learners need a browser, and git and gh for the command-line route.
 
 | Task                                     | Command                                    |
 | ---------------------------------------- | ------------------------------------------ |

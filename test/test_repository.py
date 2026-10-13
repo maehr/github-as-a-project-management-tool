@@ -14,9 +14,17 @@ import render_pages
 from backlog import ROOT
 
 CSV_FILE = ROOT / "data" / "synthetic-periodicals.csv"
-DICTIONARY = ROOT / "documentation" / "data-dictionary.qmd"
+# Exercise X5 gives learners the data dictionary text to copy.
+DICTIONARY = ROOT / "course" / "exercises" / "x5.qmd"
 SCREENSHOTS = ROOT / "assets" / "screenshots"
-CONTENT_DIRS = ["course", "documentation", "project-management", "slides", "templates"]
+CONTENT_DIRS = [
+    "archive",
+    "course",
+    "documentation",
+    "project-management",
+    "slides",
+    "templates",
+]
 CONTENT_ROOT_FILES = ["index.qmd", "README.md"]
 
 
@@ -51,7 +59,7 @@ def test_csv_matches_its_generator() -> None:
 
 def test_csv_columns_match_the_data_dictionary() -> None:
     text = DICTIONARY.read_text(encoding="utf-8")
-    columns_section = text.split("\n## Columns\n", 1)[1].split("\n## ", 1)[0]
+    columns_section = text.split("\n## Definitions\n", 1)[1].split("```", 1)[0]
     documented = re.findall(r"^\| `([a-z_]+)` +\|", columns_section, flags=re.MULTILINE)
     with CSV_FILE.open(encoding="utf-8", newline="") as handle:
         header = next(csv.reader(handle))
@@ -65,6 +73,33 @@ def test_generated_pages_are_current() -> None:
     for path, expected in render_pages.outputs().items():
         actual = path.read_text(encoding="utf-8")
         assert actual == expected, f"{path.name} is stale: run `npm run pages:render`"
+
+
+# ---------------------------------------------------------------- links
+
+LINK = re.compile(r"\]\((?P<target>[^)\s]+)")
+FENCE = re.compile(r"^```.*?^```", flags=re.MULTILINE | re.DOTALL)
+
+
+@pytest.mark.parametrize(
+    "path",
+    [
+        p
+        for p in content_files()
+        if p.suffix in (".md", ".qmd") and "archive" not in p.relative_to(ROOT).parts
+    ],
+    ids=lambda p: str(p.relative_to(ROOT)),
+)
+def test_relative_links_resolve(path: Path) -> None:
+    text = FENCE.sub("", path.read_text(encoding="utf-8"))
+    broken = []
+    for match in LINK.finditer(text):
+        target = match["target"].split("#", 1)[0].split("?", 1)[0]
+        if not target or re.match(r"[a-z]+:", target):
+            continue
+        if not (path.parent / target).resolve().exists():
+            broken.append(match["target"])
+    assert not broken, f"broken links in {path.relative_to(ROOT)}: {broken}"
 
 
 # ---------------------------------------------------------------- images
@@ -116,7 +151,12 @@ def test_every_screenshot_is_annotated_used_and_present() -> None:
 # ---------------------------------------------------------------- privacy
 
 EMAIL = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}")
-ALLOWED_EMAILS = {"noreply@anthropic.com", "noreply@github.com"}
+# The last entry is the placeholder for the no-reply address in course/setup.qmd.
+ALLOWED_EMAILS = {
+    "noreply@anthropic.com",
+    "noreply@github.com",
+    "ID+USERNAME@users.noreply.github.com",
+}
 
 
 @pytest.mark.parametrize(

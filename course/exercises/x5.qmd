@@ -30,12 +30,22 @@ Five jobs are easy to confuse. Each one needs its own place, and one tool does n
 
 ## Before you start
 
-- Download the [synthetic CSV](../../data/synthetic-periodicals.csv) to your computer.
-- Note the Issue numbers of E08-S1, E08-T2, and E08-T3.
+- Browser route: download the [synthetic CSV](../../data/synthetic-periodicals.csv) to your computer.
+- Browser route: note the Issue numbers of E08-S1, E08-T2, and E08-T3.
+- Command-line route: open a terminal in the folder `projm-thesis`. Run `git pull` to get the latest state. Define the helper `issue` as in [X3](x3.qmd#before-you-start), if this is a new terminal:
+
+  ```bash
+  issue() { gh issue list --state all --limit 100 --json number,title \
+    --jq ".[] | select(.title | startswith(\"$1 \")) | .number"; }
+  ```
 
 ## Steps
 
 ### Add the dataset and the data dictionary
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. In your repository, open the folder `data/clean`.
 2. Click **Add file → Upload files**. Drop `synthetic-periodicals.csv`.
@@ -46,6 +56,48 @@ Five jobs are easy to confuse. Each one needs its own place, and one tool does n
 7. Commit to the same branch.
 8. Open a pull request with the description `Closes #<number of E08-S1>`. Review it and merge it as in [X4](x4.qmd).
 
+#### Command line
+
+1. Create a branch and switch to it:
+
+   ```bash
+   git switch -c docs/e08-s1-data-dictionary
+   ```
+
+2. Download the CSV from the course repository into the folder `data/clean`:
+
+   ```bash
+   gh api repos/maehr/github-as-a-project-management-tool/contents/data/synthetic-periodicals.csv \
+     -H "Accept: application/vnd.github.raw" > data/clean/synthetic-periodicals.csv
+   ```
+
+3. Rename the template of the data dictionary:
+
+   ```bash
+   git mv documentation/data-dictionary.template.qmd documentation/data-dictionary.qmd
+   ```
+
+4. Open `documentation/data-dictionary.qmd` in a text editor.
+5. Replace the text with the [example data dictionary](#data-dictionary-text) below.
+6. Save the file.
+7. Save both files as a commit and send the branch to GitHub. git can warn that LF will be replaced by CRLF. The template sets this line ending for CSV files, so you can ignore the warning.
+
+   ```bash
+   git add data/clean/synthetic-periodicals.csv documentation/data-dictionary.qmd
+   git commit -m "docs: document the dataset for a future reuser"
+   git push -u origin docs/e08-s1-data-dictionary
+   ```
+
+8. Open the pull request, review it, and merge it as in [X4](x4.qmd). The description closes E08-S1:
+
+   ```bash
+   gh pr create --title "docs: document the dataset for a future reuser" --body "Closes #$(issue E08-S1)"
+   gh pr review --comment --body "Checked the columns, the missing values, and the licence."
+   gh pr merge --merge --delete-branch
+   ```
+
+:::
+
 ### Correct the citation file (optional)
 
 Skip this step if you are short of time. Do it before you publish a real release.
@@ -53,25 +105,71 @@ Skip this step if you are short of time. Do it before you publish a real release
 
 The file `CITATION.cff` in your repository still describes the **template**, with its authors and its DOI. Anyone who clicks **Cite this repository** gets the wrong reference.
 
+::: {.panel-tabset group="route"}
+
+#### Browser
+
 1. Open `CITATION.cff` and click the pencil icon.
 2. Replace the text with the [citation text](#citation-text) below.
 3. Commit with the message `docs: describe this repository in CITATION.cff`.
 4. Check that the licence files `LICENSE-CCBY.md` and `LICENSE-AGPL.md` exist. They match the licence line in the README.
 
+#### Command line
+
+1. Open `CITATION.cff` in a text editor.
+2. Replace the text with the [citation text](#citation-text) below.
+3. Save the file.
+4. Save the change as a commit and send it to GitHub:
+
+   ```bash
+   git add CITATION.cff
+   git commit -m "docs: describe this repository in CITATION.cff"
+   git push
+   ```
+
+5. Check that the licence files exist. The list shows `LICENSE-AGPL.md` and `LICENSE-CCBY.md`. They match the licence line in the README.
+
+   ```bash
+   ls LICENSE-*
+   ```
+
+:::
+
 ### Record the rights and access decision
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Open the folder `project-management`.
 2. Click **Add file → Create new file**. Name it `decisions.md`.
 3. Paste the [decision text](#decision-text) below.
 4. Commit with the message `docs: record the rights and access decision` and the extended description `Closes #<number of E08-T2>`.
 
+#### Command line
+
+1. In a text editor, create the file `project-management/decisions.md`.
+2. Paste the [decision text](#decision-text) below.
+3. Save the file.
+4. Save the file as a commit and send it to GitHub. The second `-m` adds the extended description. Its keyword closes E08-T2 when the commit reaches `main`.
+
+   ```bash
+   git add project-management/decisions.md
+   git commit -m "docs: record the rights and access decision" -m "Closes #$(issue E08-T2)"
+   git push
+   ```
+
+:::
+
 ### Publish the demo release
 
-::: {.callout-warning}
-## A release publishes more than its notes
-
+::: {.callout-warning title="A release publishes more than its notes"}
 GitHub adds two source archives (`.zip` and `.tar.gz`) to every release. They contain every tracked file of the repository at the tag, not only the files that the release notes name. Check the file list of the repository before you publish. In a private repository, the release stays private.
 :::
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. On the repository home page, click **Create a new release** (right column, under **Releases**).
 2. Click **Choose a tag**, type `v0.1.0-demo`, and select **Create new tag**.
@@ -81,6 +179,24 @@ GitHub adds two source archives (`.zip` and `.tar.gz`) to every release. They co
 6. Open E08-T3, write a comment with the link to the release, and click **Close issue**.
 
 {{< screenshot x5-release >}}
+
+#### Command line
+
+1. Save the [release notes](#release-notes) below as `release-notes.md` in the folder that contains `projm-thesis`.
+2. Create the release. gh creates the tag `v0.1.0-demo` on `main` and prints the address of the release.
+
+   ```bash
+   gh release create v0.1.0-demo --title "v0.1.0-demo: documented synthetic dataset (demo)" \
+     --notes-file ../release-notes.md
+   ```
+
+3. Close E08-T3 with a link to the release. `gh release view` finds the address of the release.
+
+   ```bash
+   gh issue close $(issue E08-T3) --comment "Released: $(gh release view v0.1.0-demo --json url --jq .url)"
+   ```
+
+:::
 
 ## Texts to copy
 
@@ -196,11 +312,13 @@ abstract: >-
 
 | Problem | Cause | Recovery |
 | --- | --- | --- |
+| The CSV download fails on the command line. | No connection, or a typing error in the path. | Open the [CSV](../../data/synthetic-periodicals.csv) in the browser and save it as `data/clean/synthetic-periodicals.csv`. |
 | The CSV upload fails. | The browser blocked the download. | Open the [CSV](../../data/synthetic-periodicals.csv), copy all lines, and create the file with **Add file → Create new file**. |
 | The file name field does not rename. | The cursor was in the editor. | Click the file name field above the editor, then edit the name. |
 | The commit did not close E08-T2. | The keyword was in the title, or the commit is on another branch. | Close the Issue by hand with a link to the commit. |
 | **Create a new release** is missing. | The right column is collapsed. | Open `https://github.com/<you>/projm-thesis/releases/new`. |
 | You have no time for the release. | — | Use the **recovery package**: download the repository ZIP (**Code → Download ZIP**) and name it `projm-thesis-v0.1.0-demo-recovery.zip`. Label it as a recovery package, not as a release. |
+| A command fails. | Usually the installation, the sign-in, or the folder. | See [Command-line problems](../setup.qmd#command-line-problems), or do the step in the browser. |
 
 ## Alternatives
 
@@ -214,6 +332,7 @@ abstract: >-
 - [About CITATION files](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)
 - [Licensing a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
 - [Managing releases in a repository](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+- [`gh release create`](https://cli.github.com/manual/gh_release_create) and [`gh api`](https://cli.github.com/manual/gh_api)
 
 ## Next
 

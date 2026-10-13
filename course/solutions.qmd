@@ -9,7 +9,6 @@ The worked example shows every exercise in its finished state. Compare your repo
 | --- | --- |
 | [Showcase Project](https://github.com/users/maehr/projects/11) | The full plan E01–E08 with fields, the views Backlog, Board, and Roadmap, milestone markers, and workflows |
 | [Example repository](https://github.com/maehr/projm-example-thesis) | 42 Issues, 3 milestones, the merged pull requests of X4 and X5, and the release `v0.1.0-demo` |
-| [Example backlog](../project-management/backlog.md) | The versioned source of all Issues, with copyable bodies |
 
 {{< screenshot x0-course-repo-projects >}}
 

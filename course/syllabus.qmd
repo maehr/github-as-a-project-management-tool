@@ -25,7 +25,7 @@ The course description in KSL reads:
 
 > GitHub is not only a powerful tool for versioning and code development, but can also be efficiently used to manage and document on-going projects. In this course, you will get an introduction to the different project management approaches, combined with best practices utilizing GitHub for such tasks.
 
-Some GitHub experience and minimal command-line knowledge help, for example from the course "Introduction to DH". The course "Introduction to Project Management" is a plus, not a requirement. All exercises run in the browser. If GitHub is new to you, read the [cheat sheet](cheat-sheet.qmd) first.
+Some GitHub experience and minimal command-line knowledge help, for example from the course "Introduction to DH". The course "Introduction to Project Management" is a plus, not a requirement. Each exercise has a browser route and a command-line route; see [Choose your route](setup.qmd#routes). If GitHub is new to you, read the [cheat sheet](cheat-sheet.qmd) first.
 
 ## Learning outcomes
 
@@ -42,7 +42,7 @@ After the session, you can:
 
 ## Scenario
 
-You plan, conduct, document, and share a **fictional master's thesis** in one GitHub repository and one GitHub Project. The thesis asks how the landscape of Swiss periodicals changed between 1830 and 1960 by language, place, and subject. It uses 30 [synthetic records](../documentation/data-dictionary.qmd). The fictional registration date is 2026-12-01; the fictional submission date is 2027-06-01. Nothing in the exercise is real research data.
+You plan, conduct, document, and share a **fictional master's thesis** in one GitHub repository and one GitHub Project. The thesis asks how the landscape of Swiss periodicals changed between 1830 and 1960 by language, place, and subject. It uses 30 [synthetic records](https://github.com/maehr/projm-example-thesis/blob/main/documentation/data-dictionary.qmd). The fictional registration date is 2026-12-01; the fictional submission date is 2027-06-01. Nothing in the exercise is real research data.
 
 ## Run of show
 
@@ -85,4 +85,3 @@ Explain in two minutes, with your own repository open:
 
 - [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0) (course facts and description).
 - [Studienplan Digital Humanities, 17 February 2025](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf) and [RSL Phil.-hist. 21](https://www.unibe.ch/e152701/e154048/e191232/e205334/e227828/phil_hist_rsl_final_ger.pdf) (thesis rules for the DH Major; see the [requirements register](../documentation/requirements.qmd)).
-- [`SPECS.md`](../SPECS.md) (course design).

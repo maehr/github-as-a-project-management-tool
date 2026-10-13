@@ -8,7 +8,6 @@ project:
     - slides/**/*.qmd
     - templates/**/*.md
     - templates/master-thesis/README.md
-    - SPECS.md
     - CHANGELOG.md
     - NOTICE.md
     - LICENSE-CCBY.md
@@ -16,9 +15,10 @@ project:
     - CODE_OF_CONDUCT.md
     - CONTRIBUTING.md
     - SECURITY.md
+    # Frozen snapshots; see archive/README.md
+    - '!archive/'
   resources:
     - data/synthetic-periodicals.csv
-    - project-management/*.yml
     - course/schedule.yml
     - templates/master-thesis/issue-forms/*.yml
 
@@ -26,7 +26,7 @@ lang: en-GB
 
 website:
   title: GitHub as a Project Management Tool
-  description: Browser-first workshop and OER on planning, conducting, documenting, and sharing a fictional master's thesis with GitHub.
+  description: Workshop and OER on planning, conducting, documenting, and sharing a fictional master's thesis with GitHub, in the browser or on the command line.
   favicon: android-chrome-512x512.png
   open-graph: true
   site-url: https://maehr.github.io/github-as-a-project-management-tool/
@@ -87,19 +87,18 @@ website:
       - section: Worked example
         href: documentation/index.qmd
         contents:
+          - text: Showcase Project (GitHub)
+            href: https://github.com/users/maehr/projects/11
+          - text: Example repository (GitHub)
+            href: https://github.com/maehr/projm-example-thesis
           - documentation/requirements.qmd
-          - documentation/data-dictionary.qmd
           - documentation/publication.qmd
-          - project-management/backlog.md
-          - project-management/milestones.md
-          - project-management/decisions.md
-          - project-management/risks.md
           - text: Thesis documentation template
             href: templates/master-thesis/README.md
       - section: About
         contents:
-          - text: Specification
-            href: SPECS.md
+          - project-management/decisions.md
+          - project-management/risks.md
           - CHANGELOG.md
           - NOTICE.md
           - text: Licence (prose and data)

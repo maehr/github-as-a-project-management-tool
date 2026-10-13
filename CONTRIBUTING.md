@@ -23,4 +23,4 @@ Open an [issue](https://github.com/maehr/github-as-a-project-management-tool/iss
 - Give each claimed rule a source, its applicability, and its status.
 - Keep an unconfirmed fact visibly marked as unconfirmed.
 - Capture a new screenshot from the current GitHub interface. Give it a date and alt text, and check it for private information.
-- Keep maintainer tooling out of the learner prerequisites. Learners need only a browser and a GitHub account.
+- Keep maintainer tooling out of the learner prerequisites. Learners need a browser and a GitHub account. The command-line route also needs git and gh.

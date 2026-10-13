@@ -9,14 +9,15 @@ description: Pre-flight checklist, timing, failure modes, and the dated UI verif
 
 1. Check the date and the room in the [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0).
 2. Check the enrolment list. The instructor expects mostly DH Major students; prepare the Minor and elective caveat ([U-03](../project-management/risks.md)).
-3. Send the [Setup](setup.qmd) page to the participants.
+3. Send the [Setup](setup.qmd) page to the participants. Ask the command-line learners to complete [Prepare the command line](setup.qmd#command-line-route) before the session.
 
 ### The day before
 
 1. Run X1 to X6 in a fresh test account or a fresh repository. Compare each step with the [UI verification log](#ui-log).
-2. Update a screenshot if the interface changed. Run `npm run screenshots:annotate`.
-3. Check that the [showcase Project](https://github.com/users/maehr/projects/11) is public and linked to the course repository.
-4. Check [githubstatus.com](https://www.githubstatus.com/).
+2. Run the **Command line** tabs of X1 to X6 in a private throwaway repository. Compare each step with the [command-line verification log](#cli-log). Delete the repository and the Project afterwards.
+3. Update a screenshot if the interface changed. Run `npm run screenshots:annotate`.
+4. Check that the [showcase Project](https://github.com/users/maehr/projects/11) is public and linked to the course repository.
+5. Check [githubstatus.com](https://www.githubstatus.com/).
 
 ### On the day
 
@@ -84,3 +85,29 @@ The instructor checked each element below on **12 October 2026** in Google Chrom
 | X6 | Status update | API (create) and UI (panel) | Header badge "On track"; panel "Status updates" with "Add update" |
 | X6 | "Export view data" | UI (menu, 12 Oct) | Only in the arrow menu of the view tab, not in the **View** button (the documentation says otherwise). The documentation states a `.tsv` file; the download was not run |
 | All | Private path | API and UI | Private repository and private Project; sub-issues, dependencies, milestones, and status updates work the same way |
+
+## Command-line verification log {#cli-log}
+
+The instructor ran every **Command line** tab of X1 to X6 on **13 October 2026** in zsh on macOS, with gh 2.102.0 and git 2.54.0. The run used a private throwaway repository and a private copy of the showcase Project. A second run on the same day, with the same versions, tested the commands that changed after the review of pull request #16. It created the Issues in another order than X2: an extra Issue first, then E08, then E01. Windows and Git Bash were not tested.
+
+| Exercise | Command | Observation |
+| --- | --- | --- |
+| X1 | `gh repo create … --template … --clone` | The clone contains the template files at once. |
+| X1 | `gh api -X PUT …/actions/permissions -F enabled=false` | The read-back showed `true` for a few seconds, then `false`. |
+| X2 | `gh issue view … --json body --jq .body \| gh issue create … --body-file -` | The bodies of the example Issues are identical to `backlog.yml`. In a new repository, E01 is #1 and E08 is #2. |
+| X2 | `gh issue create --parent` | `gh issue view` lists the sub-issues and their progress. |
+| X3 | `gh api …/milestones -f due_on=…` | On creation, `T00:00:00Z` stored the day before, for example 2027-05-31 for 2027-06-01. `T12:00:00Z` stored the right day. A change with `-X PATCH` stored the right day with both times. |
+| X3 | Helper `issue`, with the Issues in another order | Each lookup returned the right number, also for an Issue created one command before. A partial ID such as `E0` returned nothing. |
+| X3 | `gh project copy` | In a terminal, gh prints the address of the copy. The copy starts private. |
+| X3 | `gh project link N` with `--owner @me` | Failed in three forms. With `--repo NAME` and without `--repo`: "Could not resolve to a Repository with the name '@me/…'". With `--repo OWNER/NAME`: "has different owner from '@me'". `gh project link N` without flags, in the folder of the repository, worked. |
+| X3 | `gh issue edit … --add-project` for the two epics | With both epics in one command, the second failed with "created a temporary conflict". One Issue per command worked. The workflow added the six sub-issues with Status Backlog after about 70 seconds. In the first run, `gh project item-add` took less than ten seconds. |
+| X3 | `gh issue edit --add-blocked-by` | `gh issue view` shows the line `blocked-by`. |
+| X4 | `gh issue develop --name … --checkout`, `gh pr create` | The Status changed to In review. In the second run, it still showed Backlog after 6 seconds and In review after 18 seconds. |
+| X4 | `gh pr merge --merge --delete-branch` | gh switched the folder to `main` and pulled. The Issue closed as completed, and the Status changed to Done. |
+| X5 | `gh api …/contents/… -H "Accept: application/vnd.github.raw"`, `git add` | The file has the same content as the CSV of the course repository. git warns that LF will be replaced by CRLF, because the template sets this line ending for CSV files. |
+| X5 | `git commit -m … -m "Closes #7"` on `main` | The push closed the Issue as completed. |
+| X5 | `gh release create`, `gh issue close --comment` | Release and closed Issue as expected. In the second run, `gh release view --json url` put the address of the release into the comment. |
+| X6 | `gh issue create --parent … --milestone … --blocked-by …` | One command sets the parent, the milestone, and the dependency. The workflow added the new sub-issues to the Project. |
+| X6 | `gh api -X PATCH …/milestones/2` | The due date of M2 changed and changed back. |
+| X6 | `gh project item-list --format json` | The file lists every item with its Status. A field without a value is not in the file. gh does not apply the filter of a view. |
+| All | Project fields, workflows, access, status update | No gh command, or a command that needs internal IDs (field values). The exercises mark these steps **Browser only**. |

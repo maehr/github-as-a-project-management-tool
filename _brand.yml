@@ -4,7 +4,7 @@ meta:
     home: https://maehr.github.io/github-as-a-project-management-tool/
     github: https://github.com/maehr/github-as-a-project-management-tool
   description: |
-    Browser-first workshop and OER on planning, conducting, documenting, and sharing a fictional master's thesis with GitHub.
+    Workshop and OER on planning, conducting, documenting, and sharing a fictional master's thesis with GitHub, in the browser or on the command line.
 
 # Go to https://quarto.org/docs/authoring/brand.html to learn more about multiformat branding with brand.yml
 # The palette and the typography follow maehr/all-data-are-local.

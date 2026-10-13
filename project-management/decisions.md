@@ -1,32 +1,35 @@
 ---
 title: Decisions
-description: Decision records for this course repository and an example record for the fictional thesis.
+description: Decision records for this course repository.
 ---
 
-This page records the decisions behind this course. Each record has a context, a decision, its consequences, and its source. The last section shows an example record for the fictional thesis, as learners write it in exercise [X6](../course/exercises/x6.qmd).
+This page records the decisions behind this course. Each record has a context, a decision, its consequences, and its source. For an example record of the fictional thesis, as learners write it in exercise X6, see [Solutions](../course/solutions.qmd#x6).
 
-| ID              | Date       | Decision                                                           | Status              |
-| --------------- | ---------- | ------------------------------------------------------------------ | ------------------- |
-| [D-001](#d-001) | 2026-10-12 | Create the course repository from the template at commit `c6ec5bc` | Accepted            |
-| [D-002](#d-002) | 2026-10-12 | Remove template parts that the course does not use                 | Accepted            |
-| [D-003](#d-003) | 2026-10-12 | Use labels instead of Issue Types                                  | Accepted            |
-| [D-004](#d-004) | 2026-10-12 | Use only synthetic data; real theses default to private            | Accepted            |
-| [D-005](#d-005) | 2026-10-12 | Licence prose and data under CC BY 4.0, code under AGPL 3.0        | Accepted            |
-| [D-006](#d-006) | 2026-10-12 | Use fictional registration and submission dates                    | Accepted            |
-| [D-007](#d-007) | 2026-10-12 | Describe scan reuse, not copyright, in the dataset                 | Accepted            |
-| [D-008](#d-008) | 2026-10-12 | Generate pages from YAML instead of executing code                 | Accepted            |
-| [D-009](#d-009) | 2026-10-12 | Confirm room F 001; keep pass/fail unresolved                      | Superseded by D-010 |
-| [D-010](#d-010) | 2026-10-12 | Use the KSL course entry as the authority; set the pass rule       | Accepted            |
+| ID              | Date       | Decision                                                            | Status              |
+| --------------- | ---------- | ------------------------------------------------------------------- | ------------------- |
+| [D-001](#d-001) | 2026-10-12 | Create the course repository from the template at commit `c6ec5bc`  | Accepted            |
+| [D-002](#d-002) | 2026-10-12 | Remove template parts that the course does not use                  | Accepted            |
+| [D-003](#d-003) | 2026-10-12 | Use labels instead of Issue Types                                   | Accepted            |
+| [D-004](#d-004) | 2026-10-12 | Use only synthetic data; real theses default to private             | Accepted            |
+| [D-005](#d-005) | 2026-10-12 | Licence prose and data under CC BY 4.0, code under AGPL 3.0         | Accepted            |
+| [D-006](#d-006) | 2026-10-12 | Use fictional registration and submission dates                     | Accepted            |
+| [D-007](#d-007) | 2026-10-12 | Describe scan reuse, not copyright, in the dataset                  | Accepted            |
+| [D-008](#d-008) | 2026-10-12 | Generate pages from YAML instead of executing code                  | Amended by D-012    |
+| [D-009](#d-009) | 2026-10-12 | Confirm room F 001; keep pass/fail unresolved                       | Superseded by D-010 |
+| [D-010](#d-010) | 2026-10-12 | Use the KSL course entry as the authority; set the pass rule        | Accepted            |
+| [D-011](#d-011) | 2026-10-13 | Remove `SPECS.md`; the syllabus and the decisions carry its content | Accepted            |
+| [D-012](#d-012) | 2026-10-13 | Link the showcase Project instead of copying it onto the site       | Accepted            |
+| [D-013](#d-013) | 2026-10-13 | Give every exercise a browser route and a command-line route        | Accepted            |
 
 ## D-001 Create the repository from the template at commit `c6ec5bc` {#d-001}
 
-**Context.** `SPECS.md` §5 requires that the course repository is created from `maehr/open-research-data-template`. Learners start from the same template.
+**Context.** The [course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md) (§5) requires that the course repository is created from `maehr/open-research-data-template`. Learners start from the same template.
 
 **Decision.** The repository was created with "Use this template" from commit [`c6ec5bc`](https://github.com/maehr/open-research-data-template/commit/c6ec5bc366c21029e908ad16d54fa0e2201f18ee) of 16 June 2026. `main` starts with the initial commit of the template. All other work, including the course README and the community-health files, arrives through one pull request.
 
 **Consequences.** The course records the template revision. When the template changes, the instructor checks the exercises against the new revision before the next run.
 
-**Source.** `SPECS.md` §5 and §6, step 1.
+**Source.** [Course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md), §5 and §6, step 1.
 
 ## D-002 Remove template parts that the course does not use {#d-002}
 
@@ -46,7 +49,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** Every learner can follow the exercises with a free personal account.
 
-**Source.** `SPECS.md` §3. GitHub Docs: [Managing issue types in an organization](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization).
+**Source.** [Course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md), §3. GitHub Docs: [Managing issue types in an organization](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization).
 
 ## D-004 Use only synthetic data; real theses default to private {#d-004}
 
@@ -56,7 +59,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** No real personal or research data enter the public exercise. Exercise X1 includes a visibility check, and the closing block covers the transfer to a private thesis.
 
-**Source.** `SPECS.md` §2.
+**Source.** [Course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md), §2.
 
 ## D-005 Licence prose and data under CC BY 4.0, code under AGPL 3.0 {#d-005}
 
@@ -66,7 +69,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** Others can reuse and adapt the course with attribution. The screenshots are not under CC BY 4.0.
 
-**Source.** `SPECS.md` §5 ("Proposed CC BY 4.0"). The instructor confirmed it on 12 October 2026.
+**Source.** [Course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md), §5 ("Proposed CC BY 4.0"). The instructor confirmed it on 12 October 2026.
 
 ## D-006 Use fictional registration and submission dates {#d-006}
 
@@ -76,7 +79,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** Every page labels these dates as fictional. Real dates stay unconfirmed.
 
-**Source.** `SPECS.md` §3. [Studienplan Digital Humanities](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf), Art. 15 Abs. 4, p. 5.
+**Source.** [Course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md), §3. [Studienplan Digital Humanities](https://www.dh.unibe.ch/unibe/portal/fak_historisch/fsuf/d_dh/content/e1644823/e1776786/e1776810/e1777708/Studienplan_DH_Master_Major_Minor_ger.pdf), Art. 15 Abs. 4, p. 5.
 
 ## D-007 Describe scan reuse, not copyright, in the dataset {#d-007}
 
@@ -86,7 +89,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** The rights restriction in X6 applies to the scans. The CSV itself stays under CC BY 4.0.
 
-**Source.** [Data dictionary](../documentation/data-dictionary.qmd).
+**Source.** [Data dictionary](https://github.com/maehr/projm-example-thesis/blob/main/documentation/data-dictionary.qmd) in the example repository.
 
 ## D-008 Generate pages from YAML instead of executing code {#d-008}
 
@@ -96,11 +99,11 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Consequences.** The site build needs only Quarto. No document executes code.
 
-**Source.** `SPECS.md` §3 ("Persist the instructor's full example backlog in versioned text").
+**Source.** [Course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md), §3 ("Persist the instructor's full example backlog in versioned text").
 
 ## D-009 Confirm room F 001; keep pass/fail unresolved {#d-009}
 
-**Context.** `SPECS.md` §6 step 4 requires a confirmation of the room, the pass/fail arrangement, the audience mix, and the thesis regulations before release.
+**Context.** The [course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md) (§6, step 4) requires a confirmation of the room, the pass/fail arrangement, the audience mix, and the thesis regulations before release.
 
 **Decision.** The instructor confirmed on 12 October 2026: the room is Seminarraum F 001; the audience is mostly DH Major students; the 2025 DH study plan and RSL Phil.-hist. 21 are the basis of the example; real thesis dates stay unconfirmed. The pass/fail arrangement is not yet confirmed.
 
@@ -118,23 +121,32 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Source.** Instructor decision in the implementation session, 12 October 2026.
 
-## Example: decision record for the fictional thesis {#example}
+## D-011 Remove `SPECS.md`; the syllabus and the decisions carry its content {#d-011}
 
-This is the record that learners write in exercise X6. It belongs in the learner's own repository, not here.
+**Context.** `SPECS.md` was the implementation contract for the first version of the course. After the implementation, each of its rules had a second home: the course facts and outcomes in the syllabus, the conventions in the exercises and the cheat sheet, the build rules in `AGENTS.md`, and the checks in the tests. Two copies of one rule can disagree.
 
-```markdown
-## D-T02 Two-week delay of the scans and a reuse restriction
+**Decision.** Remove `SPECS.md`. The decisions above cite the specification through a permalink to its last version.
 
-- **Date:** 2026-10-16 (workshop; fictional)
-- **Context:** The fictional archive delivers the scans two weeks late. It
-  restricts reuse of the scans of record SYN-P021.
-- **Options considered:** A release 29 records; B release metadata only;
-  C find a substitute.
-- **Decision:** Option A, because the other 29 records are complete and a
-  reuser can work with them now.
-- **Changes:** E08-T6 target moved from 2027-01-15 to 2027-01-29. New
-  E08-T7, blocked by E08-T6. E08-T3 (release) blocked by E08-T7.
-- **Consequences:** M2 still holds. The release contains no SYN-P021 scans.
-- **Not changed:** The official submission date. An extension needs a
-  formal decision (RSL Phil.-hist. 21 Art. 56).
-```
+**Consequences.** The syllabus is the entry point for course content. `AGENTS.md` names it as the source of the course facts and the pedagogy.
+
+**Source.** Maintainer request, 13 October 2026. [Last version of the course specification](https://github.com/maehr/github-as-a-project-management-tool/blob/9f180154a3b5e7cb2ea206238502a8d97b2a0711/SPECS.md).
+
+## D-012 Link the showcase Project instead of copying it onto the site {#d-012}
+
+**Context.** The [showcase Project](https://github.com/users/maehr/projects/11) and the [example repository](https://github.com/maehr/projm-example-thesis) hold the full plan of the fictional thesis: 42 Issues, three milestones with their justifications, the pull requests of X4 and X5, the release, and the data dictionary. The site also showed the backlog, the milestones, and the data dictionary as pages. Learners met the same plan twice, and the two copies could disagree.
+
+**Decision.** The site links the showcase Project and the example repository and shows screenshots of them. The copies moved to `archive/`, which Quarto does not render. `project-management/backlog.yml` and `milestones.yml` stay as the source that `src/seed_backlog.py` writes to GitHub. `src/render_pages.py` renders only the schedule and the seven Issue texts that learners copy in X2.
+
+**Consequences.** Decision D-008 now applies to the schedule and the X2 texts only. The seed script creates missing items, but it does not change an existing Issue. A change to an existing Issue therefore goes into `backlog.yml` and into the Issue on GitHub.
+
+**Source.** Maintainer request, 13 October 2026.
+
+## D-013 Give every exercise a browser route and a command-line route {#d-013}
+
+**Context.** The course ran every exercise in the browser only. The KSL entry names minimal command-line knowledge as useful prior knowledge, and a thesis on the learner's own computer needs git. Some learners already use git and gh; others cannot install software on their laptop.
+
+**Decision.** Each exercise step has two routes in tabs: **Browser** and **Command line** (git and gh). Both routes reach the same expected state, so a learner can change the route at any step. A step without a usable command says **Browser only**: the Project field values, the workflows, the Project access, and the status update. The view export has a partial command: gh saves all items of the Project as JSON, but not the filtered view as TSV. The cheat sheet explains version control: why it matters for a thesis, and how a change travels from the working folder to GitHub.
+
+**Consequences.** The Setup page explains how to prepare the command line, and it lists the common command-line problems. The command-line route finds each Issue number by the ID at the start of the title, with the helper `issue`. A command therefore works even when the learner created the Issues in another order. A test checks that every step offers both routes or says "Browser only", and that no Command line tab sends the learner to the browser. The instructor runs the command-line route on the day before the session (risks R-09 and R-10).
+
+**Source.** Maintainer request, 13 October 2026. The command-line route was tested on 13 October 2026 with gh 2.102.0 and git 2.54.0 ([verification log](../course/instructor-notes.qmd#cli-log)).

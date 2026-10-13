@@ -14,18 +14,28 @@ description: Complete E01-T2 through a branch, a pull request, a review, a merge
 
 In X1 you changed `main` directly. That is acceptable for a first README, but it skips two safeguards. A **branch** keeps a change apart until it is ready. A **pull request** shows the change, links it to the Issue that asked for it, and invites a **review** before the change enters `main`.
 
-The link between the pull request and the Issue closes the loop of the plan. The keyword `Closes #3` in the pull request description tells GitHub to close Issue #3 when the pull request merges. The Project workflows then move the item to **In review** when the link appears and to **Done** when the Issue closes. The plan and the work agree without extra clicks.
+The link between the pull request and the Issue closes the loop of the plan. The keyword `Closes #4` in the pull request description tells GitHub to close Issue #4 when the pull request merges. The Project workflows then move the item to **In review** when the link appears and to **Done** when the Issue closes. The plan and the work agree without extra clicks.
 
 A review is a human check against the acceptance criteria. An automatic AI reviewer can appear if your account enables it. In the test run on 12 October 2026, it failed with a quota message. Do not treat an AI review as the review.
 
 ## Before you start
 
-- You finished [X3](x3.qmd). Issue E01-T2 exists. Note its number (for example `#3`).
+- You finished [X3](x3.qmd). Issue E01-T2 exists. Note its number (for example `#4`).
+- Command-line route: open a terminal in the folder `projm-thesis`. Define the helper `issue` as in [X3](x3.qmd#before-you-start), if this is a new terminal:
+
+  ```bash
+  issue() { gh issue list --state all --limit 100 --json number,title \
+    --jq ".[] | select(.title | startswith(\"$1 \")) | .number"; }
+  ```
 - Pair up if possible. Your partner reviews your pull request, and you review theirs.
 
 ## Steps
 
 ### Edit on a new branch
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Open `README.md` and click the pencil icon.
 2. Place the cursor before the line `## Visibility`.
@@ -34,6 +44,29 @@ A review is a human check against the acceptance criteria. An automatic AI revie
 5. Type the message `docs: add research question and scope`.
 6. Select **Create a new branch for this commit and start a pull request**. Keep the proposed branch name or type `docs/e01-t2-scope`.
 7. Click **Propose changes**.
+
+#### Command line
+
+1. Create a branch for E01-T2 and switch to it. The branch is linked to the Issue.
+
+   ```bash
+   gh issue develop $(issue E01-T2) --name docs/e01-t2-scope --checkout
+   ```
+
+2. Open `README.md` in a text editor.
+3. Paste the text below before the line `## Visibility`.
+4. Save the file.
+5. Save the change as a commit and send the branch to GitHub:
+
+   ```bash
+   git add README.md
+   git commit -m "docs: add research question and scope"
+   git push
+   ```
+
+:::
+
+The text to paste:
 
 ```markdown
 ## Research question and scope
@@ -50,25 +83,86 @@ A review is a human check against the acceptance criteria. An automatic AI revie
 
 ### Open the pull request
 
+::: {.panel-tabset group="route"}
+
+#### Browser
+
 1. Type the title `docs: add research question and scope`.
-2. In the description, write `Closes #3` on the first line. Use the number of your E01-T2.
+2. In the description, write `Closes #4` on the first line. Use the number of your E01-T2.
 3. Copy the acceptance criteria of E01-T2 below it and tick the boxes that your change meets.
 4. Click **Create pull request**.
-5. Open your Project. E01-T2 now shows the Status **In review**. The Project workflow **Pull request linked to issue** sets it. If it does not, check the workflow as in [X3](x3.qmd).
+5. Open your Project. E01-T2 now shows the Status **In review**. The Project workflow **Pull request linked to issue** sets it. The workflow runs with a delay. If the Status did not change, wait one minute and reload the page. If it still did not change, check the workflow as in [X3](x3.qmd).
 
 {{< screenshot x4-pull-request >}}
 
 {{< screenshot x3-workflow-in-review >}}
 
+#### Command line
+
+1. Print the number of your E01-T2 with `issue E01-T2`.
+2. In a text editor, write the description of the pull request. Write `Closes #` and this number on the first line, for example `Closes #4`.
+3. Copy the acceptance criteria of E01-T2 below it. Tick the boxes that your change meets: `- [x]`.
+4. Save the description as `pr-body.md` in the folder that contains `projm-thesis`.
+5. Open the pull request:
+
+   ```bash
+   gh pr create --title "docs: add research question and scope" --body-file ../pr-body.md
+   ```
+
+6. Check the Status of E01-T2 in the Project. The result is `In review`. The Project workflow **Pull request linked to issue** sets it.
+
+   ```bash
+   gh issue view $(issue E01-T2) --json projectItems --jq '.projectItems[] | .title + ": " + .status.name'
+   ```
+
+7. The workflow runs with a delay. If the result is not `In review`, wait one minute and run the command again.
+
+:::
+
 ### Review and merge
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Open the tab **Files changed**.
 2. Check the change against each acceptance criterion.
 3. Click **Submit review**. A partner selects **Approve**; on your own pull request, select **Comment** and write what you checked.
 4. Return to **Conversation** and click **Merge pull request**, then **Confirm merge**.
 5. Click **Delete branch**.
+6. Open your Project. E01-T2 shows the Status **Done**. The workflow runs with a delay. If the Status did not change, wait one minute and reload the page.
 
 {{< screenshot x4-files-changed >}}
+
+#### Command line
+
+1. Show the change and check it against each acceptance criterion:
+
+   ```bash
+   gh pr diff
+   ```
+
+2. Submit the review. On your own pull request, write a comment that says what you checked. A partner approves with `gh pr review NUMBER --approve`.
+
+   ```bash
+   gh pr review --comment --body "Checked the three acceptance criteria."
+   ```
+
+3. Merge the pull request and delete the branch. gh then switches your folder back to `main` and gets the merged state.
+
+   ```bash
+   gh pr merge --merge --delete-branch
+   ```
+
+4. Check that E01-T2 is closed and that the Project shows `Done`:
+
+   ```bash
+   gh issue view $(issue E01-T2) --json state,projectItems --jq '.state, (.projectItems[] | .status.name)'
+   ```
+
+5. The workflow runs with a delay. If the result is not `CLOSED` and `Done`, wait one minute and run the command again.
+
+:::
 
 ## Expected state
 
@@ -88,7 +182,8 @@ A review is a human check against the acceptance criteria. An automatic AI revie
 | You cannot approve your own pull request. | GitHub does not allow it. | Use **Comment**, or ask a partner. |
 | The Status did not change. | The Project workflow is off or broken. | Open **Workflows**; check **Pull request linked to issue** and **Item closed**. Set the Status by hand. |
 | "This branch has conflicts". | Someone else changed the same lines. | Click **Resolve conflicts**, keep both texts, and mark the conflict as resolved. |
-| You committed to `main` instead. | Wrong option in the dialog. | Close the Issue by hand with a comment that links the commit. Use a branch next time. |
+| You committed to `main` instead. | Wrong option in the dialog, or no `git switch` before the commit. | Close the Issue by hand with a comment that links the commit. Use a branch next time. |
+| A command fails. | Usually the installation, the sign-in, or the folder. | See [Command-line problems](../setup.qmd#command-line-problems), or do the step in the browser. |
 
 ## Alternatives
 
@@ -101,6 +196,7 @@ A review is a human check against the acceptance criteria. An automatic AI revie
 - [Linking a pull request to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue)
 - [Reviewing proposed changes in a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)
 - [Merging a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)
+- [`gh issue develop`](https://cli.github.com/manual/gh_issue_develop), [`gh pr create`](https://cli.github.com/manual/gh_pr_create), and [`gh pr merge`](https://cli.github.com/manual/gh_pr_merge)
 
 ## Next
 

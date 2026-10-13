@@ -20,10 +20,15 @@ The template is a starting point, not a finished product. Its README describes t
 
 - You are signed in to GitHub. See [Setup](../setup.qmd).
 - You use a desktop browser. A phone screen hides parts of the interface.
+- Command-line route: you installed git and gh and signed in. See [Prepare the command line](../setup.qmd#command-line-route).
 
 ## Steps
 
 ### Create the repository from the template
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Open the [template link](https://github.com/new?template_name=open-research-data-template&template_owner=maehr).
 2. Make sure that **Start with a template** shows `maehr/open-research-data-template`.
@@ -39,7 +44,29 @@ The template is a starting point, not a finished product. Its README describes t
 
 {{< screenshot x1-template-form-filled >}}
 
+#### Command line
+
+1. Open a terminal in the folder where you keep your projects.
+2. Create the repository from the template and copy it to your computer. On the private path, type `--private` instead of `--public`.
+
+   ```bash
+   gh repo create projm-thesis --template maehr/open-research-data-template --public --clone \
+     --description "Workshop example: fictional DH master's thesis. Synthetic data only."
+   ```
+
+3. Go into the new folder. All later commands run in this folder.
+
+   ```bash
+   cd projm-thesis
+   ```
+
+:::
+
 ### Replace the README
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Open `README.md` in your new repository.
 2. Click the pencil icon (**Edit this file**).
@@ -50,6 +77,32 @@ The template is a starting point, not a finished product. Its README describes t
 7. Delete or correct the extended description if it describes changes that you did not make.
 8. Keep **Commit directly to the `main` branch**.
 9. Click **Commit changes**.
+
+{{< screenshot x1-readme-failed-run >}}
+
+{{< screenshot x1-commit-dialog-ai >}}
+
+::: {.callout-warning title="Check every AI suggestion"}
+During the test run on 12 October 2026, Copilot suggested a description that claimed sections the change did not contain. A commit message is part of your project record. Write it yourself or check it line by line.
+:::
+
+#### Command line
+
+1. Open `README.md` in a text editor.
+2. Delete all text.
+3. Paste the text below.
+4. Save the file.
+5. Save the change as a commit and send it to GitHub:
+
+   ```bash
+   git add README.md
+   git commit -m "docs: describe the fictional thesis and the synthetic data"
+   git push
+   ```
+
+:::
+
+The text for `README.md`:
 
 ```markdown
 # Fictional master's thesis: Swiss periodicals, 1830–1960
@@ -80,17 +133,11 @@ A real thesis repository starts **private**.
 Text and data: CC BY 4.0. Code: AGPL 3.0.
 ```
 
-{{< screenshot x1-readme-failed-run >}}
-
-{{< screenshot x1-commit-dialog-ai >}}
-
-::: {.callout-warning}
-## Check every AI suggestion
-
-During the test run on 12 October 2026, Copilot suggested a description that claimed sections the change did not contain. A commit message is part of your project record. Write it yourself or check it line by line.
-:::
-
 ### Check the visibility
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Click **Settings** in the repository tabs.
 2. Scroll to **Danger Zone**.
@@ -99,14 +146,46 @@ During the test run on 12 October 2026, Copilot suggested a description that cla
 
 {{< screenshot x1-visibility >}}
 
+#### Command line
+
+1. Show the visibility of the repository. The result must be `PUBLIC` for the public path or `PRIVATE` for the private path.
+
+   ```bash
+   gh repo view --json visibility --jq .visibility
+   ```
+
+2. Do not change the visibility now.
+
+:::
+
 ### Stop the template workflows (optional)
 
-The template contains automated workflows. They run once when GitHub creates your repository and fail, because the website publishing is not set up. You can ignore the red cross. To stop further runs and e-mails, disable them:
+The template contains automated workflows. They run once when GitHub creates your repository and fail, because the website publishing is not set up. You can ignore the red cross. To stop further runs and e-mails, disable them.
+
+::: {.panel-tabset group="route"}
+
+#### Browser
 
 1. Click **Settings**.
 2. In the left menu, click **Actions** and then **General**.
 3. Under **Actions permissions**, select **Disable actions**.
 4. Click **Save**.
+
+#### Command line
+
+1. Disable Actions for the repository. Type `{owner}` and `{repo}` as shown: gh fills in the values of the repository in the current folder.
+
+   ```bash
+   gh api -X PUT repos/{owner}/{repo}/actions/permissions -F enabled=false
+   ```
+
+2. Check the setting. The result must be `false`. The change can take a few seconds to show.
+
+   ```bash
+   gh api repos/{owner}/{repo}/actions/permissions --jq .enabled
+   ```
+
+:::
 
 ## Expected state
 
@@ -125,11 +204,12 @@ The template contains automated workflows. They run once when GitHub creates you
 | You receive e-mails about failed runs. | The workflows ran. | Disable Actions. |
 | You committed the wrong text. | — | Edit the file again. The history keeps both versions. |
 | You do not have an account yet. | — | Work with a neighbour on one screen, or follow the [example repository](https://github.com/maehr/projm-example-thesis). |
+| A command fails. | Usually the installation, the sign-in, or the folder. | See [Command-line problems](../setup.qmd#command-line-problems), or do the step in the browser. |
 
 ## Alternatives
 
 - **Pair:** one person creates the repository and adds the other as a collaborator (**Settings → Collaborators → Add people**). Both work in the same repository.
-- **Private path:** select **Private** in step 7. Every later exercise works the same way. A private repository on GitHub Free cannot publish a GitHub Pages site; this workshop does not need one.
+- **Private path:** select **Private** in step 7, or type `--private` on the command line. Every later exercise works the same way. A private repository on GitHub Free cannot publish a GitHub Pages site; this workshop does not need one.
 
 ## Official documentation
 
@@ -137,6 +217,7 @@ The template contains automated workflows. They run once when GitHub creates you
 - [Editing files](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files)
 - [Setting repository visibility](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)
 - [Managing GitHub Actions settings for a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)
+- [`gh repo create`](https://cli.github.com/manual/gh_repo_create)
 
 ## Next
 

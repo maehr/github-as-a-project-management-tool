@@ -4,7 +4,7 @@ This repository holds the workshop and OER "GitHub as a Project Management Tool"
 
 This file follows the shared [Agents Tooling Specification](https://gist.github.com/maehr/6c48ef14f37c9f745fa1fbaa315d106b): `30-AGENTS.quarto.md`, with the appendices `40-TOOLBELT.macos.md` and `50-WRITING.scientific.md`. Sections 1, 3, 5, and 6 are copied verbatim. Sections 2, 4, and 7 are narrowed to this repository. Section 8 is specific to this repository.
 
-`SPECS.md` is the implementation contract. Read it before you change course content.
+Read `course/syllabus.qmd` before you change course content. It holds the course facts, the learning outcomes, and the minimum deliverable. The original course specification is in the git history at commit `9f18015`.
 
 **Local deviations from the shared specification:**
 
@@ -42,7 +42,7 @@ Context is the scarce resource. Manage it.
 | `npm run format` | Prettier and ruff format |
 | `npm run preview` | Quarto preview with live reload |
 | `npm run data:generate` | Write `data/synthetic-periodicals.csv` from its seeded generator |
-| `npm run pages:render` | Write `project-management/backlog.md`, `milestones.md`, and `course/_schedule.md` from the YAML files |
+| `npm run pages:render` | Write `course/_schedule.md` and `course/exercises/_x2-texts.md` from the YAML files |
 | `npm run screenshots:annotate` | Draw callouts on raw captures from `assets/screenshots/annotations.yml` |
 | `npm run lychee-check` | Check links |
 | `npm run changelog:unreleased` | Preview changelog entries |
@@ -80,8 +80,9 @@ Context is the scarce resource. Manage it.
 | --- | --- |
 | `course/` | Setup, syllabus, schedule, exercises X1–X6, solutions, instructor notes |
 | `slides/` | Reveal.js slides |
-| `documentation/` | Requirements register, data dictionary, publication note |
-| `project-management/` | Example backlog and milestones (YAML is the source), decisions, risks |
+| `documentation/` | Worked example page, requirements register, publication note |
+| `project-management/` | Seed source of the example backlog and milestones (YAML), course decisions, risks |
+| `archive/` | Pages that the site no longer shows. Not rendered, not maintained |
 | `data/` | Synthetic data only |
 | `assets/screenshots/` | Annotated screenshots and `annotations.yml` |
 | `templates/master-thesis/` | Reusable thesis documentation template and issue forms |
@@ -162,9 +163,9 @@ A GitHub Actions workflow deploys from `main`. Never publish by hand. Never repl
 
 | Fact | Source |
 | --- | --- |
-| Course facts: date, room, credits, assessment | The [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0), as recorded in `SPECS.md` §1 |
+| Course facts: date, room, credits, assessment | The [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0), as recorded in `course/syllabus.qmd` |
 | Thesis rules for one programme | That programme's study plan and the faculty regulations |
-| Pedagogy and exercise design | `SPECS.md` §2–§4 (instructor proposal, not a KSL requirement) |
+| Pedagogy and exercise design | `course/syllabus.qmd` and `project-management/decisions.md` (instructor proposal, not a KSL requirement) |
 | GitHub and Quarto behaviour | Official documentation and the dated UI verification log |
 
 **Rules:**
@@ -174,9 +175,13 @@ A GitHub Actions workflow deploys from `main`. Never publish by hand. Never repl
 * Label every fictional date as fictional. The workshop uses registration 2026-12-01 and submission 2027-06-01.
 * Never move an official deadline silently. Adjust the planned work instead, and record the decision.
 * Use only synthetic data in public examples. Real thesis work defaults to a private repository and a private Project.
-* Keep the example backlog in `project-management/backlog.yml`. Run `npm run pages:render` after each change.
-* Design every core exercise for the browser. No exercise needs Quarto, the Git CLI, paid features, a VPN, public disclosure, or a production DOI.
-* Give each exercise a teaching explanation, browser steps, screenshots, the expected state, and a recovery route.
+* Keep the example backlog in `project-management/backlog.yml`. It is the seed source for the showcase Project and the example repository.
+* Link the showcase Project and the example repository. Do not copy their content onto the site. Use a dated screenshot to show it.
+* Give every exercise step two routes: a browser route and a command-line route (git and gh). Put them in a tabset with the group `route` and the tabs `Browser` and `Command line`. Each route must reach the expected state alone.
+* Mark a step without a usable command with a callout titled "Browser only", and give the reason. `npm run check` tests both rules.
+* Run every new or changed command in a private throwaway repository before you publish it. Record the date and the versions in the command-line verification log in `course/instructor-notes.qmd`.
+* No exercise needs Quarto, paid features, a VPN, public disclosure, or a production DOI. The browser route needs no software installation.
+* Give each exercise a teaching explanation, steps for both routes, screenshots, the expected state, and a recovery route.
 * Capture screenshots from the current GitHub interface after you confirm the behaviour. Give each one a capture date and alt text. Remove avatars, notifications, and unrelated repositories before you commit it.
 * Link the official GitHub documentation next to each procedure that depends on the interface.
 * Write procedures in Simplified Technical English. Write explanations and arguments by the rules in Appendix B.
