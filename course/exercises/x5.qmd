@@ -146,14 +146,19 @@ The file `CITATION.cff` in your repository still describes the **template**, wit
 #### Browser
 
 1. Open the folder `project-management`.
-2. Click **Add file → Create new file**. Name it `decisions.md`.
-3. Paste the [decision text](#decision-text) below.
+2. If the folder holds `decisions.md`, for example from X6, open the file and click the pencil icon. Paste the [decision text](#decision-text) below at the end.
+3. If the folder holds no `decisions.md`, click **Add file → Create new file** and name it `decisions.md`. Type `# Decisions` on the first line. Paste the [decision text](#decision-text) below.
 4. Commit with the message `docs: record the rights and access decision` and the extended description `Closes #<number of E08-T2>`.
 
 #### Command line
 
-1. In a text editor, create the file `project-management/decisions.md`.
-2. Paste the [decision text](#decision-text) below.
+1. Create the file `project-management/decisions.md` with the heading `# Decisions` if it is missing. If the file exists, for example from X6, the command does nothing.
+
+   ```bash
+   test -f project-management/decisions.md || echo "# Decisions" > project-management/decisions.md
+   ```
+
+2. Open `project-management/decisions.md` in a text editor. Paste the [decision text](#decision-text) below at the end.
 3. Save the file.
 4. Save the file as a commit and send it to GitHub. The second `-m` adds the extended description. Its keyword closes E08-T2 when the commit reaches `main`.
 
@@ -270,8 +275,6 @@ abstract: >-
 ### Decision text {#decision-text}
 
 ```markdown
-# Decisions
-
 ## D-T01 Rights and access for data and text
 
 - **Date:** 2026-10-16 (workshop; fictional)

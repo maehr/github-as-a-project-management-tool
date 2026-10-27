@@ -148,9 +148,11 @@ Discuss the options with a neighbour for three minutes, or compare them alone. C
 
 #### Browser
 
-1. Open `project-management/decisions.md` in your repository and click the pencil icon.
-2. Add a record from the [decision template](#decision-text) below at the end. Fill in every line.
-3. Commit with the message `docs: record the decision on the delay and the restriction`.
+1. Open the folder `project-management` in your repository.
+2. If the folder holds `decisions.md`, for example from X5, open the file and click the pencil icon. Add a record from the [decision template](#decision-text) below at the end.
+3. If the folder holds no `decisions.md`, click **Add file → Create new file** and name it `decisions.md`. Type `# Decisions` on the first line. Add a record from the [decision template](#decision-text) below.
+4. Fill in every line of the record.
+5. Commit with the message `docs: record the decision on the delay and the restriction`.
 
 #### Command line
 
@@ -160,8 +162,13 @@ Discuss the options with a neighbour for three minutes, or compare them alone. C
    git pull
    ```
 
-2. Open `project-management/decisions.md` in a text editor.
-3. Add a record from the [decision template](#decision-text) below at the end. Fill in every line.
+2. Create the file `project-management/decisions.md` with the heading `# Decisions` if it is missing. If the file exists, for example from X5, the command does nothing.
+
+   ```bash
+   test -f project-management/decisions.md || echo "# Decisions" > project-management/decisions.md
+   ```
+
+3. Open `project-management/decisions.md` in a text editor. Add a record from the [decision template](#decision-text) below at the end. Fill in every line.
 4. Save the file.
 5. Save the change as a commit and send it to GitHub:
 

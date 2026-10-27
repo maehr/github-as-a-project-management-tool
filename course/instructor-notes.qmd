@@ -124,4 +124,5 @@ The instructor ran every **Command line** tab of X1 to X6 on **13 October 2026**
 | X6 | `gh issue create --parent … --milestone … --blocked-by …` | One command sets the parent, the milestone, and the dependency. The workflow added the new sub-issues to the Project. |
 | X6 | `gh api -X PATCH …/milestones/2` | The due date of M2 changed and changed back. |
 | X6 | `gh project item-list --format json` | The file lists every item with its Status. A field without a value is not in the file. gh does not apply the filter of a view. |
+| X5, X6 | `test -f project-management/decisions.md \|\| echo "# Decisions" > …` | Tested on 27 October 2026 in bash 5.2 on Linux, not in zsh: the command creates the file with the heading when it is missing and leaves an existing file unchanged. X5 and X6 can therefore run in either order. |
 | All | Project fields, workflows, access, status update | No gh command, or a command that needs internal IDs (field values). The exercises mark these steps **Browser only**. |
