@@ -7,7 +7,7 @@ A workshop and open educational resource (OER) with a browser route and a comman
 [![Code licence](https://img.shields.io/badge/code-AGPL%203.0-blue.svg)](LICENSE-AGPL.md)
 
 > [!NOTE]
-> **Status:** ready for the session on 16 October 2026. Website: <https://maehr.github.io/github-as-a-project-management-tool/>
+> **Status:** version [0.1.0](CHANGELOG.md) is the version taught on 16 October 2026 (tag `v0.1.0`). `main` holds the revision after the session: X1–X4 form the core workshop, and X5–X6 are optional extensions ([#17](https://github.com/maehr/github-as-a-project-management-tool/issues/17)). Website: <https://maehr.github.io/github-as-a-project-management-tool/>
 
 **Worked example:** the [showcase Project](https://github.com/users/maehr/projects/11) holds the full plan of the fictional thesis, with its Issues in [`maehr/projm-example-thesis`](https://github.com/maehr/projm-example-thesis). It is linked to this repository's **Projects** tab.
 
