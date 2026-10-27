@@ -1,11 +1,12 @@
 ---
 title: X4 Complete one documentation task
-subtitle: 11:05–11:40 · 35 minutes
+subtitle: 11:20–12:00 · 40 minutes · Core
 description: Complete E01-T2 through a branch, a pull request, a review, a merge, and the automatic closing of the Issue.
 ---
 
 ::: {.callout-note title="At a glance"}
-- **Time:** 35 minutes
+- **Time:** 40 minutes
+- **Core:** this exercise completes the [core workflow](../syllabus.qmd#core). Every step is part of it.
 - **You produce:** one merged pull request that adds the section "Research question and scope" to the README and closes the Issue E01-T2.
 - **New terms:** [branch](../cheat-sheet.qmd#branch), [commit](../cheat-sheet.qmd#commit), [pull request](../cheat-sheet.qmd#pull-request), [review](../cheat-sheet.qmd#review), [merge](../cheat-sheet.qmd#merge). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
@@ -200,4 +201,6 @@ The text to paste:
 
 ## Next
 
-Break (11:40–11:50), then [X5 Prepare a reusable output](x5.qmd).
+You completed the core workflow: a repository, Issues, a Project, and a pull request that closed an Issue.
+
+Break (12:00–12:10), then the block "Consolidate and extend". Ask your questions, finish an open step, or start an optional extension: [X5 Prepare a reusable output](x5.qmd) or [X6 React to a delay and a restriction](x6.qmd). After the session, continue with [After the workshop](../after.qmd).

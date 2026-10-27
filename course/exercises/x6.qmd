@@ -1,11 +1,15 @@
 ---
 title: X6 React to a delay and a restriction
-subtitle: 12:25–12:50 · 25 minutes
+subtitle: Optional extension · self-paced · about 25 minutes
 description: Re-plan after a two-week source delay and a rights restriction, choose and justify one option, keep the official deadline, and record the decision.
 ---
 
+::: {.callout-tip title="Optional extension"}
+The [core workflow](../syllabus.qmd#core) ends with X4. This exercise is an optional, self-paced extension. Start it in the block "Consolidate and extend", or later, when your thesis needs it. It uses the epic E08 from [X2](x2.qmd) and the Project and the milestones from [X3](x3.qmd). It does not need X5: if you have no release yet, the options refer to the planned release E08-T3. No assessment requires it.
+:::
+
 ::: {.callout-note title="At a glance"}
-- **Time:** 25 minutes
+- **Time:** about 25 minutes
 - **You produce:** two new sub-issues with dates, one dependency that follows from your decision, an unchanged submission milestone, a decision record, and a Project status update. Optional: an exported view.
 - **New terms:** [dependency](../cheat-sheet.qmd#dependency), [milestone](../cheat-sheet.qmd#milestone), [view](../cheat-sheet.qmd#view). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
@@ -19,13 +23,13 @@ The most important rule is about deadlines. The submission date of a master's th
 ## The scenario
 
 ::: {.callout-important}
-## 16 October 2026, 12:25 (fictional)
+## 16 October 2026 (fictional)
 
 1. **Delay.** The fictional archive delivers the scans two weeks late: on 2027-01-29 instead of 2027-01-15.
 2. **Restriction.** The archive restricts reuse of the scans of record **SYN-P021**. They must not appear in any public output.
 :::
 
-The restriction is not optional: no public file may contain a scan of SYN-P021. The open question is what this means for the release `v0.1.0-demo` and for the plan.
+The restriction is not optional: no public file may contain a scan of SYN-P021. The open question is what this means for the release `v0.1.0-demo` (E08-T3) and for the plan.
 
 ## Steps
 
@@ -83,7 +87,7 @@ gh can set a field value only with the internal IDs of the Project, the item, th
 
 ### Choose one option
 
-Discuss the options with a neighbour for three minutes. Choose one.
+Discuss the options with a neighbour for three minutes, or compare them alone. Choose one.
 
 | Option | What you do | What it costs |
 | --- | --- | --- |
@@ -274,4 +278,4 @@ The [solutions](../solutions.qmd#x6) show one possible answer.
 
 ## Next
 
-The [exit check](../syllabus.qmd#exit-check) and the [transfer to a private thesis](../after.qmd#private-thesis).
+The [closing reflection](../syllabus.qmd#closing-reflection) and the [transfer to a private thesis](../after.qmd#private-thesis).

@@ -70,12 +70,14 @@ website:
           - course/setup.qmd
           - course/syllabus.qmd
           - course/approaches.qmd
-      - section: Exercises
+      - section: Core exercises
         contents:
           - course/exercises/x1.qmd
           - course/exercises/x2.qmd
           - course/exercises/x3.qmd
           - course/exercises/x4.qmd
+      - section: Optional extensions
+        contents:
           - course/exercises/x5.qmd
           - course/exercises/x6.qmd
       - section: Help

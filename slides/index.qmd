@@ -33,17 +33,16 @@ format:
 | --- | --- | --- |
 | 09:00 | Approaches and GitHub basics | — |
 | 09:15 | **X1** Create the repository | Repository, README, visibility check |
-| 09:40 | **X2** Turn requirements into work | 2 epics, 6 sub-issues, 1 story |
-| 10:15 | *Break* | |
-| 10:25 | **X3** Configure the Project | Milestones, Project, priorities, dependency |
-| 11:05 | **X4** Complete one documentation task | Merged pull request, closed Issue |
-| 11:40 | *Break* | |
-| 11:50 | **X5** Prepare a reusable output | Data dictionary, rights decision, release |
-| 12:25 | **X6** React to a delay and a restriction | Re-plan, decision record |
-| 12:50 | Transfer and exit check | — |
+| 09:45 | **X2** Turn requirements into work | 2 epics, 6 sub-issues, 1 story |
+| 10:25 | *Break* | |
+| 10:35 | **X3** Configure the Project | Milestones, Project, priorities, dependency |
+| 11:20 | **X4** Complete one documentation task | Merged pull request, closed Issue |
+| 12:00 | *Break* | |
+| 12:10 | Consolidate and extend | Questions, problems, optional **X5** or **X6** |
+| 12:45 | Transfer and closing reflection | One next step for your thesis |
 
 ::: {.notes}
-240 minutes, two breaks of 10 minutes. Each exercise runs in the browser or on the command line. Synthetic data only. Course site: maehr.github.io/github-as-a-project-management-tool.
+240 minutes, two breaks of 10 minutes. X1–X4 are the core; X5 and X6 are optional extensions (D-014). Each exercise runs in the browser or on the command line. Synthetic data only. Course site: maehr.github.io/github-as-a-project-management-tool.
 :::
 
 ## The course
@@ -51,12 +50,25 @@ format:
 - **When:** Friday, 16 October 2026, 09:00–13:00
 - **Where:** Seminarraum F 001, Hörraumgebäude Unitobler
 - **Credits:** 0.5 ECTS, passed or failed
-- **You pass when** you attend the full session and show the minimum deliverable in the exit check
+- **You pass when** you attend the full session. No exercise result is required
 - **New to GitHub?** Keep the [cheat sheet](../course/cheat-sheet.qmd) open
 
 ::: {.notes}
 The pass rule is the instructor's decision. KSL lists the type of exam as "not defined".
 :::
+
+## The core workflow
+
+Teach less, but make what is taught usable.
+
+| Step | Exercise | What it does for the thesis |
+| --- | --- | --- |
+| **Repository** | X1 | One shared place for the documentation |
+| **Issues** | X2 | Requirements become tasks |
+| **Project** | X3 | Organise, prioritise, and track the work |
+| **Pull request** | X4 | Document, review, and complete the work |
+
+Optional extensions, self-paced: **X5** publication, **X6** re-planning.
 
 ## The scenario
 
@@ -177,7 +189,7 @@ Every rule needs: **source · applicability · status · Issue**
 
 # X1 Create the repository {.center}
 
-09:15–09:40 · [course/exercises/x1](../course/exercises/x1.qmd)
+09:15–09:45 · [course/exercises/x1](../course/exercises/x1.qmd)
 
 ## X1 · Why and how
 
@@ -211,7 +223,7 @@ The template workflows try to deploy Pages and fail. Optional: Settings → Acti
 
 # X2 Turn requirements into work {.center}
 
-09:40–10:15 · [course/exercises/x2](../course/exercises/x2.qmd)
+09:45–10:25 · [course/exercises/x2](../course/exercises/x2.qmd)
 
 ## X2 · Why
 
@@ -244,11 +256,11 @@ An **epic** groups the work for one outcome. A **sub-issue** has one output. A *
 
 # Break {.center}
 
-10:15–10:25
+10:25–10:35
 
 # X3 Configure the Project {.center}
 
-10:25–11:05 · [course/exercises/x3](../course/exercises/x3.qmd)
+10:35–11:20 · [course/exercises/x3](../course/exercises/x3.qmd)
 
 ## X3 · Why
 
@@ -290,7 +302,7 @@ Repository access does not include Project access. Without this step, the partne
 
 # X4 Complete one documentation task {.center}
 
-11:05–11:40 · [course/exercises/x4](../course/exercises/x4.qmd)
+11:20–12:00 · [course/exercises/x4](../course/exercises/x4.qmd)
 
 ## X4 · Why and how
 
@@ -311,13 +323,38 @@ A review is a human check against the acceptance criteria.
 
 {{< screenshot x4-issue-closed nocaption >}}
 
+## You completed the core workflow
+
+- A **repository** holds the documentation and its history
+- **Issues** turn requirements into tasks
+- A **Project** organises, prioritises, and tracks them
+- A **pull request** documents, reviews, and completes the work
+
 # Break {.center}
 
-11:40–11:50
+12:00–12:10
+
+# Consolidate and extend {.center}
+
+12:10–12:45
+
+## Your choice
+
+1. **Ask** a question, or **fix** a problem in X1–X4.
+2. **Finish** an open step of X1–X4. The [solutions](../course/solutions.qmd) show the expected state.
+3. Core workflow complete? Start an **optional extension**:
+   - [X5](../course/exercises/x5.qmd) Prepare a reusable output: before you publish
+   - [X6](../course/exercises/x6.qmd) React to a delay and a restriction: when the plan changes
+
+X5 and X6 do not depend on each other. Continue after the session.
+
+::: {.notes}
+Solve common problems once for the whole group. Help incomplete workflows first. Stop at 12:45.
+:::
 
 # X5 Prepare a reusable output {.center}
 
-11:50–12:25 · [course/exercises/x5](../course/exercises/x5.qmd)
+Optional extension · self-paced · [course/exercises/x5](../course/exercises/x5.qmd)
 
 ## X5 · Five jobs, five places
 
@@ -334,7 +371,7 @@ A review is a human check against the acceptance criteria.
 1. Upload the CSV. Write the data dictionary (closes E08-S1).
 2. Record the rights and access decision (closes E08-T2).
 3. Publish `v0.1.0-demo` (E08-T3), or a labelled recovery package.
-4. Optional: fix `CITATION.cff`.
+4. Optional: correct `CITATION.cff`.
 
 A release adds **source archives with every tracked file** at the tag. Check the files before you publish.
 
@@ -344,7 +381,7 @@ A release adds **source archives with every tracked file** at the tag. Check the
 
 # X6 React to a delay and a restriction {.center}
 
-12:25–12:50 · [course/exercises/x6](../course/exercises/x6.qmd)
+Optional extension · self-paced · [course/exercises/x6](../course/exercises/x6.qmd)
 
 ## X6 · Two events
 
@@ -400,15 +437,15 @@ Then: change one dependency, check the roadmap, write **D-T02**, post a status u
 5. Decide on rights before you publish anything
 6. Private is **not** automatically safe storage for sensitive data
 
-## Exit check
+## Closing reflection
 
-With your repository open, explain:
+Informal, in pairs. Nobody grades it.
 
-1. one **rule** with its source,
-2. one **dependency** and why it is not a hierarchy,
-3. one **disclosure safeguard**.
+1. Which step of the core workflow will you use for your thesis **first**?
+2. Which **rule** applies to your thesis, and where is its **source**?
+3. What stays **private** in your thesis, and why?
 
-You pass when you attended the full session and show the minimum deliverable.
+You pass when you attended the full session.
 
 ## Links
 

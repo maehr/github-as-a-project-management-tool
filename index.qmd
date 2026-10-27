@@ -16,15 +16,15 @@ This workshop shows how to manage a master's thesis with GitHub. You work on a *
 
 ## The workshop in one look
 
-Each exercise adds one step to the same thesis plan. The last exercise changes the plan and sends you back to the Project.
+The core exercises X1–X4 build one complete workflow: a repository, Issues, a Project, and a pull request. Each exercise adds one step to the same thesis plan. Two optional extensions build on the core when you need them. The workshop teaches less, so that you can use what it teaches.
 
 ```{mermaid}
 flowchart TD
-    A["<b>X1 Repository</b><br/>09:15 · a home for files and history"] --> B["<b>X2 Requirements → Issues</b><br/>09:40 · each task has a reason and a proof"]
-    B --> C["<b>X3 Project</b><br/>10:25 · backlog, board, roadmap, milestones"]
-    C --> D["<b>X4 Pull request</b><br/>11:05 · do the work, review it, close the Issue"]
-    D --> E["<b>X5 Release</b><br/>11:50 · decide what to publish"]
-    E --> F["<b>X6 Re-plan</b><br/>12:25 · react to a delay, record the decision"]
+    A["<b>X1 Repository</b><br/>09:15 · a home for files and history"] --> B["<b>X2 Requirements → Issues</b><br/>09:45 · each task has a reason and a proof"]
+    B --> C["<b>X3 Project</b><br/>10:35 · backlog, board, roadmap, milestones"]
+    C --> D["<b>X4 Pull request</b><br/>11:20 · do the work, review it, close the Issue"]
+    D -.-> E["<b>X5 Release</b><br/>optional · decide what to publish"]
+    D -.-> F["<b>X6 Re-plan</b><br/>optional · react to a delay, record the decision"]
     F -.-> C
 ```
 
@@ -33,20 +33,25 @@ flowchart TD
 1. **New to GitHub?** Read the [cheat sheet](course/cheat-sheet.qmd) first. It explains repositories, Issues, pull requests, and the other terms of the workshop.
 2. Prepare with [Setup](course/setup.qmd). Create a GitHub account and choose a path: solo, private, or pair.
 3. Read the [Syllabus](course/syllabus.qmd) for the aims, the run of show, and the pass rule. The [approaches](course/approaches.qmd) page covers the project-management background.
-4. Work through the exercises in order. Each exercise page has the same parts: why, steps, screenshots, expected state, and what to do if something goes wrong.
+4. Work through the core exercises X1–X4 in order. Each exercise page has the same parts: why, steps, screenshots, expected state, and what to do if something goes wrong. Steps that start with **Optional:** can wait.
 5. Use the [slides](slides/index.qmd) for an overview of the whole session.
-6. After the session, move to your real thesis and keep the plan up to date: [After the workshop](course/after.qmd).
+6. After the session, move to your real thesis and keep the plan up to date: [After the workshop](course/after.qmd). Do the optional extensions X5 and X6 when your thesis needs them.
 
 ## Exercises
 
-| Exercise | Time | You produce |
+The core exercises fill the session. Nobody needs to complete an exercise to pass.
+
+| Core exercise | Time | You produce |
 | --- | --- | --- |
-| [X1 Create the repository](course/exercises/x1.qmd) | 09:15–09:40 | Repository from the template, README, visibility check |
-| [X2 Turn requirements into work](course/exercises/x2.qmd) | 09:40–10:15 | 2 epics, 6 sub-issues, 1 user story |
-| [X3 Configure the Project](course/exercises/x3.qmd) | 10:25–11:05 | Project with 3 views, 3 milestones, 1 dependency |
-| [X4 Complete one documentation task](course/exercises/x4.qmd) | 11:05–11:40 | Branch, pull request, review, merge, closed Issue |
-| [X5 Prepare a reusable output](course/exercises/x5.qmd) | 11:50–12:25 | Data dictionary, citation check, demo release |
-| [X6 React to a delay and a restriction](course/exercises/x6.qmd) | 12:25–12:50 | Re-plan, decision record, exported view |
+| [X1 Create the repository](course/exercises/x1.qmd) | 09:15–09:45 | Repository from the template, README, visibility check |
+| [X2 Turn requirements into work](course/exercises/x2.qmd) | 09:45–10:25 | 2 epics, 6 sub-issues, 1 user story |
+| [X3 Configure the Project](course/exercises/x3.qmd) | 10:35–11:20 | Project with 3 views, 3 milestones, 1 dependency |
+| [X4 Complete one documentation task](course/exercises/x4.qmd) | 11:20–12:00 | Branch, pull request, review, merge, closed Issue |
+
+| Optional extension | Time | You produce |
+| --- | --- | --- |
+| [X5 Prepare a reusable output](course/exercises/x5.qmd) | Self-paced, about 35 minutes | Data dictionary, citation check, demo release |
+| [X6 React to a delay and a restriction](course/exercises/x6.qmd) | Self-paced, about 25 minutes | Re-plan, decision record, exported view |
 
 ## The worked example
 

@@ -32,7 +32,7 @@ def render_schedule(schedule: dict) -> str:
     out = [
         GENERATED.format(source="course/schedule.yml"),
         "",
-        "| Time | Activity | Learner evidence |",
+        "| Time | Activity | Result |",
         "| --- | --- | --- |",
     ]
     for block in schedule["blocks"]:
@@ -45,8 +45,8 @@ def render_schedule(schedule: dict) -> str:
             label = "_Break_"
         else:
             label = block["title"]
-        evidence = block.get("evidence", "—")
-        out.append(f"| {block['start']}–{block['end']} | {label} | {cell(evidence)} |")
+        result = block.get("result", "—")
+        out.append(f"| {block['start']}–{block['end']} | {label} | {cell(result)} |")
     out.append("")
     return "\n".join(out)
 

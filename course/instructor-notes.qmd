@@ -13,7 +13,7 @@ description: Pre-flight checklist, timing, failure modes, and the dated UI verif
 
 ### The day before
 
-1. Run X1 to X6 in a fresh test account or a fresh repository. Compare each step with the [UI verification log](#ui-log).
+1. Run X1 to X6 in a fresh test account or a fresh repository. Compare each step with the [UI verification log](#ui-log). Check X5 and X6 too: they are optional, but learners use them in the consolidation block and after the session.
 2. Run the **Command line** tabs of X1 to X6 in a private throwaway repository. Compare each step with the [command-line verification log](#cli-log). Delete the repository and the Project afterwards.
 3. Update a screenshot if the interface changed. Run `npm run screenshots:annotate`.
 4. Check that the [showcase Project](https://github.com/users/maehr/projects/11) is public and linked to the course repository.
@@ -26,16 +26,30 @@ description: Pre-flight checklist, timing, failure modes, and the dated UI verif
 
 ## Timing
 
+X1–X4 form the core workshop. X5 and X6 are optional, self-paced extensions; they have no block in the run of show ([D-014](../project-management/decisions.md#d-014)). Teach the essential actions of each core exercise; skip a step that starts with **Optional:** when the group runs late.
+
 | Block | Planned | Risk | Cut if late |
 | --- | --- | --- | --- |
 | Frame | 15 min | Discussion runs long | Show the comparison table of the [approaches](approaches.qmd) only; skip the discussion |
-| X1 | 25 min | Account creation, two-factor authentication | Pair learners without an account |
-| X2 | 35 min | Deriving E01-T1 takes long | Give five minutes for E01-T1, then compare with the backlog; E08 can move to X3 |
-| X3 | 40 min | Linking, visibility, and dates take time | Skip the second dependency and the M2 justification; add them in X6 |
-| X4 | 35 min | Merge conflicts, review rights | Self-review with **Comment** |
-| X5 | 35 min | Upload, rename | Skip the citation file; use the recovery package instead of the release |
-| X6 | 25 min | The option discussion runs long | Skip the export and the status update; keep the decision record and the dates |
-| Transfer and exit | 10 min | — | Exit check in pairs |
+| X1 | 30 min | Account creation, two-factor authentication | Pair learners without an account; skip **Optional: stop the template workflows** |
+| X2 | 40 min | Deriving E01-T1 takes long | Give five minutes for E01-T1, then compare with the backlog; skip **Optional: check one rule and one story** |
+| X3 | 45 min | Linking, visibility, and dates take time | Skip **Optional: check the workflows**, the second dependency, and the M2 justification |
+| X4 | 40 min | Merge conflicts, review rights | Self-review with **Comment** |
+| Consolidate and extend | 35 min | Learners are at different stages | See [the consolidation block](#consolidate) |
+| Transfer and closing reflection | 15 min | — | Reflection in pairs |
+
+### The consolidation block {#consolidate}
+
+The block from 12:10 to 12:45 is not an exercise. It gives every learner time to reach a working core workflow.
+
+1. Ask the group which step of X1–X4 is still open. Solve a common problem once, for the whole group.
+2. Help the learners whose workflow is incomplete first. The [solutions](solutions.qmd) show the expected state of each exercise.
+3. Learners whose workflow is complete start an optional extension: [X5](exercises/x5.qmd) for publication, [X6](exercises/x6.qmd) for re-planning. Neither extension needs the other.
+4. Stop at 12:45, also when learners are in the middle of an extension. They can continue after the session.
+
+### Closing reflection
+
+The closing reflection is informal. It does not test anything, and it does not affect the pass rule. Use the [three questions](syllabus.qmd#closing-reflection) in pairs or in the group. Then show [After the workshop](after.qmd).
 
 ## Known failure modes
 
