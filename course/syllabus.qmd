@@ -29,16 +29,17 @@ Some GitHub experience and minimal command-line knowledge help, for example from
 
 ## Learning outcomes
 
-The instructor designed these outcomes.
+The instructor designed these outcomes. The workshop teaches a small set of GitHub features that carries most of the practical value for project management: **teach less, but make what is taught usable** ([D-014](../project-management/decisions.md#d-014)).
 
-After the session, you can:
+After the core exercises X1–X4, you can:
 
-1. distinguish a repository, Issues, a Project, a release, and a deposit;
+1. distinguish a repository, Issues, a Project, and a pull request, and say what each one does for a thesis;
 2. derive a sourced Issue from a requirement that applies to you;
-3. create epics, sub-issues, one user story, milestones, dependencies, and planning views;
+3. organise Issues as epics and sub-issues, with milestones, one dependency, and the views Backlog, Board, and Roadmap;
 4. complete an Issue through a documentation pull request;
-5. decide what you can publish;
-6. state what GitHub **cannot** guarantee: quality, deadline compliance, confidentiality, and long-term preservation.
+5. state what GitHub **cannot** guarantee: quality, deadline compliance, confidentiality, and long-term preservation.
+
+The optional extensions add two outcomes. After X5, you can decide what you can publish, and distinguish a release from a deposit. After X6, you can re-plan after a delay without moving an official deadline, and record the decision.
 
 ## Scenario
 
@@ -48,38 +49,45 @@ You plan, conduct, document, and share a **fictional master's thesis** in one Gi
 
 {{< include _schedule.md >}}
 
-The session lasts 240 minutes, including two breaks of 10 minutes each.
+The session lasts 240 minutes, including two breaks of 10 minutes each. The block "Consolidate and extend" is time for questions and problems. If your core workflow works, use the block for an optional extension.
 
-## Minimum deliverable
+::: {.callout-note title="Revised after the session"}
+The session on 16 October 2026 followed version 0.1.0 of this course, with all six exercises in the run of show. Six exercises did not fit into four hours. This run of show applies to the next session ([D-014](../project-management/decisions.md#d-014)).
+:::
 
-By 12:50 you have:
+## Core workflow and optional extensions {#core}
 
-- a repository from the template, with a README for the synthetic thesis;
-- two epics (E01, E08) with six native sub-issues, one of them a user story;
-- three milestones with justified dates;
-- a Project with the views Backlog, Board, and Roadmap;
-- one blocking dependency;
-- one merged documentation pull request that closes its Issue;
-- a recorded rights and access decision;
-- a demo release, or a recovery package that you label as such;
-- a decision record for the delay and the restriction.
+The core exercises X1–X4 build one complete project-management workflow. Each exercise adds one step:
+
+| Step | Exercise | What it does for the thesis |
+| --- | --- | --- |
+| Repository | [X1](exercises/x1.qmd) | One shared place for the documentation, the data, and their history |
+| Issues | [X2](exercises/x2.qmd) | Requirements become tasks that you can act on |
+| Project | [X3](exercises/x3.qmd) | The tasks are organised, prioritised, and tracked over time |
+| Pull request | [X4](exercises/x4.qmd) | The work is documented, reviewed, and completed |
+
+Some steps in X1–X4 start with **Optional:**. You can skip them, and the core workflow still works.
+
+The optional extensions are self-paced. Start one in the block "Consolidate and extend", or after the session. Both use the Issues from X2, and they do not depend on each other.
+
+| Extension | Topic | When it helps |
+| --- | --- | --- |
+| [X5 Prepare a reusable output](exercises/x5.qmd) | Data documentation, citation, rights, and a release | Before you publish data or text |
+| [X6 React to a delay and a restriction](exercises/x6.qmd) | Re-planning and a decision record | When an event changes your plan |
 
 You can work alone, in a pair, or on the private path. See [Setup](setup.qmd).
 
 ## Assessment
 
-The course is graded passed or failed. The instructor set the pass rule. You pass when you do both:
+The course is graded passed or failed. The instructor set the pass rule: you pass when you attend the full session ([D-014](../project-management/decisions.md#d-014)). The pass rule requires no exercise result. The exercises are for your learning, not for an assessment.
 
-1. You attend the full session.
-2. You show the minimum deliverable in the exit check. A labelled recovery package counts.
+### Closing reflection (12:45–13:00) {#closing-reflection}
 
-### Exit check (12:50–13:00) {#exit-check}
+The session ends with a short, informal reflection in pairs or in the group. Nobody grades it. With your repository open, think about these questions:
 
-Explain in two minutes, with your own repository open:
-
-1. one **rule** that applies to your thesis, with its source;
-2. one **dependency** in your plan, and why it is not a parent-child relation;
-3. one **disclosure safeguard**: what stays private, and why.
+1. Which step of the core workflow will you use for your own thesis first?
+2. Which rule applies to your thesis, and where is its source?
+3. What stays private in your thesis, and why?
 
 ## Sources
 

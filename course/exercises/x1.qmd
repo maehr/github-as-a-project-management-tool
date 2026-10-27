@@ -1,11 +1,12 @@
 ---
 title: X1 Create the repository
-subtitle: 09:15–09:40 · 25 minutes
+subtitle: 09:15–09:45 · 30 minutes · Core
 description: Create a repository from the template, describe the fictional thesis, and check the visibility.
 ---
 
 ::: {.callout-note title="At a glance"}
-- **Time:** 25 minutes
+- **Time:** 30 minutes
+- **Core:** this exercise is part of the [core workflow](../syllabus.qmd#core). If time is short, skip the steps that start with **Optional:**.
 - **You produce:** a repository from the template, a README for the fictional thesis with a synthetic-data notice, and a checked visibility setting.
 - **New terms:** [repository](../cheat-sheet.qmd#repository), [template](../cheat-sheet.qmd#template), [README](../cheat-sheet.qmd#readme), [Markdown](../cheat-sheet.qmd#markdown), [commit](../cheat-sheet.qmd#commit), [visibility](../cheat-sheet.qmd#visibility), [GitHub Actions workflow](../cheat-sheet.qmd#actions). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
@@ -158,7 +159,7 @@ Text and data: CC BY 4.0. Code: AGPL 3.0.
 
 :::
 
-### Stop the template workflows (optional)
+### Optional: stop the template workflows
 
 The template contains automated workflows. They run once when GitHub creates your repository and fail, because the website publishing is not set up. You can ignore the red cross. To stop further runs and e-mails, disable them.
 

@@ -4,7 +4,19 @@ All notable changes to this course are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/maehr/github-as-a-project-management-tool/commits/main)
+## [Unreleased](https://github.com/maehr/github-as-a-project-management-tool/compare/v0.1.0...HEAD)
+
+### Changed
+
+- X1–X4 form the core workshop; X5 and X6 are optional, self-paced extensions ([#17](https://github.com/maehr/github-as-a-project-management-tool/issues/17), D-014).
+- The run of show gives X1–X4 more time and replaces the X5 and X6 blocks with a block for questions, troubleshooting, and the extensions.
+- Steps in X1–X4 that the core workflow does not need start with "Optional:".
+- The pass rule requires attendance only. An informal closing reflection replaces the minimum deliverable and the exit check.
+- The syllabus, the home page, the sidebar, the slides, the solutions, and the instructor notes distinguish core content from optional extensions.
+
+## [0.1.0](https://github.com/maehr/github-as-a-project-management-tool/releases/tag/v0.1.0) - 2026-10-27
+
+The version taught on Friday, 16 October 2026. The tag `v0.1.0` marks commit `280896e`, the state of `main` during the session. The session showed that X1–X6 do not fit into four hours ([#17](https://github.com/maehr/github-as-a-project-management-tool/issues/17)).
 
 ### Added
 

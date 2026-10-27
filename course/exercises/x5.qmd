@@ -1,11 +1,15 @@
 ---
 title: X5 Prepare a reusable output
-subtitle: 11:50–12:25 · 35 minutes
+subtitle: Optional extension · self-paced · about 35 minutes
 description: Add the synthetic dataset and its data dictionary, correct the citation and licence metadata, record the rights decision, and publish a demo release.
 ---
 
+::: {.callout-tip title="Optional extension"}
+The [core workflow](../syllabus.qmd#core) ends with X4. This exercise is an optional, self-paced extension. Start it in the block "Consolidate and extend", or later, when your thesis needs it. It uses the Issues E08-S1, E08-T2, and E08-T3 from [X2](x2.qmd) and the pull request routine from [X4](x4.qmd). It does not need X6. No assessment requires it.
+:::
+
 ::: {.callout-note title="At a glance"}
-- **Time:** 35 minutes
+- **Time:** about 35 minutes
 - **You produce:** the CSV in `data/clean/`, a data dictionary that closes the story E08-S1, optionally a corrected `CITATION.cff`, a rights and access decision (E08-T2), and the release `v0.1.0-demo` (E08-T3).
 - **New terms:** [release](../cheat-sheet.qmd#release), [tag](../cheat-sheet.qmd#tag), [visibility](../cheat-sheet.qmd#visibility). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
@@ -98,7 +102,7 @@ Five jobs are easy to confuse. Each one needs its own place, and one tool does n
 
 :::
 
-### Correct the citation file (optional)
+### Optional: correct the citation file
 
 Skip this step if you are short of time. Do it before you publish a real release.
 
@@ -142,14 +146,19 @@ The file `CITATION.cff` in your repository still describes the **template**, wit
 #### Browser
 
 1. Open the folder `project-management`.
-2. Click **Add file → Create new file**. Name it `decisions.md`.
-3. Paste the [decision text](#decision-text) below.
+2. If the folder holds `decisions.md`, for example from X6, open the file and click the pencil icon. Paste the [decision text](#decision-text) below at the end.
+3. If the folder holds no `decisions.md`, click **Add file → Create new file** and name it `decisions.md`. Type `# Decisions` on the first line. Paste the [decision text](#decision-text) below.
 4. Commit with the message `docs: record the rights and access decision` and the extended description `Closes #<number of E08-T2>`.
 
 #### Command line
 
-1. In a text editor, create the file `project-management/decisions.md`.
-2. Paste the [decision text](#decision-text) below.
+1. Create the file `project-management/decisions.md` with the heading `# Decisions` if it is missing. If the file exists, for example from X6, the command does nothing.
+
+   ```bash
+   test -f project-management/decisions.md || echo "# Decisions" > project-management/decisions.md
+   ```
+
+2. Open `project-management/decisions.md` in a text editor. Paste the [decision text](#decision-text) below at the end.
 3. Save the file.
 4. Save the file as a commit and send it to GitHub. The second `-m` adds the extended description. Its keyword closes E08-T2 when the commit reaches `main`.
 
@@ -266,8 +275,6 @@ abstract: >-
 ### Decision text {#decision-text}
 
 ```markdown
-# Decisions
-
 ## D-T01 Rights and access for data and text
 
 - **Date:** 2026-10-16 (workshop; fictional)
@@ -336,4 +343,4 @@ abstract: >-
 
 ## Next
 
-[X6 React to a delay and a restriction](x6.qmd).
+Another optional extension: [X6 React to a delay and a restriction](x6.qmd). After the session: [After the workshop](../after.qmd).

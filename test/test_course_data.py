@@ -24,6 +24,7 @@ BACKLOG = load_backlog()
 ITEMS = BACKLOG.by_id()
 MILESTONES = {m["id"]: m for m in load_milestones()}
 CHILDREN = [item for item in BACKLOG.items if item["kind"] != "epic"]
+CORE_BLOCKS = [b for b in load_schedule()["blocks"] if b["kind"] == "exercise"]
 
 
 def minutes(value: str) -> int:
@@ -45,14 +46,34 @@ def test_schedule_fills_exactly_240_minutes_without_gaps() -> None:
     assert total == schedule["total_minutes"] == 240
 
 
-def test_schedule_has_20_minutes_of_breaks_and_six_exercises() -> None:
+def test_schedule_has_20_minutes_of_breaks_and_the_four_core_exercises() -> None:
     blocks = load_schedule()["blocks"]
     breaks = sum(
         minutes(b["end"]) - minutes(b["start"]) for b in blocks if b["kind"] == "break"
     )
     assert breaks == 20
     exercises = [b["id"] for b in blocks if b["kind"] == "exercise"]
-    assert exercises == ["X1", "X2", "X3", "X4", "X5", "X6"]
+    assert exercises == ["X1", "X2", "X3", "X4"]
+    assert any(b["kind"] == "consolidate" for b in blocks), "no time for questions"
+
+
+EXERCISE_DIR = ROOT / "course" / "exercises"
+
+
+@pytest.mark.parametrize("block", CORE_BLOCKS, ids=lambda b: b["id"])
+def test_core_exercise_subtitle_matches_the_schedule(block: dict) -> None:
+    text = (EXERCISE_DIR / f"{block['id'].lower()}.qmd").read_text(encoding="utf-8")
+    length = minutes(block["end"]) - minutes(block["start"])
+    subtitle = f"subtitle: {block['start']}–{block['end']} · {length} minutes · Core"
+    assert subtitle in text, f"{block['id']}: expected {subtitle!r}"
+    assert f"- **Time:** {length} minutes" in text
+
+
+@pytest.mark.parametrize("exercise", ["x5", "x6"])
+def test_extension_is_marked_optional(exercise: str) -> None:
+    text = (EXERCISE_DIR / f"{exercise}.qmd").read_text(encoding="utf-8")
+    assert "subtitle: Optional extension · self-paced ·" in text.split("\n---", 1)[0]
+    assert 'title="Optional extension"' in text
 
 
 # ------------------------------------------------------------------- backlog
@@ -149,7 +170,7 @@ def test_milestone_references_exist_and_dates_fit() -> None:
             assert item["target"] <= milestone["due"], item["id"]
 
 
-def test_learner_subset_matches_the_minimum_deliverable() -> None:
+def test_learner_subset_matches_the_core_workflow() -> None:
     learner = [i for i in BACKLOG.items if i.get("learner")]
     epics = [i["id"] for i in learner if i["kind"] == "epic"]
     subs = [i for i in learner if i["kind"] != "epic"]

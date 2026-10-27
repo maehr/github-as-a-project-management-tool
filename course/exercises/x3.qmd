@@ -1,11 +1,12 @@
 ---
 title: X3 Configure the Project
-subtitle: 10:25–11:05 · 40 minutes
+subtitle: 10:35–11:20 · 45 minutes · Core
 description: Add three justified milestones, copy and link a preconfigured Project, decide priorities and dates, and record one blocking dependency.
 ---
 
 ::: {.callout-note title="At a glance"}
-- **Time:** 40 minutes
+- **Time:** 45 minutes
+- **Core:** this exercise is part of the [core workflow](../syllabus.qmd#core). If time is short, skip the steps that start with **Optional:**.
 - **You produce:** three milestones with justified dates; a Project, copied from the showcase and linked to your repository; your six sub-issues in it, with the priorities and dates that you chose; and one "blocked by" dependency.
 - **New terms:** [Project](../cheat-sheet.qmd#project), [milestone](../cheat-sheet.qmd#milestone), [view](../cheat-sheet.qmd#view), [field](../cheat-sheet.qmd#field), [Project workflow](../cheat-sheet.qmd#project-workflow), [dependency](../cheat-sheet.qmd#dependency). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
@@ -196,7 +197,9 @@ gh can set a field value only with the internal IDs of the Project, the item, th
 4. Open milestone M2. Add one sentence to its description: why this date, and what happens if it moves.
 5. Compare your values with the [Backlog view of the showcase Project](https://github.com/users/maehr/projects/11/views/1). Your values can differ. You must be able to justify them.
 
-### Check the workflows
+### Optional: check the workflows
+
+The copy keeps the workflows of the showcase Project switched on. This step shows what they do.
 
 ::: {.callout-note title="Browser only"}
 gh has no command for Project workflows.
@@ -295,7 +298,7 @@ Change the Status options before you rely on the workflows. A workflow that used
 | The roadmap shows "Your project needs at least one date or iteration field". | The view has no date fields selected. | Select the date fields in **Date fields**. |
 | The view settings are lost after a reload. | The changes were not saved. | Click **View → Save view**, then **Save** in the dialog. A blue dot means unsaved changes. |
 | No gear icon next to **Relationships**. | The page has not finished loading. | Reload the Issue page and wait. |
-| Time runs out. | — | Skip the second dependency and the M2 justification. Add them during X6. |
+| Time runs out. | — | Skip the optional steps, the second dependency, and the M2 justification. Add them in the block "Consolidate and extend" or after the session. |
 | gh reports that the token is missing the scope `project`. | You signed in without access to Projects. | Run `gh auth refresh -s project`. |
 | `gh project link` reports "Could not resolve to a Repository with the name '@me/projm-thesis'" or "has different owner from '@me'". | `--owner @me` failed in each form that was tested with gh 2.102.0. | Run `gh project link 12` without flags in the folder `projm-thesis`. |
 | gh reports "Your attempt to move this item created a temporary conflict". | GitHub changed the Project at the same time, for example through a workflow. | Run the command again for the Issue that failed. |

@@ -15,7 +15,7 @@ body = """
 {% if version %}\
     ## [{{ version | trim_start_matches(pat="v") }}](https://github.com/maehr/github-as-a-project-management-tool/releases/tag/{{ version }}) - {{ timestamp | date(format="%Y-%m-%d") }}
 {% else %}\
-    ## [Unreleased](https://github.com/maehr/github-as-a-project-management-tool/compare/v1.0.0...HEAD)
+    ## [Unreleased](https://github.com/maehr/github-as-a-project-management-tool/compare/{{ previous.version | default(value="main") }}...HEAD)
 {% endif %}\
 {% for group, commits in commits | group_by(attribute="group") %}
     ### {{ group | upper_first }}

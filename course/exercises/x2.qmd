@@ -1,11 +1,12 @@
 ---
 title: X2 Turn requirements into work
-subtitle: 09:40–10:15 · 35 minutes
+subtitle: 09:45–10:25 · 40 minutes · Core
 description: Create two epics with six native sub-issues, one user story, and acceptance criteria from sourced requirements.
 ---
 
 ::: {.callout-note title="At a glance"}
-- **Time:** 35 minutes
+- **Time:** 40 minutes
+- **Core:** this exercise is part of the [core workflow](../syllabus.qmd#core). If time is short, skip the steps that start with **Optional:**.
 - **You produce:** three labels, two epics (E01, E08), six sub-issues with acceptance criteria, and one user story. You write one sub-issue yourself from a requirement. Each rule-based Issue names its source.
 - **New terms:** [issue](../cheat-sheet.qmd#issue), [label](../cheat-sheet.qmd#label), [epic](../cheat-sheet.qmd#epic), [sub-issue](../cheat-sheet.qmd#sub-issue). All terms are in the [cheat sheet](../cheat-sheet.qmd).
 :::
@@ -192,7 +193,7 @@ If you created an Issue without `--parent`, add it to its epic afterwards. For e
 
 :::
 
-### Check one rule and one story
+### Optional: check one rule and one story
 
 ::: {.panel-tabset group="route"}
 
@@ -260,4 +261,4 @@ Each text gives the title, the label, and the body of one Issue. The same Issues
 
 ## Next
 
-Break (10:15–10:25), then [X3 Configure the Project](x3.qmd).
+Break (10:25–10:35), then [X3 Configure the Project](x3.qmd).

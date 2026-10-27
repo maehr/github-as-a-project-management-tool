@@ -7,7 +7,7 @@ A workshop and open educational resource (OER) with a browser route and a comman
 [![Code licence](https://img.shields.io/badge/code-AGPL%203.0-blue.svg)](LICENSE-AGPL.md)
 
 > [!NOTE]
-> **Status:** ready for the session on 16 October 2026. Website: <https://maehr.github.io/github-as-a-project-management-tool/>
+> **Status:** version [0.1.0](CHANGELOG.md) is the version taught on 16 October 2026 (tag `v0.1.0`). `main` holds the revision after the session: X1–X4 form the core workshop, and X5–X6 are optional extensions ([#17](https://github.com/maehr/github-as-a-project-management-tool/issues/17)). Website: <https://maehr.github.io/github-as-a-project-management-tool/>
 
 **Worked example:** the [showcase Project](https://github.com/users/maehr/projects/11) holds the full plan of the fictional thesis, with its Issues in [`maehr/projm-example-thesis`](https://github.com/maehr/projm-example-thesis). It is linked to this repository's **Projects** tab.
 
@@ -28,10 +28,15 @@ Details and registration: [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzan
 
 Each learner works in the browser, on the command line with git and gh, or both. The browser route needs no software installation. Learners new to GitHub start with the [cheat sheet](course/cheat-sheet.qmd).
 
+The core exercises X1–X4 build one complete workflow:
+
 1. Create a repository from the [open research data template](https://github.com/new?template_name=open-research-data-template&template_owner=maehr).
 2. Turn requirements into Issues, sub-issues, milestones, and dependencies.
 3. Plan the work in a GitHub Project with a backlog, a board, and a roadmap.
 4. Complete one documentation task through a pull request.
+
+The optional extensions X5 and X6 are self-paced:
+
 5. Decide what to publish, and prepare a demo release.
 6. React to a delay and a rights restriction, choose one option, and record the decision.
 
@@ -39,17 +44,17 @@ The public exercise uses only synthetic data. For real thesis work, use a privat
 
 ## Repository Structure
 
-| Path                       | Content                                                             |
-| -------------------------- | ------------------------------------------------------------------- |
-| `course/`                  | Setup, syllabus, exercises X1–X6, solutions, instructor notes       |
-| `slides/`                  | Reveal.js slides for the session                                    |
-| `documentation/`           | Worked example, requirements register, publication note             |
-| `project-management/`      | Seed source of the example backlog and milestones, decisions, risks |
-| `archive/`                 | Pages that the site no longer shows; not rendered                   |
-| `data/`                    | Synthetic periodical metadata for the exercises                     |
-| `templates/master-thesis/` | Reusable thesis documentation template and issue forms              |
-| `assets/screenshots/`      | Annotated screenshots of the GitHub interface and their sources     |
-| `src/`, `test/`            | Maintainer scripts and checks; learners do not need them            |
+| Path                       | Content                                                                                       |
+| -------------------------- | --------------------------------------------------------------------------------------------- |
+| `course/`                  | Setup, syllabus, core exercises X1–X4, optional extensions X5–X6, solutions, instructor notes |
+| `slides/`                  | Reveal.js slides for the session                                                              |
+| `documentation/`           | Worked example, requirements register, publication note                                       |
+| `project-management/`      | Seed source of the example backlog and milestones, decisions, risks                           |
+| `archive/`                 | Pages that the site no longer shows; not rendered                                             |
+| `data/`                    | Synthetic periodical metadata for the exercises                                               |
+| `templates/master-thesis/` | Reusable thesis documentation template and issue forms                                        |
+| `assets/screenshots/`      | Annotated screenshots of the GitHub interface and their sources                               |
+| `src/`, `test/`            | Maintainer scripts and checks; learners do not need them                                      |
 
 ## Maintain The Course
 

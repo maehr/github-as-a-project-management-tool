@@ -62,7 +62,7 @@ These facts govern the workshop, not the thesis. They come from the [KSL course 
 | --- | --- |
 | 0.5 ECTS, passed or failed | KSL |
 | Type of exam: not defined | KSL |
-| Pass rule: attend the full session and show the minimum deliverable | Instructor ([syllabus](../course/syllabus.qmd#assessment)) |
+| Pass rule: attend the full session | Instructor ([syllabus](../course/syllabus.qmd#assessment)) |
 | Room: Seminarraum F 001, Hörraumgebäude Unitobler | KSL |
 
 ## Context-dependent tasks

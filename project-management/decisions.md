@@ -16,10 +16,11 @@ This page records the decisions behind this course. Each record has a context, a
 | [D-007](#d-007) | 2026-10-12 | Describe scan reuse, not copyright, in the dataset                  | Accepted            |
 | [D-008](#d-008) | 2026-10-12 | Generate pages from YAML instead of executing code                  | Amended by D-012    |
 | [D-009](#d-009) | 2026-10-12 | Confirm room F 001; keep pass/fail unresolved                       | Superseded by D-010 |
-| [D-010](#d-010) | 2026-10-12 | Use the KSL course entry as the authority; set the pass rule        | Accepted            |
+| [D-010](#d-010) | 2026-10-12 | Use the KSL course entry as the authority; set the pass rule        | Amended by D-014    |
 | [D-011](#d-011) | 2026-10-13 | Remove `SPECS.md`; the syllabus and the decisions carry its content | Accepted            |
 | [D-012](#d-012) | 2026-10-13 | Link the showcase Project instead of copying it onto the site       | Accepted            |
 | [D-013](#d-013) | 2026-10-13 | Give every exercise a browser route and a command-line route        | Accepted            |
+| [D-014](#d-014) | 2026-10-27 | Teach X1–X4 as the core; make X5 and X6 optional extensions         | Accepted            |
 
 ## D-001 Create the repository from the template at commit `c6ec5bc` {#d-001}
 
@@ -117,7 +118,7 @@ This page records the decisions behind this course. Each record has a context, a
 
 **Decision.** The [KSL course entry](https://www.ksl.unibe.ch/KSL/kurzansicht?stammNr=526141&semester=HS2026&lfdNr=0) is the only source of the course facts. The pages show its fields and link to it. The instructor sets the pass rule: a learner passes when they attend the full session and show the minimum deliverable in the exit check. A labelled recovery package counts.
 
-**Consequences.** The pages drop the export page numbers and the room discrepancy. The pass rule is the instructor's decision, not a KSL rule. Risk U-02 is resolved.
+**Consequences.** The pages drop the export page numbers and the room discrepancy. The pass rule is the instructor's decision, not a KSL rule. Risk U-02 is resolved. [D-014](#d-014) changed the pass rule on 27 October 2026.
 
 **Source.** Instructor decision in the implementation session, 12 October 2026.
 
@@ -150,3 +151,13 @@ This page records the decisions behind this course. Each record has a context, a
 **Consequences.** The Setup page explains how to prepare the command line, and it lists the common command-line problems. The command-line route finds each Issue number by the ID at the start of the title, with the helper `issue`. A command therefore works even when the learner created the Issues in another order. A test checks that every step offers both routes or says "Browser only", and that no Command line tab sends the learner to the browser. The instructor runs the command-line route on the day before the session (risks R-09 and R-10).
 
 **Source.** Maintainer request, 13 October 2026. The command-line route was tested on 13 October 2026 with gh 2.102.0 and git 2.54.0 ([verification log](../course/instructor-notes.qmd#cli-log)).
+
+## D-014 Teach X1–X4 as the core; make X5 and X6 optional extensions {#d-014}
+
+**Context.** The session on 16 October 2026 showed that X1–X6 do not fit into four hours. X5 (35 minutes) and X6 (25 minutes) were the most affected. The exercises cover many GitHub features, but the features do not contribute equally to the learning outcomes. Learners rushed through features instead of understanding the workflow.
+
+**Decision.** Apply the 80/20 principle: classroom time goes to the small set of features that delivers most of the practical value. X1–X4 form the core workshop: repository, Issues, Project, and pull request. X5 and X6 stay complete, but they become optional, self-paced extensions. The run of show gives X1–X4 more time and replaces the X5 and X6 blocks with a block for questions, troubleshooting, and the extensions. Steps in X1–X4 that the core workflow does not need start with **Optional:**. The minimum deliverable and the exit check are removed; an informal closing reflection replaces the exit check. The pass rule of D-010 changes: a learner passes when they attend the full session. No exercise result is required.
+
+**Consequences.** The syllabus, the schedule, the exercise pages, the slides, the instructor notes, and the solutions distinguish core content from optional extensions. A test checks that the schedule holds only X1–X4 and a consolidation block, and that X5 and X6 are marked as optional. The pass rule remains the instructor's decision, not a KSL rule. The session on 16 October 2026 followed version 0.1.0, with the old run of show and the old pass rule.
+
+**Source.** Maintainer request, [issue #17](https://github.com/maehr/github-as-a-project-management-tool/issues/17), 27 October 2026.

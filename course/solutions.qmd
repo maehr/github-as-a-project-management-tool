@@ -14,14 +14,16 @@ The worked example shows every exercise in its finished state. Compare your repo
 
 ## Expected state per exercise
 
+X1–X4 form the core workflow. X5 and X6 are optional extensions.
+
 | Exercise | Expected state | Compare with |
 | --- | --- | --- |
 | [X1](exercises/x1.qmd) | Repository from the template; README with the synthetic-data warning; visibility checked | [README](https://github.com/maehr/projm-example-thesis#readme) |
 | [X2](exercises/x2.qmd) | Labels `kind:*`; epics E01 and E08; six sub-issues with acceptance criteria, E01-T1 written from R-05; one story | [E01](https://github.com/maehr/projm-example-thesis/issues/1), [E08](https://github.com/maehr/projm-example-thesis/issues/37) |
 | [X3](exercises/x3.qmd) | Milestones M1–M3; a linked copy of the showcase Project; six sub-issues with your priorities and dates; E01-T3 blocked by E01-T1 | [Milestones](https://github.com/maehr/projm-example-thesis/milestones), [E01-T3](https://github.com/maehr/projm-example-thesis/issues/4) |
 | [X4](exercises/x4.qmd) | Merged pull request; E01-T2 closed as completed; Status Done | [Pull request #43](https://github.com/maehr/projm-example-thesis/pull/43) |
-| [X5](exercises/x5.qmd) | CSV and data dictionary; corrected `CITATION.cff`; decision D-T01; release `v0.1.0-demo` | [Pull request #44](https://github.com/maehr/projm-example-thesis/pull/44), [release](https://github.com/maehr/projm-example-thesis/releases/tag/v0.1.0-demo) |
-| [X6](exercises/x6.qmd) | E08-T6 and E08-T7; one more dependency from the chosen option; M3 unchanged; decision D-T02; status update | [One possible answer](#x6) below |
+| [X5](exercises/x5.qmd) (optional) | CSV and data dictionary; corrected `CITATION.cff`; decision D-T01; release `v0.1.0-demo` | [Pull request #44](https://github.com/maehr/projm-example-thesis/pull/44), [release](https://github.com/maehr/projm-example-thesis/releases/tag/v0.1.0-demo) |
+| [X6](exercises/x6.qmd) (optional) | E08-T6 and E08-T7; one more dependency from the chosen option; M3 unchanged; decision D-T02; status update | [One possible answer](#x6) below |
 
 ## What a complete Done looks like
 
@@ -54,6 +56,6 @@ This record chooses option A. Options B and C are just as valid when the record 
 
 The transfer and a weekly routine for the months after the workshop are on [After the workshop](after.qmd).
 
-## Exit check
+## Closing reflection
 
-You pass when you attend the full session and show the minimum deliverable in the exit check. A labelled recovery package counts. The three exit questions are in the [syllabus](syllabus.qmd#exit-check).
+The session ends with an informal reflection. It has no correct answer, and nobody grades it. You pass when you attend the full session. The questions are in the [syllabus](syllabus.qmd#closing-reflection).
